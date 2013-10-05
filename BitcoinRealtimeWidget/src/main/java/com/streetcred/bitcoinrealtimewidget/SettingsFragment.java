@@ -21,6 +21,10 @@ public class SettingsFragment extends PreferenceFragment {
         // Load the preferences from an XML resource
         addPreferencesFromResource(R.xml.preferences);
 
+        getActivity().getActionBar().setDisplayHomeAsUpEnabled(false);
+        getActivity().getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+        getActivity().getActionBar().setDisplayShowTitleEnabled(true);
+
         UpdateFrequencyDialog listPreference = (UpdateFrequencyDialog) findPreference("pref_freq");
         if (listPreference != null){
             if (listPreference.getValue() == null) {
@@ -43,10 +47,6 @@ public class SettingsFragment extends PreferenceFragment {
     @Override
     public void onResume() {
         super.onResume();
-        getActivity().getActionBar().setDisplayHomeAsUpEnabled(false);
-        getActivity().getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-        getActivity().getActionBar().setDisplayShowTitleEnabled(true);
-        getActivity().getActionBar().setTitle("Realtime Widget Settings");
     }
 
     @Override
