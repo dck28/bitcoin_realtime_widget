@@ -76,9 +76,13 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
                     pref.edit().putLong(Constants.LAST_UPDATED_TIMESTAMP, System.currentTimeMillis()).commit();
                     appWidgetManager.updateAppWidget(thisWidget, remoteViews);
                 } else {
-                    if (updatedSince < 11000 || (updatedSince > 30000 && updatedSince < 31000) || updatedSince > 60000)
-                    remoteViews.setTextViewText(R.id.update_time, "* updated " + converted_time_passed_to_string + " ago");
-                    appWidgetManager.updateAppWidget(thisWidget, remoteViews);
+                    if (updatedSince < 11000){
+                        remoteViews.setTextViewText(R.id.update_time, "* updated just now");
+                        appWidgetManager.updateAppWidget(thisWidget, remoteViews);
+                    } else if ((updatedSince > 30000 && updatedSince < 31000) || updatedSince > 60000){
+                        remoteViews.setTextViewText(R.id.update_time, "* updated " + converted_time_passed_to_string + " ago");
+                        appWidgetManager.updateAppWidget(thisWidget, remoteViews);
+                    }
                 }
             } catch (NullPointerException npe){
                 //ignore
