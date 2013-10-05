@@ -30,8 +30,6 @@
                 android:resource="@xml/widget_info" />
         </receiver>
 
-        <service android:name="com.streetcred.bitcoinrealtimewidget.XBTRealtimeWidgetProvider$UpdateService"/>
-
     </application>
 
 </manifest>
