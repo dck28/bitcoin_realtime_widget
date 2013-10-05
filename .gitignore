@@ -21,3 +21,6 @@ local.properties
 
 # Workspace
 .idea/workspace.xml
+
+# Gradle
+.gradle/
