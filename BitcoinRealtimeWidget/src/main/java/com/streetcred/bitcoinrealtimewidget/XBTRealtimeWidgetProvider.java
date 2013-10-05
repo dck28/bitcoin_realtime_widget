@@ -32,7 +32,7 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new TimedAPICall(context, appWidgetManager), 1, 31000);
+        timer.scheduleAtFixedRate(new TimedAPICall(context, appWidgetManager), 1, 1000);
 
         RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
         Intent configIntent = new Intent(context, MainActivity.class);
@@ -66,7 +66,7 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
             String preferred_interval = sharedPref.getString("pref_freq", "2 minutes");
             freq_pref_converted_from_string_interval = Util.convertStringIntervalToLong(preferred_interval);
             try{
-                Long updatedSince = System.currentTimeMillis() - pref.getLong(Constants.LAST_UPDATED_TIMESTAMP, System.currentTimeMillis());
+                Long updatedSince = System.currentTimeMillis() - pref.getLong(Constants.LAST_UPDATED_TIMESTAMP, 0);
                 String converted_time_passed_to_string = convertTimePassedToString(updatedSince);
                 if(updatedSince > freq_pref_converted_from_string_interval){
                     newPrice = getNewPrice();
@@ -76,6 +76,7 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
                     pref.edit().putLong(Constants.LAST_UPDATED_TIMESTAMP, System.currentTimeMillis()).commit();
                     appWidgetManager.updateAppWidget(thisWidget, remoteViews);
                 } else {
+                    if (updatedSince < 11000 || (updatedSince > 30000 && updatedSince < 31000) || updatedSince > 60000)
                     remoteViews.setTextViewText(R.id.update_time, "* updated " + converted_time_passed_to_string + " ago");
                     appWidgetManager.updateAppWidget(thisWidget, remoteViews);
                 }
