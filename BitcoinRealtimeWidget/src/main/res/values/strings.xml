@@ -1,3 +1,33 @@
 <resources>
     <string name="app_name">Bitcoin Realtime Widget</string>
+    <string-array name="pref_interval_entries">
+        <!-- item>No preference</item  -->
+        <item>1 minute</item>
+        <item>2 minutes</item>
+        <item>4 minutes</item>
+        <item>8 minutes</item>
+        <item>16 minutes</item>
+        <item>32 minutes</item>
+        <item>1 hour</item>
+        <item>2 hours</item>
+        <item>4 hours</item>
+        <item>8 hours</item>
+        <item>16 hours</item>
+        <item>1 day</item>
+    </string-array>
+    <string-array name="pref_interval_values">
+        <!-- item>ANY</item -->
+        <item>1 minute</item>
+        <item>2 minutes</item>
+        <item>4 minutes</item>
+        <item>8 minutes</item>
+        <item>16 minutes</item>
+        <item>32 minutes</item>
+        <item>1 hour</item>
+        <item>2 hours</item>
+        <item>4 hours</item>
+        <item>8 hours</item>
+        <item>16 hours</item>
+        <item>1 day</item>
+    </string-array>
 </resources>

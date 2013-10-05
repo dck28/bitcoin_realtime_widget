@@ -5,6 +5,7 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.widget.RemoteViews;
 
 import org.apache.http.HttpResponse;
@@ -29,7 +30,7 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new TimedAPICall(context, appWidgetManager), 1, 60000);
+        timer.scheduleAtFixedRate(new TimedAPICall(context, appWidgetManager), 1, 31000);
     }
 
     private class TimedAPICall extends TimerTask {
@@ -38,25 +39,36 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
         ComponentName thisWidget;
         double newPrice;
         SharedPreferences pref;
+        long freq_pref_converted_from_string_interval;
+        Context context;
 
         public TimedAPICall(Context context, AppWidgetManager appWidgetManager) {
             this.appWidgetManager = appWidgetManager;
             remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
             thisWidget = new ComponentName(context, XBTRealtimeWidgetProvider.class);
             pref = XBTWidgetApplication.getSharedPreferences();
+            this.context = context;
         }
 
         @Override
         public void run() {
+            SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+            String preferred_interval = sharedPref.getString("pref_freq", "2 minutes");
+            freq_pref_converted_from_string_interval = Util.convertStringIntervalToLong(preferred_interval);
             try{
                 Long updatedSince = System.currentTimeMillis() - pref.getLong(Constants.LAST_UPDATED_TIMESTAMP, System.currentTimeMillis());
                 String converted_time_passed_to_string = convertTimePassedToString(updatedSince);
-                newPrice = getNewPrice();
-                DecimalFormat df = new DecimalFormat("0.0");
-                remoteViews.setTextViewText(R.id.price, df.format(newPrice));
-                remoteViews.setTextViewText(R.id.update_time, "* updated " + converted_time_passed_to_string + " ago");
-                pref.edit().putLong(Constants.LAST_UPDATED_TIMESTAMP, System.currentTimeMillis()).commit();
-                appWidgetManager.updateAppWidget(thisWidget, remoteViews);
+                if(updatedSince > freq_pref_converted_from_string_interval){
+                    newPrice = getNewPrice();
+                    DecimalFormat df = new DecimalFormat("0.0");
+                    remoteViews.setTextViewText(R.id.price, df.format(newPrice));
+                    remoteViews.setTextViewText(R.id.update_time, "* updated just now");
+                    pref.edit().putLong(Constants.LAST_UPDATED_TIMESTAMP, System.currentTimeMillis()).commit();
+                    appWidgetManager.updateAppWidget(thisWidget, remoteViews);
+                } else {
+                    remoteViews.setTextViewText(R.id.update_time, "* updated " + converted_time_passed_to_string + " ago");
+                    appWidgetManager.updateAppWidget(thisWidget, remoteViews);
+                }
             } catch (NullPointerException npe){
                 //ignore
             }

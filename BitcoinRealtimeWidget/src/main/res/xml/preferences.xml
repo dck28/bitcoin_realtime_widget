@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <com.streetcred.bitcoinrealtimewidget.UpdateFrequencyDialog
+        android:key="pref_freq"
+        android:title="Update Frequency"
+        android:dialogTitle="Select Update Interval"
+        android:entries="@array/pref_interval_entries"
+        android:entryValues="@array/pref_interval_values"
+        android:defaultValue="2 minutes"
+        android:summary="Currently updating every 2 minutes"
+        android:negativeButtonText="Cancel"/>
+
+</PreferenceScreen>
