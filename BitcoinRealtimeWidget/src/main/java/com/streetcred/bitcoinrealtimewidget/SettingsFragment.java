@@ -6,9 +6,13 @@ package com.streetcred.bitcoinrealtimewidget;
 
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.widget.Toast;
 
 public class SettingsFragment extends PreferenceFragment {
     public static final String FRAGMENT_TAG = getFragmentTag(SettingsFragment.class);
@@ -24,6 +28,17 @@ public class SettingsFragment extends PreferenceFragment {
         getActivity().getActionBar().setDisplayHomeAsUpEnabled(false);
         getActivity().getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         getActivity().getActionBar().setDisplayShowTitleEnabled(true);
+
+        findPreference("copy_bitcoin_address").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                ClipboardManager clipboard = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("Bitcoin Address", "13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH");
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(getActivity(), "Address Copied. Thank You!\n13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH", Toast.LENGTH_LONG).show();
+                return true;
+            }
+        });
 
         UpdateFrequencyDialog listPreference = (UpdateFrequencyDialog) findPreference("pref_freq");
         if (listPreference != null){

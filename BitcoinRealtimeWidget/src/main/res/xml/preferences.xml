@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <Preference
+        android:key="copy_bitcoin_address"
+        android:title="Donate: Click to copy address"
+        android:summary="13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH"/>
+
     <com.streetcred.bitcoinrealtimewidget.UpdateFrequencyDialog
         android:key="pref_freq"
         android:title="Update Frequency"
