@@ -45,8 +45,8 @@
         android:paddingLeft="3dp"
         android:gravity="left"
         android:textColor="#FFFFFF"
-        android:textSize="7dp"
-        android:text="* updated 5 mins ago"
+        android:textSize="10dp"
+        android:text="* loading..."
         android:contentDescription="currency-code"/>
 
     <TextView android:id="@+id/credit"
@@ -58,7 +58,7 @@
         android:paddingLeft="3dp"
         android:gravity="left"
         android:textColor="#FFFFFF"
-        android:textSize="7dp"
+        android:textSize="8dp"
         android:text="* Data provided by Coindesk BPI"
         android:contentDescription="currency-code"/>
 

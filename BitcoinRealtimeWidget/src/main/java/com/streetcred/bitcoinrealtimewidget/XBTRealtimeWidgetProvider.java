@@ -4,7 +4,7 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
-import android.util.Log;
+import android.content.SharedPreferences;
 import android.widget.RemoteViews;
 
 import org.apache.http.HttpResponse;
@@ -19,6 +19,7 @@ import java.io.InputStreamReader;
 import java.text.DecimalFormat;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by denniskong on 10/5/13.
@@ -27,14 +28,8 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimedAPICall(context, appWidgetManager), 1, 60000);
-        updateWidget(context);
-    }
-
-    private void updateWidget(Context context){
-
     }
 
     private class TimedAPICall extends TimerTask {
@@ -42,19 +37,25 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
         AppWidgetManager appWidgetManager;
         ComponentName thisWidget;
         double newPrice;
+        SharedPreferences pref;
 
         public TimedAPICall(Context context, AppWidgetManager appWidgetManager) {
             this.appWidgetManager = appWidgetManager;
             remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
             thisWidget = new ComponentName(context, XBTRealtimeWidgetProvider.class);
+            pref = XBTWidgetApplication.getSharedPreferences();
         }
 
         @Override
         public void run() {
             try{
+                Long updatedSince = System.currentTimeMillis() - pref.getLong(Constants.LAST_UPDATED_TIMESTAMP, System.currentTimeMillis());
+                String converted_time_passed_to_string = convertTimePassedToString(updatedSince);
                 newPrice = getNewPrice();
                 DecimalFormat df = new DecimalFormat("0.0");
                 remoteViews.setTextViewText(R.id.price, df.format(newPrice));
+                remoteViews.setTextViewText(R.id.update_time, "* updated " + converted_time_passed_to_string + " ago");
+                pref.edit().putLong(Constants.LAST_UPDATED_TIMESTAMP, System.currentTimeMillis()).commit();
                 appWidgetManager.updateAppWidget(thisWidget, remoteViews);
             } catch (NullPointerException npe){
                 //ignore
@@ -105,6 +106,50 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
                 //ignore
             }
             return 0.00;
+        }
+
+        private String convertTimePassedToString(Long timepassedinmilliseconds){
+            if (TimeUnit.MILLISECONDS.toSeconds(timepassedinmilliseconds) <= 60l){
+                if (TimeUnit.MILLISECONDS.toSeconds(timepassedinmilliseconds) == 1){
+                    return String.format("%d second",
+                            TimeUnit.MILLISECONDS.toSeconds(timepassedinmilliseconds)
+                    );
+                } else {
+                    return String.format("%d secs",
+                            TimeUnit.MILLISECONDS.toSeconds(timepassedinmilliseconds)
+                    );
+                }
+            } else if (TimeUnit.MILLISECONDS.toMinutes(timepassedinmilliseconds) <= 60l){
+                if(TimeUnit.MILLISECONDS.toMinutes(timepassedinmilliseconds) == 1){
+                    return String.format("%d min",
+                            TimeUnit.MILLISECONDS.toMinutes(timepassedinmilliseconds)
+                    );
+                } else {
+                    return String.format("%d mins",
+                            TimeUnit.MILLISECONDS.toMinutes(timepassedinmilliseconds)
+                    );
+                }
+            } else if (TimeUnit.MILLISECONDS.toHours(timepassedinmilliseconds) <= 24l){
+                if(TimeUnit.MILLISECONDS.toHours(timepassedinmilliseconds) == 1){
+                    return String.format("%d hour",
+                            TimeUnit.MILLISECONDS.toHours(timepassedinmilliseconds)
+                    );
+                } else {
+                    return String.format("%d hours",
+                            TimeUnit.MILLISECONDS.toHours(timepassedinmilliseconds)
+                    );
+                }
+            } else {
+                if(TimeUnit.MILLISECONDS.toDays(timepassedinmilliseconds) == 1){
+                    return String.format("%d day",
+                            TimeUnit.MILLISECONDS.toDays(timepassedinmilliseconds)
+                    );
+                } else {
+                    return String.format("%d days",
+                            TimeUnit.MILLISECONDS.toDays(timepassedinmilliseconds)
+                    );
+                }
+            }
         }
     }
 }
