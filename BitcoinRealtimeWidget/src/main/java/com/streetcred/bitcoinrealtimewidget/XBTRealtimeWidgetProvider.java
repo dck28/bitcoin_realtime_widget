@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+//import android.util.Log;
 import android.widget.RemoteViews;
 
 import org.apache.http.HttpResponse;
@@ -62,8 +63,9 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
 
         @Override
         public void run() {
+//            Log.e("called?", "yes");
             SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
-            String preferred_interval = sharedPref.getString("pref_freq", "2 minutes");
+            String preferred_interval = sharedPref.getString("pref_freq", "4 minutes");
             freq_pref_converted_from_string_interval = Util.convertStringIntervalToLong(preferred_interval);
             try{
                 Long updatedSince = System.currentTimeMillis() - pref.getLong(Constants.LAST_UPDATED_TIMESTAMP, 0);

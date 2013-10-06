@@ -171,7 +171,7 @@ public class MainActivity extends Activity {
         final int backStackCount = getFragmentManager().getBackStackEntryCount();
         if (backStackCount == 1) {
             if (finishIfStackEmpty) {
-                finish();
+                moveTaskToBack(true);
             }
             return;
         }

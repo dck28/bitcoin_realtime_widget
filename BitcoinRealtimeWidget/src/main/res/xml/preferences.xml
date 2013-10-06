@@ -12,8 +12,8 @@
         android:dialogTitle="Select Update Interval"
         android:entries="@array/pref_interval_entries"
         android:entryValues="@array/pref_interval_values"
-        android:defaultValue="2 minutes"
-        android:summary="Currently updating every 2 minutes"
+        android:defaultValue="4 minutes"
+        android:summary="Currently updating every 4 minutes"
         android:negativeButtonText="Cancel"/>
 
 </PreferenceScreen>
