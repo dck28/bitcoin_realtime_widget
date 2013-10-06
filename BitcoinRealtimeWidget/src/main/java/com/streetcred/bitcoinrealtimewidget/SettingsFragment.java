@@ -118,6 +118,7 @@ public class SettingsFragment extends PreferenceFragment {
                         return true;
                     }
                 });
+                rateUsPref.setOrder(1);
                 getPreferenceScreen().addPreference(rateUsPref);
             }
         } else {
