@@ -1,4 +1,4 @@
-package com.streetcred.bitcoinrealtimewidget;
+package com.streetcred.bitcoinpriceindexwidget;
 
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;

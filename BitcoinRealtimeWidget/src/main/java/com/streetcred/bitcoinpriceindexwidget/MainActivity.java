@@ -1,4 +1,4 @@
-package com.streetcred.bitcoinrealtimewidget;
+package com.streetcred.bitcoinpriceindexwidget;
 
 import android.app.Activity;
 import android.app.Fragment;

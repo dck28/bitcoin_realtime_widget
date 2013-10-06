@@ -1,11 +1,11 @@
-com.streetcred.bitcoinrealtimewidget.DisplayCurrencyPreferenceDialog -> com.streetcred.bitcoinrealtimewidget.DisplayCurrencyPreferenceDialog:
+bitcoinpriceindexwidget.DisplayCurrencyPreferenceDialog -> bitcoinpriceindexwidget.DisplayCurrencyPreferenceDialog:
     void onPrepareDialogBuilder(android.app.AlertDialog$Builder) -> onPrepareDialogBuilder
-com.streetcred.bitcoinrealtimewidget.MainActivity -> com.streetcred.bitcoinrealtimewidget.MainActivity:
+bitcoinpriceindexwidget.MainActivity -> bitcoinpriceindexwidget.MainActivity:
     java.lang.String ACTION_SETTINGS -> a
     java.lang.String SETTINGS_FRAG -> b
     java.util.Map applicationActionMap -> c
     boolean clearingStack -> d
-    void addApplicationAction(com.streetcred.bitcoinrealtimewidget.MainActivity$ApplicationAction) -> a
+    void addApplicationAction(bitcoinpriceindexwidget.MainActivity$ApplicationAction) -> a
     void onCreate(android.os.Bundle) -> onCreate
     void popBackStackImmediate(android.app.FragmentManager) -> a
     void replaceMainFragment(android.app.FragmentManager,android.app.Fragment,java.lang.String,android.app.Activity) -> a
@@ -14,15 +14,15 @@ com.streetcred.bitcoinrealtimewidget.MainActivity -> com.streetcred.bitcoinrealt
     void handleBackKeyPress(boolean) -> b
     void onBackKeyPressed(boolean) -> a
     java.lang.String access$000() -> a
-com.streetcred.bitcoinrealtimewidget.MainActivity$ApplicationAction -> com.streetcred.bitcoinrealtimewidget.a:
+bitcoinpriceindexwidget.MainActivity$ApplicationAction -> bitcoinpriceindexwidget.a:
     java.lang.String name -> a
     java.lang.String getName() -> a
     boolean equals(java.lang.Object) -> equals
     int hashCode() -> hashCode
-com.streetcred.bitcoinrealtimewidget.MainActivity$OpenFragmentApplicationAction -> com.streetcred.bitcoinrealtimewidget.b:
+bitcoinpriceindexwidget.MainActivity$OpenFragmentApplicationAction -> bitcoinpriceindexwidget.b:
     java.lang.String fragmentTag -> a
-com.streetcred.bitcoinrealtimewidget.MainActivity$ShowSettings -> com.streetcred.bitcoinrealtimewidget.c:
-com.streetcred.bitcoinrealtimewidget.RefreshData -> com.streetcred.bitcoinrealtimewidget.d:
+bitcoinpriceindexwidget.MainActivity$ShowSettings -> bitcoinpriceindexwidget.c:
+bitcoinpriceindexwidget.RefreshData -> bitcoinpriceindexwidget.d:
     android.widget.RemoteViews remoteViews -> a
     android.appwidget.AppWidgetManager appWidgetManager -> b
     android.content.ComponentName thisWidget -> c
@@ -37,9 +37,9 @@ com.streetcred.bitcoinrealtimewidget.RefreshData -> com.streetcred.bitcoinrealti
     void onProgressUpdate(java.lang.Object[]) -> onProgressUpdate
     void onPostExecute(java.lang.Object) -> onPostExecute
     java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-com.streetcred.bitcoinrealtimewidget.RefreshDataReceiver -> com.streetcred.bitcoinrealtimewidget.RefreshDataReceiver:
+bitcoinpriceindexwidget.RefreshDataReceiver -> bitcoinpriceindexwidget.RefreshDataReceiver:
     void onReceive(android.content.Context,android.content.Intent) -> onReceive
-com.streetcred.bitcoinrealtimewidget.SettingsFragment -> com.streetcred.bitcoinrealtimewidget.e:
+bitcoinpriceindexwidget.SettingsFragment -> bitcoinpriceindexwidget.e:
     java.lang.String FRAGMENT_TAG -> a
     java.lang.Boolean PLAY_STORE_AVAILABLE -> c
     java.text.MessageFormat MARKET_APP_URL_TEMPLATE -> b
@@ -52,25 +52,25 @@ com.streetcred.bitcoinrealtimewidget.SettingsFragment -> com.streetcred.bitcoinr
     android.content.Intent createOpenPlayStoreIntent() -> a
     android.content.Intent createOpenAppInPlayStoreIntent(android.content.Context) -> b
     void removePreference(android.preference.Preference) -> a
-com.streetcred.bitcoinrealtimewidget.SettingsFragment$1 -> com.streetcred.bitcoinrealtimewidget.f:
-    com.streetcred.bitcoinrealtimewidget.SettingsFragment this$0 -> a
+bitcoinpriceindexwidget.SettingsFragment$1 -> bitcoinpriceindexwidget.f:
+    bitcoinpriceindexwidget.SettingsFragment this$0 -> a
     boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
-com.streetcred.bitcoinrealtimewidget.SettingsFragment$2 -> com.streetcred.bitcoinrealtimewidget.g:
-    com.streetcred.bitcoinrealtimewidget.SettingsFragment this$0 -> a
+bitcoinpriceindexwidget.SettingsFragment$2 -> bitcoinpriceindexwidget.g:
+    bitcoinpriceindexwidget.SettingsFragment this$0 -> a
     boolean onPreferenceChange(android.preference.Preference,java.lang.Object) -> onPreferenceChange
-com.streetcred.bitcoinrealtimewidget.SettingsFragment$3 -> com.streetcred.bitcoinrealtimewidget.h:
-    com.streetcred.bitcoinrealtimewidget.SettingsFragment this$0 -> a
+bitcoinpriceindexwidget.SettingsFragment$3 -> bitcoinpriceindexwidget.h:
+    bitcoinpriceindexwidget.SettingsFragment this$0 -> a
     boolean onPreferenceChange(android.preference.Preference,java.lang.Object) -> onPreferenceChange
-com.streetcred.bitcoinrealtimewidget.SettingsFragment$4 -> com.streetcred.bitcoinrealtimewidget.i:
-    com.streetcred.bitcoinrealtimewidget.SettingsFragment this$0 -> a
+bitcoinpriceindexwidget.SettingsFragment$4 -> bitcoinpriceindexwidget.i:
+    bitcoinpriceindexwidget.SettingsFragment this$0 -> a
     boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
-com.streetcred.bitcoinrealtimewidget.UpdateFrequencyDialog -> com.streetcred.bitcoinrealtimewidget.UpdateFrequencyDialog:
+bitcoinpriceindexwidget.UpdateFrequencyDialog -> bitcoinpriceindexwidget.UpdateFrequencyDialog:
     void onPrepareDialogBuilder(android.app.AlertDialog$Builder) -> onPrepareDialogBuilder
-com.streetcred.bitcoinrealtimewidget.Util -> com.streetcred.bitcoinrealtimewidget.j:
+bitcoinpriceindexwidget.Util -> bitcoinpriceindexwidget.j:
     long convertStringIntervalToLong(java.lang.String) -> a
-com.streetcred.bitcoinrealtimewidget.XBTRealtimeWidgetProvider -> com.streetcred.bitcoinrealtimewidget.XBTRealtimeWidgetProvider:
+bitcoinpriceindexwidget.XBTRealtimeWidgetProvider -> bitcoinpriceindexwidget.XBTRealtimeWidgetProvider:
     void onUpdate(android.content.Context,android.appwidget.AppWidgetManager,int[]) -> onUpdate
-com.streetcred.bitcoinrealtimewidget.XBTRealtimeWidgetProvider$TimedAPICall -> com.streetcred.bitcoinrealtimewidget.k:
+bitcoinpriceindexwidget.XBTRealtimeWidgetProvider$TimedAPICall -> bitcoinpriceindexwidget.k:
     android.widget.RemoteViews remoteViews -> a
     android.appwidget.AppWidgetManager appWidgetManager -> b
     android.content.ComponentName thisWidget -> c
@@ -78,16 +78,16 @@ com.streetcred.bitcoinrealtimewidget.XBTRealtimeWidgetProvider$TimedAPICall -> c
     android.content.SharedPreferences pref -> e
     long freq_pref_converted_from_string_interval -> f
     android.content.Context context -> g
-    com.streetcred.bitcoinrealtimewidget.XBTRealtimeWidgetProvider this$0 -> h
+    bitcoinpriceindexwidget.XBTRealtimeWidgetProvider this$0 -> h
     void run() -> run
     double getNewPrice() -> a
     java.lang.String convertTimePassedToString(java.lang.Long) -> a
-    double access$000(com.streetcred.bitcoinrealtimewidget.XBTRealtimeWidgetProvider$TimedAPICall) -> a
-com.streetcred.bitcoinrealtimewidget.XBTRealtimeWidgetProvider$TimedAPICall$1 -> com.streetcred.bitcoinrealtimewidget.l:
-    com.streetcred.bitcoinrealtimewidget.XBTRealtimeWidgetProvider$TimedAPICall this$1 -> a
+    double access$000(bitcoinpriceindexwidget.XBTRealtimeWidgetProvider$TimedAPICall) -> a
+bitcoinpriceindexwidget.XBTRealtimeWidgetProvider$TimedAPICall$1 -> bitcoinpriceindexwidget.l:
+    bitcoinpriceindexwidget.XBTRealtimeWidgetProvider$TimedAPICall this$1 -> a
     void run() -> run
-com.streetcred.bitcoinrealtimewidget.XBTWidgetApplication -> com.streetcred.bitcoinrealtimewidget.XBTWidgetApplication:
+bitcoinpriceindexwidget.XBTWidgetApplication -> bitcoinpriceindexwidget.XBTWidgetApplication:
     java.lang.String LOG_TAG -> a
-    com.streetcred.bitcoinrealtimewidget.XBTWidgetApplication instance -> b
+    bitcoinpriceindexwidget.XBTWidgetApplication instance -> b
     void onCreate() -> onCreate
     android.content.SharedPreferences getSharedPreferences() -> a

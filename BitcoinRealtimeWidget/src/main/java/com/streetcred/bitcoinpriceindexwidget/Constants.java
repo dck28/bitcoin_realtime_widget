@@ -1,4 +1,4 @@
-package com.streetcred.bitcoinrealtimewidget;
+package com.streetcred.bitcoinpriceindexwidget;
 
 /**
  * Created by denniskong on 10/5/13.

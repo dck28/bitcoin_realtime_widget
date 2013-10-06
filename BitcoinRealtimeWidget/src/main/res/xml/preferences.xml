@@ -6,7 +6,7 @@
         android:title="Donate: Click to copy address"
         android:summary="13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH"/>
 
-    <com.streetcred.bitcoinrealtimewidget.DisplayCurrencyPreferenceDialog
+    <com.streetcred.bitcoinpriceindexwidget.DisplayCurrencyPreferenceDialog
         android:key="pref_currency"
         android:title="Display Currency: USD"
         android:dialogTitle="Select Currency To Display"

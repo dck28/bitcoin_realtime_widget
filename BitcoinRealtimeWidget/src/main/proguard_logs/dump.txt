@@ -1,16 +1,16 @@
 _____________________________________________________________________
-+ Program class: com/streetcred/bitcoinrealtimewidget/DisplayCurrencyPreferenceDialog
++ Program class: com.streetcred.bitcoinpriceindexwidget/DisplayCurrencyPreferenceDialog
   Superclass:    android/preference/ListPreference
   Major version: 0x32
   Minor version: 0x0
   Access flags:  0x21
-    = public class com.streetcred.bitcoinrealtimewidget.DisplayCurrencyPreferenceDialog extends android.preference.ListPreference
+    = public class bitcoinpriceindexwidget.DisplayCurrencyPreferenceDialog extends android.preference.ListPreference
 
 Interfaces (count = 0):
 
 Constant Pool (count = 14):
   + Class [android/preference/ListPreference]
-  + Class [com/streetcred/bitcoinrealtimewidget/DisplayCurrencyPreferenceDialog]
+  + Class [com.streetcred.bitcoinpriceindexwidget/DisplayCurrencyPreferenceDialog]
   + Methodref [android/preference/ListPreference.<init> (Landroid/content/Context;Landroid/util/AttributeSet;)V]
   + Methodref [android/preference/ListPreference.onPrepareDialogBuilder (Landroid/app/AlertDialog$Builder;)V]
   + NameAndType [<init> (Landroid/content/Context;Landroid/util/AttributeSet;)V]
@@ -20,7 +20,7 @@ Constant Pool (count = 14):
   + Utf8 [<init>]
   + Utf8 [Code]
   + Utf8 [android/preference/ListPreference]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/DisplayCurrencyPreferenceDialog]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/DisplayCurrencyPreferenceDialog]
   + Utf8 [onPrepareDialogBuilder]
 
 Fields (count = 0):
@@ -55,12 +55,12 @@ Methods (count = 2):
 Class file attributes (count = 0):
 
 _____________________________________________________________________
-+ Program class: com/streetcred/bitcoinrealtimewidget/MainActivity
++ Program class: com.streetcred.bitcoinpriceindexwidget/MainActivity
   Superclass:    android/app/Activity
   Major version: 0x32
   Minor version: 0x0
   Access flags:  0x21
-    = public class com.streetcred.bitcoinrealtimewidget.MainActivity extends android.app.Activity
+    = public class bitcoinpriceindexwidget.MainActivity extends android.app.Activity
 
 Interfaces (count = 0):
 
@@ -77,20 +77,20 @@ Constant Pool (count = 171):
   + Class [android/view/View]
   + Class [android/view/Window]
   + Class [android/view/inputmethod/InputMethodManager]
-  + Class [com/streetcred/bitcoinrealtimewidget/MainActivity]
-  + Class [com/streetcred/bitcoinrealtimewidget/a]
-  + Class [com/streetcred/bitcoinrealtimewidget/c]
-  + Class [com/streetcred/bitcoinrealtimewidget/e]
+  + Class [com.streetcred.bitcoinpriceindexwidget/MainActivity]
+  + Class [com.streetcred.bitcoinpriceindexwidget/a]
+  + Class [com.streetcred.bitcoinpriceindexwidget/c]
+  + Class [com.streetcred.bitcoinpriceindexwidget/e]
   + Class [java/lang/Class]
   + Class [java/lang/Exception]
   + Class [java/lang/StringBuilder]
   + Class [java/util/HashMap]
   + Class [java/util/Map]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/MainActivity.a Ljava/lang/String;]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/MainActivity.b Ljava/lang/String;]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/MainActivity.c Ljava/util/Map;]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/MainActivity.d Z]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/e.a Ljava/lang/String;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/MainActivity.a Ljava/lang/String;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/MainActivity.b Ljava/lang/String;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/MainActivity.c Ljava/util/Map;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/MainActivity.d Z]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/e.a Ljava/lang/String;]
   + Methodref [android/app/Activity.<init> ()V]
   + Methodref [android/app/Activity.getSystemService (Ljava/lang/String;)Ljava/lang/Object;]
   + Methodref [android/app/Activity.getWindow ()Landroid/view/Window;]
@@ -107,18 +107,18 @@ Constant Pool (count = 171):
   + Methodref [android/view/View.getApplicationWindowToken ()Landroid/os/IBinder;]
   + Methodref [android/view/Window.getCurrentFocus ()Landroid/view/View;]
   + Methodref [android/view/inputmethod/InputMethodManager.hideSoftInputFromWindow (Landroid/os/IBinder;I)Z]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/MainActivity.a (Landroid/app/FragmentManager;)V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/MainActivity.a (Landroid/app/FragmentManager;Landroid/app/Fragment;Ljava/lang/String;Landroid/app/Activity;)V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/MainActivity.a (Landroid/app/FragmentTransaction;)V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/MainActivity.a (Lcom/streetcred/bitcoinrealtimewidget/a;)V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/MainActivity.a (Z)V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/MainActivity.b (Z)V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/MainActivity.getFragmentManager ()Landroid/app/FragmentManager;]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/MainActivity.moveTaskToBack (Z)Z]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/MainActivity.setContentView (I)V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/a.a ()Ljava/lang/String;]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/c.<init> ()V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/e.<init> ()V]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/MainActivity.a (Landroid/app/FragmentManager;)V]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/MainActivity.a (Landroid/app/FragmentManager;Landroid/app/Fragment;Ljava/lang/String;Landroid/app/Activity;)V]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/MainActivity.a (Landroid/app/FragmentTransaction;)V]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/MainActivity.a (Lcom.streetcred.bitcoinpriceindexwidget/a;)V]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/MainActivity.a (Z)V]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/MainActivity.b (Z)V]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/MainActivity.getFragmentManager ()Landroid/app/FragmentManager;]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/MainActivity.moveTaskToBack (Z)Z]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/MainActivity.setContentView (I)V]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/a.a ()Ljava/lang/String;]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/c.<init> ()V]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/e.<init> ()V]
   + Methodref [java/lang/Class.getName ()Ljava/lang/String;]
   + Methodref [java/lang/StringBuilder.<init> ()V]
   + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
@@ -130,7 +130,7 @@ Constant Pool (count = 171):
   + NameAndType [a (Landroid/app/FragmentManager;)V]
   + NameAndType [a (Landroid/app/FragmentManager;Landroid/app/Fragment;Ljava/lang/String;Landroid/app/Activity;)V]
   + NameAndType [a (Landroid/app/FragmentTransaction;)V]
-  + NameAndType [a (Lcom/streetcred/bitcoinrealtimewidget/a;)V]
+  + NameAndType [a (Lcom.streetcred.bitcoinpriceindexwidget/a;)V]
   + NameAndType [a (Z)V]
   + NameAndType [a Ljava/lang/String;]
   + NameAndType [addToBackStack (Ljava/lang/String;)Landroid/app/FragmentTransaction;]
@@ -178,7 +178,7 @@ Constant Pool (count = 171):
   + Utf8 [(Landroid/app/FragmentTransaction;)V]
   + Utf8 [(Landroid/os/Bundle;)V]
   + Utf8 [(Landroid/os/IBinder;I)Z]
-  + Utf8 [(Lcom/streetcred/bitcoinrealtimewidget/a;)V]
+  + Utf8 [(Lcom.streetcred.bitcoinpriceindexwidget/a;)V]
   + Utf8 [(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
   + Utf8 [(Ljava/lang/String;)Landroid/app/FragmentTransaction;]
   + Utf8 [(Ljava/lang/String;)Ljava/lang/Object;]
@@ -205,10 +205,10 @@ Constant Pool (count = 171):
   + Utf8 [b]
   + Utf8 [beginTransaction]
   + Utf8 [c]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/MainActivity]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/a]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/c]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/e]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/MainActivity]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/a]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/c]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/e]
   + Utf8 [commitAllowingStateLoss]
   + Utf8 [d]
   + Utf8 [findFragmentById]
@@ -262,20 +262,20 @@ Methods (count = 11):
       [4] aload_0 v0
       [5] iconst_0
       [6] putfield #25
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/MainActivity.d Z]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/MainActivity.d Z]
       [9] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
-  + Method:       a(Lcom/streetcred/bitcoinrealtimewidget/a;)V
+  + Method:       a(Lcom.streetcred.bitcoinpriceindexwidget/a;)V
     Access flags: 0x8
-      = static void a(com.streetcred.bitcoinrealtimewidget.a)
+      = static void a(bitcoinpriceindexwidget.a)
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 15, locals = 1, stack = 3):
       [0] getstatic #24
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/MainActivity.c Ljava/util/Map;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/MainActivity.c Ljava/util/Map;]
       [3] aload_0 v0
       [4] invokevirtual #52
-        + Methodref [com/streetcred/bitcoinrealtimewidget/a.a ()Ljava/lang/String;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/a.a ()Ljava/lang/String;]
       [7] aload_0 v0
       [8] invokeinterface #60
         + InterfaceMethodref [java/util/Map.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
@@ -296,20 +296,20 @@ Methods (count = 11):
       [6] ldc #3
         + Integer [2130903040]
       [8] invokevirtual #51
-        + Methodref [com/streetcred/bitcoinrealtimewidget/MainActivity.setContentView (I)V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/MainActivity.setContentView (I)V]
       [11] aload_0 v0
       [12] invokevirtual #49
-        + Methodref [com/streetcred/bitcoinrealtimewidget/MainActivity.getFragmentManager ()Landroid/app/FragmentManager;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/MainActivity.getFragmentManager ()Landroid/app/FragmentManager;]
       [15] new #16
-        + Class [com/streetcred/bitcoinrealtimewidget/e]
+        + Class [com.streetcred.bitcoinpriceindexwidget/e]
       [18] dup
       [19] invokespecial #54
-        + Methodref [com/streetcred/bitcoinrealtimewidget/e.<init> ()V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/e.<init> ()V]
       [22] getstatic #23
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/MainActivity.b Ljava/lang/String;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/MainActivity.b Ljava/lang/String;]
       [25] aload_0 v0
       [26] invokestatic #44
-        + Methodref [com/streetcred/bitcoinrealtimewidget/MainActivity.a (Landroid/app/FragmentManager;Landroid/app/Fragment;Ljava/lang/String;Landroid/app/Activity;)V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/MainActivity.a (Landroid/app/FragmentManager;Landroid/app/Fragment;Ljava/lang/String;Landroid/app/Activity;)V]
       [29] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
@@ -367,7 +367,7 @@ Methods (count = 11):
       [41] astore v6
       [43] aload v6
       [45] invokestatic #45
-        + Methodref [com/streetcred/bitcoinrealtimewidget/MainActivity.a (Landroid/app/FragmentTransaction;)V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/MainActivity.a (Landroid/app/FragmentTransaction;)V]
       [48] aload v6
       [50] ldc #4
         + Integer [2131230720]
@@ -421,7 +421,7 @@ Methods (count = 11):
       [5] aload_0 v0
       [6] iconst_1
       [7] invokespecial #48
-        + Methodref [com/streetcred/bitcoinrealtimewidget/MainActivity.b (Z)V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/MainActivity.b (Z)V]
       [10] iconst_1
       [11] ireturn
       [12] aload_0 v0
@@ -441,7 +441,7 @@ Methods (count = 11):
     + Code attribute instructions (code length = 16, locals = 3, stack = 2):
       [0] aload_0 v0
       [1] invokevirtual #49
-        + Methodref [com/streetcred/bitcoinrealtimewidget/MainActivity.getFragmentManager ()Landroid/app/FragmentManager;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/MainActivity.getFragmentManager ()Landroid/app/FragmentManager;]
       [4] ldc #4
         + Integer [2131230720]
       [6] invokevirtual #33
@@ -450,7 +450,7 @@ Methods (count = 11):
       [10] aload_0 v0
       [11] iload_1 v1
       [12] invokevirtual #47
-        + Methodref [com/streetcred/bitcoinrealtimewidget/MainActivity.a (Z)V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/MainActivity.a (Z)V]
       [15] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
@@ -461,7 +461,7 @@ Methods (count = 11):
     + Code attribute instructions (code length = 36, locals = 3, stack = 2):
       [0] aload_0 v0
       [1] invokevirtual #49
-        + Methodref [com/streetcred/bitcoinrealtimewidget/MainActivity.getFragmentManager ()Landroid/app/FragmentManager;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/MainActivity.getFragmentManager ()Landroid/app/FragmentManager;]
       [4] invokevirtual #34
         + Methodref [android/app/FragmentManager.getBackStackEntryCount ()I]
       [7] istore_2 v2
@@ -473,16 +473,16 @@ Methods (count = 11):
       [17] aload_0 v0
       [18] iconst_1
       [19] invokevirtual #50
-        + Methodref [com/streetcred/bitcoinrealtimewidget/MainActivity.moveTaskToBack (Z)Z]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/MainActivity.moveTaskToBack (Z)Z]
       [22] pop
       [23] return
       [24] iload_2 v2
       [25] ifeq +10 (target=35)
       [28] aload_0 v0
       [29] invokevirtual #49
-        + Methodref [com/streetcred/bitcoinrealtimewidget/MainActivity.getFragmentManager ()Landroid/app/FragmentManager;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/MainActivity.getFragmentManager ()Landroid/app/FragmentManager;]
       [32] invokestatic #43
-        + Methodref [com/streetcred/bitcoinrealtimewidget/MainActivity.a (Landroid/app/FragmentManager;)V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/MainActivity.a (Landroid/app/FragmentManager;)V]
       [35] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
@@ -496,7 +496,7 @@ Methods (count = 11):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 4, locals = 0, stack = 1):
       [0] getstatic #23
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/MainActivity.b Ljava/lang/String;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/MainActivity.b Ljava/lang/String;]
       [3] areturn
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
@@ -511,7 +511,7 @@ Methods (count = 11):
       [4] invokespecial #56
         + Methodref [java/lang/StringBuilder.<init> ()V]
       [7] ldc #13
-        + Class [com/streetcred/bitcoinrealtimewidget/MainActivity]
+        + Class [com.streetcred.bitcoinpriceindexwidget/MainActivity]
       [9] invokevirtual #55
         + Methodref [java/lang/Class.getName ()Ljava/lang/String;]
       [12] invokevirtual #57
@@ -523,25 +523,25 @@ Methods (count = 11):
       [20] invokevirtual #58
         + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
       [23] putstatic #22
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/MainActivity.a Ljava/lang/String;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/MainActivity.a Ljava/lang/String;]
       [26] getstatic #26
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/e.a Ljava/lang/String;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/e.a Ljava/lang/String;]
       [29] putstatic #23
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/MainActivity.b Ljava/lang/String;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/MainActivity.b Ljava/lang/String;]
       [32] new #20
         + Class [java/util/HashMap]
       [35] dup
       [36] invokespecial #59
         + Methodref [java/util/HashMap.<init> ()V]
       [39] putstatic #24
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/MainActivity.c Ljava/util/Map;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/MainActivity.c Ljava/util/Map;]
       [42] new #15
-        + Class [com/streetcred/bitcoinrealtimewidget/c]
+        + Class [com.streetcred.bitcoinpriceindexwidget/c]
       [45] dup
       [46] invokespecial #53
-        + Methodref [com/streetcred/bitcoinrealtimewidget/c.<init> ()V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/c.<init> ()V]
       [49] invokestatic #46
-        + Methodref [com/streetcred/bitcoinrealtimewidget/MainActivity.a (Lcom/streetcred/bitcoinrealtimewidget/a;)V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/MainActivity.a (Lcom.streetcred.bitcoinpriceindexwidget/a;)V]
       [52] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
@@ -549,20 +549,20 @@ Methods (count = 11):
 Class file attributes (count = 0):
 
 _____________________________________________________________________
-+ Program class: com/streetcred/bitcoinrealtimewidget/a
++ Program class: com.streetcred.bitcoinpriceindexwidget/a
   Superclass:    java/lang/Object
   Major version: 0x32
   Minor version: 0x0
   Access flags:  0x420
-    = abstract class com.streetcred.bitcoinrealtimewidget.a extends java.lang.Object
+    = abstract class bitcoinpriceindexwidget.a extends java.lang.Object
 
 Interfaces (count = 0):
 
 Constant Pool (count = 31):
-  + Class [com/streetcred/bitcoinrealtimewidget/a]
+  + Class [com.streetcred.bitcoinpriceindexwidget/a]
   + Class [java/lang/Object]
   + Class [java/lang/String]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/a.a Ljava/lang/String;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/a.a Ljava/lang/String;]
   + Methodref [java/lang/Object.<init> ()V]
   + Methodref [java/lang/Object.getClass ()Ljava/lang/Class;]
   + Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
@@ -583,7 +583,7 @@ Constant Pool (count = 31):
   + Utf8 [Ljava/lang/String;]
   + Utf8 [StackMapTable]
   + Utf8 [a]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/a]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/a]
   + Utf8 [equals]
   + Utf8 [getClass]
   + Utf8 [hashCode]
@@ -607,7 +607,7 @@ Methods (count = 4):
       [4] aload_0 v0
       [5] aload_1 v1
       [6] putfield #4
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/a.a Ljava/lang/String;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/a.a Ljava/lang/String;]
       [9] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
@@ -618,7 +618,7 @@ Methods (count = 4):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
       [1] getfield #4
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/a.a Ljava/lang/String;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/a.a Ljava/lang/String;]
       [4] areturn
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
@@ -645,14 +645,14 @@ Methods (count = 4):
       [23] ireturn
       [24] aload_1 v1
       [25] checkcast #1
-        + Class [com/streetcred/bitcoinrealtimewidget/a]
+        + Class [com.streetcred.bitcoinpriceindexwidget/a]
       [28] astore_2 v2
       [29] aload_0 v0
       [30] getfield #4
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/a.a Ljava/lang/String;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/a.a Ljava/lang/String;]
       [33] aload_2 v2
       [34] getfield #4
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/a.a Ljava/lang/String;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/a.a Ljava/lang/String;]
       [37] invokevirtual #7
         + Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
       [40] ireturn
@@ -669,7 +669,7 @@ Methods (count = 4):
     + Code attribute instructions (code length = 8, locals = 1, stack = 1):
       [0] aload_0 v0
       [1] getfield #4
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/a.a Ljava/lang/String;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/a.a Ljava/lang/String;]
       [4] invokevirtual #8
         + Methodref [java/lang/String.hashCode ()I]
       [7] ireturn
@@ -679,20 +679,20 @@ Methods (count = 4):
 Class file attributes (count = 0):
 
 _____________________________________________________________________
-+ Program class: com/streetcred/bitcoinrealtimewidget/b
-  Superclass:    com/streetcred/bitcoinrealtimewidget/a
++ Program class: com.streetcred.bitcoinpriceindexwidget/b
+  Superclass:    com.streetcred.bitcoinpriceindexwidget/a
   Major version: 0x32
   Minor version: 0x0
   Access flags:  0x420
-    = abstract class com.streetcred.bitcoinrealtimewidget.b extends com.streetcred.bitcoinrealtimewidget.a
+    = abstract class bitcoinpriceindexwidget.b extends bitcoinpriceindexwidget.a
 
 Interfaces (count = 0):
 
 Constant Pool (count = 15):
-  + Class [com/streetcred/bitcoinrealtimewidget/a]
-  + Class [com/streetcred/bitcoinrealtimewidget/b]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/b.a Ljava/lang/String;]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/a.<init> (Ljava/lang/String;)V]
+  + Class [com.streetcred.bitcoinpriceindexwidget/a]
+  + Class [com.streetcred.bitcoinpriceindexwidget/b]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/b.a Ljava/lang/String;]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/a.<init> (Ljava/lang/String;)V]
   + NameAndType [<init> (Ljava/lang/String;)V]
   + NameAndType [a Ljava/lang/String;]
   + Utf8 [(Ljava/lang/String;)V]
@@ -701,8 +701,8 @@ Constant Pool (count = 15):
   + Utf8 [Code]
   + Utf8 [Ljava/lang/String;]
   + Utf8 [a]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/a]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/b]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/a]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/b]
 
 Fields (count = 1):
   + Field:        a Ljava/lang/String;
@@ -718,11 +718,11 @@ Methods (count = 1):
       [0] aload_0 v0
       [1] aload_1 v1
       [2] invokespecial #4
-        + Methodref [com/streetcred/bitcoinrealtimewidget/a.<init> (Ljava/lang/String;)V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/a.<init> (Ljava/lang/String;)V]
       [5] aload_0 v0
       [6] aload_2 v2
       [7] putfield #3
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/b.a Ljava/lang/String;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/b.a Ljava/lang/String;]
       [10] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
@@ -730,22 +730,22 @@ Methods (count = 1):
 Class file attributes (count = 0):
 
 _____________________________________________________________________
-+ Program class: com/streetcred/bitcoinrealtimewidget/c
-  Superclass:    com/streetcred/bitcoinrealtimewidget/b
++ Program class: com.streetcred.bitcoinpriceindexwidget/c
+  Superclass:    com.streetcred.bitcoinpriceindexwidget/b
   Major version: 0x32
   Minor version: 0x0
   Access flags:  0x20
-    = class com.streetcred.bitcoinrealtimewidget.c extends com.streetcred.bitcoinrealtimewidget.b
+    = class bitcoinpriceindexwidget.c extends bitcoinpriceindexwidget.b
 
 Interfaces (count = 0):
 
 Constant Pool (count = 20):
-  + Class [com/streetcred/bitcoinrealtimewidget/MainActivity]
-  + Class [com/streetcred/bitcoinrealtimewidget/b]
-  + Class [com/streetcred/bitcoinrealtimewidget/c]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/MainActivity.a Ljava/lang/String;]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/MainActivity.a ()Ljava/lang/String;]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/b.<init> (Ljava/lang/String;Ljava/lang/String;)V]
+  + Class [com.streetcred.bitcoinpriceindexwidget/MainActivity]
+  + Class [com.streetcred.bitcoinpriceindexwidget/b]
+  + Class [com.streetcred.bitcoinpriceindexwidget/c]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/MainActivity.a Ljava/lang/String;]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/MainActivity.a ()Ljava/lang/String;]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/b.<init> (Ljava/lang/String;Ljava/lang/String;)V]
   + NameAndType [<init> (Ljava/lang/String;Ljava/lang/String;)V]
   + NameAndType [a ()Ljava/lang/String;]
   + NameAndType [a Ljava/lang/String;]
@@ -756,9 +756,9 @@ Constant Pool (count = 20):
   + Utf8 [Code]
   + Utf8 [Ljava/lang/String;]
   + Utf8 [a]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/MainActivity]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/b]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/c]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/MainActivity]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/b]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/c]
 
 Fields (count = 0):
 
@@ -770,11 +770,11 @@ Methods (count = 1):
     + Code attribute instructions (code length = 11, locals = 1, stack = 3):
       [0] aload_0 v0
       [1] getstatic #4
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/MainActivity.a Ljava/lang/String;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/MainActivity.a Ljava/lang/String;]
       [4] invokestatic #5
-        + Methodref [com/streetcred/bitcoinrealtimewidget/MainActivity.a ()Ljava/lang/String;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/MainActivity.a ()Ljava/lang/String;]
       [7] invokespecial #6
-        + Methodref [com/streetcred/bitcoinrealtimewidget/b.<init> (Ljava/lang/String;Ljava/lang/String;)V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/b.<init> (Ljava/lang/String;Ljava/lang/String;)V]
       [10] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
@@ -782,12 +782,12 @@ Methods (count = 1):
 Class file attributes (count = 0):
 
 _____________________________________________________________________
-+ Program class: com/streetcred/bitcoinrealtimewidget/d
++ Program class: com.streetcred.bitcoinpriceindexwidget/d
   Superclass:    android/os/AsyncTask
   Major version: 0x32
   Minor version: 0x0
   Access flags:  0x21
-    = public class com.streetcred.bitcoinrealtimewidget.d extends android.os.AsyncTask
+    = public class bitcoinpriceindexwidget.d extends android.os.AsyncTask
 
 Interfaces (count = 0):
 
@@ -827,9 +827,9 @@ Constant Pool (count = 267):
   + Class [android/os/AsyncTask]
   + Class [android/util/Log]
   + Class [android/widget/RemoteViews]
-  + Class [com/streetcred/bitcoinrealtimewidget/XBTRealtimeWidgetProvider]
-  + Class [com/streetcred/bitcoinrealtimewidget/XBTWidgetApplication]
-  + Class [com/streetcred/bitcoinrealtimewidget/d]
+  + Class [com.streetcred.bitcoinpriceindexwidget/XBTRealtimeWidgetProvider]
+  + Class [com.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication]
+  + Class [com.streetcred.bitcoinpriceindexwidget/d]
   + Class [java/io/BufferedReader]
   + Class [java/io/InputStreamReader]
   + Class [java/lang/Double]
@@ -845,13 +845,13 @@ Constant Pool (count = 267):
   + Class [org/apache/http/impl/client/DefaultHttpClient]
   + Class [org/json/JSONObject]
   + Class [org/json/JSONTokener]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/XBTWidgetApplication.b Lcom/streetcred/bitcoinrealtimewidget/XBTWidgetApplication;]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/d.a Landroid/widget/RemoteViews;]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/d.b Landroid/appwidget/AppWidgetManager;]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/d.c Landroid/content/ComponentName;]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/d.d D]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/d.e Landroid/content/SharedPreferences;]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/d.f Landroid/content/Context;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication.b Lcom.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.a Landroid/widget/RemoteViews;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.b Landroid/appwidget/AppWidgetManager;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.c Landroid/content/ComponentName;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.d D]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.e Landroid/content/SharedPreferences;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.f Landroid/content/Context;]
   + Methodref [android/appwidget/AppWidgetManager.getInstance (Landroid/content/Context;)Landroid/appwidget/AppWidgetManager;]
   + Methodref [android/appwidget/AppWidgetManager.updateAppWidget (Landroid/content/ComponentName;Landroid/widget/RemoteViews;)V]
   + Methodref [android/content/ComponentName.<init> (Landroid/content/Context;Ljava/lang/Class;)V]
@@ -860,11 +860,11 @@ Constant Pool (count = 267):
   + Methodref [android/util/Log.e (Ljava/lang/String;Ljava/lang/String;)I]
   + Methodref [android/widget/RemoteViews.<init> (Ljava/lang/String;I)V]
   + Methodref [android/widget/RemoteViews.setTextViewText (ILjava/lang/CharSequence;)V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/XBTWidgetApplication.a ()Landroid/content/SharedPreferences;]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/d.a ()D]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/d.a (Ljava/lang/String;)V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/d.a ([Ljava/lang/String;)Ljava/lang/String;]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/d.a ([Ljava/lang/Void;)V]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication.a ()Landroid/content/SharedPreferences;]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/d.a ()D]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/d.a (Ljava/lang/String;)V]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/d.a ([Ljava/lang/String;)Ljava/lang/String;]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/d.a ([Ljava/lang/Void;)V]
   + Methodref [java/io/BufferedReader.<init> (Ljava/io/Reader;)V]
   + Methodref [java/io/BufferedReader.readLine ()Ljava/lang/String;]
   + Methodref [java/io/InputStreamReader.<init> (Ljava/io/InputStream;Ljava/lang/String;)V]
@@ -907,7 +907,7 @@ Constant Pool (count = 267):
   + NameAndType [a Landroid/widget/RemoteViews;]
   + NameAndType [append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
   + NameAndType [b Landroid/appwidget/AppWidgetManager;]
-  + NameAndType [b Lcom/streetcred/bitcoinrealtimewidget/XBTWidgetApplication;]
+  + NameAndType [b Lcom.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication;]
   + NameAndType [c Landroid/content/ComponentName;]
   + NameAndType [commit ()Z]
   + NameAndType [currentTimeMillis ()J]
@@ -984,7 +984,7 @@ Constant Pool (count = 267):
   + Utf8 [Landroid/content/Context;]
   + Utf8 [Landroid/content/SharedPreferences;]
   + Utf8 [Landroid/widget/RemoteViews;]
-  + Utf8 [Lcom/streetcred/bitcoinrealtimewidget/XBTWidgetApplication;]
+  + Utf8 [Lcom.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication;]
   + Utf8 [StackMapTable]
   + Utf8 [USD]
   + Utf8 [UTF-8]
@@ -1004,9 +1004,9 @@ Constant Pool (count = 267):
   + Utf8 [bpi]
   + Utf8 [c]
   + Utf8 [code]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/XBTRealtimeWidgetProvider]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/XBTWidgetApplication]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/d]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/XBTRealtimeWidgetProvider]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/d]
   + Utf8 [commit]
   + Utf8 [currentTimeMillis]
   + Utf8 [d]
@@ -1101,9 +1101,9 @@ Methods (count = 9):
       [0] aload_0 v0
       [1] aload_0 v0
       [2] invokespecial #69
-        + Methodref [com/streetcred/bitcoinrealtimewidget/d.a ()D]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/d.a ()D]
       [5] putfield #57
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/d.d D]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.d D]
       [8] new #45
         + Class [java/text/DecimalFormat]
       [11] dup
@@ -1114,20 +1114,20 @@ Methods (count = 9):
       [17] astore_2 v2
       [18] aload_0 v0
       [19] getfield #54
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/d.a Landroid/widget/RemoteViews;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.a Landroid/widget/RemoteViews;]
       [22] ldc #2
         + Integer [2131230721]
       [24] aload_2 v2
       [25] aload_0 v0
       [26] getfield #57
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/d.d D]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.d D]
       [29] invokevirtual #84
         + Methodref [java/text/DecimalFormat.format (D)Ljava/lang/String;]
       [32] invokevirtual #67
         + Methodref [android/widget/RemoteViews.setTextViewText (ILjava/lang/CharSequence;)V]
       [35] aload_0 v0
       [36] getfield #54
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/d.a Landroid/widget/RemoteViews;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.a Landroid/widget/RemoteViews;]
       [39] ldc #4
         + Integer [2131230724]
       [41] ldc #7
@@ -1136,12 +1136,12 @@ Methods (count = 9):
         + Methodref [android/widget/RemoteViews.setTextViewText (ILjava/lang/CharSequence;)V]
       [46] aload_0 v0
       [47] getfield #54
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/d.a Landroid/widget/RemoteViews;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.a Landroid/widget/RemoteViews;]
       [50] ldc #3
         + Integer [2131230722]
       [52] aload_0 v0
       [53] getfield #58
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/d.e Landroid/content/SharedPreferences;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.e Landroid/content/SharedPreferences;]
       [56] ldc #19
         + String [preferred_currency]
       [58] ldc #12
@@ -1152,7 +1152,7 @@ Methods (count = 9):
         + Methodref [android/widget/RemoteViews.setTextViewText (ILjava/lang/CharSequence;)V]
       [68] aload_0 v0
       [69] getfield #58
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/d.e Landroid/content/SharedPreferences;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.e Landroid/content/SharedPreferences;]
       [72] invokeinterface #93
         + InterfaceMethodref [android/content/SharedPreferences.edit ()Landroid/content/SharedPreferences$Editor;]
       [77] ldc #18
@@ -1166,13 +1166,13 @@ Methods (count = 9):
       [92] pop
       [93] aload_0 v0
       [94] getfield #55
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/d.b Landroid/appwidget/AppWidgetManager;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.b Landroid/appwidget/AppWidgetManager;]
       [97] aload_0 v0
       [98] getfield #56
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/d.c Landroid/content/ComponentName;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.c Landroid/content/ComponentName;]
       [101] aload_0 v0
       [102] getfield #54
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/d.a Landroid/widget/RemoteViews;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.a Landroid/widget/RemoteViews;]
       [105] invokevirtual #61
         + Methodref [android/appwidget/AppWidgetManager.updateAppWidget (Landroid/content/ComponentName;Landroid/widget/RemoteViews;)V]
       [108] ldc #23
@@ -1212,24 +1212,24 @@ Methods (count = 9):
     + Code attribute instructions (code length = 89, locals = 1, stack = 5):
       [0] aload_0 v0
       [1] getstatic #53
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/XBTWidgetApplication.b Lcom/streetcred/bitcoinrealtimewidget/XBTWidgetApplication;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication.b Lcom.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication;]
       [4] putfield #59
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/d.f Landroid/content/Context;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.f Landroid/content/Context;]
       [7] aload_0 v0
       [8] aload_0 v0
       [9] getfield #59
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/d.f Landroid/content/Context;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.f Landroid/content/Context;]
       [12] invokestatic #60
         + Methodref [android/appwidget/AppWidgetManager.getInstance (Landroid/content/Context;)Landroid/appwidget/AppWidgetManager;]
       [15] putfield #55
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/d.b Landroid/appwidget/AppWidgetManager;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.b Landroid/appwidget/AppWidgetManager;]
       [18] aload_0 v0
       [19] new #34
         + Class [android/widget/RemoteViews]
       [22] dup
       [23] aload_0 v0
       [24] getfield #59
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/d.f Landroid/content/Context;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.f Landroid/content/Context;]
       [27] invokevirtual #63
         + Methodref [android/content/Context.getPackageName ()Ljava/lang/String;]
       [30] ldc #1
@@ -1237,28 +1237,28 @@ Methods (count = 9):
       [32] invokespecial #66
         + Methodref [android/widget/RemoteViews.<init> (Ljava/lang/String;I)V]
       [35] putfield #54
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/d.a Landroid/widget/RemoteViews;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.a Landroid/widget/RemoteViews;]
       [38] aload_0 v0
       [39] new #28
         + Class [android/content/ComponentName]
       [42] dup
       [43] aload_0 v0
       [44] getfield #59
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/d.f Landroid/content/Context;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.f Landroid/content/Context;]
       [47] ldc #35
-        + Class [com/streetcred/bitcoinrealtimewidget/XBTRealtimeWidgetProvider]
+        + Class [com.streetcred.bitcoinpriceindexwidget/XBTRealtimeWidgetProvider]
       [49] invokespecial #62
         + Methodref [android/content/ComponentName.<init> (Landroid/content/Context;Ljava/lang/Class;)V]
       [52] putfield #56
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/d.c Landroid/content/ComponentName;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.c Landroid/content/ComponentName;]
       [55] aload_0 v0
       [56] invokestatic #68
-        + Methodref [com/streetcred/bitcoinrealtimewidget/XBTWidgetApplication.a ()Landroid/content/SharedPreferences;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication.a ()Landroid/content/SharedPreferences;]
       [59] putfield #58
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/d.e Landroid/content/SharedPreferences;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.e Landroid/content/SharedPreferences;]
       [62] aload_0 v0
       [63] getfield #54
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/d.a Landroid/widget/RemoteViews;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.a Landroid/widget/RemoteViews;]
       [66] ldc #4
         + Integer [2131230724]
       [68] ldc #6
@@ -1267,13 +1267,13 @@ Methods (count = 9):
         + Methodref [android/widget/RemoteViews.setTextViewText (ILjava/lang/CharSequence;)V]
       [73] aload_0 v0
       [74] getfield #55
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/d.b Landroid/appwidget/AppWidgetManager;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.b Landroid/appwidget/AppWidgetManager;]
       [77] aload_0 v0
       [78] getfield #56
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/d.c Landroid/content/ComponentName;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.c Landroid/content/ComponentName;]
       [81] aload_0 v0
       [82] getfield #54
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/d.a Landroid/widget/RemoteViews;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.a Landroid/widget/RemoteViews;]
       [85] invokevirtual #61
         + Methodref [android/appwidget/AppWidgetManager.updateAppWidget (Landroid/content/ComponentName;Landroid/widget/RemoteViews;)V]
       [88] return
@@ -1508,7 +1508,7 @@ Methods (count = 9):
       [332] ifnull +30 (target=362)
       [335] aload_0 v0
       [336] getfield #58
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/d.e Landroid/content/SharedPreferences;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.e Landroid/content/SharedPreferences;]
       [339] ldc #19
         + String [preferred_currency]
       [341] ldc #12
@@ -1624,7 +1624,7 @@ Methods (count = 9):
       [518] ifnull +30 (target=548)
       [521] aload_0 v0
       [522] getfield #58
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/d.e Landroid/content/SharedPreferences;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.e Landroid/content/SharedPreferences;]
       [525] ldc #19
         + String [preferred_currency]
       [527] ldc #12
@@ -1740,7 +1740,7 @@ Methods (count = 9):
       [704] ifnull +30 (target=734)
       [707] aload_0 v0
       [708] getfield #58
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/d.e Landroid/content/SharedPreferences;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/d.e Landroid/content/SharedPreferences;]
       [711] ldc #19
         + String [preferred_currency]
       [713] ldc #12
@@ -1772,9 +1772,9 @@ Methods (count = 9):
       + Class [java/lang/Exception]
       Code attribute attributes (attribute count = 1):
       + Stack map table attribute (count = 22):
-        - [115] Var: [a:com/streetcred/bitcoinrealtimewidget/d][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:org/apache/http/client/HttpClient][a:org/apache/http/client/methods/HttpGet][a:org/apache/http/HttpResponse][a:java/io/BufferedReader][a:java/lang/StringBuilder], Stack: 
+        - [115] Var: [a:com.streetcred.bitcoinpriceindexwidget/d][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:org/apache/http/client/HttpClient][a:org/apache/http/client/methods/HttpGet][a:org/apache/http/HttpResponse][a:java/io/BufferedReader][a:java/lang/StringBuilder], Stack:
         - [142] Var: ..., Stack: (empty)
-        - [215] Var: [a:com/streetcred/bitcoinrealtimewidget/d][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:org/apache/http/client/HttpClient][a:org/apache/http/client/methods/HttpGet][a:org/apache/http/HttpResponse][a:java/io/BufferedReader][a:java/lang/StringBuilder][a:org/json/JSONTokener][a:org/json/JSONObject][a:org/json/JSONObject][a:org/json/JSONObject], Stack: 
+        - [215] Var: [a:com.streetcred.bitcoinpriceindexwidget/d][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:org/apache/http/client/HttpClient][a:org/apache/http/client/methods/HttpGet][a:org/apache/http/HttpResponse][a:java/io/BufferedReader][a:java/lang/StringBuilder][a:org/json/JSONTokener][a:org/json/JSONObject][a:org/json/JSONObject][a:org/json/JSONObject], Stack:
         - [243] Var: ..., Stack: (empty)
         - [272] Var: ..., Stack: (empty)
         - [301] Var: ..., Stack: (empty)
@@ -1791,7 +1791,7 @@ Methods (count = 9):
         - [644] Var: ..., Stack: (empty)
         - [673] Var: ..., Stack: (empty)
         - [702] Var: ..., Stack: (empty)
-        - [734] Var: [a:com/streetcred/bitcoinrealtimewidget/d], Stack: 
+        - [734] Var: [a:com.streetcred.bitcoinpriceindexwidget/d], Stack:
         - [737] Var: ..., Stack: [a:java/lang/Exception]
         - [742] Var: ..., Stack: (empty)
   + Method:       onProgressUpdate([Ljava/lang/Object;)V
@@ -1804,7 +1804,7 @@ Methods (count = 9):
       [2] checkcast #26
         + Class [[Ljava/lang/Void;]
       [5] invokevirtual #72
-        + Methodref [com/streetcred/bitcoinrealtimewidget/d.a ([Ljava/lang/Void;)V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/d.a ([Ljava/lang/Void;)V]
       [8] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
@@ -1818,7 +1818,7 @@ Methods (count = 9):
       [2] checkcast #42
         + Class [java/lang/String]
       [5] invokevirtual #70
-        + Methodref [com/streetcred/bitcoinrealtimewidget/d.a (Ljava/lang/String;)V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/d.a (Ljava/lang/String;)V]
       [8] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
@@ -1832,7 +1832,7 @@ Methods (count = 9):
       [2] checkcast #25
         + Class [[Ljava/lang/String;]
       [5] invokevirtual #71
-        + Methodref [com/streetcred/bitcoinrealtimewidget/d.a ([Ljava/lang/String;)Ljava/lang/String;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/d.a ([Ljava/lang/String;)Ljava/lang/String;]
       [8] areturn
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
@@ -1840,23 +1840,23 @@ Methods (count = 9):
 Class file attributes (count = 0):
 
 _____________________________________________________________________
-+ Program class: com/streetcred/bitcoinrealtimewidget/RefreshDataReceiver
++ Program class: com.streetcred.bitcoinpriceindexwidget/RefreshDataReceiver
   Superclass:    android/content/BroadcastReceiver
   Major version: 0x32
   Minor version: 0x0
   Access flags:  0x21
-    = public class com.streetcred.bitcoinrealtimewidget.RefreshDataReceiver extends android.content.BroadcastReceiver
+    = public class bitcoinpriceindexwidget.RefreshDataReceiver extends android.content.BroadcastReceiver
 
 Interfaces (count = 0):
 
 Constant Pool (count = 21):
   + Class [android/content/BroadcastReceiver]
-  + Class [com/streetcred/bitcoinrealtimewidget/RefreshDataReceiver]
-  + Class [com/streetcred/bitcoinrealtimewidget/d]
+  + Class [com.streetcred.bitcoinpriceindexwidget/RefreshDataReceiver]
+  + Class [com.streetcred.bitcoinpriceindexwidget/d]
   + Class [java/lang/String]
   + Methodref [android/content/BroadcastReceiver.<init> ()V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/d.<init> ()V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/d.execute ([Ljava/lang/Object;)Landroid/os/AsyncTask;]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/d.<init> ()V]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/d.execute ([Ljava/lang/Object;)Landroid/os/AsyncTask;]
   + NameAndType [<init> ()V]
   + NameAndType [execute ([Ljava/lang/Object;)Landroid/os/AsyncTask;]
   + Utf8 [()V]
@@ -1865,8 +1865,8 @@ Constant Pool (count = 21):
   + Utf8 [<init>]
   + Utf8 [Code]
   + Utf8 [android/content/BroadcastReceiver]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/RefreshDataReceiver]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/d]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/RefreshDataReceiver]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/d]
   + Utf8 [execute]
   + Utf8 [java/lang/String]
   + Utf8 [onReceive]
@@ -1891,17 +1891,17 @@ Methods (count = 2):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 18, locals = 4, stack = 2):
       [0] new #3
-        + Class [com/streetcred/bitcoinrealtimewidget/d]
+        + Class [com.streetcred.bitcoinpriceindexwidget/d]
       [3] dup
       [4] invokespecial #6
-        + Methodref [com/streetcred/bitcoinrealtimewidget/d.<init> ()V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/d.<init> ()V]
       [7] astore_3 v3
       [8] aload_3 v3
       [9] iconst_0
       [10] anewarray #4
         + Class [java/lang/String]
       [13] invokevirtual #7
-        + Methodref [com/streetcred/bitcoinrealtimewidget/d.execute ([Ljava/lang/Object;)Landroid/os/AsyncTask;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/d.execute ([Ljava/lang/Object;)Landroid/os/AsyncTask;]
       [16] pop
       [17] return
       Code attribute exceptions (count = 0):
@@ -1910,12 +1910,12 @@ Methods (count = 2):
 Class file attributes (count = 0):
 
 _____________________________________________________________________
-+ Program class: com/streetcred/bitcoinrealtimewidget/e
++ Program class: com.streetcred.bitcoinpriceindexwidget/e
   Superclass:    android/preference/PreferenceFragment
   Major version: 0x32
   Minor version: 0x0
   Access flags:  0x21
-    = public class com.streetcred.bitcoinrealtimewidget.e extends android.preference.PreferenceFragment
+    = public class bitcoinpriceindexwidget.e extends android.preference.PreferenceFragment
 
 Interfaces (count = 0):
 
@@ -1943,13 +1943,13 @@ Constant Pool (count = 253):
   + Class [android/preference/Preference]
   + Class [android/preference/PreferenceFragment]
   + Class [android/preference/PreferenceScreen]
-  + Class [com/streetcred/bitcoinrealtimewidget/DisplayCurrencyPreferenceDialog]
-  + Class [com/streetcred/bitcoinrealtimewidget/UpdateFrequencyDialog]
-  + Class [com/streetcred/bitcoinrealtimewidget/e]
-  + Class [com/streetcred/bitcoinrealtimewidget/f]
-  + Class [com/streetcred/bitcoinrealtimewidget/g]
-  + Class [com/streetcred/bitcoinrealtimewidget/h]
-  + Class [com/streetcred/bitcoinrealtimewidget/i]
+  + Class [com.streetcred.bitcoinpriceindexwidget/DisplayCurrencyPreferenceDialog]
+  + Class [com.streetcred.bitcoinpriceindexwidget/UpdateFrequencyDialog]
+  + Class [com.streetcred.bitcoinpriceindexwidget/e]
+  + Class [com.streetcred.bitcoinpriceindexwidget/f]
+  + Class [com.streetcred.bitcoinpriceindexwidget/g]
+  + Class [com.streetcred.bitcoinpriceindexwidget/h]
+  + Class [com.streetcred.bitcoinpriceindexwidget/i]
   + Class [java/lang/Boolean]
   + Class [java/lang/Class]
   + Class [java/lang/String]
@@ -1957,9 +1957,9 @@ Constant Pool (count = 253):
   + Class [java/text/MessageFormat]
   + Class [java/util/List]
   + Class [java/util/Locale]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/e.a Ljava/lang/String;]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/e.b Ljava/text/MessageFormat;]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/e.c Ljava/lang/Boolean;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/e.a Ljava/lang/String;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/e.b Ljava/text/MessageFormat;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/e.c Ljava/lang/Boolean;]
   + Fieldref [java/util/Locale.ENGLISH Ljava/util/Locale;]
   + Methodref [android/app/ActionBar.setDisplayHomeAsUpEnabled (Z)V]
   + Methodref [android/app/ActionBar.setDisplayShowTitleEnabled (Z)V]
@@ -1983,27 +1983,27 @@ Constant Pool (count = 253):
   + Methodref [android/preference/PreferenceFragment.onStop ()V]
   + Methodref [android/preference/PreferenceScreen.addPreference (Landroid/preference/Preference;)Z]
   + Methodref [android/preference/PreferenceScreen.removePreference (Landroid/preference/Preference;)Z]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/DisplayCurrencyPreferenceDialog.getValue ()Ljava/lang/String;]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/DisplayCurrencyPreferenceDialog.setOnPreferenceChangeListener (Landroid/preference/Preference$OnPreferenceChangeListener;)V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/DisplayCurrencyPreferenceDialog.setTitle (Ljava/lang/CharSequence;)V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/DisplayCurrencyPreferenceDialog.setValueIndex (I)V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/UpdateFrequencyDialog.getValue ()Ljava/lang/String;]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/UpdateFrequencyDialog.setOnPreferenceChangeListener (Landroid/preference/Preference$OnPreferenceChangeListener;)V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/UpdateFrequencyDialog.setSummary (Ljava/lang/CharSequence;)V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/UpdateFrequencyDialog.setValueIndex (I)V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/e.a ()Landroid/content/Intent;]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/e.a (Landroid/content/Context;)Z]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/e.a (Landroid/preference/Preference;)V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/e.a (Ljava/lang/Class;)Ljava/lang/String;]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/e.addPreferencesFromResource (I)V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/e.b ()V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/e.findPreference (Ljava/lang/CharSequence;)Landroid/preference/Preference;]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/e.getActivity ()Landroid/app/Activity;]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/e.getPreferenceScreen ()Landroid/preference/PreferenceScreen;]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/f.<init> (Lcom/streetcred/bitcoinrealtimewidget/e;)V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/g.<init> (Lcom/streetcred/bitcoinrealtimewidget/e;)V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/h.<init> (Lcom/streetcred/bitcoinrealtimewidget/e;)V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/i.<init> (Lcom/streetcred/bitcoinrealtimewidget/e;)V]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/DisplayCurrencyPreferenceDialog.getValue ()Ljava/lang/String;]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/DisplayCurrencyPreferenceDialog.setOnPreferenceChangeListener (Landroid/preference/Preference$OnPreferenceChangeListener;)V]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/DisplayCurrencyPreferenceDialog.setTitle (Ljava/lang/CharSequence;)V]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/DisplayCurrencyPreferenceDialog.setValueIndex (I)V]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/UpdateFrequencyDialog.getValue ()Ljava/lang/String;]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/UpdateFrequencyDialog.setOnPreferenceChangeListener (Landroid/preference/Preference$OnPreferenceChangeListener;)V]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/UpdateFrequencyDialog.setSummary (Ljava/lang/CharSequence;)V]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/UpdateFrequencyDialog.setValueIndex (I)V]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/e.a ()Landroid/content/Intent;]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/e.a (Landroid/content/Context;)Z]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/e.a (Landroid/preference/Preference;)V]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/e.a (Ljava/lang/Class;)Ljava/lang/String;]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/e.addPreferencesFromResource (I)V]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/e.b ()V]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/e.findPreference (Ljava/lang/CharSequence;)Landroid/preference/Preference;]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/e.getActivity ()Landroid/app/Activity;]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/e.getPreferenceScreen ()Landroid/preference/PreferenceScreen;]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/f.<init> (Lcom.streetcred.bitcoinpriceindexwidget/e;)V]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/g.<init> (Lcom.streetcred.bitcoinpriceindexwidget/e;)V]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/h.<init> (Lcom.streetcred.bitcoinpriceindexwidget/e;)V]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/i.<init> (Lcom.streetcred.bitcoinpriceindexwidget/e;)V]
   + Methodref [java/lang/Boolean.booleanValue ()Z]
   + Methodref [java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;]
   + Methodref [java/lang/Class.getSimpleName ()Ljava/lang/String;]
@@ -2015,7 +2015,7 @@ Constant Pool (count = 253):
   + InterfaceMethodref [java/util/List.isEmpty ()Z]
   + NameAndType [<init> ()V]
   + NameAndType [<init> (Landroid/content/Context;)V]
-  + NameAndType [<init> (Lcom/streetcred/bitcoinrealtimewidget/e;)V]
+  + NameAndType [<init> (Lcom.streetcred.bitcoinpriceindexwidget/e;)V]
   + NameAndType [<init> (Ljava/lang/String;Landroid/net/Uri;)V]
   + NameAndType [<init> (Ljava/lang/String;Ljava/util/Locale;)V]
   + NameAndType [ENGLISH Ljava/util/Locale;]
@@ -2080,7 +2080,7 @@ Constant Pool (count = 253):
   + Utf8 [(Landroid/preference/Preference$OnPreferenceClickListener;)V]
   + Utf8 [(Landroid/preference/Preference;)V]
   + Utf8 [(Landroid/preference/Preference;)Z]
-  + Utf8 [(Lcom/streetcred/bitcoinrealtimewidget/e;)V]
+  + Utf8 [(Lcom.streetcred.bitcoinpriceindexwidget/e;)V]
   + Utf8 [(Ljava/lang/CharSequence;)Landroid/preference/Preference;]
   + Utf8 [(Ljava/lang/CharSequence;)V]
   + Utf8 [(Ljava/lang/Class;)Ljava/lang/String;]
@@ -2123,13 +2123,13 @@ Constant Pool (count = 253):
   + Utf8 [b]
   + Utf8 [booleanValue]
   + Utf8 [c]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/DisplayCurrencyPreferenceDialog]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/UpdateFrequencyDialog]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/e]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/f]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/g]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/h]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/i]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/DisplayCurrencyPreferenceDialog]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/UpdateFrequencyDialog]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/e]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/f]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/g]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/h]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/i]
   + Utf8 [copy_bitcoin_address]
   + Utf8 [findPreference]
   + Utf8 [format]
@@ -2209,10 +2209,10 @@ Methods (count = 11):
       [6] ldc #2
         + Integer [2130968576]
       [8] invokevirtual #76
-        + Methodref [com/streetcred/bitcoinrealtimewidget/e.addPreferencesFromResource (I)V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/e.addPreferencesFromResource (I)V]
       [11] aload_0 v0
       [12] invokevirtual #79
-        + Methodref [com/streetcred/bitcoinrealtimewidget/e.getActivity ()Landroid/app/Activity;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/e.getActivity ()Landroid/app/Activity;]
       [15] invokevirtual #45
         + Methodref [android/app/Activity.getActionBar ()Landroid/app/ActionBar;]
       [18] iconst_0
@@ -2220,7 +2220,7 @@ Methods (count = 11):
         + Methodref [android/app/ActionBar.setDisplayHomeAsUpEnabled (Z)V]
       [22] aload_0 v0
       [23] invokevirtual #79
-        + Methodref [com/streetcred/bitcoinrealtimewidget/e.getActivity ()Landroid/app/Activity;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/e.getActivity ()Landroid/app/Activity;]
       [26] invokevirtual #45
         + Methodref [android/app/Activity.getActionBar ()Landroid/app/ActionBar;]
       [29] iconst_0
@@ -2228,7 +2228,7 @@ Methods (count = 11):
         + Methodref [android/app/ActionBar.setNavigationMode (I)V]
       [33] aload_0 v0
       [34] invokevirtual #79
-        + Methodref [com/streetcred/bitcoinrealtimewidget/e.getActivity ()Landroid/app/Activity;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/e.getActivity ()Landroid/app/Activity;]
       [37] invokevirtual #45
         + Methodref [android/app/Activity.getActionBar ()Landroid/app/ActionBar;]
       [40] iconst_1
@@ -2238,33 +2238,33 @@ Methods (count = 11):
       [45] ldc #9
         + String [copy_bitcoin_address]
       [47] invokevirtual #78
-        + Methodref [com/streetcred/bitcoinrealtimewidget/e.findPreference (Ljava/lang/CharSequence;)Landroid/preference/Preference;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/e.findPreference (Ljava/lang/CharSequence;)Landroid/preference/Preference;]
       [50] new #27
-        + Class [com/streetcred/bitcoinrealtimewidget/f]
+        + Class [com.streetcred.bitcoinpriceindexwidget/f]
       [53] dup
       [54] aload_0 v0
       [55] invokespecial #81
-        + Methodref [com/streetcred/bitcoinrealtimewidget/f.<init> (Lcom/streetcred/bitcoinrealtimewidget/e;)V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/f.<init> (Lcom.streetcred.bitcoinpriceindexwidget/e;)V]
       [58] invokevirtual #55
         + Methodref [android/preference/Preference.setOnPreferenceClickListener (Landroid/preference/Preference$OnPreferenceClickListener;)V]
       [61] aload_0 v0
       [62] ldc #13
         + String [pref_freq]
       [64] invokevirtual #78
-        + Methodref [com/streetcred/bitcoinrealtimewidget/e.findPreference (Ljava/lang/CharSequence;)Landroid/preference/Preference;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/e.findPreference (Ljava/lang/CharSequence;)Landroid/preference/Preference;]
       [67] checkcast #25
-        + Class [com/streetcred/bitcoinrealtimewidget/UpdateFrequencyDialog]
+        + Class [com.streetcred.bitcoinpriceindexwidget/UpdateFrequencyDialog]
       [70] astore_2 v2
       [71] aload_2 v2
       [72] ifnull +58 (target=130)
       [75] aload_2 v2
       [76] invokevirtual #68
-        + Methodref [com/streetcred/bitcoinrealtimewidget/UpdateFrequencyDialog.getValue ()Ljava/lang/String;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/UpdateFrequencyDialog.getValue ()Ljava/lang/String;]
       [79] ifnonnull +8 (target=87)
       [82] aload_2 v2
       [83] iconst_0
       [84] invokevirtual #71
-        + Methodref [com/streetcred/bitcoinrealtimewidget/UpdateFrequencyDialog.setValueIndex (I)V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/UpdateFrequencyDialog.setValueIndex (I)V]
       [87] aload_2 v2
       [88] new #34
         + Class [java/lang/StringBuilder]
@@ -2277,7 +2277,7 @@ Methods (count = 11):
         + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
       [100] aload_2 v2
       [101] invokevirtual #68
-        + Methodref [com/streetcred/bitcoinrealtimewidget/UpdateFrequencyDialog.getValue ()Ljava/lang/String;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/UpdateFrequencyDialog.getValue ()Ljava/lang/String;]
       [104] invokevirtual #89
         + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
       [107] ldc #3
@@ -2287,34 +2287,34 @@ Methods (count = 11):
       [112] invokevirtual #90
         + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
       [115] invokevirtual #70
-        + Methodref [com/streetcred/bitcoinrealtimewidget/UpdateFrequencyDialog.setSummary (Ljava/lang/CharSequence;)V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/UpdateFrequencyDialog.setSummary (Ljava/lang/CharSequence;)V]
       [118] aload_2 v2
       [119] new #28
-        + Class [com/streetcred/bitcoinrealtimewidget/g]
+        + Class [com.streetcred.bitcoinpriceindexwidget/g]
       [122] dup
       [123] aload_0 v0
       [124] invokespecial #82
-        + Methodref [com/streetcred/bitcoinrealtimewidget/g.<init> (Lcom/streetcred/bitcoinrealtimewidget/e;)V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/g.<init> (Lcom.streetcred.bitcoinpriceindexwidget/e;)V]
       [127] invokevirtual #69
-        + Methodref [com/streetcred/bitcoinrealtimewidget/UpdateFrequencyDialog.setOnPreferenceChangeListener (Landroid/preference/Preference$OnPreferenceChangeListener;)V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/UpdateFrequencyDialog.setOnPreferenceChangeListener (Landroid/preference/Preference$OnPreferenceChangeListener;)V]
       [130] aload_0 v0
       [131] ldc #12
         + String [pref_currency]
       [133] invokevirtual #78
-        + Methodref [com/streetcred/bitcoinrealtimewidget/e.findPreference (Ljava/lang/CharSequence;)Landroid/preference/Preference;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/e.findPreference (Ljava/lang/CharSequence;)Landroid/preference/Preference;]
       [136] checkcast #24
-        + Class [com/streetcred/bitcoinrealtimewidget/DisplayCurrencyPreferenceDialog]
+        + Class [com.streetcred.bitcoinpriceindexwidget/DisplayCurrencyPreferenceDialog]
       [139] astore_3 v3
       [140] aload_3 v3
       [141] ifnull +53 (target=194)
       [144] aload_3 v3
       [145] invokevirtual #64
-        + Methodref [com/streetcred/bitcoinrealtimewidget/DisplayCurrencyPreferenceDialog.getValue ()Ljava/lang/String;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/DisplayCurrencyPreferenceDialog.getValue ()Ljava/lang/String;]
       [148] ifnonnull +8 (target=156)
       [151] aload_3 v3
       [152] iconst_0
       [153] invokevirtual #67
-        + Methodref [com/streetcred/bitcoinrealtimewidget/DisplayCurrencyPreferenceDialog.setValueIndex (I)V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/DisplayCurrencyPreferenceDialog.setValueIndex (I)V]
       [156] aload_3 v3
       [157] new #34
         + Class [java/lang/StringBuilder]
@@ -2327,29 +2327,29 @@ Methods (count = 11):
         + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
       [169] aload_3 v3
       [170] invokevirtual #64
-        + Methodref [com/streetcred/bitcoinrealtimewidget/DisplayCurrencyPreferenceDialog.getValue ()Ljava/lang/String;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/DisplayCurrencyPreferenceDialog.getValue ()Ljava/lang/String;]
       [173] invokevirtual #89
         + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
       [176] invokevirtual #90
         + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
       [179] invokevirtual #66
-        + Methodref [com/streetcred/bitcoinrealtimewidget/DisplayCurrencyPreferenceDialog.setTitle (Ljava/lang/CharSequence;)V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/DisplayCurrencyPreferenceDialog.setTitle (Ljava/lang/CharSequence;)V]
       [182] aload_3 v3
       [183] new #29
-        + Class [com/streetcred/bitcoinrealtimewidget/h]
+        + Class [com.streetcred.bitcoinpriceindexwidget/h]
       [186] dup
       [187] aload_0 v0
       [188] invokespecial #83
-        + Methodref [com/streetcred/bitcoinrealtimewidget/h.<init> (Lcom/streetcred/bitcoinrealtimewidget/e;)V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/h.<init> (Lcom.streetcred.bitcoinpriceindexwidget/e;)V]
       [191] invokevirtual #65
-        + Methodref [com/streetcred/bitcoinrealtimewidget/DisplayCurrencyPreferenceDialog.setOnPreferenceChangeListener (Landroid/preference/Preference$OnPreferenceChangeListener;)V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/DisplayCurrencyPreferenceDialog.setOnPreferenceChangeListener (Landroid/preference/Preference$OnPreferenceChangeListener;)V]
       [194] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Stack map table attribute (count = 4):
-        - [87] Var: ...[a:com/streetcred/bitcoinrealtimewidget/UpdateFrequencyDialog], Stack: (empty)
+        - [87] Var: ...[a:com.streetcred.bitcoinpriceindexwidget/UpdateFrequencyDialog], Stack: (empty)
         - [130] Var: ..., Stack: (empty)
-        - [156] Var: ...[a:com/streetcred/bitcoinrealtimewidget/DisplayCurrencyPreferenceDialog], Stack: (empty)
+        - [156] Var: ...[a:com.streetcred.bitcoinpriceindexwidget/DisplayCurrencyPreferenceDialog], Stack: (empty)
         - [194] Var: ..., Stack: (empty)
   + Method:       onResume()V
     Access flags: 0x1
@@ -2361,7 +2361,7 @@ Methods (count = 11):
         + Methodref [android/preference/PreferenceFragment.onResume ()V]
       [4] aload_0 v0
       [5] invokespecial #77
-        + Methodref [com/streetcred/bitcoinrealtimewidget/e.b ()V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/e.b ()V]
       [8] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
@@ -2396,13 +2396,13 @@ Methods (count = 11):
       [1] ldc #14
         + String [prefer_rate_and_feedback]
       [3] invokevirtual #78
-        + Methodref [com/streetcred/bitcoinrealtimewidget/e.findPreference (Ljava/lang/CharSequence;)Landroid/preference/Preference;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/e.findPreference (Ljava/lang/CharSequence;)Landroid/preference/Preference;]
       [6] astore_1 v1
       [7] aload_0 v0
       [8] invokevirtual #79
-        + Methodref [com/streetcred/bitcoinrealtimewidget/e.getActivity ()Landroid/app/Activity;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/e.getActivity ()Landroid/app/Activity;]
       [11] invokestatic #73
-        + Methodref [com/streetcred/bitcoinrealtimewidget/e.a (Landroid/content/Context;)Z]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/e.a (Landroid/content/Context;)Z]
       [14] ifeq +61 (target=75)
       [17] aload_1 v1
       [18] ifnonnull +62 (target=80)
@@ -2411,7 +2411,7 @@ Methods (count = 11):
       [24] dup
       [25] aload_0 v0
       [26] invokevirtual #79
-        + Methodref [com/streetcred/bitcoinrealtimewidget/e.getActivity ()Landroid/app/Activity;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/e.getActivity ()Landroid/app/Activity;]
       [29] invokespecial #53
         + Methodref [android/preference/Preference.<init> (Landroid/content/Context;)V]
       [32] astore_1 v1
@@ -2432,16 +2432,16 @@ Methods (count = 11):
         + Methodref [android/preference/Preference.setSummary (Ljava/lang/CharSequence;)V]
       [51] aload_1 v1
       [52] new #30
-        + Class [com/streetcred/bitcoinrealtimewidget/i]
+        + Class [com.streetcred.bitcoinpriceindexwidget/i]
       [55] dup
       [56] aload_0 v0
       [57] invokespecial #84
-        + Methodref [com/streetcred/bitcoinrealtimewidget/i.<init> (Lcom/streetcred/bitcoinrealtimewidget/e;)V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/i.<init> (Lcom.streetcred.bitcoinpriceindexwidget/e;)V]
       [60] invokevirtual #55
         + Methodref [android/preference/Preference.setOnPreferenceClickListener (Landroid/preference/Preference$OnPreferenceClickListener;)V]
       [63] aload_0 v0
       [64] invokevirtual #80
-        + Methodref [com/streetcred/bitcoinrealtimewidget/e.getPreferenceScreen ()Landroid/preference/PreferenceScreen;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/e.getPreferenceScreen ()Landroid/preference/PreferenceScreen;]
       [67] aload_1 v1
       [68] invokevirtual #62
         + Methodref [android/preference/PreferenceScreen.addPreference (Landroid/preference/Preference;)Z]
@@ -2450,7 +2450,7 @@ Methods (count = 11):
       [75] aload_0 v0
       [76] aload_1 v1
       [77] invokespecial #74
-        + Methodref [com/streetcred/bitcoinrealtimewidget/e.a (Landroid/preference/Preference;)V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/e.a (Landroid/preference/Preference;)V]
       [80] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
@@ -2463,7 +2463,7 @@ Methods (count = 11):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 45, locals = 2, stack = 3):
       [0] getstatic #40
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/e.c Ljava/lang/Boolean;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/e.c Ljava/lang/Boolean;]
       [3] ifnonnull +35 (target=38)
       [6] aload_0 v0
       [7] invokevirtual #46
@@ -2471,7 +2471,7 @@ Methods (count = 11):
       [10] astore_1 v1
       [11] aload_1 v1
       [12] invokestatic #72
-        + Methodref [com/streetcred/bitcoinrealtimewidget/e.a ()Landroid/content/Intent;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/e.a ()Landroid/content/Intent;]
       [15] iconst_0
       [16] invokevirtual #51
         + Methodref [android/content/pm/PackageManager.queryIntentActivities (Landroid/content/Intent;I)Ljava/util/List;]
@@ -2484,9 +2484,9 @@ Methods (count = 11):
       [32] invokestatic #86
         + Methodref [java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;]
       [35] putstatic #40
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/e.c Ljava/lang/Boolean;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/e.c Ljava/lang/Boolean;]
       [38] getstatic #40
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/e.c Ljava/lang/Boolean;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/e.c Ljava/lang/Boolean;]
       [41] invokevirtual #85
         + Methodref [java/lang/Boolean.booleanValue ()Z]
       [44] ireturn
@@ -2526,7 +2526,7 @@ Methods (count = 11):
       [4] ldc #8
         + String [android.intent.action.VIEW]
       [6] getstatic #39
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/e.b Ljava/text/MessageFormat;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/e.b Ljava/text/MessageFormat;]
       [9] iconst_1
       [10] anewarray #33
         + Class [java/lang/String]
@@ -2566,7 +2566,7 @@ Methods (count = 11):
       [1] ifnull +12 (target=13)
       [4] aload_0 v0
       [5] invokevirtual #80
-        + Methodref [com/streetcred/bitcoinrealtimewidget/e.getPreferenceScreen ()Landroid/preference/PreferenceScreen;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/e.getPreferenceScreen ()Landroid/preference/PreferenceScreen;]
       [8] aload_1 v1
       [9] invokevirtual #63
         + Methodref [android/preference/PreferenceScreen.removePreference (Landroid/preference/Preference;)Z]
@@ -2582,14 +2582,14 @@ Methods (count = 11):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 28, locals = 0, stack = 4):
       [0] ldc #26
-        + Class [com/streetcred/bitcoinrealtimewidget/e]
+        + Class [com.streetcred.bitcoinpriceindexwidget/e]
       [2] invokestatic #75
-        + Methodref [com/streetcred/bitcoinrealtimewidget/e.a (Ljava/lang/Class;)Ljava/lang/String;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/e.a (Ljava/lang/Class;)Ljava/lang/String;]
       [5] putstatic #38
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/e.a Ljava/lang/String;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/e.a Ljava/lang/String;]
       [8] aconst_null
       [9] putstatic #40
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/e.c Ljava/lang/Boolean;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/e.c Ljava/lang/Boolean;]
       [12] new #35
         + Class [java/text/MessageFormat]
       [15] dup
@@ -2600,7 +2600,7 @@ Methods (count = 11):
       [21] invokespecial #91
         + Methodref [java/text/MessageFormat.<init> (Ljava/lang/String;Ljava/util/Locale;)V]
       [24] putstatic #39
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/e.b Ljava/text/MessageFormat;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/e.b Ljava/text/MessageFormat;]
       [27] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
@@ -2608,12 +2608,12 @@ Methods (count = 11):
 Class file attributes (count = 0):
 
 _____________________________________________________________________
-+ Program class: com/streetcred/bitcoinrealtimewidget/f
++ Program class: com.streetcred.bitcoinpriceindexwidget/f
   Superclass:    java/lang/Object
   Major version: 0x32
   Minor version: 0x0
   Access flags:  0x20
-    = class com.streetcred.bitcoinrealtimewidget.f extends java.lang.Object
+    = class bitcoinpriceindexwidget.f extends java.lang.Object
 
 Interfaces (count = 1):
   + Class [android/preference/Preference$OnPreferenceClickListener]
@@ -2629,19 +2629,19 @@ Constant Pool (count = 60):
   + Class [android/content/ClipboardManager]
   + Class [android/preference/Preference$OnPreferenceClickListener]
   + Class [android/widget/Toast]
-  + Class [com/streetcred/bitcoinrealtimewidget/e]
-  + Class [com/streetcred/bitcoinrealtimewidget/f]
+  + Class [com.streetcred.bitcoinpriceindexwidget/e]
+  + Class [com.streetcred.bitcoinpriceindexwidget/f]
   + Class [java/lang/Object]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/f.a Lcom/streetcred/bitcoinrealtimewidget/e;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/f.a Lcom.streetcred.bitcoinpriceindexwidget/e;]
   + Methodref [android/app/Activity.getSystemService (Ljava/lang/String;)Ljava/lang/Object;]
   + Methodref [android/content/ClipData.newPlainText (Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Landroid/content/ClipData;]
   + Methodref [android/content/ClipboardManager.setPrimaryClip (Landroid/content/ClipData;)V]
   + Methodref [android/widget/Toast.makeText (Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;]
   + Methodref [android/widget/Toast.show ()V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/e.getActivity ()Landroid/app/Activity;]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/e.getActivity ()Landroid/app/Activity;]
   + Methodref [java/lang/Object.<init> ()V]
   + NameAndType [<init> ()V]
-  + NameAndType [a Lcom/streetcred/bitcoinrealtimewidget/e;]
+  + NameAndType [a Lcom.streetcred.bitcoinpriceindexwidget/e;]
   + NameAndType [getActivity ()Landroid/app/Activity;]
   + NameAndType [getSystemService (Ljava/lang/String;)Ljava/lang/Object;]
   + NameAndType [makeText (Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;]
@@ -2653,7 +2653,7 @@ Constant Pool (count = 60):
   + Utf8 [(Landroid/content/ClipData;)V]
   + Utf8 [(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;]
   + Utf8 [(Landroid/preference/Preference;)Z]
-  + Utf8 [(Lcom/streetcred/bitcoinrealtimewidget/e;)V]
+  + Utf8 [(Lcom.streetcred.bitcoinpriceindexwidget/e;)V]
   + Utf8 [(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Landroid/content/ClipData;]
   + Utf8 [(Ljava/lang/String;)Ljava/lang/Object;]
   + Utf8 [13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH]
@@ -2662,7 +2662,7 @@ Constant Pool (count = 60):
 13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH]
   + Utf8 [Bitcoin Address]
   + Utf8 [Code]
-  + Utf8 [Lcom/streetcred/bitcoinrealtimewidget/e;]
+  + Utf8 [Lcom.streetcred.bitcoinpriceindexwidget/e;]
   + Utf8 [a]
   + Utf8 [android/app/Activity]
   + Utf8 [android/content/ClipData]
@@ -2670,8 +2670,8 @@ Constant Pool (count = 60):
   + Utf8 [android/preference/Preference$OnPreferenceClickListener]
   + Utf8 [android/widget/Toast]
   + Utf8 [clipboard]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/e]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/f]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/e]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/f]
   + Utf8 [getActivity]
   + Utf8 [getSystemService]
   + Utf8 [java/lang/Object]
@@ -2682,20 +2682,20 @@ Constant Pool (count = 60):
   + Utf8 [show]
 
 Fields (count = 1):
-  + Field:        a Lcom/streetcred/bitcoinrealtimewidget/e;
+  + Field:        a Lcom.streetcred.bitcoinpriceindexwidget/e;
     Access flags: 0x1010
-      = final synthetic com.streetcred.bitcoinrealtimewidget.e a
+      = final synthetic bitcoinpriceindexwidget.e a
 
 Methods (count = 2):
-  - Method:       <init>(Lcom/streetcred/bitcoinrealtimewidget/e;)V
+  - Method:       <init>(Lcom.streetcred.bitcoinpriceindexwidget/e;)V
     Access flags: 0x0
-      = f(com.streetcred.bitcoinrealtimewidget.e)
+      = f(bitcoinpriceindexwidget.e)
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 10, locals = 2, stack = 2):
       [0] aload_0 v0
       [1] aload_1 v1
       [2] putfield #13
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/f.a Lcom/streetcred/bitcoinrealtimewidget/e;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/f.a Lcom.streetcred.bitcoinpriceindexwidget/e;]
       [5] aload_0 v0
       [6] invokespecial #20
         + Methodref [java/lang/Object.<init> ()V]
@@ -2709,9 +2709,9 @@ Methods (count = 2):
     + Code attribute instructions (code length = 47, locals = 4, stack = 3):
       [0] aload_0 v0
       [1] getfield #13
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/f.a Lcom/streetcred/bitcoinrealtimewidget/e;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/f.a Lcom.streetcred.bitcoinpriceindexwidget/e;]
       [4] invokevirtual #19
-        + Methodref [com/streetcred/bitcoinrealtimewidget/e.getActivity ()Landroid/app/Activity;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/e.getActivity ()Landroid/app/Activity;]
       [7] ldc #4
         + String [clipboard]
       [9] invokevirtual #14
@@ -2732,9 +2732,9 @@ Methods (count = 2):
         + Methodref [android/content/ClipboardManager.setPrimaryClip (Landroid/content/ClipData;)V]
       [29] aload_0 v0
       [30] getfield #13
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/f.a Lcom/streetcred/bitcoinrealtimewidget/e;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/f.a Lcom.streetcred.bitcoinpriceindexwidget/e;]
       [33] invokevirtual #19
-        + Methodref [com/streetcred/bitcoinrealtimewidget/e.getActivity ()Landroid/app/Activity;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/e.getActivity ()Landroid/app/Activity;]
       [36] ldc #2
         + String [Address Copied. Thank You for Your Support!
 13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH]
@@ -2751,12 +2751,12 @@ Methods (count = 2):
 Class file attributes (count = 0):
 
 _____________________________________________________________________
-+ Program class: com/streetcred/bitcoinrealtimewidget/g
++ Program class: com.streetcred.bitcoinpriceindexwidget/g
   Superclass:    java/lang/Object
   Major version: 0x32
   Minor version: 0x0
   Access flags:  0x20
-    = class com.streetcred.bitcoinrealtimewidget.g extends java.lang.Object
+    = class bitcoinpriceindexwidget.g extends java.lang.Object
 
 Interfaces (count = 1):
   + Class [android/preference/Preference$OnPreferenceChangeListener]
@@ -2766,10 +2766,10 @@ Constant Pool (count = 41):
   + String [Currently updating every ]
   + Class [android/preference/Preference]
   + Class [android/preference/Preference$OnPreferenceChangeListener]
-  + Class [com/streetcred/bitcoinrealtimewidget/g]
+  + Class [com.streetcred.bitcoinpriceindexwidget/g]
   + Class [java/lang/Object]
   + Class [java/lang/StringBuilder]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/g.a Lcom/streetcred/bitcoinrealtimewidget/e;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/g.a Lcom.streetcred.bitcoinpriceindexwidget/e;]
   + Methodref [android/preference/Preference.setSummary (Ljava/lang/CharSequence;)V]
   + Methodref [java/lang/Object.<init> ()V]
   + Methodref [java/lang/Object.toString ()Ljava/lang/String;]
@@ -2777,26 +2777,26 @@ Constant Pool (count = 41):
   + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
   + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
   + NameAndType [<init> ()V]
-  + NameAndType [a Lcom/streetcred/bitcoinrealtimewidget/e;]
+  + NameAndType [a Lcom.streetcred.bitcoinpriceindexwidget/e;]
   + NameAndType [append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
   + NameAndType [setSummary (Ljava/lang/CharSequence;)V]
   + NameAndType [toString ()Ljava/lang/String;]
   + Utf8 [()Ljava/lang/String;]
   + Utf8 [()V]
   + Utf8 [(Landroid/preference/Preference;Ljava/lang/Object;)Z]
-  + Utf8 [(Lcom/streetcred/bitcoinrealtimewidget/e;)V]
+  + Utf8 [(Lcom.streetcred.bitcoinpriceindexwidget/e;)V]
   + Utf8 [(Ljava/lang/CharSequence;)V]
   + Utf8 [(Ljava/lang/String;)Ljava/lang/StringBuilder;]
   + Utf8 [.]
   + Utf8 [<init>]
   + Utf8 [Code]
   + Utf8 [Currently updating every ]
-  + Utf8 [Lcom/streetcred/bitcoinrealtimewidget/e;]
+  + Utf8 [Lcom.streetcred.bitcoinpriceindexwidget/e;]
   + Utf8 [a]
   + Utf8 [android/preference/Preference]
   + Utf8 [android/preference/Preference$OnPreferenceChangeListener]
   + Utf8 [append]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/g]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/g]
   + Utf8 [java/lang/Object]
   + Utf8 [java/lang/StringBuilder]
   + Utf8 [onPreferenceChange]
@@ -2804,20 +2804,20 @@ Constant Pool (count = 41):
   + Utf8 [toString]
 
 Fields (count = 1):
-  + Field:        a Lcom/streetcred/bitcoinrealtimewidget/e;
+  + Field:        a Lcom.streetcred.bitcoinpriceindexwidget/e;
     Access flags: 0x1010
-      = final synthetic com.streetcred.bitcoinrealtimewidget.e a
+      = final synthetic bitcoinpriceindexwidget.e a
 
 Methods (count = 2):
-  - Method:       <init>(Lcom/streetcred/bitcoinrealtimewidget/e;)V
+  - Method:       <init>(Lcom.streetcred.bitcoinpriceindexwidget/e;)V
     Access flags: 0x0
-      = g(com.streetcred.bitcoinrealtimewidget.e)
+      = g(bitcoinpriceindexwidget.e)
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 10, locals = 2, stack = 2):
       [0] aload_0 v0
       [1] aload_1 v1
       [2] putfield #8
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/g.a Lcom/streetcred/bitcoinrealtimewidget/e;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/g.a Lcom.streetcred.bitcoinpriceindexwidget/e;]
       [5] aload_0 v0
       [6] invokespecial #10
         + Methodref [java/lang/Object.<init> ()V]
@@ -2860,12 +2860,12 @@ Methods (count = 2):
 Class file attributes (count = 0):
 
 _____________________________________________________________________
-+ Program class: com/streetcred/bitcoinrealtimewidget/h
++ Program class: com.streetcred.bitcoinpriceindexwidget/h
   Superclass:    java/lang/Object
   Major version: 0x32
   Minor version: 0x0
   Access flags:  0x20
-    = class com.streetcred.bitcoinrealtimewidget.h extends java.lang.Object
+    = class bitcoinpriceindexwidget.h extends java.lang.Object
 
 Interfaces (count = 1):
   + Class [android/preference/Preference$OnPreferenceChangeListener]
@@ -2877,17 +2877,17 @@ Constant Pool (count = 71):
   + Class [android/content/SharedPreferences$Editor]
   + Class [android/preference/Preference]
   + Class [android/preference/Preference$OnPreferenceChangeListener]
-  + Class [com/streetcred/bitcoinrealtimewidget/XBTWidgetApplication]
-  + Class [com/streetcred/bitcoinrealtimewidget/d]
-  + Class [com/streetcred/bitcoinrealtimewidget/h]
+  + Class [com.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication]
+  + Class [com.streetcred.bitcoinpriceindexwidget/d]
+  + Class [com.streetcred.bitcoinpriceindexwidget/h]
   + Class [java/lang/Object]
   + Class [java/lang/String]
   + Class [java/lang/StringBuilder]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/h.a Lcom/streetcred/bitcoinrealtimewidget/e;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/h.a Lcom.streetcred.bitcoinpriceindexwidget/e;]
   + Methodref [android/preference/Preference.setTitle (Ljava/lang/CharSequence;)V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/XBTWidgetApplication.a ()Landroid/content/SharedPreferences;]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/d.<init> ()V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/d.execute ([Ljava/lang/Object;)Landroid/os/AsyncTask;]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication.a ()Landroid/content/SharedPreferences;]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/d.<init> ()V]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/d.execute ([Ljava/lang/Object;)Landroid/os/AsyncTask;]
   + Methodref [java/lang/Object.<init> ()V]
   + Methodref [java/lang/Object.toString ()Ljava/lang/String;]
   + Methodref [java/lang/StringBuilder.<init> ()V]
@@ -2898,7 +2898,7 @@ Constant Pool (count = 71):
   + InterfaceMethodref [android/content/SharedPreferences$Editor.putString (Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;]
   + NameAndType [<init> ()V]
   + NameAndType [a ()Landroid/content/SharedPreferences;]
-  + NameAndType [a Lcom/streetcred/bitcoinrealtimewidget/e;]
+  + NameAndType [a Lcom.streetcred.bitcoinpriceindexwidget/e;]
   + NameAndType [append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
   + NameAndType [commit ()Z]
   + NameAndType [edit ()Landroid/content/SharedPreferences$Editor;]
@@ -2912,7 +2912,7 @@ Constant Pool (count = 71):
   + Utf8 [()V]
   + Utf8 [()Z]
   + Utf8 [(Landroid/preference/Preference;Ljava/lang/Object;)Z]
-  + Utf8 [(Lcom/streetcred/bitcoinrealtimewidget/e;)V]
+  + Utf8 [(Lcom.streetcred.bitcoinpriceindexwidget/e;)V]
   + Utf8 [(Ljava/lang/CharSequence;)V]
   + Utf8 [(Ljava/lang/String;)Ljava/lang/StringBuilder;]
   + Utf8 [(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;]
@@ -2920,16 +2920,16 @@ Constant Pool (count = 71):
   + Utf8 [<init>]
   + Utf8 [Code]
   + Utf8 [Display Currency: ]
-  + Utf8 [Lcom/streetcred/bitcoinrealtimewidget/e;]
+  + Utf8 [Lcom.streetcred.bitcoinpriceindexwidget/e;]
   + Utf8 [a]
   + Utf8 [android/content/SharedPreferences]
   + Utf8 [android/content/SharedPreferences$Editor]
   + Utf8 [android/preference/Preference]
   + Utf8 [android/preference/Preference$OnPreferenceChangeListener]
   + Utf8 [append]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/XBTWidgetApplication]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/d]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/h]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/d]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/h]
   + Utf8 [commit]
   + Utf8 [edit]
   + Utf8 [execute]
@@ -2943,20 +2943,20 @@ Constant Pool (count = 71):
   + Utf8 [toString]
 
 Fields (count = 1):
-  + Field:        a Lcom/streetcred/bitcoinrealtimewidget/e;
+  + Field:        a Lcom.streetcred.bitcoinpriceindexwidget/e;
     Access flags: 0x1010
-      = final synthetic com.streetcred.bitcoinrealtimewidget.e a
+      = final synthetic bitcoinpriceindexwidget.e a
 
 Methods (count = 2):
-  - Method:       <init>(Lcom/streetcred/bitcoinrealtimewidget/e;)V
+  - Method:       <init>(Lcom.streetcred.bitcoinpriceindexwidget/e;)V
     Access flags: 0x0
-      = h(com.streetcred.bitcoinrealtimewidget.e)
+      = h(bitcoinpriceindexwidget.e)
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 10, locals = 2, stack = 2):
       [0] aload_0 v0
       [1] aload_1 v1
       [2] putfield #13
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/h.a Lcom/streetcred/bitcoinrealtimewidget/e;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/h.a Lcom.streetcred.bitcoinpriceindexwidget/e;]
       [5] aload_0 v0
       [6] invokespecial #18
         + Methodref [java/lang/Object.<init> ()V]
@@ -2969,7 +2969,7 @@ Methods (count = 2):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 70, locals = 4, stack = 3):
       [0] invokestatic #15
-        + Methodref [com/streetcred/bitcoinrealtimewidget/XBTWidgetApplication.a ()Landroid/content/SharedPreferences;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication.a ()Landroid/content/SharedPreferences;]
       [3] invokeinterface #23
         + InterfaceMethodref [android/content/SharedPreferences.edit ()Landroid/content/SharedPreferences$Editor;]
       [8] ldc #2
@@ -3002,17 +3002,17 @@ Methods (count = 2):
       [48] invokevirtual #14
         + Methodref [android/preference/Preference.setTitle (Ljava/lang/CharSequence;)V]
       [51] new #8
-        + Class [com/streetcred/bitcoinrealtimewidget/d]
+        + Class [com.streetcred.bitcoinpriceindexwidget/d]
       [54] dup
       [55] invokespecial #16
-        + Methodref [com/streetcred/bitcoinrealtimewidget/d.<init> ()V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/d.<init> ()V]
       [58] astore_3 v3
       [59] aload_3 v3
       [60] iconst_0
       [61] anewarray #11
         + Class [java/lang/String]
       [64] invokevirtual #17
-        + Methodref [com/streetcred/bitcoinrealtimewidget/d.execute ([Ljava/lang/Object;)Landroid/os/AsyncTask;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/d.execute ([Ljava/lang/Object;)Landroid/os/AsyncTask;]
       [67] pop
       [68] iconst_1
       [69] ireturn
@@ -3022,12 +3022,12 @@ Methods (count = 2):
 Class file attributes (count = 0):
 
 _____________________________________________________________________
-+ Program class: com/streetcred/bitcoinrealtimewidget/i
++ Program class: com.streetcred.bitcoinpriceindexwidget/i
   Superclass:    java/lang/Object
   Major version: 0x32
   Minor version: 0x0
   Access flags:  0x20
-    = class com.streetcred.bitcoinrealtimewidget.i extends java.lang.Object
+    = class bitcoinpriceindexwidget.i extends java.lang.Object
 
 Interfaces (count = 1):
   + Class [android/preference/Preference$OnPreferenceClickListener]
@@ -3035,16 +3035,16 @@ Interfaces (count = 1):
 Constant Pool (count = 35):
   + Class [android/app/Activity]
   + Class [android/preference/Preference$OnPreferenceClickListener]
-  + Class [com/streetcred/bitcoinrealtimewidget/e]
-  + Class [com/streetcred/bitcoinrealtimewidget/i]
+  + Class [com.streetcred.bitcoinpriceindexwidget/e]
+  + Class [com.streetcred.bitcoinpriceindexwidget/i]
   + Class [java/lang/Object]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/i.a Lcom/streetcred/bitcoinrealtimewidget/e;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/i.a Lcom.streetcred.bitcoinpriceindexwidget/e;]
   + Methodref [android/app/Activity.startActivity (Landroid/content/Intent;)V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/e.b (Landroid/content/Context;)Landroid/content/Intent;]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/e.getActivity ()Landroid/app/Activity;]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/e.b (Landroid/content/Context;)Landroid/content/Intent;]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/e.getActivity ()Landroid/app/Activity;]
   + Methodref [java/lang/Object.<init> ()V]
   + NameAndType [<init> ()V]
-  + NameAndType [a Lcom/streetcred/bitcoinrealtimewidget/e;]
+  + NameAndType [a Lcom.streetcred.bitcoinpriceindexwidget/e;]
   + NameAndType [b (Landroid/content/Context;)Landroid/content/Intent;]
   + NameAndType [getActivity ()Landroid/app/Activity;]
   + NameAndType [startActivity (Landroid/content/Intent;)V]
@@ -3053,36 +3053,36 @@ Constant Pool (count = 35):
   + Utf8 [(Landroid/content/Context;)Landroid/content/Intent;]
   + Utf8 [(Landroid/content/Intent;)V]
   + Utf8 [(Landroid/preference/Preference;)Z]
-  + Utf8 [(Lcom/streetcred/bitcoinrealtimewidget/e;)V]
+  + Utf8 [(Lcom.streetcred.bitcoinpriceindexwidget/e;)V]
   + Utf8 [<init>]
   + Utf8 [Code]
-  + Utf8 [Lcom/streetcred/bitcoinrealtimewidget/e;]
+  + Utf8 [Lcom.streetcred.bitcoinpriceindexwidget/e;]
   + Utf8 [a]
   + Utf8 [android/app/Activity]
   + Utf8 [android/preference/Preference$OnPreferenceClickListener]
   + Utf8 [b]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/e]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/i]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/e]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/i]
   + Utf8 [getActivity]
   + Utf8 [java/lang/Object]
   + Utf8 [onPreferenceClick]
   + Utf8 [startActivity]
 
 Fields (count = 1):
-  + Field:        a Lcom/streetcred/bitcoinrealtimewidget/e;
+  + Field:        a Lcom.streetcred.bitcoinpriceindexwidget/e;
     Access flags: 0x1010
-      = final synthetic com.streetcred.bitcoinrealtimewidget.e a
+      = final synthetic bitcoinpriceindexwidget.e a
 
 Methods (count = 2):
-  - Method:       <init>(Lcom/streetcred/bitcoinrealtimewidget/e;)V
+  - Method:       <init>(Lcom.streetcred.bitcoinpriceindexwidget/e;)V
     Access flags: 0x0
-      = i(com.streetcred.bitcoinrealtimewidget.e)
+      = i(bitcoinpriceindexwidget.e)
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 10, locals = 2, stack = 2):
       [0] aload_0 v0
       [1] aload_1 v1
       [2] putfield #6
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/i.a Lcom/streetcred/bitcoinrealtimewidget/e;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/i.a Lcom.streetcred.bitcoinpriceindexwidget/e;]
       [5] aload_0 v0
       [6] invokespecial #10
         + Methodref [java/lang/Object.<init> ()V]
@@ -3096,16 +3096,16 @@ Methods (count = 2):
     + Code attribute instructions (code length = 22, locals = 2, stack = 2):
       [0] aload_0 v0
       [1] getfield #6
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/i.a Lcom/streetcred/bitcoinrealtimewidget/e;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/i.a Lcom.streetcred.bitcoinpriceindexwidget/e;]
       [4] invokevirtual #9
-        + Methodref [com/streetcred/bitcoinrealtimewidget/e.getActivity ()Landroid/app/Activity;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/e.getActivity ()Landroid/app/Activity;]
       [7] aload_0 v0
       [8] getfield #6
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/i.a Lcom/streetcred/bitcoinrealtimewidget/e;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/i.a Lcom.streetcred.bitcoinpriceindexwidget/e;]
       [11] invokevirtual #9
-        + Methodref [com/streetcred/bitcoinrealtimewidget/e.getActivity ()Landroid/app/Activity;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/e.getActivity ()Landroid/app/Activity;]
       [14] invokestatic #8
-        + Methodref [com/streetcred/bitcoinrealtimewidget/e.b (Landroid/content/Context;)Landroid/content/Intent;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/e.b (Landroid/content/Context;)Landroid/content/Intent;]
       [17] invokevirtual #7
         + Methodref [android/app/Activity.startActivity (Landroid/content/Intent;)V]
       [20] iconst_1
@@ -3116,18 +3116,18 @@ Methods (count = 2):
 Class file attributes (count = 0):
 
 _____________________________________________________________________
-+ Program class: com/streetcred/bitcoinrealtimewidget/UpdateFrequencyDialog
++ Program class: com.streetcred.bitcoinpriceindexwidget/UpdateFrequencyDialog
   Superclass:    android/preference/ListPreference
   Major version: 0x32
   Minor version: 0x0
   Access flags:  0x21
-    = public class com.streetcred.bitcoinrealtimewidget.UpdateFrequencyDialog extends android.preference.ListPreference
+    = public class bitcoinpriceindexwidget.UpdateFrequencyDialog extends android.preference.ListPreference
 
 Interfaces (count = 0):
 
 Constant Pool (count = 14):
   + Class [android/preference/ListPreference]
-  + Class [com/streetcred/bitcoinrealtimewidget/UpdateFrequencyDialog]
+  + Class [com.streetcred.bitcoinpriceindexwidget/UpdateFrequencyDialog]
   + Methodref [android/preference/ListPreference.<init> (Landroid/content/Context;Landroid/util/AttributeSet;)V]
   + Methodref [android/preference/ListPreference.onPrepareDialogBuilder (Landroid/app/AlertDialog$Builder;)V]
   + NameAndType [<init> (Landroid/content/Context;Landroid/util/AttributeSet;)V]
@@ -3137,7 +3137,7 @@ Constant Pool (count = 14):
   + Utf8 [<init>]
   + Utf8 [Code]
   + Utf8 [android/preference/ListPreference]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/UpdateFrequencyDialog]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/UpdateFrequencyDialog]
   + Utf8 [onPrepareDialogBuilder]
 
 Fields (count = 0):
@@ -3172,12 +3172,12 @@ Methods (count = 2):
 Class file attributes (count = 0):
 
 _____________________________________________________________________
-+ Program class: com/streetcred/bitcoinrealtimewidget/j
++ Program class: com.streetcred.bitcoinpriceindexwidget/j
   Superclass:    java/lang/Object
   Major version: 0x32
   Minor version: 0x0
   Access flags:  0x21
-    = public class com.streetcred.bitcoinrealtimewidget.j extends java.lang.Object
+    = public class bitcoinpriceindexwidget.j extends java.lang.Object
 
 Interfaces (count = 0):
 
@@ -3194,7 +3194,7 @@ Constant Pool (count = 63):
   + String [4 minutes]
   + String [8 hours]
   + String [8 minutes]
-  + Class [com/streetcred/bitcoinrealtimewidget/j]
+  + Class [com.streetcred.bitcoinpriceindexwidget/j]
   + Class [java/lang/Object]
   + Class [java/lang/String]
   + Long [60000]
@@ -3228,7 +3228,7 @@ Constant Pool (count = 63):
   + Utf8 [Code]
   + Utf8 [StackMapTable]
   + Utf8 [a]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/j]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/j]
   + Utf8 [equalsIgnoreCase]
   + Utf8 [java/lang/Object]
   + Utf8 [java/lang/String]
@@ -3371,12 +3371,12 @@ Methods (count = 1):
 Class file attributes (count = 0):
 
 _____________________________________________________________________
-+ Program class: com/streetcred/bitcoinrealtimewidget/XBTRealtimeWidgetProvider
++ Program class: com.streetcred.bitcoinpriceindexwidget/XBTRealtimeWidgetProvider
   Superclass:    android/appwidget/AppWidgetProvider
   Major version: 0x32
   Minor version: 0x0
   Access flags:  0x21
-    = public class com.streetcred.bitcoinrealtimewidget.XBTRealtimeWidgetProvider extends android.appwidget.AppWidgetProvider
+    = public class bitcoinpriceindexwidget.XBTRealtimeWidgetProvider extends android.appwidget.AppWidgetProvider
 
 Interfaces (count = 0):
 
@@ -3385,17 +3385,17 @@ Constant Pool (count = 75):
   + Integer [2130903041]
   + Integer [2131230721]
   + Integer [2131230723]
-  + String [com.streetcred.bitcoinrealtimewidget.REFRESH_REQUEST]
+  + String [bitcoinpriceindexwidget.REFRESH_REQUEST]
   + Class [android/app/PendingIntent]
   + Class [android/appwidget/AppWidgetManager]
   + Class [android/appwidget/AppWidgetProvider]
   + Class [android/content/Context]
   + Class [android/content/Intent]
   + Class [android/widget/RemoteViews]
-  + Class [com/streetcred/bitcoinrealtimewidget/MainActivity]
-  + Class [com/streetcred/bitcoinrealtimewidget/RefreshDataReceiver]
-  + Class [com/streetcred/bitcoinrealtimewidget/XBTRealtimeWidgetProvider]
-  + Class [com/streetcred/bitcoinrealtimewidget/k]
+  + Class [com.streetcred.bitcoinpriceindexwidget/MainActivity]
+  + Class [com.streetcred.bitcoinpriceindexwidget/RefreshDataReceiver]
+  + Class [com.streetcred.bitcoinpriceindexwidget/XBTRealtimeWidgetProvider]
+  + Class [com.streetcred.bitcoinpriceindexwidget/k]
   + Class [java/util/Timer]
   + Long [30000]
   + Methodref [android/app/PendingIntent.getActivity (Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;]
@@ -3407,12 +3407,12 @@ Constant Pool (count = 75):
   + Methodref [android/content/Intent.setAction (Ljava/lang/String;)Landroid/content/Intent;]
   + Methodref [android/widget/RemoteViews.<init> (Ljava/lang/String;I)V]
   + Methodref [android/widget/RemoteViews.setOnClickPendingIntent (ILandroid/app/PendingIntent;)V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/k.<init> (Lcom/streetcred/bitcoinrealtimewidget/XBTRealtimeWidgetProvider;Landroid/content/Context;Landroid/appwidget/AppWidgetManager;)V]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/k.<init> (Lcom.streetcred.bitcoinpriceindexwidget/XBTRealtimeWidgetProvider;Landroid/content/Context;Landroid/appwidget/AppWidgetManager;)V]
   + Methodref [java/util/Timer.<init> ()V]
   + Methodref [java/util/Timer.scheduleAtFixedRate (Ljava/util/TimerTask;JJ)V]
   + NameAndType [<init> ()V]
   + NameAndType [<init> (Landroid/content/Context;Ljava/lang/Class;)V]
-  + NameAndType [<init> (Lcom/streetcred/bitcoinrealtimewidget/XBTRealtimeWidgetProvider;Landroid/content/Context;Landroid/appwidget/AppWidgetManager;)V]
+  + NameAndType [<init> (Lcom.streetcred.bitcoinpriceindexwidget/XBTRealtimeWidgetProvider;Landroid/content/Context;Landroid/appwidget/AppWidgetManager;)V]
   + NameAndType [<init> (Ljava/lang/String;I)V]
   + NameAndType [getActivity (Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;]
   + NameAndType [getBroadcast (Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;]
@@ -3427,7 +3427,7 @@ Constant Pool (count = 75):
   + Utf8 [(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;]
   + Utf8 [(Landroid/content/Context;Landroid/appwidget/AppWidgetManager;[I)V]
   + Utf8 [(Landroid/content/Context;Ljava/lang/Class;)V]
-  + Utf8 [(Lcom/streetcred/bitcoinrealtimewidget/XBTRealtimeWidgetProvider;Landroid/content/Context;Landroid/appwidget/AppWidgetManager;)V]
+  + Utf8 [(Lcom.streetcred.bitcoinpriceindexwidget/XBTRealtimeWidgetProvider;Landroid/content/Context;Landroid/appwidget/AppWidgetManager;)V]
   + Utf8 [(Ljava/lang/String;)Landroid/content/Intent;]
   + Utf8 [(Ljava/lang/String;I)V]
   + Utf8 [(Ljava/util/TimerTask;JJ)V]
@@ -3440,11 +3440,11 @@ Constant Pool (count = 75):
   + Utf8 [android/content/Context]
   + Utf8 [android/content/Intent]
   + Utf8 [android/widget/RemoteViews]
-  + Utf8 [com.streetcred.bitcoinrealtimewidget.REFRESH_REQUEST]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/MainActivity]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/RefreshDataReceiver]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/XBTRealtimeWidgetProvider]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/k]
+  + Utf8 [bitcoinpriceindexwidget.REFRESH_REQUEST]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/MainActivity]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/RefreshDataReceiver]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/XBTRealtimeWidgetProvider]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/k]
   + Utf8 [getActivity]
   + Utf8 [getBroadcast]
   + Utf8 [getPackageName]
@@ -3482,13 +3482,13 @@ Methods (count = 2):
       [7] astore v4
       [9] aload v4
       [11] new #15
-        + Class [com/streetcred/bitcoinrealtimewidget/k]
+        + Class [com.streetcred.bitcoinpriceindexwidget/k]
       [14] dup
       [15] aload_0 v0
       [16] aload_1 v1
       [17] aload_2 v2
       [18] invokespecial #28
-        + Methodref [com/streetcred/bitcoinrealtimewidget/k.<init> (Lcom/streetcred/bitcoinrealtimewidget/XBTRealtimeWidgetProvider;Landroid/content/Context;Landroid/appwidget/AppWidgetManager;)V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/k.<init> (Lcom.streetcred.bitcoinpriceindexwidget/XBTRealtimeWidgetProvider;Landroid/content/Context;Landroid/appwidget/AppWidgetManager;)V]
       [21] lconst_1
       [22] ldc2_w #17
         + Long [30000]
@@ -3510,7 +3510,7 @@ Methods (count = 2):
       [46] dup
       [47] aload_1 v1
       [48] ldc #12
-        + Class [com/streetcred/bitcoinrealtimewidget/MainActivity]
+        + Class [com.streetcred.bitcoinpriceindexwidget/MainActivity]
       [50] invokespecial #24
         + Methodref [android/content/Intent.<init> (Landroid/content/Context;Ljava/lang/Class;)V]
       [53] astore v6
@@ -3537,13 +3537,13 @@ Methods (count = 2):
       [84] dup
       [85] aload_1 v1
       [86] ldc #13
-        + Class [com/streetcred/bitcoinrealtimewidget/RefreshDataReceiver]
+        + Class [com.streetcred.bitcoinpriceindexwidget/RefreshDataReceiver]
       [88] invokespecial #24
         + Methodref [android/content/Intent.<init> (Landroid/content/Context;Ljava/lang/Class;)V]
       [91] astore v8
       [93] aload v8
       [95] ldc #5
-        + String [com.streetcred.bitcoinrealtimewidget.REFRESH_REQUEST]
+        + String [bitcoinpriceindexwidget.REFRESH_REQUEST]
       [97] invokevirtual #25
         + Methodref [android/content/Intent.setAction (Ljava/lang/String;)Landroid/content/Intent;]
       [100] pop
@@ -3573,12 +3573,12 @@ Methods (count = 2):
 Class file attributes (count = 0):
 
 _____________________________________________________________________
-+ Program class: com/streetcred/bitcoinrealtimewidget/k
++ Program class: com.streetcred.bitcoinpriceindexwidget/k
   Superclass:    java/util/TimerTask
   Major version: 0x32
   Minor version: 0x0
   Access flags:  0x20
-    = class com.streetcred.bitcoinrealtimewidget.k extends java.util.TimerTask
+    = class bitcoinpriceindexwidget.k extends java.util.TimerTask
 
 Interfaces (count = 0):
 
@@ -3631,11 +3631,11 @@ Constant Pool (count = 337):
   + Class [android/preference/PreferenceManager]
   + Class [android/util/Log]
   + Class [android/widget/RemoteViews]
-  + Class [com/streetcred/bitcoinrealtimewidget/XBTRealtimeWidgetProvider]
-  + Class [com/streetcred/bitcoinrealtimewidget/XBTWidgetApplication]
-  + Class [com/streetcred/bitcoinrealtimewidget/j]
-  + Class [com/streetcred/bitcoinrealtimewidget/k]
-  + Class [com/streetcred/bitcoinrealtimewidget/l]
+  + Class [com.streetcred.bitcoinpriceindexwidget/XBTRealtimeWidgetProvider]
+  + Class [com.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication]
+  + Class [com.streetcred.bitcoinpriceindexwidget/j]
+  + Class [com.streetcred.bitcoinpriceindexwidget/k]
+  + Class [com.streetcred.bitcoinpriceindexwidget/l]
   + Class [java/io/BufferedReader]
   + Class [java/io/InputStreamReader]
   + Class [java/lang/Double]
@@ -3659,13 +3659,13 @@ Constant Pool (count = 337):
   + Long [24]
   + Long [60]
   + Long [11000]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/k.a Landroid/widget/RemoteViews;]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/k.b Landroid/appwidget/AppWidgetManager;]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/k.c Landroid/content/ComponentName;]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/k.e Landroid/content/SharedPreferences;]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/k.f J]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/k.g Landroid/content/Context;]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/k.h Lcom/streetcred/bitcoinrealtimewidget/XBTRealtimeWidgetProvider;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.a Landroid/widget/RemoteViews;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.b Landroid/appwidget/AppWidgetManager;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.c Landroid/content/ComponentName;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.e Landroid/content/SharedPreferences;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.f J]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.g Landroid/content/Context;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.h Lcom.streetcred.bitcoinpriceindexwidget/XBTRealtimeWidgetProvider;]
   + Fieldref [java/util/concurrent/TimeUnit.MILLISECONDS Ljava/util/concurrent/TimeUnit;]
   + Methodref [android/appwidget/AppWidgetManager.updateAppWidget (Landroid/content/ComponentName;Landroid/widget/RemoteViews;)V]
   + Methodref [android/content/ComponentName.<init> (Landroid/content/Context;Ljava/lang/Class;)V]
@@ -3674,11 +3674,11 @@ Constant Pool (count = 337):
   + Methodref [android/util/Log.e (Ljava/lang/String;Ljava/lang/String;)I]
   + Methodref [android/widget/RemoteViews.<init> (Ljava/lang/String;I)V]
   + Methodref [android/widget/RemoteViews.setTextViewText (ILjava/lang/CharSequence;)V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/XBTWidgetApplication.a ()Landroid/content/SharedPreferences;]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/j.a (Ljava/lang/String;)J]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/k.a ()D]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/k.a (Ljava/lang/Long;)Ljava/lang/String;]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/l.<init> (Lcom/streetcred/bitcoinrealtimewidget/k;)V]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication.a ()Landroid/content/SharedPreferences;]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/j.a (Ljava/lang/String;)J]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/k.a ()D]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/k.a (Ljava/lang/Long;)Ljava/lang/String;]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/l.<init> (Lcom.streetcred.bitcoinpriceindexwidget/k;)V]
   + Methodref [java/io/BufferedReader.<init> (Ljava/io/Reader;)V]
   + Methodref [java/io/BufferedReader.readLine ()Ljava/lang/String;]
   + Methodref [java/io/InputStreamReader.<init> (Ljava/io/InputStream;Ljava/lang/String;)V]
@@ -3715,7 +3715,7 @@ Constant Pool (count = 337):
   + InterfaceMethodref [org/apache/http/client/HttpClient.execute (Lorg/apache/http/client/methods/HttpUriRequest;)Lorg/apache/http/HttpResponse;]
   + NameAndType [<init> ()V]
   + NameAndType [<init> (Landroid/content/Context;Ljava/lang/Class;)V]
-  + NameAndType [<init> (Lcom/streetcred/bitcoinrealtimewidget/k;)V]
+  + NameAndType [<init> (Lcom.streetcred.bitcoinpriceindexwidget/k;)V]
   + NameAndType [<init> (Ljava/io/InputStream;Ljava/lang/String;)V]
   + NameAndType [<init> (Ljava/io/Reader;)V]
   + NameAndType [<init> (Ljava/lang/String;)V]
@@ -3744,7 +3744,7 @@ Constant Pool (count = 337):
   + NameAndType [getLong (Ljava/lang/String;J)J]
   + NameAndType [getPackageName ()Ljava/lang/String;]
   + NameAndType [getString (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
-  + NameAndType [h Lcom/streetcred/bitcoinrealtimewidget/XBTRealtimeWidgetProvider;]
+  + NameAndType [h Lcom.streetcred.bitcoinpriceindexwidget/XBTRealtimeWidgetProvider;]
   + NameAndType [has (Ljava/lang/String;)Z]
   + NameAndType [isNull (Ljava/lang/String;)Z]
   + NameAndType [longValue ()J]
@@ -3788,9 +3788,9 @@ Constant Pool (count = 337):
   + Utf8 [(Landroid/content/ComponentName;Landroid/widget/RemoteViews;)V]
   + Utf8 [(Landroid/content/Context;)Landroid/content/SharedPreferences;]
   + Utf8 [(Landroid/content/Context;Ljava/lang/Class;)V]
-  + Utf8 [(Lcom/streetcred/bitcoinrealtimewidget/XBTRealtimeWidgetProvider;Landroid/content/Context;Landroid/appwidget/AppWidgetManager;)V]
-  + Utf8 [(Lcom/streetcred/bitcoinrealtimewidget/k;)D]
-  + Utf8 [(Lcom/streetcred/bitcoinrealtimewidget/k;)V]
+  + Utf8 [(Lcom.streetcred.bitcoinpriceindexwidget/XBTRealtimeWidgetProvider;Landroid/content/Context;Landroid/appwidget/AppWidgetManager;)V]
+  + Utf8 [(Lcom.streetcred.bitcoinpriceindexwidget/k;)D]
+  + Utf8 [(Lcom.streetcred.bitcoinpriceindexwidget/k;)V]
   + Utf8 [(Ljava/io/InputStream;Ljava/lang/String;)V]
   + Utf8 [(Ljava/io/Reader;)V]
   + Utf8 [(Ljava/lang/Long;)Ljava/lang/String;]
@@ -3822,7 +3822,7 @@ Constant Pool (count = 337):
   + Utf8 [Landroid/content/Context;]
   + Utf8 [Landroid/content/SharedPreferences;]
   + Utf8 [Landroid/widget/RemoteViews;]
-  + Utf8 [Lcom/streetcred/bitcoinrealtimewidget/XBTRealtimeWidgetProvider;]
+  + Utf8 [Lcom.streetcred.bitcoinpriceindexwidget/XBTRealtimeWidgetProvider;]
   + Utf8 [Ljava/util/concurrent/TimeUnit;]
   + Utf8 [MILLISECONDS]
   + Utf8 [StackMapTable]
@@ -3843,11 +3843,11 @@ Constant Pool (count = 337):
   + Utf8 [c]
   + Utf8 [called?]
   + Utf8 [code]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/XBTRealtimeWidgetProvider]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/XBTWidgetApplication]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/j]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/k]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/l]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/XBTRealtimeWidgetProvider]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/j]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/k]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/l]
   + Utf8 [currentTimeMillis]
   + Utf8 [d]
   + Utf8 [description]
@@ -3941,27 +3941,27 @@ Fields (count = 8):
   + Field:        g Landroid/content/Context;
     Access flags: 0x0
       = android.content.Context g
-  + Field:        h Lcom/streetcred/bitcoinrealtimewidget/XBTRealtimeWidgetProvider;
+  + Field:        h Lcom.streetcred.bitcoinpriceindexwidget/XBTRealtimeWidgetProvider;
     Access flags: 0x1010
-      = final synthetic com.streetcred.bitcoinrealtimewidget.XBTRealtimeWidgetProvider h
+      = final synthetic bitcoinpriceindexwidget.XBTRealtimeWidgetProvider h
 
 Methods (count = 5):
-  - Method:       <init>(Lcom/streetcred/bitcoinrealtimewidget/XBTRealtimeWidgetProvider;Landroid/content/Context;Landroid/appwidget/AppWidgetManager;)V
+  - Method:       <init>(Lcom.streetcred.bitcoinpriceindexwidget/XBTRealtimeWidgetProvider;Landroid/content/Context;Landroid/appwidget/AppWidgetManager;)V
     Access flags: 0x1
-      = public k(com.streetcred.bitcoinrealtimewidget.XBTRealtimeWidgetProvider,android.content.Context,android.appwidget.AppWidgetManager)
+      = public k(bitcoinpriceindexwidget.XBTRealtimeWidgetProvider,android.content.Context,android.appwidget.AppWidgetManager)
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 58, locals = 4, stack = 5):
       [0] aload_0 v0
       [1] aload_1 v1
       [2] putfield #85
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.h Lcom/streetcred/bitcoinrealtimewidget/XBTRealtimeWidgetProvider;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.h Lcom.streetcred.bitcoinpriceindexwidget/XBTRealtimeWidgetProvider;]
       [5] aload_0 v0
       [6] invokespecial #115
         + Methodref [java/util/TimerTask.<init> ()V]
       [9] aload_0 v0
       [10] aload_3 v3
       [11] putfield #80
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.b Landroid/appwidget/AppWidgetManager;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.b Landroid/appwidget/AppWidgetManager;]
       [14] aload_0 v0
       [15] new #47
         + Class [android/widget/RemoteViews]
@@ -3974,27 +3974,27 @@ Methods (count = 5):
       [25] invokespecial #92
         + Methodref [android/widget/RemoteViews.<init> (Ljava/lang/String;I)V]
       [28] putfield #79
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.a Landroid/widget/RemoteViews;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.a Landroid/widget/RemoteViews;]
       [31] aload_0 v0
       [32] new #42
         + Class [android/content/ComponentName]
       [35] dup
       [36] aload_2 v2
       [37] ldc #48
-        + Class [com/streetcred/bitcoinrealtimewidget/XBTRealtimeWidgetProvider]
+        + Class [com.streetcred.bitcoinpriceindexwidget/XBTRealtimeWidgetProvider]
       [39] invokespecial #88
         + Methodref [android/content/ComponentName.<init> (Landroid/content/Context;Ljava/lang/Class;)V]
       [42] putfield #81
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.c Landroid/content/ComponentName;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.c Landroid/content/ComponentName;]
       [45] aload_0 v0
       [46] invokestatic #94
-        + Methodref [com/streetcred/bitcoinrealtimewidget/XBTWidgetApplication.a ()Landroid/content/SharedPreferences;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication.a ()Landroid/content/SharedPreferences;]
       [49] putfield #82
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.e Landroid/content/SharedPreferences;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.e Landroid/content/SharedPreferences;]
       [52] aload_0 v0
       [53] aload_2 v2
       [54] putfield #84
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.g Landroid/content/Context;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.g Landroid/content/Context;]
       [57] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
@@ -4012,7 +4012,7 @@ Methods (count = 5):
       [7] pop
       [8] aload_0 v0
       [9] getfield #80
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.b Landroid/appwidget/AppWidgetManager;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.b Landroid/appwidget/AppWidgetManager;]
       [12] ifnull +14 (target=26)
       [15] ldc #20
         + String [appmanager]
@@ -4031,7 +4031,7 @@ Methods (count = 5):
       [33] pop
       [34] aload_0 v0
       [35] getfield #79
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.a Landroid/widget/RemoteViews;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.a Landroid/widget/RemoteViews;]
       [38] ifnull +14 (target=52)
       [41] ldc #34
         + String [remoteViews]
@@ -4050,7 +4050,7 @@ Methods (count = 5):
       [59] pop
       [60] aload_0 v0
       [61] getfield #84
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.g Landroid/content/Context;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.g Landroid/content/Context;]
       [64] invokestatic #90
         + Methodref [android/preference/PreferenceManager.getDefaultSharedPreferences (Landroid/content/Context;)Landroid/content/SharedPreferences;]
       [67] astore_1 v1
@@ -4065,14 +4065,14 @@ Methods (count = 5):
       [79] aload_0 v0
       [80] aload_2 v2
       [81] invokestatic #95
-        + Methodref [com/streetcred/bitcoinrealtimewidget/j.a (Ljava/lang/String;)J]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/j.a (Ljava/lang/String;)J]
       [84] putfield #83
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.f J]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.f J]
       [87] invokestatic #113
         + Methodref [java/lang/System.currentTimeMillis ()J]
       [90] aload_0 v0
       [91] getfield #82
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.e Landroid/content/SharedPreferences;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.e Landroid/content/SharedPreferences;]
       [94] ldc #28
         + String [lastupdated_unixtime]
       [96] lconst_0
@@ -4085,7 +4085,7 @@ Methods (count = 5):
       [107] aload_0 v0
       [108] aload_3 v3
       [109] invokespecial #97
-        + Methodref [com/streetcred/bitcoinrealtimewidget/k.a (Ljava/lang/Long;)Ljava/lang/String;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/k.a (Ljava/lang/Long;)Ljava/lang/String;]
       [112] astore v4
       [114] ldc #37
         + String [updatedSince]
@@ -4102,7 +4102,7 @@ Methods (count = 5):
         + Methodref [java/lang/Long.longValue ()J]
       [131] aload_0 v0
       [132] getfield #83
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.f J]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.f J]
       [135] lcmp
       [136] ifle +29 (target=165)
       [139] ldc #25
@@ -4113,11 +4113,11 @@ Methods (count = 5):
         + Methodref [android/util/Log.e (Ljava/lang/String;Ljava/lang/String;)I]
       [146] pop
       [147] new #52
-        + Class [com/streetcred/bitcoinrealtimewidget/l]
+        + Class [com.streetcred.bitcoinpriceindexwidget/l]
       [150] dup
       [151] aload_0 v0
       [152] invokespecial #98
-        + Methodref [com/streetcred/bitcoinrealtimewidget/l.<init> (Lcom/streetcred/bitcoinrealtimewidget/k;)V]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/l.<init> (Lcom.streetcred.bitcoinpriceindexwidget/k;)V]
       [155] astore v5
       [157] aload v5
       [159] invokevirtual #114
@@ -4139,7 +4139,7 @@ Methods (count = 5):
       [181] ifge +40 (target=221)
       [184] aload_0 v0
       [185] getfield #79
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.a Landroid/widget/RemoteViews;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.a Landroid/widget/RemoteViews;]
       [188] ldc #2
         + Integer [2131230724]
       [190] ldc #14
@@ -4148,13 +4148,13 @@ Methods (count = 5):
         + Methodref [android/widget/RemoteViews.setTextViewText (ILjava/lang/CharSequence;)V]
       [195] aload_0 v0
       [196] getfield #80
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.b Landroid/appwidget/AppWidgetManager;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.b Landroid/appwidget/AppWidgetManager;]
       [199] aload_0 v0
       [200] getfield #81
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.c Landroid/content/ComponentName;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.c Landroid/content/ComponentName;]
       [203] aload_0 v0
       [204] getfield #79
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.a Landroid/widget/RemoteViews;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.a Landroid/widget/RemoteViews;]
       [207] invokevirtual #87
         + Methodref [android/appwidget/AppWidgetManager.updateAppWidget (Landroid/content/ComponentName;Landroid/widget/RemoteViews;)V]
       [210] ldc #36
@@ -4167,7 +4167,7 @@ Methods (count = 5):
       [218] goto +60 (target=278)
       [221] aload_0 v0
       [222] getfield #79
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.a Landroid/widget/RemoteViews;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.a Landroid/widget/RemoteViews;]
       [225] ldc #2
         + Integer [2131230724]
       [227] new #61
@@ -4192,13 +4192,13 @@ Methods (count = 5):
         + Methodref [android/widget/RemoteViews.setTextViewText (ILjava/lang/CharSequence;)V]
       [255] aload_0 v0
       [256] getfield #80
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.b Landroid/appwidget/AppWidgetManager;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.b Landroid/appwidget/AppWidgetManager;]
       [259] aload_0 v0
       [260] getfield #81
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.c Landroid/content/ComponentName;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.c Landroid/content/ComponentName;]
       [263] aload_0 v0
       [264] getfield #79
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.a Landroid/widget/RemoteViews;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.a Landroid/widget/RemoteViews;]
       [267] invokevirtual #87
         + Methodref [android/appwidget/AppWidgetManager.updateAppWidget (Landroid/content/ComponentName;Landroid/widget/RemoteViews;)V]
       [270] ldc #36
@@ -4223,7 +4223,7 @@ Methods (count = 5):
         - [34] Var: ..., Stack: (empty)
         - [52] Var: ..., Stack: (empty)
         - [60] Var: ..., Stack: (empty)
-        - [165] Var: [a:com/streetcred/bitcoinrealtimewidget/k][a:android/content/SharedPreferences][a:java/lang/String][a:java/lang/Long][a:java/lang/String], Stack: 
+        - [165] Var: [a:com.streetcred.bitcoinpriceindexwidget/k][a:android/content/SharedPreferences][a:java/lang/String][a:java/lang/Long][a:java/lang/String], Stack:
         - [221] Var: ..., Stack: (empty)
         - [278] Var: -2, Stack: (empty)
         - [281] Var: ..., Stack: [a:java/lang/NullPointerException]
@@ -4449,7 +4449,7 @@ Methods (count = 5):
       [332] ifnull +30 (target=362)
       [335] aload_0 v0
       [336] getfield #82
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.e Landroid/content/SharedPreferences;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.e Landroid/content/SharedPreferences;]
       [339] ldc #31
         + String [preferred_currency]
       [341] ldc #18
@@ -4565,7 +4565,7 @@ Methods (count = 5):
       [518] ifnull +30 (target=548)
       [521] aload_0 v0
       [522] getfield #82
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.e Landroid/content/SharedPreferences;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.e Landroid/content/SharedPreferences;]
       [525] ldc #31
         + String [preferred_currency]
       [527] ldc #18
@@ -4681,7 +4681,7 @@ Methods (count = 5):
       [704] ifnull +30 (target=734)
       [707] aload_0 v0
       [708] getfield #82
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.e Landroid/content/SharedPreferences;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.e Landroid/content/SharedPreferences;]
       [711] ldc #31
         + String [preferred_currency]
       [713] ldc #18
@@ -4713,9 +4713,9 @@ Methods (count = 5):
       + Class [java/lang/Exception]
       Code attribute attributes (attribute count = 1):
       + Stack map table attribute (count = 22):
-        - [115] Var: [a:com/streetcred/bitcoinrealtimewidget/k][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:org/apache/http/client/HttpClient][a:org/apache/http/client/methods/HttpGet][a:org/apache/http/HttpResponse][a:java/io/BufferedReader][a:java/lang/StringBuilder], Stack: 
+        - [115] Var: [a:com.streetcred.bitcoinpriceindexwidget/k][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:org/apache/http/client/HttpClient][a:org/apache/http/client/methods/HttpGet][a:org/apache/http/HttpResponse][a:java/io/BufferedReader][a:java/lang/StringBuilder], Stack:
         - [142] Var: ..., Stack: (empty)
-        - [215] Var: [a:com/streetcred/bitcoinrealtimewidget/k][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:org/apache/http/client/HttpClient][a:org/apache/http/client/methods/HttpGet][a:org/apache/http/HttpResponse][a:java/io/BufferedReader][a:java/lang/StringBuilder][a:org/json/JSONTokener][a:org/json/JSONObject][a:org/json/JSONObject][a:org/json/JSONObject], Stack: 
+        - [215] Var: [a:com.streetcred.bitcoinpriceindexwidget/k][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:java/lang/String][a:org/apache/http/client/HttpClient][a:org/apache/http/client/methods/HttpGet][a:org/apache/http/HttpResponse][a:java/io/BufferedReader][a:java/lang/StringBuilder][a:org/json/JSONTokener][a:org/json/JSONObject][a:org/json/JSONObject][a:org/json/JSONObject], Stack:
         - [243] Var: ..., Stack: (empty)
         - [272] Var: ..., Stack: (empty)
         - [301] Var: ..., Stack: (empty)
@@ -4732,7 +4732,7 @@ Methods (count = 5):
         - [644] Var: ..., Stack: (empty)
         - [673] Var: ..., Stack: (empty)
         - [702] Var: ..., Stack: (empty)
-        - [734] Var: [a:com/streetcred/bitcoinrealtimewidget/k], Stack: 
+        - [734] Var: [a:com.streetcred.bitcoinpriceindexwidget/k], Stack:
         - [737] Var: ..., Stack: [a:java/lang/Exception]
         - [742] Var: ..., Stack: (empty)
   + Method:       a(Ljava/lang/Long;)Ljava/lang/String;
@@ -4983,14 +4983,14 @@ Methods (count = 5):
         - [226] Var: ..., Stack: (empty)
         - [252] Var: ..., Stack: (empty)
         - [293] Var: ..., Stack: (empty)
-  + Method:       a(Lcom/streetcred/bitcoinrealtimewidget/k;)D
+  + Method:       a(Lcom.streetcred.bitcoinpriceindexwidget/k;)D
     Access flags: 0x1008
-      = static synthetic double a(com.streetcred.bitcoinrealtimewidget.k)
+      = static synthetic double a(bitcoinpriceindexwidget.k)
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 2):
       [0] aload_0 v0
       [1] invokespecial #96
-        + Methodref [com/streetcred/bitcoinrealtimewidget/k.a ()D]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/k.a ()D]
       [4] dreturn
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
@@ -4998,12 +4998,12 @@ Methods (count = 5):
 Class file attributes (count = 0):
 
 _____________________________________________________________________
-+ Program class: com/streetcred/bitcoinrealtimewidget/l
++ Program class: com.streetcred.bitcoinpriceindexwidget/l
   Superclass:    java/lang/Thread
   Major version: 0x32
   Minor version: 0x0
   Access flags:  0x20
-    = class com.streetcred.bitcoinrealtimewidget.l extends java.lang.Thread
+    = class bitcoinpriceindexwidget.l extends java.lang.Thread
 
 Interfaces (count = 0):
 
@@ -5020,22 +5020,22 @@ Constant Pool (count = 106):
   + Class [android/content/SharedPreferences$Editor]
   + Class [android/util/Log]
   + Class [android/widget/RemoteViews]
-  + Class [com/streetcred/bitcoinrealtimewidget/k]
-  + Class [com/streetcred/bitcoinrealtimewidget/l]
+  + Class [com.streetcred.bitcoinpriceindexwidget/k]
+  + Class [com.streetcred.bitcoinpriceindexwidget/l]
   + Class [java/lang/Exception]
   + Class [java/lang/System]
   + Class [java/lang/Thread]
   + Class [java/text/DecimalFormat]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/k.a Landroid/widget/RemoteViews;]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/k.b Landroid/appwidget/AppWidgetManager;]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/k.c Landroid/content/ComponentName;]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/k.d D]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/k.e Landroid/content/SharedPreferences;]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/l.a Lcom/streetcred/bitcoinrealtimewidget/k;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.a Landroid/widget/RemoteViews;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.b Landroid/appwidget/AppWidgetManager;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.c Landroid/content/ComponentName;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.d D]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.e Landroid/content/SharedPreferences;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/l.a Lcom.streetcred.bitcoinpriceindexwidget/k;]
   + Methodref [android/appwidget/AppWidgetManager.updateAppWidget (Landroid/content/ComponentName;Landroid/widget/RemoteViews;)V]
   + Methodref [android/util/Log.e (Ljava/lang/String;Ljava/lang/String;)I]
   + Methodref [android/widget/RemoteViews.setTextViewText (ILjava/lang/CharSequence;)V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/k.a (Lcom/streetcred/bitcoinrealtimewidget/k;)D]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/k.a (Lcom.streetcred.bitcoinpriceindexwidget/k;)D]
   + Methodref [java/lang/Exception.printStackTrace ()V]
   + Methodref [java/lang/System.currentTimeMillis ()J]
   + Methodref [java/lang/Thread.<init> ()V]
@@ -5046,9 +5046,9 @@ Constant Pool (count = 106):
   + InterfaceMethodref [android/content/SharedPreferences$Editor.putLong (Ljava/lang/String;J)Landroid/content/SharedPreferences$Editor;]
   + NameAndType [<init> ()V]
   + NameAndType [<init> (Ljava/lang/String;)V]
-  + NameAndType [a (Lcom/streetcred/bitcoinrealtimewidget/k;)D]
+  + NameAndType [a (Lcom.streetcred.bitcoinpriceindexwidget/k;)D]
   + NameAndType [a Landroid/widget/RemoteViews;]
-  + NameAndType [a Lcom/streetcred/bitcoinrealtimewidget/k;]
+  + NameAndType [a Lcom.streetcred.bitcoinpriceindexwidget/k;]
   + NameAndType [b Landroid/appwidget/AppWidgetManager;]
   + NameAndType [c Landroid/content/ComponentName;]
   + NameAndType [commit ()Z]
@@ -5069,8 +5069,8 @@ Constant Pool (count = 106):
   + Utf8 [(D)Ljava/lang/String;]
   + Utf8 [(ILjava/lang/CharSequence;)V]
   + Utf8 [(Landroid/content/ComponentName;Landroid/widget/RemoteViews;)V]
-  + Utf8 [(Lcom/streetcred/bitcoinrealtimewidget/k;)D]
-  + Utf8 [(Lcom/streetcred/bitcoinrealtimewidget/k;)V]
+  + Utf8 [(Lcom.streetcred.bitcoinpriceindexwidget/k;)D]
+  + Utf8 [(Lcom.streetcred.bitcoinpriceindexwidget/k;)V]
   + Utf8 [(Ljava/lang/String;)V]
   + Utf8 [(Ljava/lang/String;J)Landroid/content/SharedPreferences$Editor;]
   + Utf8 [(Ljava/lang/String;Ljava/lang/String;)I]
@@ -5083,7 +5083,7 @@ Constant Pool (count = 106):
   + Utf8 [Landroid/content/ComponentName;]
   + Utf8 [Landroid/content/SharedPreferences;]
   + Utf8 [Landroid/widget/RemoteViews;]
-  + Utf8 [Lcom/streetcred/bitcoinrealtimewidget/k;]
+  + Utf8 [Lcom.streetcred.bitcoinpriceindexwidget/k;]
   + Utf8 [StackMapTable]
   + Utf8 [a]
   + Utf8 [android/appwidget/AppWidgetManager]
@@ -5093,8 +5093,8 @@ Constant Pool (count = 106):
   + Utf8 [android/widget/RemoteViews]
   + Utf8 [b]
   + Utf8 [c]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/k]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/l]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/k]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/l]
   + Utf8 [commit]
   + Utf8 [currentTimeMillis]
   + Utf8 [d]
@@ -5115,20 +5115,20 @@ Constant Pool (count = 106):
   + Utf8 [yes]
 
 Fields (count = 1):
-  + Field:        a Lcom/streetcred/bitcoinrealtimewidget/k;
+  + Field:        a Lcom.streetcred.bitcoinpriceindexwidget/k;
     Access flags: 0x1010
-      = final synthetic com.streetcred.bitcoinrealtimewidget.k a
+      = final synthetic bitcoinpriceindexwidget.k a
 
 Methods (count = 2):
-  - Method:       <init>(Lcom/streetcred/bitcoinrealtimewidget/k;)V
+  - Method:       <init>(Lcom.streetcred.bitcoinpriceindexwidget/k;)V
     Access flags: 0x0
-      = l(com.streetcred.bitcoinrealtimewidget.k)
+      = l(bitcoinpriceindexwidget.k)
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 10, locals = 2, stack = 2):
       [0] aload_0 v0
       [1] aload_1 v1
       [2] putfield #24
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/l.a Lcom/streetcred/bitcoinrealtimewidget/k;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/l.a Lcom.streetcred.bitcoinpriceindexwidget/k;]
       [5] aload_0 v0
       [6] invokespecial #31
         + Methodref [java/lang/Thread.<init> ()V]
@@ -5142,14 +5142,14 @@ Methods (count = 2):
     + Code attribute instructions (code length = 130, locals = 2, stack = 5):
       [0] aload_0 v0
       [1] getfield #24
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/l.a Lcom/streetcred/bitcoinrealtimewidget/k;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/l.a Lcom.streetcred.bitcoinpriceindexwidget/k;]
       [4] aload_0 v0
       [5] getfield #24
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/l.a Lcom/streetcred/bitcoinrealtimewidget/k;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/l.a Lcom.streetcred.bitcoinpriceindexwidget/k;]
       [8] invokestatic #28
-        + Methodref [com/streetcred/bitcoinrealtimewidget/k.a (Lcom/streetcred/bitcoinrealtimewidget/k;)D]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/k.a (Lcom.streetcred.bitcoinpriceindexwidget/k;)D]
       [11] putfield #22
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.d D]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.d D]
       [14] new #18
         + Class [java/text/DecimalFormat]
       [17] dup
@@ -5160,26 +5160,26 @@ Methods (count = 2):
       [23] astore_1 v1
       [24] aload_0 v0
       [25] getfield #24
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/l.a Lcom/streetcred/bitcoinrealtimewidget/k;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/l.a Lcom.streetcred.bitcoinpriceindexwidget/k;]
       [28] getfield #19
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.a Landroid/widget/RemoteViews;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.a Landroid/widget/RemoteViews;]
       [31] ldc #1
         + Integer [2131230721]
       [33] aload_1 v1
       [34] aload_0 v0
       [35] getfield #24
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/l.a Lcom/streetcred/bitcoinrealtimewidget/k;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/l.a Lcom.streetcred.bitcoinpriceindexwidget/k;]
       [38] getfield #22
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.d D]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.d D]
       [41] invokevirtual #33
         + Methodref [java/text/DecimalFormat.format (D)Ljava/lang/String;]
       [44] invokevirtual #27
         + Methodref [android/widget/RemoteViews.setTextViewText (ILjava/lang/CharSequence;)V]
       [47] aload_0 v0
       [48] getfield #24
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/l.a Lcom/streetcred/bitcoinrealtimewidget/k;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/l.a Lcom.streetcred.bitcoinpriceindexwidget/k;]
       [51] getfield #19
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.a Landroid/widget/RemoteViews;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.a Landroid/widget/RemoteViews;]
       [54] ldc #2
         + Integer [2131230724]
       [56] ldc #3
@@ -5188,9 +5188,9 @@ Methods (count = 2):
         + Methodref [android/widget/RemoteViews.setTextViewText (ILjava/lang/CharSequence;)V]
       [61] aload_0 v0
       [62] getfield #24
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/l.a Lcom/streetcred/bitcoinrealtimewidget/k;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/l.a Lcom.streetcred.bitcoinpriceindexwidget/k;]
       [65] getfield #23
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.e Landroid/content/SharedPreferences;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.e Landroid/content/SharedPreferences;]
       [68] invokeinterface #34
         + InterfaceMethodref [android/content/SharedPreferences.edit ()Landroid/content/SharedPreferences$Editor;]
       [73] ldc #5
@@ -5204,19 +5204,19 @@ Methods (count = 2):
       [88] pop
       [89] aload_0 v0
       [90] getfield #24
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/l.a Lcom/streetcred/bitcoinrealtimewidget/k;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/l.a Lcom.streetcred.bitcoinpriceindexwidget/k;]
       [93] getfield #20
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.b Landroid/appwidget/AppWidgetManager;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.b Landroid/appwidget/AppWidgetManager;]
       [96] aload_0 v0
       [97] getfield #24
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/l.a Lcom/streetcred/bitcoinrealtimewidget/k;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/l.a Lcom.streetcred.bitcoinpriceindexwidget/k;]
       [100] getfield #21
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.c Landroid/content/ComponentName;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.c Landroid/content/ComponentName;]
       [103] aload_0 v0
       [104] getfield #24
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/l.a Lcom/streetcred/bitcoinrealtimewidget/k;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/l.a Lcom.streetcred.bitcoinpriceindexwidget/k;]
       [107] getfield #19
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/k.a Landroid/widget/RemoteViews;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/k.a Landroid/widget/RemoteViews;]
       [110] invokevirtual #25
         + Methodref [android/appwidget/AppWidgetManager.updateAppWidget (Landroid/content/ComponentName;Landroid/widget/RemoteViews;)V]
       [113] ldc #6
@@ -5243,28 +5243,28 @@ Methods (count = 2):
 Class file attributes (count = 0):
 
 _____________________________________________________________________
-+ Program class: com/streetcred/bitcoinrealtimewidget/XBTWidgetApplication
++ Program class: com.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication
   Superclass:    android/app/Application
   Major version: 0x32
   Minor version: 0x0
   Access flags:  0x21
-    = public class com.streetcred.bitcoinrealtimewidget.XBTWidgetApplication extends android.app.Application
+    = public class bitcoinpriceindexwidget.XBTWidgetApplication extends android.app.Application
 
 Interfaces (count = 0):
 
 Constant Pool (count = 33):
   + Class [android/app/Application]
-  + Class [com/streetcred/bitcoinrealtimewidget/XBTWidgetApplication]
+  + Class [com.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication]
   + Class [java/lang/Class]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/XBTWidgetApplication.a Ljava/lang/String;]
-  + Fieldref [com/streetcred/bitcoinrealtimewidget/XBTWidgetApplication.b Lcom/streetcred/bitcoinrealtimewidget/XBTWidgetApplication;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication.a Ljava/lang/String;]
+  + Fieldref [com.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication.b Lcom.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication;]
   + Methodref [android/app/Application.<init> ()V]
   + Methodref [android/app/Application.onCreate ()V]
-  + Methodref [com/streetcred/bitcoinrealtimewidget/XBTWidgetApplication.getSharedPreferences (Ljava/lang/String;I)Landroid/content/SharedPreferences;]
+  + Methodref [com.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication.getSharedPreferences (Ljava/lang/String;I)Landroid/content/SharedPreferences;]
   + Methodref [java/lang/Class.getSimpleName ()Ljava/lang/String;]
   + NameAndType [<init> ()V]
   + NameAndType [a Ljava/lang/String;]
-  + NameAndType [b Lcom/streetcred/bitcoinrealtimewidget/XBTWidgetApplication;]
+  + NameAndType [b Lcom.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication;]
   + NameAndType [getSharedPreferences (Ljava/lang/String;I)Landroid/content/SharedPreferences;]
   + NameAndType [getSimpleName ()Ljava/lang/String;]
   + NameAndType [onCreate ()V]
@@ -5275,12 +5275,12 @@ Constant Pool (count = 33):
   + Utf8 [<clinit>]
   + Utf8 [<init>]
   + Utf8 [Code]
-  + Utf8 [Lcom/streetcred/bitcoinrealtimewidget/XBTWidgetApplication;]
+  + Utf8 [Lcom.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication;]
   + Utf8 [Ljava/lang/String;]
   + Utf8 [a]
   + Utf8 [android/app/Application]
   + Utf8 [b]
-  + Utf8 [com/streetcred/bitcoinrealtimewidget/XBTWidgetApplication]
+  + Utf8 [com.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication]
   + Utf8 [getSharedPreferences]
   + Utf8 [getSimpleName]
   + Utf8 [java/lang/Class]
@@ -5290,9 +5290,9 @@ Fields (count = 2):
   + Field:        a Ljava/lang/String;
     Access flags: 0x19
       = public static final java.lang.String a
-  + Field:        b Lcom/streetcred/bitcoinrealtimewidget/XBTWidgetApplication;
+  + Field:        b Lcom.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication;
     Access flags: 0x9
-      = public static com.streetcred.bitcoinrealtimewidget.XBTWidgetApplication b
+      = public static bitcoinpriceindexwidget.XBTWidgetApplication b
 
 Methods (count = 4):
   - Method:       <init>()V
@@ -5305,7 +5305,7 @@ Methods (count = 4):
         + Methodref [android/app/Application.<init> ()V]
       [4] aload_0 v0
       [5] putstatic #5
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/XBTWidgetApplication.b Lcom/streetcred/bitcoinrealtimewidget/XBTWidgetApplication;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication.b Lcom.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication;]
       [8] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
@@ -5326,12 +5326,12 @@ Methods (count = 4):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 11, locals = 0, stack = 3):
       [0] getstatic #5
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/XBTWidgetApplication.b Lcom/streetcred/bitcoinrealtimewidget/XBTWidgetApplication;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication.b Lcom.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication;]
       [3] getstatic #4
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/XBTWidgetApplication.a Ljava/lang/String;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication.a Ljava/lang/String;]
       [6] iconst_0
       [7] invokevirtual #8
-        + Methodref [com/streetcred/bitcoinrealtimewidget/XBTWidgetApplication.getSharedPreferences (Ljava/lang/String;I)Landroid/content/SharedPreferences;]
+        + Methodref [com.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication.getSharedPreferences (Ljava/lang/String;I)Landroid/content/SharedPreferences;]
       [10] areturn
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
@@ -5341,11 +5341,11 @@ Methods (count = 4):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 9, locals = 0, stack = 1):
       [0] ldc #2
-        + Class [com/streetcred/bitcoinrealtimewidget/XBTWidgetApplication]
+        + Class [com.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication]
       [2] invokevirtual #9
         + Methodref [java/lang/Class.getSimpleName ()Ljava/lang/String;]
       [5] putstatic #4
-        + Fieldref [com/streetcred/bitcoinrealtimewidget/XBTWidgetApplication.a Ljava/lang/String;]
+        + Fieldref [com.streetcred.bitcoinpriceindexwidget/XBTWidgetApplication.a Ljava/lang/String;]
       [8] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):

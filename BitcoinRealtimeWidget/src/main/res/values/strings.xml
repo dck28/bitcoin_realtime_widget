@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Bitcoin Realtime Widget</string>
+    <string name="app_name">Bitcoin Price Index Widget</string>
     <string-array name="pref_interval_entries">
         <!-- item>No preference</item  -->
         <item>1 minute</item>

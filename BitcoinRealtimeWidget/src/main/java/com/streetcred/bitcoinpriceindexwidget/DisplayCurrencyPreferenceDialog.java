@@ -1,13 +1,13 @@
-package com.streetcred.bitcoinrealtimewidget;
+package com.streetcred.bitcoinpriceindexwidget;
 
 import android.app.AlertDialog;
 import android.content.Context;
 import android.preference.ListPreference;
 import android.util.AttributeSet;
 
-public class UpdateFrequencyDialog extends ListPreference {
+public class DisplayCurrencyPreferenceDialog extends ListPreference {
 
-    public UpdateFrequencyDialog(Context context, AttributeSet attrs) {
+    public DisplayCurrencyPreferenceDialog(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 

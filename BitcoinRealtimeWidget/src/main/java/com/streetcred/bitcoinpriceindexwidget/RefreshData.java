@@ -1,4 +1,4 @@
-package com.streetcred.bitcoinrealtimewidget;
+package com.streetcred.bitcoinpriceindexwidget;
 
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.RemoteViews;
-import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -19,7 +18,6 @@ import org.json.JSONTokener;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.text.DecimalFormat;
-import java.util.Calendar;
 
 /**
  * Created by denniskong on 10/6/13.

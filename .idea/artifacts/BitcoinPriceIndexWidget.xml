@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="apk" build-on-make="true" name="BitcoinRealtimeWidget">
+  <artifact type="apk" build-on-make="true" name="BitcoinPriceIndexWidget">
     <output-path>$PROJECT_DIR$/</output-path>
     <properties id="android-properties">
       <options>
@@ -16,6 +16,6 @@
         <option name="signingMode" value="RELEASE_SIGNED" />
       </options>
     </properties>
-    <root id="archive" name="BitcoinRealtimeWidget.apk" />
+    <root id="archive" name="BitcoinPriceIndexWidget.apk" />
   </artifact>
 </component>
