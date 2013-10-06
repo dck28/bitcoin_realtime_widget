@@ -92,7 +92,7 @@ public class SettingsFragment extends PreferenceFragment {
                 rateUsPref = new Preference(getActivity());
                 rateUsPref.setKey("prefer_rate_and_feedback");
                 rateUsPref.setTitle("Rate this widget");
-                rateUsPref.setSummary("Feedback");
+                rateUsPref.setSummary("Give feedback & feature suggestions");
                 rateUsPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                     @Override
                     public boolean onPreferenceClick(Preference preference) {
