@@ -33,7 +33,7 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new TimedAPICall(context, appWidgetManager), 1, 1000);
+        timer.scheduleAtFixedRate(new TimedAPICall(context, appWidgetManager), 1, 30000);
 
         RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
         Intent configIntent = new Intent(context, MainActivity.class);
