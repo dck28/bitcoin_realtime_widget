@@ -9,10 +9,17 @@ import android.app.Fragment;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.util.Log;
 import android.widget.Toast;
+
+import java.text.MessageFormat;
+import java.util.Locale;
 
 public class SettingsFragment extends PreferenceFragment {
     public static final String FRAGMENT_TAG = getFragmentTag(SettingsFragment.class);
@@ -83,6 +90,7 @@ public class SettingsFragment extends PreferenceFragment {
     @Override
     public void onResume() {
         super.onResume();
+        updateRateUsPreferenceView();
     }
 
     @Override
@@ -94,5 +102,55 @@ public class SettingsFragment extends PreferenceFragment {
         return fragmentClass.getSimpleName();
     }
 
+    // Rate this widget / Feedback
+    private void updateRateUsPreferenceView() {
+        Preference rateUsPref = findPreference("prefer_rate_and_feedback");
+        if (isPlayStoreAvailable(getActivity())) {
+            if (rateUsPref == null) {
+                rateUsPref = new Preference(getActivity());
+                rateUsPref.setKey("prefer_rate_and_feedback");
+                rateUsPref.setTitle("Rate this widget");
+                rateUsPref.setSummary("Feedback");
+                rateUsPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                    @Override
+                    public boolean onPreferenceClick(Preference preference) {
+                        getActivity().startActivity(createOpenAppInPlayStoreIntent(getActivity()));
+                        return true;
+                    }
+                });
+                getPreferenceScreen().addPreference(rateUsPref);
+            }
+        } else {
+            removePreference(rateUsPref);
+        }
+    }
+
+    private static Boolean PLAY_STORE_AVAILABLE = null;
+    public static final MessageFormat MARKET_APP_URL_TEMPLATE = new MessageFormat("market://details?id={0}", Locale.ENGLISH);
+
+    public static boolean isPlayStoreAvailable(final Context context) {
+        if (PLAY_STORE_AVAILABLE == null) {
+            PackageManager packageManager = context.getPackageManager();
+            PLAY_STORE_AVAILABLE = !packageManager.queryIntentActivities(createOpenPlayStoreIntent(), 0).isEmpty();
+        }
+        return PLAY_STORE_AVAILABLE;
+    }
+
+    public static Intent createOpenPlayStoreIntent() {
+        return new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=dummy"));
+    }
+
+    public static Intent createOpenAppInPlayStoreIntent(final Context context) {
+        final Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(MARKET_APP_URL_TEMPLATE
+                .format(new String[]{context.getPackageName()})));
+        intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NEW_TASK);
+        return intent;
+    }
+
+    private void removePreference(Preference preference) {
+        if (preference != null) {
+            getPreferenceScreen().removePreference(preference);
+        }
+    }
 }
 
