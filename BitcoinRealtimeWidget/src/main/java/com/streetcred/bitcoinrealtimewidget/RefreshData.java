@@ -18,6 +18,7 @@ import org.json.JSONTokener;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.text.DecimalFormat;
+import java.util.Calendar;
 
 /**
  * Created by denniskong on 10/6/13.
@@ -33,12 +34,24 @@ public class RefreshData extends AsyncTask<String, Void, String> {
     Context context;
 
     @Override
+    protected void onPreExecute() {
+        this.context = XBTWidgetApplication.instance;
+        this.appWidgetManager = AppWidgetManager.getInstance(context);
+        remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
+        thisWidget = new ComponentName(context, XBTRealtimeWidgetProvider.class);
+        pref = XBTWidgetApplication.getSharedPreferences();
+        remoteViews.setTextViewText(R.id.update_time, "* loading...");
+        appWidgetManager.updateAppWidget(thisWidget, remoteViews);
+    }
+
+    @Override
     protected String doInBackground(String... params) {
         try {
             newPrice = getNewPrice();
             DecimalFormat df = new DecimalFormat("0.0");
             remoteViews.setTextViewText(R.id.price, df.format(newPrice));
-            remoteViews.setTextViewText(R.id.update_time, "* updated just now");
+            String time_now_in_string = Util.getCurrentDisplayTime();
+            remoteViews.setTextViewText(R.id.update_time, "* updated on " + time_now_in_string);
             remoteViews.setTextViewText(R.id.exchange_currency, pref.getString("preferred_currency", "USD"));
             pref.edit().putLong(Constants.LAST_UPDATED_TIMESTAMP, System.currentTimeMillis()).commit();
             appWidgetManager.updateAppWidget(thisWidget, remoteViews);
@@ -51,17 +64,6 @@ public class RefreshData extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-    }
-
-    @Override
-    protected void onPreExecute() {
-        this.context = XBTWidgetApplication.instance;
-        this.appWidgetManager = AppWidgetManager.getInstance(context);
-        remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
-        thisWidget = new ComponentName(context, XBTRealtimeWidgetProvider.class);
-        pref = XBTWidgetApplication.getSharedPreferences();
-        remoteViews.setTextViewText(R.id.update_time, "* loading...");
-        appWidgetManager.updateAppWidget(thisWidget, remoteViews);
     }
 
     @Override

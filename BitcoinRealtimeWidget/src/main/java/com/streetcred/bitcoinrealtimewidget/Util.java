@@ -1,5 +1,8 @@
 package com.streetcred.bitcoinrealtimewidget;
 
+import java.util.Calendar;
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by denniskong on 10/5/13.
  */
@@ -32,6 +35,58 @@ public class Util {
         } else {
             return 120000; //return default 2 minutes
         }
+    }
 
+    public static String getCurrentDisplayTime(){
+        Calendar c = Calendar.getInstance();
+        int hours = c.get(Calendar.HOUR);
+        int minutes = c.get(Calendar.MINUTE);
+        int am_pm = c.get(Calendar.AM_PM);
+        String amORpm = (am_pm == 0) ? "AM" : "PM";
+        return Integer.toString(hours) + ":" + Integer.toString(minutes) + " " + amORpm;
+    }
+
+    public static String convertTimePassedToString(Long timepassedinmilliseconds){
+        if (TimeUnit.MILLISECONDS.toSeconds(timepassedinmilliseconds) <= 60l){
+            if (TimeUnit.MILLISECONDS.toSeconds(timepassedinmilliseconds) == 1){
+                return String.format("%d second",
+                        TimeUnit.MILLISECONDS.toSeconds(timepassedinmilliseconds)
+                );
+            } else {
+                return String.format("%d secs",
+                        TimeUnit.MILLISECONDS.toSeconds(timepassedinmilliseconds)
+                );
+            }
+        } else if (TimeUnit.MILLISECONDS.toMinutes(timepassedinmilliseconds) <= 60l){
+            if(TimeUnit.MILLISECONDS.toMinutes(timepassedinmilliseconds) == 1){
+                return String.format("%d min",
+                        TimeUnit.MILLISECONDS.toMinutes(timepassedinmilliseconds)
+                );
+            } else {
+                return String.format("%d mins",
+                        TimeUnit.MILLISECONDS.toMinutes(timepassedinmilliseconds)
+                );
+            }
+        } else if (TimeUnit.MILLISECONDS.toHours(timepassedinmilliseconds) <= 24l){
+            if(TimeUnit.MILLISECONDS.toHours(timepassedinmilliseconds) == 1){
+                return String.format("%d hour",
+                        TimeUnit.MILLISECONDS.toHours(timepassedinmilliseconds)
+                );
+            } else {
+                return String.format("%d hours",
+                        TimeUnit.MILLISECONDS.toHours(timepassedinmilliseconds)
+                );
+            }
+        } else {
+            if(TimeUnit.MILLISECONDS.toDays(timepassedinmilliseconds) == 1){
+                return String.format("%d day",
+                        TimeUnit.MILLISECONDS.toDays(timepassedinmilliseconds)
+                );
+            } else {
+                return String.format("%d days",
+                        TimeUnit.MILLISECONDS.toDays(timepassedinmilliseconds)
+                );
+            }
+        }
     }
 }
