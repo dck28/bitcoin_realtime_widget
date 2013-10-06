@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="apk" build-on-make="true" name="BitcoinRealtimeWidget">
+    <output-path>$PROJECT_DIR$/</output-path>
+    <properties id="android-properties">
+      <options>
+        <option name="keyAlias" value="bitcoinrealtimewidget" />
+        <option name="keyPassword" value="c3RyZWV0Y3JlZGhhemVsbnV0NQ==&#13;&#10;" />
+        <option name="keyStorePassword" value="c3RyZWV0Y3JlZGhhemVsbnV0NQ==&#13;&#10;" />
+        <option name="keyStoreUrl" value="file://$PROJECT_DIR$/BitcoinRealtimeWidget/release.keystore" />
+        <option name="proGuardCfgFiles">
+          <list>
+            <option value="file://%MODULE_SDK_HOME%/tools/proguard/proguard-android.txt" />
+          </list>
+        </option>
+        <option name="runProGuard" value="true" />
+        <option name="signingMode" value="RELEASE_SIGNED" />
+      </options>
+    </properties>
+    <root id="archive" name="BitcoinRealtimeWidget.apk" />
+  </artifact>
+</component>

@@ -1,0 +1,27 @@
+com.streetcred.bitcoinrealtimewidget.BuildConfig
+com.streetcred.bitcoinrealtimewidget.Constants
+com.streetcred.bitcoinrealtimewidget.MainActivity:
+    120:130:public void clearActivitiesStack()
+com.streetcred.bitcoinrealtimewidget.MainActivity$ApplicationAction:
+    protected abstract void doAction(com.streetcred.bitcoinrealtimewidget.MainActivity,android.content.Intent)
+com.streetcred.bitcoinrealtimewidget.MainActivity$OpenFragmentApplicationAction:
+    66:73:protected void doAction(com.streetcred.bitcoinrealtimewidget.MainActivity,android.content.Intent)
+    76:76:protected boolean isStackShouldBeCleared(android.content.Intent)
+    protected abstract android.app.Fragment createFragment(android.content.Intent)
+    81:81:protected boolean validate()
+    85:85:public java.lang.String getFragmentTag()
+com.streetcred.bitcoinrealtimewidget.MainActivity$ShowSettings:
+    51:51:protected android.app.Fragment createFragment(android.content.Intent)
+com.streetcred.bitcoinrealtimewidget.R
+com.streetcred.bitcoinrealtimewidget.R$array
+com.streetcred.bitcoinrealtimewidget.R$attr
+com.streetcred.bitcoinrealtimewidget.R$drawable
+com.streetcred.bitcoinrealtimewidget.R$id
+com.streetcred.bitcoinrealtimewidget.R$layout
+com.streetcred.bitcoinrealtimewidget.R$string
+com.streetcred.bitcoinrealtimewidget.R$style
+com.streetcred.bitcoinrealtimewidget.R$xml
+com.streetcred.bitcoinrealtimewidget.RefreshDataReceiver:
+    public static final java.lang.String ACTION
+com.streetcred.bitcoinrealtimewidget.Util:
+    6:6:public Util()

@@ -1,0 +1,33 @@
+com.streetcred.bitcoinrealtimewidget.DisplayCurrencyPreferenceDialog
+com.streetcred.bitcoinrealtimewidget.DisplayCurrencyPreferenceDialog: DisplayCurrencyPreferenceDialog(android.content.Context,android.util.AttributeSet)
+com.streetcred.bitcoinrealtimewidget.MainActivity
+com.streetcred.bitcoinrealtimewidget.MainActivity: MainActivity()
+com.streetcred.bitcoinrealtimewidget.R$array: int pref_currency_entries
+com.streetcred.bitcoinrealtimewidget.R$array: int pref_currency_values
+com.streetcred.bitcoinrealtimewidget.R$array: int pref_interval_entries
+com.streetcred.bitcoinrealtimewidget.R$array: int pref_interval_values
+com.streetcred.bitcoinrealtimewidget.R$drawable: int ic_launcher
+com.streetcred.bitcoinrealtimewidget.R$id: int app_icon
+com.streetcred.bitcoinrealtimewidget.R$id: int credit
+com.streetcred.bitcoinrealtimewidget.R$id: int exchange_currency
+com.streetcred.bitcoinrealtimewidget.R$id: int fragment_place
+com.streetcred.bitcoinrealtimewidget.R$id: int price
+com.streetcred.bitcoinrealtimewidget.R$id: int update_time
+com.streetcred.bitcoinrealtimewidget.R$layout: int main
+com.streetcred.bitcoinrealtimewidget.R$layout: int widget_layout
+com.streetcred.bitcoinrealtimewidget.R$string: int app_name
+com.streetcred.bitcoinrealtimewidget.R$style: int AppBaseTheme
+com.streetcred.bitcoinrealtimewidget.R$style: int AppTheme
+com.streetcred.bitcoinrealtimewidget.R$style: int MyActionBar
+com.streetcred.bitcoinrealtimewidget.R$style: int MyTheme
+com.streetcred.bitcoinrealtimewidget.R$style: int MyTheme_ActionBar_TitleTextStyle
+com.streetcred.bitcoinrealtimewidget.R$xml: int preferences
+com.streetcred.bitcoinrealtimewidget.R$xml: int widget_info
+com.streetcred.bitcoinrealtimewidget.RefreshDataReceiver
+com.streetcred.bitcoinrealtimewidget.RefreshDataReceiver: RefreshDataReceiver()
+com.streetcred.bitcoinrealtimewidget.UpdateFrequencyDialog
+com.streetcred.bitcoinrealtimewidget.UpdateFrequencyDialog: UpdateFrequencyDialog(android.content.Context,android.util.AttributeSet)
+com.streetcred.bitcoinrealtimewidget.XBTRealtimeWidgetProvider
+com.streetcred.bitcoinrealtimewidget.XBTRealtimeWidgetProvider: XBTRealtimeWidgetProvider()
+com.streetcred.bitcoinrealtimewidget.XBTWidgetApplication
+com.streetcred.bitcoinrealtimewidget.XBTWidgetApplication: XBTWidgetApplication()
