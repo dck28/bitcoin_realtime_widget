@@ -1,33 +1,31 @@
-bitcoinpriceindexwidget.DisplayCurrencyPreferenceDialog
-bitcoinpriceindexwidget.DisplayCurrencyPreferenceDialog: DisplayCurrencyPreferenceDialog(android.content.Context,android.util.AttributeSet)
-bitcoinpriceindexwidget.MainActivity
-bitcoinpriceindexwidget.MainActivity: MainActivity()
-bitcoinpriceindexwidget.R$array: int pref_currency_entries
-bitcoinpriceindexwidget.R$array: int pref_currency_values
-bitcoinpriceindexwidget.R$array: int pref_interval_entries
-bitcoinpriceindexwidget.R$array: int pref_interval_values
-bitcoinpriceindexwidget.R$drawable: int ic_launcher
-bitcoinpriceindexwidget.R$id: int app_icon
-bitcoinpriceindexwidget.R$id: int credit
-bitcoinpriceindexwidget.R$id: int exchange_currency
-bitcoinpriceindexwidget.R$id: int fragment_place
-bitcoinpriceindexwidget.R$id: int price
-bitcoinpriceindexwidget.R$id: int update_time
-bitcoinpriceindexwidget.R$layout: int main
-bitcoinpriceindexwidget.R$layout: int widget_layout
-bitcoinpriceindexwidget.R$string: int app_name
-bitcoinpriceindexwidget.R$style: int AppBaseTheme
-bitcoinpriceindexwidget.R$style: int AppTheme
-bitcoinpriceindexwidget.R$style: int MyActionBar
-bitcoinpriceindexwidget.R$style: int MyTheme
-bitcoinpriceindexwidget.R$style: int MyTheme_ActionBar_TitleTextStyle
-bitcoinpriceindexwidget.R$xml: int preferences
-bitcoinpriceindexwidget.R$xml: int widget_info
-bitcoinpriceindexwidget.RefreshDataReceiver
-bitcoinpriceindexwidget.RefreshDataReceiver: RefreshDataReceiver()
-bitcoinpriceindexwidget.UpdateFrequencyDialog
-bitcoinpriceindexwidget.UpdateFrequencyDialog: UpdateFrequencyDialog(android.content.Context,android.util.AttributeSet)
-bitcoinpriceindexwidget.XBTRealtimeWidgetProvider
-bitcoinpriceindexwidget.XBTRealtimeWidgetProvider: XBTRealtimeWidgetProvider()
-bitcoinpriceindexwidget.XBTWidgetApplication
-bitcoinpriceindexwidget.XBTWidgetApplication: XBTWidgetApplication()
+com.streetcred.bitcoinpriceindexwidget.DisplayCurrencyPreferenceDialog
+com.streetcred.bitcoinpriceindexwidget.DisplayCurrencyPreferenceDialog: DisplayCurrencyPreferenceDialog(android.content.Context,android.util.AttributeSet)
+com.streetcred.bitcoinpriceindexwidget.MainActivity
+com.streetcred.bitcoinpriceindexwidget.MainActivity: MainActivity()
+com.streetcred.bitcoinpriceindexwidget.R$array: int pref_currency_entries
+com.streetcred.bitcoinpriceindexwidget.R$array: int pref_currency_values
+com.streetcred.bitcoinpriceindexwidget.R$array: int pref_interval_entries
+com.streetcred.bitcoinpriceindexwidget.R$array: int pref_interval_values
+com.streetcred.bitcoinpriceindexwidget.R$drawable: int ic_launcher
+com.streetcred.bitcoinpriceindexwidget.R$id: int app_icon
+com.streetcred.bitcoinpriceindexwidget.R$id: int credit
+com.streetcred.bitcoinpriceindexwidget.R$id: int exchange_currency
+com.streetcred.bitcoinpriceindexwidget.R$id: int fragment_place
+com.streetcred.bitcoinpriceindexwidget.R$id: int price
+com.streetcred.bitcoinpriceindexwidget.R$id: int update_time
+com.streetcred.bitcoinpriceindexwidget.R$layout: int main
+com.streetcred.bitcoinpriceindexwidget.R$layout: int widget_layout
+com.streetcred.bitcoinpriceindexwidget.R$string: int app_name
+com.streetcred.bitcoinpriceindexwidget.R$style: int AppBaseTheme
+com.streetcred.bitcoinpriceindexwidget.R$style: int AppTheme
+com.streetcred.bitcoinpriceindexwidget.R$style: int MyActionBar
+com.streetcred.bitcoinpriceindexwidget.R$style: int MyTheme
+com.streetcred.bitcoinpriceindexwidget.R$style: int MyTheme_ActionBar_TitleTextStyle
+com.streetcred.bitcoinpriceindexwidget.R$xml: int preferences
+com.streetcred.bitcoinpriceindexwidget.R$xml: int widget_info
+com.streetcred.bitcoinpriceindexwidget.RefreshDataReceiver
+com.streetcred.bitcoinpriceindexwidget.RefreshDataReceiver: RefreshDataReceiver()
+com.streetcred.bitcoinpriceindexwidget.XBTRealtimeWidgetProvider
+com.streetcred.bitcoinpriceindexwidget.XBTRealtimeWidgetProvider: XBTRealtimeWidgetProvider()
+com.streetcred.bitcoinpriceindexwidget.XBTWidgetApplication
+com.streetcred.bitcoinpriceindexwidget.XBTWidgetApplication: XBTWidgetApplication()

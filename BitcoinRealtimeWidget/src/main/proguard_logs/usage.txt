@@ -1,27 +1,30 @@
-bitcoinpriceindexwidget.BuildConfig
-bitcoinpriceindexwidget.Constants
-bitcoinpriceindexwidget.MainActivity:
+com.streetcred.bitcoinpriceindexwidget.BuildConfig
+com.streetcred.bitcoinpriceindexwidget.Constants
+com.streetcred.bitcoinpriceindexwidget.MainActivity:
     120:130:public void clearActivitiesStack()
-bitcoinpriceindexwidget.MainActivity$ApplicationAction:
-    protected abstract void doAction(bitcoinpriceindexwidget.MainActivity,android.content.Intent)
-bitcoinpriceindexwidget.MainActivity$OpenFragmentApplicationAction:
-    66:73:protected void doAction(bitcoinpriceindexwidget.MainActivity,android.content.Intent)
+com.streetcred.bitcoinpriceindexwidget.MainActivity$ApplicationAction:
+    protected abstract void doAction(com.streetcred.bitcoinpriceindexwidget.MainActivity,android.content.Intent)
+com.streetcred.bitcoinpriceindexwidget.MainActivity$OpenFragmentApplicationAction:
+    66:73:protected void doAction(com.streetcred.bitcoinpriceindexwidget.MainActivity,android.content.Intent)
     76:76:protected boolean isStackShouldBeCleared(android.content.Intent)
     protected abstract android.app.Fragment createFragment(android.content.Intent)
     81:81:protected boolean validate()
     85:85:public java.lang.String getFragmentTag()
-bitcoinpriceindexwidget.MainActivity$ShowSettings:
+com.streetcred.bitcoinpriceindexwidget.MainActivity$ShowSettings:
     51:51:protected android.app.Fragment createFragment(android.content.Intent)
-bitcoinpriceindexwidget.R
-bitcoinpriceindexwidget.R$array
-bitcoinpriceindexwidget.R$attr
-bitcoinpriceindexwidget.R$drawable
-bitcoinpriceindexwidget.R$id
-bitcoinpriceindexwidget.R$layout
-bitcoinpriceindexwidget.R$string
-bitcoinpriceindexwidget.R$style
-bitcoinpriceindexwidget.R$xml
-bitcoinpriceindexwidget.RefreshDataReceiver:
+com.streetcred.bitcoinpriceindexwidget.R
+com.streetcred.bitcoinpriceindexwidget.R$array
+com.streetcred.bitcoinpriceindexwidget.R$attr
+com.streetcred.bitcoinpriceindexwidget.R$drawable
+com.streetcred.bitcoinpriceindexwidget.R$id
+com.streetcred.bitcoinpriceindexwidget.R$layout
+com.streetcred.bitcoinpriceindexwidget.R$string
+com.streetcred.bitcoinpriceindexwidget.R$style
+com.streetcred.bitcoinpriceindexwidget.R$xml
+com.streetcred.bitcoinpriceindexwidget.RefreshDataReceiver:
     public static final java.lang.String ACTION
-bitcoinpriceindexwidget.Util:
-    6:6:public Util()
+com.streetcred.bitcoinpriceindexwidget.UpdateFrequencyDialog
+com.streetcred.bitcoinpriceindexwidget.Util:
+    9:9:public Util()
+    11:36:public static long convertStringIntervalToLong(java.lang.String)
+    50:86:public static java.lang.String convertTimePassedToString(java.lang.Long)
