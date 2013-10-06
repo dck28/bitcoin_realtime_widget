@@ -30,4 +30,16 @@
         <item>16 hours</item>
         <item>1 day</item>
     </string-array>
+    <string-array name="pref_currency_entries">
+        <!-- item>ANY</item -->
+        <item>USD</item>
+        <item>GBP</item>
+        <item>EUR</item>
+    </string-array>
+    <string-array name="pref_currency_values">
+        <!-- item>ANY</item -->
+        <item>USD</item>
+        <item>GBP</item>
+        <item>EUR</item>
+    </string-array>
 </resources>

@@ -16,4 +16,13 @@
         android:summary="Currently updating every 4 minutes"
         android:negativeButtonText="Cancel"/>
 
+    <com.streetcred.bitcoinrealtimewidget.DisplayCurrencyPreferenceDialog
+        android:key="pref_currency"
+        android:title="Display Currency: USD"
+        android:dialogTitle="Select Currency To Display"
+        android:entries="@array/pref_currency_entries"
+        android:entryValues="@array/pref_currency_values"
+        android:defaultValue="USD"
+        android:negativeButtonText="Cancel"/>
+
 </PreferenceScreen>

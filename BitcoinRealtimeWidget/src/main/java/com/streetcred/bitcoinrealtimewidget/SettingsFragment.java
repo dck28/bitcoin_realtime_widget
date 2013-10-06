@@ -46,13 +46,34 @@ public class SettingsFragment extends PreferenceFragment {
                 listPreference.setValueIndex(0);
             }
             listPreference.setSummary(Constants.PREF_FREQ_SUMMARY + listPreference.getValue() + ".");
-
             listPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference,
                                                   Object newValue) {
-
                     preference.setSummary(Constants.PREF_FREQ_SUMMARY + newValue.toString() + ".");
+                    return true;
+                }
+            });
+        }
+
+
+        DisplayCurrencyPreferenceDialog currencyPreference = (DisplayCurrencyPreferenceDialog) findPreference("pref_currency");
+        if (currencyPreference != null){
+            if (currencyPreference.getValue() == null) {
+                currencyPreference.setValueIndex(0);
+            }
+            currencyPreference.setTitle("Display Currency: " + currencyPreference.getValue());
+            currencyPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference,
+                                                  Object newValue) {
+                    XBTWidgetApplication.getSharedPreferences()
+                            .edit()
+                            .putString("preferred_currency", newValue.toString())
+                            .commit();
+                    preference.setTitle("Display Currency: " + newValue.toString());
+                    RefreshData refresh = new RefreshData();
+                    refresh.execute();
                     return true;
                 }
             });
