@@ -35,12 +35,18 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimedAPICall(context, appWidgetManager), 1, 30000);
 
+        // Set app_icon clickable
         RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
         Intent configIntent = new Intent(context, MainActivity.class);
-
         PendingIntent configPendingIntent = PendingIntent.getActivity(context, 0, configIntent, 0);
-
         remoteViews.setOnClickPendingIntent(R.id.app_icon, configPendingIntent);
+        appWidgetManager.updateAppWidget(appWidgetIds, remoteViews);
+
+        // Set widget textview refreshable
+        Intent refreshIntent = new Intent(context, RefreshDataReceiver.class);
+        refreshIntent.setAction(RefreshDataReceiver.ACTION);
+        PendingIntent refreshPendingIntent = PendingIntent.getBroadcast(context, 0, refreshIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+        remoteViews.setOnClickPendingIntent(R.id.price, refreshPendingIntent);
         appWidgetManager.updateAppWidget(appWidgetIds, remoteViews);
     }
 

@@ -30,6 +30,12 @@
                 android:resource="@xml/widget_info" />
         </receiver>
 
+        <receiver android:name="com.streetcred.bitcoinrealtimewidget.RefreshDataReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="com.streetcred.bitcoinrealtimewidget.REFRESH_REQUEST" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

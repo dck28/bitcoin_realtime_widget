@@ -10,7 +10,7 @@ import android.content.SharedPreferences;
 public class XBTWidgetApplication extends Application {
 
     public static final String LOG_TAG = XBTWidgetApplication.class.getSimpleName();
-    private static XBTWidgetApplication instance;
+    public static XBTWidgetApplication instance;
 
     public XBTWidgetApplication() {
         instance = this;
