@@ -15,7 +15,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
-import android.util.Log;
 import android.widget.Toast;
 
 import java.text.MessageFormat;
@@ -46,23 +45,6 @@ public class SettingsFragment extends PreferenceFragment {
                 return true;
             }
         });
-
-        UpdateFrequencyDialog listPreference = (UpdateFrequencyDialog) findPreference("pref_freq");
-        if (listPreference != null){
-            if (listPreference.getValue() == null) {
-                listPreference.setValueIndex(0);
-            }
-            listPreference.setSummary(Constants.PREF_FREQ_SUMMARY + listPreference.getValue() + ".");
-            listPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                @Override
-                public boolean onPreferenceChange(Preference preference,
-                                                  Object newValue) {
-                    preference.setSummary(Constants.PREF_FREQ_SUMMARY + newValue.toString() + ".");
-                    return true;
-                }
-            });
-        }
-
 
         DisplayCurrencyPreferenceDialog currencyPreference = (DisplayCurrencyPreferenceDialog) findPreference("pref_currency");
         if (currencyPreference != null){

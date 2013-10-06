@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.RemoteViews;
+import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -48,16 +49,20 @@ public class RefreshData extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... params) {
         try {
             newPrice = getNewPrice();
-            DecimalFormat df = new DecimalFormat("0.0");
-            remoteViews.setTextViewText(R.id.price, df.format(newPrice));
-            String time_now_in_string = Util.getCurrentDisplayTime();
-            remoteViews.setTextViewText(R.id.update_time, "* updated on " + time_now_in_string);
-            remoteViews.setTextViewText(R.id.exchange_currency, pref.getString("preferred_currency", "USD"));
-            pref.edit().putLong(Constants.LAST_UPDATED_TIMESTAMP, System.currentTimeMillis()).commit();
-            appWidgetManager.updateAppWidget(thisWidget, remoteViews);
-            Log.e("updated widget?", "yes");
+            if (newPrice != 0){
+                DecimalFormat df = new DecimalFormat("0.0");
+                remoteViews.setTextViewText(R.id.price, df.format(newPrice));
+                String time_now_in_string = Util.getCurrentDisplayTime();
+                remoteViews.setTextViewText(R.id.update_time, "* updated on " + time_now_in_string);
+                remoteViews.setTextViewText(R.id.exchange_currency, pref.getString("preferred_currency", "USD"));
+                pref.edit().putLong(Constants.LAST_UPDATED_TIMESTAMP, System.currentTimeMillis()).commit();
+                appWidgetManager.updateAppWidget(thisWidget, remoteViews);
+                Log.e("updated widget?", "yes");
+            }
         } catch (Exception e) {
             e.printStackTrace();
+            RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
+            remoteViews.setTextViewText(R.id.update_time, "* no connection");
         }
         return "Executed";
     }

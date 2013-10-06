@@ -39,11 +39,11 @@ public class Util {
 
     public static String getCurrentDisplayTime(){
         Calendar c = Calendar.getInstance();
-        int hours = c.get(Calendar.HOUR);
+        int hours = c.get(Calendar.HOUR); if (hours == 0) hours = 12;
         int minutes = c.get(Calendar.MINUTE);
         int am_pm = c.get(Calendar.AM_PM);
         String amORpm = (am_pm == 0) ? "AM" : "PM";
-        return Integer.toString(hours) + ":" + Integer.toString(minutes) + " " + amORpm;
+        return String.format("%02d", hours) + ":" + String.format("%02d", minutes) + " " + amORpm;
     }
 
     public static String convertTimePassedToString(Long timepassedinmilliseconds){

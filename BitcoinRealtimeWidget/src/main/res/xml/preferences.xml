@@ -6,16 +6,6 @@
         android:title="Donate: Click to copy address"
         android:summary="13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH"/>
 
-    <com.streetcred.bitcoinrealtimewidget.UpdateFrequencyDialog
-        android:key="pref_freq"
-        android:title="Update Frequency"
-        android:dialogTitle="Select Update Interval"
-        android:entries="@array/pref_interval_entries"
-        android:entryValues="@array/pref_interval_values"
-        android:defaultValue="4 minutes"
-        android:summary="Currently updating every 4 minutes"
-        android:negativeButtonText="Cancel"/>
-
     <com.streetcred.bitcoinrealtimewidget.DisplayCurrencyPreferenceDialog
         android:key="pref_currency"
         android:title="Display Currency: USD"

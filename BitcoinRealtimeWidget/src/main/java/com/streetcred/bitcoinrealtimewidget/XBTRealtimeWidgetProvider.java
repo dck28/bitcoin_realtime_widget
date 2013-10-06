@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.RemoteViews;
+import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -41,6 +42,7 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
         Intent configIntent = new Intent(context, MainActivity.class);
         PendingIntent configPendingIntent = PendingIntent.getActivity(context, 0, configIntent, 0);
         remoteViews.setOnClickPendingIntent(R.id.app_icon, configPendingIntent);
+        remoteViews.setTextViewText(R.id.exchange_currency, XBTWidgetApplication.getSharedPreferences().getString("preferred_currency", "USD"));
         appWidgetManager.updateAppWidget(appWidgetIds, remoteViews);
 
         // Set widget textview refreshable
