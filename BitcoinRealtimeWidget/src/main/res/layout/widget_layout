@@ -46,7 +46,7 @@
         android:gravity="left"
         android:textColor="#FFFFFF"
         android:textSize="10dp"
-        android:text="* loading..."
+        android:text="* Click to refresh"
         android:contentDescription="currency-code"/>
 
     <TextView android:id="@+id/credit"
