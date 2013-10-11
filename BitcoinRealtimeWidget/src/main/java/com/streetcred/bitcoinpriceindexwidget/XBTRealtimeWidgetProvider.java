@@ -23,7 +23,7 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
         Intent configIntent = new Intent(context, MainActivity.class);
         PendingIntent configPendingIntent = PendingIntent.getActivity(context, 0, configIntent, 0);
         remoteViews.setOnClickPendingIntent(R.id.app_icon, configPendingIntent);
-        remoteViews.setTextViewText(R.id.exchange_currency, XBTWidgetApplication.getSharedPreferences().getString("preferred_currency", "USD"));
+        remoteViews.setTextViewText(R.id.exchange_currency, XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"));
         appWidgetManager.updateAppWidget(appWidgetIds, remoteViews);
 
         // Set widget textview refreshable

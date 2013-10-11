@@ -58,7 +58,7 @@ public class SettingsFragment extends PreferenceFragment {
                                                   Object newValue) {
                     XBTWidgetApplication.getSharedPreferences()
                             .edit()
-                            .putString("preferred_currency", newValue.toString())
+                            .putString(Constants.PREF_LAST_UPDATED_CURRENCY, newValue.toString())
                             .commit();
                     preference.setTitle("Display Currency: " + newValue.toString());
                     RefreshData refresh = new RefreshData();

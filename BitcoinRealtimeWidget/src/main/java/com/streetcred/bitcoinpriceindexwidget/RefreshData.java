@@ -52,10 +52,15 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                 remoteViews.setTextViewText(R.id.price, df.format(newPrice));
                 String time_now_in_string = Util.getCurrentDisplayTime();
                 remoteViews.setTextViewText(R.id.update_time, "* updated on " + time_now_in_string);
-                remoteViews.setTextViewText(R.id.exchange_currency, pref.getString("preferred_currency", "USD"));
-                pref.edit().putLong(Constants.LAST_UPDATED_TIMESTAMP, System.currentTimeMillis()).commit();
+                remoteViews.setTextViewText(R.id.exchange_currency, pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"));
+                pref.edit()
+                        .putLong(Constants.PREF_LAST_UPDATED_TIMESTAMP, System.currentTimeMillis())
+                        .putString(Constants.PREF_LAST_UPDATED_PRICE, df.format(newPrice))
+                        .commit();
                 appWidgetManager.updateAppWidget(thisWidget, remoteViews);
                 Log.e("updated widget?", "yes");
+            } else {
+                remoteViews.setTextViewText(R.id.price, pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "--.--"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -154,7 +159,7 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             if(EUR.has("rate_float") && !EUR.isNull("rate_float")){
                 EUR_rate_float = EUR.optString("rate_float");
             }
-            if(EUR_rate != null && pref.getString("preferred_currency", "USD").equalsIgnoreCase("EUR")) return Double.parseDouble(EUR_rate);
+            if(EUR_rate != null && pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD").equalsIgnoreCase("EUR")) return Double.parseDouble(EUR_rate);
         } catch (Exception ex){
             ex.printStackTrace();
             //ignore
