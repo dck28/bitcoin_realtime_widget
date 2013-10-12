@@ -39,6 +39,7 @@ public class RefreshData extends AsyncTask<String, Void, String> {
         remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
         thisWidget = new ComponentName(context, XBTRealtimeWidgetProvider.class);
         pref = XBTWidgetApplication.getSharedPreferences();
+        remoteViews.setTextViewText(R.id.price, pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "--.--"));
         remoteViews.setTextViewText(R.id.update_time, "* loading...");
         appWidgetManager.updateAppWidget(thisWidget, remoteViews);
     }
@@ -61,11 +62,14 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                 Log.e("updated widget?", "yes");
             } else {
                 remoteViews.setTextViewText(R.id.price, pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "--.--"));
+                remoteViews.setTextViewText(R.id.update_time, "* no connection");
+                appWidgetManager.updateAppWidget(thisWidget, remoteViews);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
+            remoteViews.setTextViewText(R.id.price, pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "--.--"));
             remoteViews.setTextViewText(R.id.update_time, "* no connection");
+            appWidgetManager.updateAppWidget(thisWidget, remoteViews);
         }
         return "Executed";
     }
@@ -163,6 +167,10 @@ public class RefreshData extends AsyncTask<String, Void, String> {
         } catch (Exception ex){
             ex.printStackTrace();
             //ignore
+            Log.e("Caught here?", "here");
+            remoteViews.setTextViewText(R.id.price, pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "--.--"));
+            remoteViews.setTextViewText(R.id.update_time, "* no connection");
+            appWidgetManager.updateAppWidget(thisWidget, remoteViews);
         }
         return 0.00;
     }

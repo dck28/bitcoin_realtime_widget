@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by denniskong on 10/5/13.
  */
@@ -15,8 +17,14 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         // Get quote
-        RefreshData refresh = new RefreshData();
-        refresh.execute();
+        try{
+            RefreshData refresh = new RefreshData();
+            refresh.execute().get(10000, TimeUnit.MILLISECONDS);
+        } catch (Exception e){
+            RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
+            remoteViews.setTextViewText(R.id.update_time, "* no connection");
+            appWidgetManager.updateAppWidget(appWidgetIds, remoteViews);
+        }
 
         // Set app_icon clickable
         RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);

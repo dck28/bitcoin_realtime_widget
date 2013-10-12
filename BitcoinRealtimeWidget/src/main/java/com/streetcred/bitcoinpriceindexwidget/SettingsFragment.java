@@ -6,8 +6,10 @@ package com.streetcred.bitcoinpriceindexwidget;
 
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.appwidget.AppWidgetManager;
 import android.content.ClipData;
 import android.content.ClipboardManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -15,10 +17,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.widget.RemoteViews;
 import android.widget.Toast;
 
 import java.text.MessageFormat;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 public class SettingsFragment extends PreferenceFragment {
     public static final String FRAGMENT_TAG = getFragmentTag(SettingsFragment.class);
@@ -61,8 +65,14 @@ public class SettingsFragment extends PreferenceFragment {
                             .putString(Constants.PREF_LAST_UPDATED_CURRENCY, newValue.toString())
                             .commit();
                     preference.setTitle("Display Currency: " + newValue.toString());
-                    RefreshData refresh = new RefreshData();
-                    refresh.execute();
+                    try{
+                        RefreshData refresh = new RefreshData();
+                        refresh.execute().get(10000, TimeUnit.MILLISECONDS);
+                    } catch (Exception e){
+                        RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
+                        remoteViews.setTextViewText(R.id.update_time, "* no connection");
+                        AppWidgetManager.getInstance(getActivity()).updateAppWidget(new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class), remoteViews);
+                    }
                     return true;
                 }
             });
