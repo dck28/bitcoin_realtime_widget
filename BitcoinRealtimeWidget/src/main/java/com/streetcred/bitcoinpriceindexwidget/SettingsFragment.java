@@ -13,6 +13,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
@@ -49,6 +50,40 @@ public class SettingsFragment extends PreferenceFragment {
                 return true;
             }
         });
+
+        DisplayThemePreferenceDialog themePreference = (DisplayThemePreferenceDialog) findPreference("pref_theme");
+        if (themePreference != null){
+            if (themePreference.getValue() == null) {
+                themePreference.setValueIndex(0);
+            }
+            themePreference.setTitle("Theme: " + themePreference.getValue());
+            themePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference,
+                                                  Object newValue) {
+                    XBTWidgetApplication.getSharedPreferences()
+                            .edit()
+                            .putString(Constants.PREF_LAST_UPDATED_THEME, newValue.toString())
+                            .commit();
+                    preference.setTitle("Theme: " + newValue.toString());
+                    try{
+                        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(getActivity());
+                        RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
+                        ComponentName thisWidget = new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class);
+                        if (newValue.toString().equalsIgnoreCase("Navy"))
+                            remoteViews.setInt(R.id.background, "setBackgroundColor",
+                                    Color.parseColor("#DD2B3856"));
+                        else if (newValue.toString().equalsIgnoreCase("Float"))
+                            remoteViews.setInt(R.id.background, "setBackgroundColor",
+                                    Color.TRANSPARENT);
+                        appWidgetManager.updateAppWidget(thisWidget, remoteViews);
+                    } catch (Exception e){
+                        e.printStackTrace();
+                    }
+                    return true;
+                }
+            });
+        }
 
         DisplayCurrencyPreferenceDialog currencyPreference = (DisplayCurrencyPreferenceDialog) findPreference("pref_currency");
         if (currencyPreference != null){

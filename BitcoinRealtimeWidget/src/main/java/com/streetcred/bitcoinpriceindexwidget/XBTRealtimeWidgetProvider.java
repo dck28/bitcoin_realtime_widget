@@ -5,6 +5,7 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.widget.RemoteViews;
 
 import java.util.concurrent.TimeUnit;
@@ -32,13 +33,19 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
         PendingIntent configPendingIntent = PendingIntent.getActivity(context, 0, configIntent, 0);
         remoteViews.setOnClickPendingIntent(R.id.app_icon, configPendingIntent);
         remoteViews.setTextViewText(R.id.exchange_currency, XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"));
-        appWidgetManager.updateAppWidget(appWidgetIds, remoteViews);
 
         // Set widget textview refreshable
         Intent refreshIntent = new Intent(context, RefreshDataReceiver.class);
         refreshIntent.setAction(RefreshDataReceiver.ACTION);
         PendingIntent refreshPendingIntent = PendingIntent.getBroadcast(context, 0, refreshIntent, PendingIntent.FLAG_CANCEL_CURRENT);
         remoteViews.setOnClickPendingIntent(R.id.price, refreshPendingIntent);
+
+        // Set widget theme
+        if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_THEME, "Navy").equalsIgnoreCase("Navy"))
+            remoteViews.setInt(R.id.background, "setBackgroundColor", Color.parseColor("#DD2B3856"));
+        else if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_THEME, "Navy").equalsIgnoreCase("Float"))
+            remoteViews.setInt(R.id.background, "setBackgroundColor", Color.TRANSPARENT);
+
         appWidgetManager.updateAppWidget(appWidgetIds, remoteViews);
     }
 }

@@ -6,6 +6,15 @@
         android:title="Donate: Click to copy address"
         android:summary="13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH"/>
 
+    <com.streetcred.bitcoinpriceindexwidget.DisplayThemePreferenceDialog
+        android:key="pref_theme"
+        android:title="Theme: USD"
+        android:dialogTitle="Theme"
+        android:entries="@array/pref_theme_entries"
+        android:entryValues="@array/pref_theme_values"
+        android:defaultValue="Navy"
+        android:negativeButtonText="Cancel"/>
+
     <com.streetcred.bitcoinpriceindexwidget.DisplayCurrencyPreferenceDialog
         android:key="pref_currency"
         android:title="Display Currency: USD"
