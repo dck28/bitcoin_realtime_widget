@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="172dp"
     android:layout_height="wrap_content"
     android:background="#DD2B3856"
-    android:paddingTop="2dp"
-    android:paddingBottom="2dp"
-    android:paddingRight="4dp">
+    android:paddingTop="0dp"
+    android:paddingBottom="4dp"
+    android:paddingLeft="2dp"
+    android:paddingRight="2dp">
 
     <TextView android:id="@+id/price"
         android:layout_width="120dp"
@@ -14,13 +15,18 @@
         android:contentDescription="realtime-price"
         android:gravity="center"
         android:textColor="#FFFFFF"
+        android:shadowColor="#0A0A0A"
+        android:shadowDx="10"
+        android:shadowDy="10"
+        android:shadowRadius="5"
         android:textSize="36dp"
         android:text="--.--"/>
 
     <TextView android:id="@+id/exchange_currency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/price"
+        android:layout_toRightOf="@+id/credit"
+        android:layout_above="@+id/app_icon"
         android:layout_alignRight="@+id/app_icon"
         android:gravity="center"
         android:textColor="#FFFFFF"
@@ -29,10 +35,11 @@
         android:contentDescription="currency-code"/>
 
     <ImageButton android:id="@+id/app_icon"
+        android:layout_marginLeft="-2dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/price"
-        android:layout_below="@id/exchange_currency"
+        android:layout_toRightOf="@+id/credit"
+        android:layout_alignBottom="@+id/credit"
         android:background="@drawable/ic_launcher"
         android:contentDescription="logo-icon"/>
 
