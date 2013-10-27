@@ -4,6 +4,7 @@ import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.RemoteViews;
@@ -40,7 +41,16 @@ public class RefreshData extends AsyncTask<String, Void, String> {
         thisWidget = new ComponentName(context, XBTRealtimeWidgetProvider.class);
         pref = XBTWidgetApplication.getSharedPreferences();
         remoteViews.setTextViewText(R.id.price, pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "--.--"));
-        remoteViews.setTextViewText(R.id.update_time, "* loading...");
+        if(pref.getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
+            remoteViews.setTextViewText(R.id.update_time, "* 連接中...");
+            remoteViews.setTextViewText(R.id.exchange_currency,
+                    Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
+            remoteViews.setTextViewText(R.id.credit, "由 Coindesk BPI 提供報價");
+        } else {
+            remoteViews.setTextViewText(R.id.update_time, "* loading...");
+            remoteViews.setTextViewText(R.id.exchange_currency, pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"));
+            remoteViews.setTextViewText(R.id.credit, "Data provided by Coindesk BPI");
+        }
         appWidgetManager.updateAppWidget(thisWidget, remoteViews);
     }
 
@@ -52,8 +62,13 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                 DecimalFormat df = new DecimalFormat("0.0");
                 remoteViews.setTextViewText(R.id.price, df.format(newPrice));
                 String time_now_in_string = Util.getCurrentDisplayTime();
-                remoteViews.setTextViewText(R.id.update_time, "* updated on " + time_now_in_string);
-                remoteViews.setTextViewText(R.id.exchange_currency, pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"));
+                if(pref.getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
+                    remoteViews.setTextViewText(R.id.update_time, "* 更新時間 " + time_now_in_string);
+                    remoteViews.setTextColor(R.id.price, Color.WHITE);
+                } else {
+                    remoteViews.setTextViewText(R.id.update_time, "* updated on " + time_now_in_string);
+                    remoteViews.setTextColor(R.id.price, Color.WHITE);
+                }
                 pref.edit()
                         .putLong(Constants.PREF_LAST_UPDATED_TIMESTAMP, System.currentTimeMillis())
                         .putString(Constants.PREF_LAST_UPDATED_PRICE, df.format(newPrice))
@@ -61,14 +76,35 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                 appWidgetManager.updateAppWidget(thisWidget, remoteViews);
                 Log.e("updated widget?", "yes");
             } else {
+                // Update widget info when no connection
                 remoteViews.setTextViewText(R.id.price, pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "--.--"));
-                remoteViews.setTextViewText(R.id.update_time, "* no connection");
+                if(pref.getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
+                    remoteViews.setTextViewText(R.id.update_time, "* 綱絡未能連接");
+                    remoteViews.setTextColor(R.id.price, Color.GRAY);
+                    remoteViews.setTextViewText(R.id.exchange_currency,
+                            Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
+                    remoteViews.setTextViewText(R.id.credit, "由 Coindesk BPI 提供報價");
+                } else {
+                    remoteViews.setTextViewText(R.id.update_time, "* no connection");
+                    remoteViews.setTextColor(R.id.price, Color.GRAY);
+                    remoteViews.setTextViewText(R.id.exchange_currency, pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"));
+                    remoteViews.setTextViewText(R.id.credit, "Data provided by Coindesk BPI");
+                }
                 appWidgetManager.updateAppWidget(thisWidget, remoteViews);
             }
         } catch (Exception e) {
             e.printStackTrace();
             remoteViews.setTextViewText(R.id.price, pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "--.--"));
-            remoteViews.setTextViewText(R.id.update_time, "* no connection");
+            if(pref.getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
+                remoteViews.setTextViewText(R.id.update_time, "* 綱絡未能連接");
+                remoteViews.setTextColor(R.id.price, Color.GRAY);
+                remoteViews.setTextViewText(R.id.exchange_currency,
+                        Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
+            } else {
+                remoteViews.setTextViewText(R.id.update_time, "* no connection");
+                remoteViews.setTextColor(R.id.price, Color.GRAY);
+                remoteViews.setTextViewText(R.id.exchange_currency, pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"));
+            }
             appWidgetManager.updateAppWidget(thisWidget, remoteViews);
         }
         return "Executed";
@@ -169,7 +205,13 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             //ignore
             Log.e("Caught here?", "here");
             remoteViews.setTextViewText(R.id.price, pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "--.--"));
-            remoteViews.setTextViewText(R.id.update_time, "* no connection");
+            if(pref.getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
+                remoteViews.setTextViewText(R.id.update_time, "* 綱絡未能連接");
+                remoteViews.setTextColor(R.id.price, Color.GRAY);
+            } else {
+                remoteViews.setTextViewText(R.id.update_time, "* no connection");
+                remoteViews.setTextColor(R.id.price, Color.GRAY);
+            }
             appWidgetManager.updateAppWidget(thisWidget, remoteViews);
         }
         return 0.00;

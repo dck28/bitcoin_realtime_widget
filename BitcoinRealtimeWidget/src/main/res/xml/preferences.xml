@@ -6,6 +6,15 @@
         android:title="Donate: Click to copy address"
         android:summary="13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH"/>
 
+    <com.streetcred.bitcoinpriceindexwidget.DisplayLanguagePreferenceDialog
+        android:key="pref_language"
+        android:title="Language:"
+        android:dialogTitle="Language"
+        android:entries="@array/pref_language_entries"
+        android:entryValues="@array/pref_language_values"
+        android:defaultValue="English"
+        android:negativeButtonText="Cancel"/>
+
     <com.streetcred.bitcoinpriceindexwidget.DisplayThemePreferenceDialog
         android:key="pref_theme"
         android:title="Theme:"

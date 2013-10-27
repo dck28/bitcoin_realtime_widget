@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.widget.RemoteViews;
 
 import java.io.InterruptedIOException;
@@ -24,6 +25,7 @@ public class RefreshDataReceiver extends BroadcastReceiver{
         } catch (TimeoutException e){
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
             remoteViews.setTextViewText(R.id.update_time, "* no connection");
+            remoteViews.setTextColor(R.id.price, Color.GRAY);
             AppWidgetManager.getInstance(context).updateAppWidget(new ComponentName(context, XBTRealtimeWidgetProvider.class), remoteViews);
         } catch (Exception e){
             // ignore

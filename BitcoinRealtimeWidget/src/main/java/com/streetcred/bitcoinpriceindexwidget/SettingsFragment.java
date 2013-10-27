@@ -27,14 +27,13 @@ import java.util.concurrent.TimeUnit;
 
 public class SettingsFragment extends PreferenceFragment {
     public static final String FRAGMENT_TAG = getFragmentTag(SettingsFragment.class);
-    public boolean isChinese = true;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         // Load the preferences from an XML resource
-        if (isChinese){
+        if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
             addPreferencesFromResource(R.xml.preferences_chinese);
         } else {
             addPreferencesFromResource(R.xml.preferences);
@@ -50,7 +49,7 @@ public class SettingsFragment extends PreferenceFragment {
                 ClipboardManager clipboard = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("Bitcoin Address", "13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH");
                 clipboard.setPrimaryClip(clip);
-                if (isChinese){
+                if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
                     Toast.makeText(getActivity(), "複製成功. 很感激您的支持!\n13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(getActivity(), "Address Copied. Thank You for Your Support!\n13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH", Toast.LENGTH_LONG).show();
@@ -59,7 +58,9 @@ public class SettingsFragment extends PreferenceFragment {
             }
         });
 
-        if (isChinese){
+        DisplayLanguagePreference(this, savedInstanceState);
+
+        if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
             DisplayThemePreference_Chinese();
             DisplayCurrencyPreference_Chinese();
         } else {
@@ -71,9 +72,10 @@ public class SettingsFragment extends PreferenceFragment {
     private void DisplayCurrencyPreference_English() {
         DisplayCurrencyPreferenceDialog currencyPreference = (DisplayCurrencyPreferenceDialog) findPreference("pref_currency");
         if (currencyPreference != null){
-            if (currencyPreference.getValue() == null) {
-                currencyPreference.setValueIndex(0);
-            }
+            currencyPreference.setValue(XBTWidgetApplication
+                    .getSharedPreferences()
+                    .getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"));
+
             currencyPreference.setTitle("Display Currency: " + currencyPreference.getValue());
             currencyPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
@@ -84,12 +86,13 @@ public class SettingsFragment extends PreferenceFragment {
                             .putString(Constants.PREF_LAST_UPDATED_CURRENCY, newValue.toString())
                             .commit();
                     preference.setTitle("Display Currency: " + newValue.toString());
-                    try{
+                    try {
                         RefreshData refresh = new RefreshData();
                         refresh.execute().get(10000, TimeUnit.MILLISECONDS);
-                    } catch (Exception e){
+                    } catch (Exception e) {
                         RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
                         remoteViews.setTextViewText(R.id.update_time, "* no connection");
+                        remoteViews.setTextColor(R.id.price, Color.GRAY);
                         AppWidgetManager.getInstance(getActivity()).updateAppWidget(new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class), remoteViews);
                     }
                     return true;
@@ -101,9 +104,10 @@ public class SettingsFragment extends PreferenceFragment {
     private void DisplayThemePreference_English() {
         DisplayThemePreferenceDialog themePreference = (DisplayThemePreferenceDialog) findPreference("pref_theme");
         if (themePreference != null){
-            if (themePreference.getValue() == null) {
-                themePreference.setValueIndex(0);
-            }
+            themePreference.setValue(XBTWidgetApplication
+                    .getSharedPreferences()
+                    .getString(Constants.PREF_LAST_UPDATED_THEME, "Navy"));
+
             themePreference.setTitle("Theme: " + themePreference.getValue());
             themePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
@@ -134,12 +138,59 @@ public class SettingsFragment extends PreferenceFragment {
         }
     }
 
+    private void DisplayLanguagePreference(final SettingsFragment thisFragment, final Bundle savedInstanceState) {
+        DisplayLanguagePreferenceDialog languagePreference = (DisplayLanguagePreferenceDialog) findPreference("pref_language");
+        if (languagePreference != null){
+
+            languagePreference.setValue(
+                    XBTWidgetApplication
+                            .getSharedPreferences()
+                            .getString(Constants.PREF_DISPLAY_LANGUAGE, "English")); // Default English
+
+            if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
+                languagePreference.setTitle("語文: " + languagePreference.getValue());
+            } else {
+                languagePreference.setTitle("Language: " + languagePreference.getValue());
+            }
+
+            languagePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference,
+                                                  Object newValue) {
+                    XBTWidgetApplication.getSharedPreferences()
+                            .edit()
+                            .putString(Constants.PREF_DISPLAY_LANGUAGE, newValue.toString())
+                            .commit();
+                    if (newValue.toString().equalsIgnoreCase("English")){
+                        preference.setTitle("Language: " + newValue.toString());
+                    } else if (newValue.toString().equalsIgnoreCase("中文(繁體)")){
+                        preference.setTitle("語文: " + newValue.toString());
+                    }
+                    try {
+                        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(getActivity());
+                        RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
+                        ComponentName thisWidget = new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class);
+                        appWidgetManager.updateAppWidget(thisWidget, remoteViews);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    } finally {
+                        thisFragment.onCreate(savedInstanceState);
+                        thisFragment.onResume();
+                    }
+                    return true;
+                }
+            });
+        }
+    }
+
     private void DisplayCurrencyPreference_Chinese() {
         DisplayCurrencyPreferenceDialog currencyPreference = (DisplayCurrencyPreferenceDialog) findPreference("pref_currency_chinese");
         if (currencyPreference != null){
-            if (currencyPreference.getValue() == null) {
-                currencyPreference.setValueIndex(0);
-            }
+            currencyPreference.setValue(convertCurrencyEnglishToChinese(
+                    XBTWidgetApplication
+                    .getSharedPreferences()
+                    .getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
+
             currencyPreference.setTitle("顯示貨幣: " + currencyPreference.getValue());
             currencyPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
@@ -157,6 +208,7 @@ public class SettingsFragment extends PreferenceFragment {
                     } catch (Exception e){
                         RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
                         remoteViews.setTextViewText(R.id.update_time, "* 綱絡未能連接");
+                        remoteViews.setTextColor(R.id.price, Color.GRAY);
                         AppWidgetManager.getInstance(getActivity()).updateAppWidget(new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class), remoteViews);
                     }
                     return true;
@@ -176,27 +228,40 @@ public class SettingsFragment extends PreferenceFragment {
         return "USD";
     }
 
+    private String convertCurrencyEnglishToChinese(String newValue){
+        if(newValue.equals("USD")){
+            return "美元";
+        } else if(newValue.equals("GBP")){
+            return "英鎊";
+        } else if(newValue.equals("EUR")){
+            return "歐元";
+        }
+        return "美元";
+    }
+
     private void DisplayThemePreference_Chinese() {
         DisplayThemePreferenceDialog themePreference = (DisplayThemePreferenceDialog) findPreference("pref_theme_chinese");
         if (themePreference != null){
-            if (themePreference.getValue() == null) {
-                themePreference.setValueIndex(0);
-            }
-            themePreference.setTitle("顯示主題: " + themePreference.getValue());
+            themePreference.setValue(XBTWidgetApplication
+                    .getSharedPreferences()
+                    .getString(Constants.PREF_LAST_UPDATED_THEME, "Navy"));
+
+            themePreference.setTitle("顯示主題: " + convertThemeEnglishToChinese(themePreference.getValue()));
             themePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference,
                                                   Object newValue) {
+                    String newThemeInEnglish = convertThemeChineseToEnglish(newValue.toString());
                     XBTWidgetApplication.getSharedPreferences()
                             .edit()
-                            .putString(Constants.PREF_LAST_UPDATED_THEME, newValue.toString())
+                            .putString(Constants.PREF_LAST_UPDATED_THEME, newThemeInEnglish)
                             .commit();
                     preference.setTitle("顯示主題: " + newValue.toString());
                     try{
                         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(getActivity());
                         RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
                         ComponentName thisWidget = new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class);
-                        if (newValue.toString().equalsIgnoreCase("深藍色"))
+                        if (newValue.toString().equalsIgnoreCase("深藍"))
                             remoteViews.setInt(R.id.background, "setBackgroundColor",
                                     Color.parseColor("#DD2B3856"));
                         else if (newValue.toString().equalsIgnoreCase("漂浮"))
@@ -210,6 +275,24 @@ public class SettingsFragment extends PreferenceFragment {
                 }
             });
         }
+    }
+
+    private String convertThemeChineseToEnglish(String newValueChinese){
+        if(newValueChinese.equals("深藍")){
+            return "Navy";
+        } else if(newValueChinese.equals("漂浮")){
+            return "Float";
+        }
+        return "Navy";
+    }
+
+    private String convertThemeEnglishToChinese(String newValueEnglish){
+        if(newValueEnglish.equals("Navy")){
+            return "深藍";
+        } else if(newValueEnglish.equals("Float")){
+            return "漂浮";
+        }
+        return "深藍";
     }
 
     @Override
@@ -234,7 +317,7 @@ public class SettingsFragment extends PreferenceFragment {
             if (rateUsPref == null) {
                 rateUsPref = new Preference(getActivity());
                 rateUsPref.setKey("prefer_rate_and_feedback");
-                if (isChinese){
+                if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
                     rateUsPref.setTitle("評論此應用程式");
                     rateUsPref.setSummary("請給予您的意見及其他功能建議");
                 } else {

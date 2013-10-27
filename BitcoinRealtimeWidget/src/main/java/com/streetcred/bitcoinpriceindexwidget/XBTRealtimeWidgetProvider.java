@@ -24,6 +24,7 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
         } catch (Exception e){
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
             remoteViews.setTextViewText(R.id.update_time, "* no connection");
+            remoteViews.setTextColor(R.id.price, Color.GRAY);
             appWidgetManager.updateAppWidget(appWidgetIds, remoteViews);
         }
 
@@ -32,7 +33,19 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
         Intent configIntent = new Intent(context, MainActivity.class);
         PendingIntent configPendingIntent = PendingIntent.getActivity(context, 0, configIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         remoteViews.setOnClickPendingIntent(R.id.app_icon, configPendingIntent);
-        remoteViews.setTextViewText(R.id.exchange_currency, XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"));
+
+        // Set exchange currency display
+        if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English")
+                .equalsIgnoreCase("中文(繁體)")){
+            remoteViews.setTextViewText(R.id.exchange_currency,
+                    Util.convertCurrencyStringToChinese(
+                        XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")
+                    ));
+            remoteViews.setTextViewText(R.id.credit, "由 Coindesk BPI 提供報價");
+        } else {
+            remoteViews.setTextViewText(R.id.exchange_currency, XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"));
+            remoteViews.setTextViewText(R.id.credit, "Data provided by Coindesk BPI");
+        }
 
         // Set widget textview refreshable
         Intent refreshIntent = new Intent(context, RefreshDataReceiver.class);

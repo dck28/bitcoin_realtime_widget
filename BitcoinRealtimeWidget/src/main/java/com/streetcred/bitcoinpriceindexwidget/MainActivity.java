@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,10 +36,13 @@ public class MainActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.main);
         replaceMainFragment(getFragmentManager(), new SettingsFragment(), SETTINGS_FRAG, this);
+    }
 
+    @Override
+    public void onResume(){
+        super.onResume();
     }
 
     static class ShowSettings extends OpenFragmentApplicationAction {

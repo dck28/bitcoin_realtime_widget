@@ -6,13 +6,23 @@
         android:title="請支持: 複製比特幣地址"
         android:summary="13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH"/>
 
+
+    <com.streetcred.bitcoinpriceindexwidget.DisplayLanguagePreferenceDialog
+        android:key="pref_language"
+        android:title="語文:"
+        android:dialogTitle="語文"
+        android:entries="@array/pref_language_entries"
+        android:entryValues="@array/pref_language_values"
+        android:defaultValue="中文(繁體)"
+        android:negativeButtonText="取消"/>
+
     <com.streetcred.bitcoinpriceindexwidget.DisplayThemePreferenceDialog
         android:key="pref_theme_chinese"
         android:title="顯示主題:"
         android:dialogTitle="顯示主題"
         android:entries="@array/pref_theme_entries_chinese"
         android:entryValues="@array/pref_theme_values_chinese"
-        android:defaultValue="深藍色"
+        android:defaultValue="深藍"
         android:negativeButtonText="取消"/>
 
     <com.streetcred.bitcoinpriceindexwidget.DisplayCurrencyPreferenceDialog

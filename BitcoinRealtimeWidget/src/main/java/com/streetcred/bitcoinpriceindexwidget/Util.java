@@ -43,6 +43,13 @@ public class Util {
         int minutes = c.get(Calendar.MINUTE);
         int am_pm = c.get(Calendar.AM_PM);
         String amORpm = (am_pm == 0) ? "AM" : "PM";
+        if(XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
+            if (amORpm.equalsIgnoreCase("AM")){
+                amORpm = "上午";
+            } else if (amORpm.equalsIgnoreCase("PM")){
+                amORpm = "下午";
+            }
+        }
         return String.format("%02d", hours) + ":" + String.format("%02d", minutes) + " " + amORpm;
     }
 
@@ -88,5 +95,16 @@ public class Util {
                 );
             }
         }
+    }
+
+    public static String convertCurrencyStringToChinese(String currency){
+        if (currency.equalsIgnoreCase("USD")){
+            return "美元";
+        } else if (currency.equalsIgnoreCase("GBP")){
+            return "英鎊";
+        } else if (currency.equalsIgnoreCase("EUR")){
+            return "歐元";
+        }
+        return "美元";
     }
 }
