@@ -167,10 +167,8 @@ public class SettingsFragment extends PreferenceFragment {
                         preference.setTitle("語文: " + newValue.toString());
                     }
                     try {
-                        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(getActivity());
-                        RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
-                        ComponentName thisWidget = new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class);
-                        appWidgetManager.updateAppWidget(thisWidget, remoteViews);
+                        RefreshData refresh = new RefreshData();
+                        refresh.execute().get(10000, TimeUnit.MILLISECONDS);
                     } catch (Exception e) {
                         e.printStackTrace();
                     } finally {
