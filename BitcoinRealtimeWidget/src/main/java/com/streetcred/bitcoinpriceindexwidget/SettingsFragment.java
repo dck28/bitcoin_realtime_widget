@@ -33,10 +33,36 @@ public class SettingsFragment extends PreferenceFragment {
         super.onCreate(savedInstanceState);
 
         // Load the preferences from an XML resource
-        if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
+        if (XBTWidgetApplication.getSharedPreferences()
+                .getString(Constants.PREF_DISPLAY_LANGUAGE, Locale.getDefault().toString())
+                .equalsIgnoreCase("English")){
+            addPreferencesFromResource(R.xml.preferences);
+        } else if (XBTWidgetApplication.getSharedPreferences()
+                .getString(Constants.PREF_DISPLAY_LANGUAGE, Locale.getDefault().toString())
+                .equalsIgnoreCase("中文(繁體)")){
             addPreferencesFromResource(R.xml.preferences_chinese);
+        } else if (XBTWidgetApplication.getSharedPreferences()
+                .getString(Constants.PREF_DISPLAY_LANGUAGE, Locale.getDefault().toString())
+                .equalsIgnoreCase("zh_HK")){
+            addPreferencesFromResource(R.xml.preferences_chinese);
+            XBTWidgetApplication.getSharedPreferences()
+                    .edit()
+                    .putString(Constants.PREF_DISPLAY_LANGUAGE, "中文(繁體)")
+                    .commit();
+        } else if (XBTWidgetApplication.getSharedPreferences()
+                .getString(Constants.PREF_DISPLAY_LANGUAGE, Locale.getDefault().toString())
+                .equalsIgnoreCase("zh_TW")){
+            addPreferencesFromResource(R.xml.preferences_chinese);
+            XBTWidgetApplication.getSharedPreferences()
+                    .edit()
+                    .putString(Constants.PREF_DISPLAY_LANGUAGE, "中文(繁體)")
+                    .commit();
         } else {
             addPreferencesFromResource(R.xml.preferences);
+            XBTWidgetApplication.getSharedPreferences()
+                    .edit()
+                    .putString(Constants.PREF_DISPLAY_LANGUAGE, "English")
+                    .commit();
         }
 
         getActivity().getActionBar().setDisplayHomeAsUpEnabled(false);
