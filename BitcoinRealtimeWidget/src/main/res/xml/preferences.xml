@@ -8,7 +8,7 @@
 
     <com.streetcred.bitcoinpriceindexwidget.DisplayThemePreferenceDialog
         android:key="pref_theme"
-        android:title="Theme: USD"
+        android:title="Theme:"
         android:dialogTitle="Theme"
         android:entries="@array/pref_theme_entries"
         android:entryValues="@array/pref_theme_values"

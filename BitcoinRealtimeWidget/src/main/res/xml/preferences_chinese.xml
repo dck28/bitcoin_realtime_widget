@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <Preference
+        android:key="copy_bitcoin_address"
+        android:title="請支持: 複製比特幣地址"
+        android:summary="13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH"/>
+
+    <com.streetcred.bitcoinpriceindexwidget.DisplayThemePreferenceDialog
+        android:key="pref_theme_chinese"
+        android:title="顯示主題:"
+        android:dialogTitle="顯示主題"
+        android:entries="@array/pref_theme_entries_chinese"
+        android:entryValues="@array/pref_theme_values_chinese"
+        android:defaultValue="深藍色"
+        android:negativeButtonText="取消"/>
+
+    <com.streetcred.bitcoinpriceindexwidget.DisplayCurrencyPreferenceDialog
+        android:key="pref_currency_chinese"
+        android:title="顯示貨幣:"
+        android:dialogTitle="選擇顯示貨幣"
+        android:entries="@array/pref_currency_entries_chinese"
+        android:entryValues="@array/pref_currency_values_chinese"
+        android:defaultValue="美元"
+        android:negativeButtonText="取消"/>
+
+</PreferenceScreen>
