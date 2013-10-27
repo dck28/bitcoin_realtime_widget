@@ -10,7 +10,7 @@
     <com.streetcred.bitcoinpriceindexwidget.DisplayLanguagePreferenceDialog
         android:key="pref_language"
         android:title="語文:"
-        android:dialogTitle="語文"
+        android:dialogTitle="選擇語文"
         android:entries="@array/pref_language_entries"
         android:entryValues="@array/pref_language_values"
         android:defaultValue="中文(繁體)"
@@ -19,7 +19,7 @@
     <com.streetcred.bitcoinpriceindexwidget.DisplayThemePreferenceDialog
         android:key="pref_theme_chinese"
         android:title="顯示主題:"
-        android:dialogTitle="顯示主題"
+        android:dialogTitle="選擇顯示主題"
         android:entries="@array/pref_theme_entries_chinese"
         android:entryValues="@array/pref_theme_values_chinese"
         android:defaultValue="深藍"

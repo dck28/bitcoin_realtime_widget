@@ -9,7 +9,7 @@
     <com.streetcred.bitcoinpriceindexwidget.DisplayLanguagePreferenceDialog
         android:key="pref_language"
         android:title="Language:"
-        android:dialogTitle="Language"
+        android:dialogTitle="Select Language"
         android:entries="@array/pref_language_entries"
         android:entryValues="@array/pref_language_values"
         android:defaultValue="English"
@@ -17,8 +17,8 @@
 
     <com.streetcred.bitcoinpriceindexwidget.DisplayThemePreferenceDialog
         android:key="pref_theme"
-        android:title="Theme:"
-        android:dialogTitle="Theme"
+        android:title="Widget Theme:"
+        android:dialogTitle="Select Widget Theme"
         android:entries="@array/pref_theme_entries"
         android:entryValues="@array/pref_theme_values"
         android:defaultValue="Navy"
@@ -27,7 +27,7 @@
     <com.streetcred.bitcoinpriceindexwidget.DisplayCurrencyPreferenceDialog
         android:key="pref_currency"
         android:title="Display Currency: USD"
-        android:dialogTitle="Select Currency To Display"
+        android:dialogTitle="Select Currency"
         android:entries="@array/pref_currency_entries"
         android:entryValues="@array/pref_currency_values"
         android:defaultValue="USD"

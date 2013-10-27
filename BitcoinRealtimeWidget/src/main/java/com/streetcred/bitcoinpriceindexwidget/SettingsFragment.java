@@ -108,7 +108,7 @@ public class SettingsFragment extends PreferenceFragment {
                     .getSharedPreferences()
                     .getString(Constants.PREF_LAST_UPDATED_THEME, "Navy"));
 
-            themePreference.setTitle("Theme: " + themePreference.getValue());
+            themePreference.setTitle("Widget Theme: " + themePreference.getValue());
             themePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference,
@@ -117,7 +117,7 @@ public class SettingsFragment extends PreferenceFragment {
                             .edit()
                             .putString(Constants.PREF_LAST_UPDATED_THEME, newValue.toString())
                             .commit();
-                    preference.setTitle("Theme: " + newValue.toString());
+                    preference.setTitle("Widget Theme: " + newValue.toString());
                     try {
                         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(getActivity());
                         RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
