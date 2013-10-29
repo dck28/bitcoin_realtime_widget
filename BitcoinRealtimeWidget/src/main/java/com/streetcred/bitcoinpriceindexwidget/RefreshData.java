@@ -9,16 +9,15 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.RemoteViews;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONObject;
-import org.json.JSONTokener;
+import com.streetcred.bitcoinpriceindexwidget.ConnectionManager.JSONParser;
+import com.streetcred.bitcoinpriceindexwidget.ConnectionManager.RpcManager;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONObject;
+
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * Created by denniskong on 10/6/13.
@@ -45,11 +44,14 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             remoteViews.setTextViewText(R.id.update_time, "* 連接中...");
             remoteViews.setTextViewText(R.id.exchange_currency,
                     Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
-            remoteViews.setTextViewText(R.id.credit, "由 Coindesk BPI 提供報價");
+            remoteViews.setTextViewText(R.id.credit, "由 " +
+                    pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk")
+                    + " 提供報價");
         } else {
             remoteViews.setTextViewText(R.id.update_time, "* loading...");
             remoteViews.setTextViewText(R.id.exchange_currency, pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"));
-            remoteViews.setTextViewText(R.id.credit, "Data provided by Coindesk BPI");
+            remoteViews.setTextViewText(R.id.credit, "Data provided by " +
+                    pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"));
         }
         appWidgetManager.updateAppWidget(thisWidget, remoteViews);
     }
@@ -57,7 +59,18 @@ public class RefreshData extends AsyncTask<String, Void, String> {
     @Override
     protected String doInBackground(String... params) {
         try {
-            newPrice = getNewPrice();
+            String data_source = pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk");
+
+            String data_source_url = getURL_from_source(data_source);
+
+            Collection<BasicNameValuePair> requestParams = null;
+            if (data_source_url.equals(Constants.COINBASE_API_URL)){
+                requestParams = new ArrayList<BasicNameValuePair>();
+                requestParams.add(new BasicNameValuePair("currency", pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
+            }
+
+            JSONObject json_response = RpcManager.getInstance().callGet(context, data_source_url, "", requestParams);
+            newPrice = getNewPrice(json_response, data_source_url);
             if (newPrice != 0){
                 DecimalFormat df = new DecimalFormat("0.0");
                 remoteViews.setTextViewText(R.id.price, df.format(newPrice));
@@ -83,12 +96,15 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                     remoteViews.setTextColor(R.id.price, Color.GRAY);
                     remoteViews.setTextViewText(R.id.exchange_currency,
                             Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
-                    remoteViews.setTextViewText(R.id.credit, "由 Coindesk BPI 提供報價");
+                    remoteViews.setTextViewText(R.id.credit, "由 "
+                            + pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk")
+                            + " 提供報價");
                 } else {
                     remoteViews.setTextViewText(R.id.update_time, "* no connection");
                     remoteViews.setTextColor(R.id.price, Color.GRAY);
                     remoteViews.setTextViewText(R.id.exchange_currency, pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"));
-                    remoteViews.setTextViewText(R.id.credit, "Data provided by Coindesk BPI");
+                    remoteViews.setTextViewText(R.id.credit, "Data provided by " +
+                            pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"));
                 }
                 appWidgetManager.updateAppWidget(thisWidget, remoteViews);
             }
@@ -118,102 +134,28 @@ public class RefreshData extends AsyncTask<String, Void, String> {
     protected void onProgressUpdate(Void... values) {
     }
 
-    private double getNewPrice(){
-        try{
-            String stringResponse = null;
-            String USD_code = null; String USD_symbol = null; String USD_rate = null;
-            String USD_description = null; String USD_rate_float = null;
-            String GBP_code = null; String GBP_symbol = null; String GBP_rate = null;
-            String GBP_description = null; String GBP_rate_float = null;
-            String EUR_code = null; String EUR_symbol = null; String EUR_rate = null;
-            String EUR_description = null; String EUR_rate_float = null;
+    private double getNewPrice(JSONObject json_response, String from){
 
-            HttpClient client = new DefaultHttpClient();
-            HttpGet request = new HttpGet(Constants.API_URL);
-            HttpResponse response =  client.execute(request);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
-            StringBuilder builder = new StringBuilder();
-            for (String line; (line = reader.readLine()) != null; ) {
-                builder.append(line).append("\n");
-            }
-            stringResponse = builder.toString();
-            JSONTokener tokener = new JSONTokener(stringResponse);
-            JSONObject json_response = new JSONObject(tokener);
-            JSONObject bpi = json_response.optJSONObject("bpi");
-
-            // FETCH USD PRICE
-            JSONObject USD = bpi.optJSONObject("USD");
-
-            if(USD.has("code") && !USD.isNull("code")){
-                USD_code = USD.optString("code");
-            }
-            if(USD.has("symbol") && !USD.isNull("symbol")){
-                USD_symbol = USD.optString("symbol");
-            }
-            if(USD.has("rate") && !USD.isNull("rate")){
-                USD_rate = USD.optString("rate");
-            }
-            if(USD.has("description") && !USD.isNull("description")){
-                USD_description = USD.optString("description");
-            }
-            if(USD.has("rate_float") && !USD.isNull("rate_float")){
-                USD_rate_float = USD.optString("rate_float");
-            }
-            if(USD_rate != null && pref.getString("preferred_currency", "USD").equalsIgnoreCase("USD")) return Double.parseDouble(USD_rate);
-
-            // FETCH GBP PRICE
-            JSONObject GBP = bpi.optJSONObject("GBP");
-
-            if(GBP.has("code") && !GBP.isNull("code")){
-                GBP_code = GBP.optString("code");
-            }
-            if(GBP.has("symbol") && !GBP.isNull("symbol")){
-                GBP_symbol = GBP.optString("symbol");
-            }
-            if(GBP.has("rate") && !GBP.isNull("rate")){
-                GBP_rate = GBP.optString("rate");
-            }
-            if(GBP.has("description") && !GBP.isNull("description")){
-                GBP_description = GBP.optString("description");
-            }
-            if(GBP.has("rate_float") && !GBP.isNull("rate_float")){
-                GBP_rate_float = GBP.optString("rate_float");
-            }
-            if(GBP_rate != null && pref.getString("preferred_currency", "USD").equalsIgnoreCase("GBP")) return Double.parseDouble(GBP_rate);
-
-            // FETCH EUR PRICE
-            JSONObject EUR = bpi.optJSONObject("EUR");
-
-            if(EUR.has("code") && !EUR.isNull("code")){
-                EUR_code = EUR.optString("code");
-            }
-            if(EUR.has("symbol") && !EUR.isNull("symbol")){
-                EUR_symbol = EUR.optString("symbol");
-            }
-            if(EUR.has("rate") && !EUR.isNull("rate")){
-                EUR_rate = EUR.optString("rate");
-            }
-            if(EUR.has("description") && !EUR.isNull("description")){
-                EUR_description = EUR.optString("description");
-            }
-            if(EUR.has("rate_float") && !EUR.isNull("rate_float")){
-                EUR_rate_float = EUR.optString("rate_float");
-            }
-            if(EUR_rate != null && pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD").equalsIgnoreCase("EUR")) return Double.parseDouble(EUR_rate);
-        } catch (Exception ex){
-            ex.printStackTrace();
-            //ignore
-            Log.e("Caught here?", "here");
-            remoteViews.setTextViewText(R.id.price, pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "--.--"));
-            if(pref.getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
-                remoteViews.setTextViewText(R.id.update_time, "* 綱絡未能連接");
-                remoteViews.setTextColor(R.id.price, Color.GRAY);
-            } else {
-                remoteViews.setTextViewText(R.id.update_time, "* no connection");
-                remoteViews.setTextColor(R.id.price, Color.GRAY);
-            }
-            appWidgetManager.updateAppWidget(thisWidget, remoteViews);
+        if (from.equals(Constants.COINDESK_API_URL)){
+            return JSONParser.handle_source_COINDESK(json_response, pref);
         }
+
+        if (from.equals(Constants.COINBASE_API_URL)){
+            return JSONParser.handle_source_COINBASE(json_response);
+        }
+
+        // Default
         return 0.00;
     }
+
+    private String getURL_from_source(String data_source){
+        if(data_source.equalsIgnoreCase("Coindesk")){
+            return Constants.COINDESK_API_URL;
+        } else if(data_source.equalsIgnoreCase("Coinbase")){
+            return Constants.COINBASE_API_URL;
+        }
+        //Default
+        return Constants.COINDESK_API_URL;
+    }
+
 }

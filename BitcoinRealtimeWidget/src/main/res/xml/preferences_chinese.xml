@@ -34,4 +34,13 @@
         android:defaultValue="美元"
         android:negativeButtonText="取消"/>
 
+    <com.streetcred.bitcoinpriceindexwidget.DisplayDataSourcePreferenceDialog
+        android:key="pref_data_source_chinese"
+        android:title="數據來源:"
+        android:dialogTitle="選擇數據來源"
+        android:entries="@array/pref_data_source_entries_chinese"
+        android:entryValues="@array/pref_data_source_values_chinese"
+        android:defaultValue="Coindesk"
+        android:negativeButtonText="取消"/>
+
 </PreferenceScreen>

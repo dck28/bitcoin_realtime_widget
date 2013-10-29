@@ -33,4 +33,13 @@
         android:defaultValue="USD"
         android:negativeButtonText="Cancel"/>
 
+    <com.streetcred.bitcoinpriceindexwidget.DisplayDataSourcePreferenceDialog
+        android:key="pref_data_source"
+        android:title="Data Source: Coindesk"
+        android:dialogTitle="Select Data Source"
+        android:entries="@array/pref_data_source_entries"
+        android:entryValues="@array/pref_data_source_values"
+        android:defaultValue="Coindesk"
+        android:negativeButtonText="Cancel"/>
+
 </PreferenceScreen>

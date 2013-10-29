@@ -41,10 +41,13 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
                     Util.convertCurrencyStringToChinese(
                         XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")
                     ));
-            remoteViews.setTextViewText(R.id.credit, "由 Coindesk BPI 提供報價");
+            remoteViews.setTextViewText(R.id.credit, "由 " +
+                    XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk") +
+                    " 提供報價");
         } else {
             remoteViews.setTextViewText(R.id.exchange_currency, XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"));
-            remoteViews.setTextViewText(R.id.credit, "Data provided by Coindesk BPI");
+            remoteViews.setTextViewText(R.id.credit, "Data provided by " +
+                    XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"));
         }
 
         // Set widget textview refreshable

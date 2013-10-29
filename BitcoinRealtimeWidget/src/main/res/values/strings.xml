@@ -30,6 +30,26 @@
         <item>16 hours</item>
         <item>1 day</item>
     </string-array>
+    <string-array name="pref_data_source_entries">
+        <!-- item>ANY</item -->
+        <item>Coindesk</item>
+        <item>Coinbase</item>
+    </string-array>
+    <string-array name="pref_data_source_values">
+        <!-- item>ANY</item -->
+        <item>Coindesk</item>
+        <item>Coinbase</item>
+    </string-array>
+    <string-array name="pref_data_source_entries_chinese">
+        <!-- item>ANY</item -->
+        <item>Coindesk</item>
+        <item>Coinbase</item>
+    </string-array>
+    <string-array name="pref_data_source_values_chinese">
+        <!-- item>ANY</item -->
+        <item>Coindesk</item>
+        <item>Coinbase</item>
+    </string-array>
     <string-array name="pref_currency_entries">
         <!-- item>ANY</item -->
         <item>USD</item>

@@ -89,9 +89,43 @@ public class SettingsFragment extends PreferenceFragment {
         if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
             DisplayThemePreference_Chinese();
             DisplayCurrencyPreference_Chinese();
+            DisplayDataSourcePreference_Chinese();
         } else {
             DisplayThemePreference_English();
             DisplayCurrencyPreference_English();
+            DisplayDataSourcePreference_English();
+        }
+    }
+
+    private void DisplayDataSourcePreference_English() {
+        DisplayDataSourcePreferenceDialog dataSourcePreference = (DisplayDataSourcePreferenceDialog) findPreference("pref_data_source");
+        if (dataSourcePreference != null){
+            dataSourcePreference.setValue(XBTWidgetApplication
+                    .getSharedPreferences()
+                    .getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"));
+
+            dataSourcePreference.setTitle("Data Source: " + dataSourcePreference.getValue());
+            dataSourcePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference,
+                                                  Object newValue) {
+                    XBTWidgetApplication.getSharedPreferences()
+                            .edit()
+                            .putString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, newValue.toString())
+                            .commit();
+                    preference.setTitle("Data Source: " + newValue.toString());
+                    try {
+                        RefreshData refresh = new RefreshData();
+                        refresh.execute().get(10000, TimeUnit.MILLISECONDS);
+                    } catch (Exception e) {
+                        RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
+                        remoteViews.setTextViewText(R.id.update_time, "* no connection");
+                        remoteViews.setTextColor(R.id.price, Color.GRAY);
+                        AppWidgetManager.getInstance(getActivity()).updateAppWidget(new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class), remoteViews);
+                    }
+                    return true;
+                }
+            });
         }
     }
 
@@ -226,6 +260,40 @@ public class SettingsFragment extends PreferenceFragment {
                             .putString(Constants.PREF_LAST_UPDATED_CURRENCY, newStringValue)
                             .commit();
                     preference.setTitle("顯示貨幣: " + newValue_Chinese.toString());
+                    try{
+                        RefreshData refresh = new RefreshData();
+                        refresh.execute().get(10000, TimeUnit.MILLISECONDS);
+                    } catch (Exception e){
+                        RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
+                        remoteViews.setTextViewText(R.id.update_time, "* 綱絡未能連接");
+                        remoteViews.setTextColor(R.id.price, Color.GRAY);
+                        AppWidgetManager.getInstance(getActivity()).updateAppWidget(new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class), remoteViews);
+                    }
+                    return true;
+                }
+            });
+        }
+    }
+
+    private void DisplayDataSourcePreference_Chinese() {
+        DisplayDataSourcePreferenceDialog dataSourcePreference = (DisplayDataSourcePreferenceDialog) findPreference("pref_data_source_chinese");
+        if (dataSourcePreference != null){
+            dataSourcePreference.setValue(
+                    XBTWidgetApplication
+                    .getSharedPreferences()
+                    .getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"));
+
+            dataSourcePreference.setTitle("數據來源: " + dataSourcePreference.getValue());
+            dataSourcePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference,
+                                                  Object newValue_Chinese) {
+                    String newStringValue = newValue_Chinese.toString();
+                    XBTWidgetApplication.getSharedPreferences()
+                            .edit()
+                            .putString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, newStringValue)
+                            .commit();
+                    preference.setTitle("數據來源: " + newValue_Chinese.toString());
                     try{
                         RefreshData refresh = new RefreshData();
                         refresh.execute().get(10000, TimeUnit.MILLISECONDS);
