@@ -4,7 +4,7 @@
     <Preference
         android:key="copy_bitcoin_address"
         android:title="Donate: Click to copy address"
-        android:summary="13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH"
+        android:summary="13hwfZqGQrsNXEhx1riRpFog5JPd . . ."
         android:widgetLayout="@layout/icon_for_donation"/>
 
     <com.streetcred.bitcoinpriceindexwidget.DisplayLanguagePreferenceDialog
