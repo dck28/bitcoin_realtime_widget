@@ -88,6 +88,13 @@ public class SettingsFragment extends PreferenceFragment {
         getActivity().getActionBar().setDisplayHomeAsUpEnabled(false);
         getActivity().getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         getActivity().getActionBar().setDisplayShowTitleEnabled(true);
+        if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
+            getActivity().getActionBar().setTitle("比特幣報價精靈");
+        } else if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(简体)")){
+            getActivity().getActionBar().setTitle("比特币报价精灵");
+        } else {
+            getActivity().getActionBar().setTitle("Bitcoin Price Index Widget");
+        }
 
         findPreference("copy_bitcoin_address").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
