@@ -21,7 +21,7 @@
         android:shadowDy="8"
         android:shadowRadius="5"
         android:textSize="32dp"
-        android:text="--.--"/>
+        android:text="- - - -"/>
 
     <TextView android:id="@+id/exchange_currency"
         android:layout_width="wrap_content"
@@ -32,7 +32,7 @@
         android:gravity="center"
         android:textColor="#FFFFFF"
         android:textSize="19dp"
-        android:text="USD"
+        android:text="- - -"
         android:contentDescription="currency-code"/>
 
     <ImageButton android:id="@+id/app_icon"
@@ -68,7 +68,7 @@
         android:gravity="left"
         android:textColor="#FFFFFF"
         android:textSize="8dp"
-        android:text="Data provided by Coindesk"
+        android:text="   . . . . . . . . . . . . . . . . ."
         android:contentDescription="currency-code"/>
 
 </RelativeLayout>
