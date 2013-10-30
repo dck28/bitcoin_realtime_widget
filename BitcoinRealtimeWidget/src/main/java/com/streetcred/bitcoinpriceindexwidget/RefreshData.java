@@ -67,10 +67,12 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             if (data_source_url.equals(Constants.COINBASE_API_URL)){
                 requestParams = new ArrayList<BasicNameValuePair>();
                 requestParams.add(new BasicNameValuePair("currency", pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
+            } else if (data_source_url.equals(Constants.MTGOX_API_BASEURL)){
+                data_source_url = data_source_url + "/BTC" + pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD") + "/money/ticker_fast";
             }
 
             JSONObject json_response = RpcManager.getInstance().callGet(context, data_source_url, "", requestParams);
-            newPrice = getNewPrice(json_response, data_source_url);
+            newPrice = getNewPrice(json_response, data_source);
             if (newPrice != 0){
                 DecimalFormat df = new DecimalFormat("0.0");
                 remoteViews.setTextViewText(R.id.price, df.format(newPrice));
@@ -136,12 +138,16 @@ public class RefreshData extends AsyncTask<String, Void, String> {
 
     private double getNewPrice(JSONObject json_response, String from){
 
-        if (from.equals(Constants.COINDESK_API_URL)){
+        if (from.equals("Coindesk")){
             return JSONParser.handle_source_COINDESK(json_response, pref);
         }
 
-        if (from.equals(Constants.COINBASE_API_URL)){
+        if (from.equals("Coinbase")){
             return JSONParser.handle_source_COINBASE(json_response);
+        }
+
+        if (from.equals("Mt. Gox")){
+            return JSONParser.handle_source_MTGOX(json_response);
         }
 
         // Default
@@ -153,6 +159,8 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             return Constants.COINDESK_API_URL;
         } else if(data_source.equalsIgnoreCase("Coinbase")){
             return Constants.COINBASE_API_URL;
+        } else if(data_source.equalsIgnoreCase("Mt. Gox")){
+            return Constants.MTGOX_API_BASEURL;
         }
         //Default
         return Constants.COINDESK_API_URL;

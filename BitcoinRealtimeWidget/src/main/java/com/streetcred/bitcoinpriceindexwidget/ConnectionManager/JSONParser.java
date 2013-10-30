@@ -94,4 +94,19 @@ public class JSONParser {
         return 0.00;
     }
 
+    public static double handle_source_MTGOX(JSONObject json_response){
+
+        JSONObject data = json_response.optJSONObject("data");
+        if(data != null){
+            JSONObject last = data.optJSONObject("last");
+            if (last != null){
+                String value = last.optString("value");
+                return Double.parseDouble(value);
+            }
+        }
+
+        //Default
+        return 0.00;
+    }
+
 }
