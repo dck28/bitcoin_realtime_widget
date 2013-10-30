@@ -48,6 +48,13 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             remoteViews.setTextViewText(R.id.credit, "由 " +
                     pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk")
                     + " 提供報價");
+        } else if(pref.getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(简体)")){
+            remoteViews.setTextViewText(R.id.update_time, "* 连接中...");
+            remoteViews.setTextViewText(R.id.exchange_currency,
+                    Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
+            remoteViews.setTextViewText(R.id.credit, "由 " +
+                    pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk")
+                    + " 提供报价");
         } else {
             remoteViews.setTextViewText(R.id.update_time, "* loading...");
             remoteViews.setTextViewText(R.id.exchange_currency, pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"));
@@ -81,6 +88,9 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                 if(pref.getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
                     remoteViews.setTextViewText(R.id.update_time, "* 更新時間 " + time_now_in_string);
                     remoteViews.setTextColor(R.id.price, Color.WHITE);
+                } else if(pref.getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(简体)")){
+                    remoteViews.setTextViewText(R.id.update_time, "* 更新时间 " + time_now_in_string);
+                    remoteViews.setTextColor(R.id.price, Color.WHITE);
                 } else {
                     remoteViews.setTextViewText(R.id.update_time, "* updated on " + time_now_in_string);
                     remoteViews.setTextColor(R.id.price, Color.WHITE);
@@ -101,6 +111,14 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                     remoteViews.setTextViewText(R.id.credit, "由 "
                             + pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk")
                             + " 提供報價");
+                } else if(pref.getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(简体)")){
+                    remoteViews.setTextViewText(R.id.update_time, "* 纲络未能连接");
+                    remoteViews.setTextColor(R.id.price, Color.GRAY);
+                    remoteViews.setTextViewText(R.id.exchange_currency,
+                            Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
+                    remoteViews.setTextViewText(R.id.credit, "由 "
+                            + pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk")
+                            + " 提供报价");
                 } else {
                     remoteViews.setTextViewText(R.id.update_time, "* no connection");
                     remoteViews.setTextColor(R.id.price, Color.GRAY);
@@ -115,6 +133,11 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             remoteViews.setTextViewText(R.id.price, pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "--.--"));
             if(pref.getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
                 remoteViews.setTextViewText(R.id.update_time, "* 綱絡未能連接");
+                remoteViews.setTextColor(R.id.price, Color.GRAY);
+                remoteViews.setTextViewText(R.id.exchange_currency,
+                        Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
+            } else if(pref.getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(简体)")){
+                remoteViews.setTextViewText(R.id.update_time, "* 纲络未能连接");
                 remoteViews.setTextColor(R.id.price, Color.GRAY);
                 remoteViews.setTextViewText(R.id.exchange_currency,
                         Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));

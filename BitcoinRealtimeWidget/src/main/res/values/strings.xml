@@ -54,6 +54,18 @@
         <item>Coinbase</item>
         <item>Mt. Gox</item>
     </string-array>
+    <string-array name="pref_data_source_entries_chinese_simplified">
+        <!-- item>ANY</item -->
+        <item>Coindesk</item>
+        <item>Coinbase</item>
+        <item>Mt. Gox</item>
+    </string-array>
+    <string-array name="pref_data_source_values_chinese_simplified">
+        <!-- item>ANY</item -->
+        <item>Coindesk</item>
+        <item>Coinbase</item>
+        <item>Mt. Gox</item>
+    </string-array>
     <string-array name="pref_currency_entries">
         <!-- item>ANY</item -->
         <item>USD</item>
@@ -78,6 +90,18 @@
         <item>英鎊</item>
         <item>歐元</item>
     </string-array>
+    <string-array name="pref_currency_entries_chinese_simplified">
+        <!-- item>ANY</item -->
+        <item>美元</item>
+        <item>英镑</item>
+        <item>欧元</item>
+    </string-array>
+    <string-array name="pref_currency_values_chinese_simplified">
+        <!-- item>ANY</item -->
+        <item>美元</item>
+        <item>英镑</item>
+        <item>欧元</item>
+    </string-array>
     <string-array name="pref_theme_entries">
         <!-- item>ANY</item -->
         <item>Navy</item>
@@ -98,14 +122,26 @@
         <item>深藍</item>
         <item>漂浮</item>
     </string-array>
+    <string-array name="pref_theme_entries_chinese_simplified">
+        <!-- item>ANY</item -->
+        <item>深蓝</item>
+        <item>漂浮</item>
+    </string-array>
+    <string-array name="pref_theme_values_chinese_simplified">
+        <!-- item>ANY</item -->
+        <item>深蓝</item>
+        <item>漂浮</item>
+    </string-array>
     <string-array name="pref_language_entries">
         <!-- item>ANY</item -->
         <item>English</item>
         <item>中文(繁體)</item>
+        <item>中文(简体)</item>
     </string-array>
     <string-array name="pref_language_values">
         <!-- item>ANY</item -->
         <item>English</item>
         <item>中文(繁體)</item>
+        <item>中文(简体)</item>
     </string-array>
 </resources>

@@ -44,6 +44,15 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
             remoteViews.setTextViewText(R.id.credit, "由 " +
                     XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk") +
                     " 提供報價");
+        } else if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English")
+                .equalsIgnoreCase("中文(简体)")){
+            remoteViews.setTextViewText(R.id.exchange_currency,
+                    Util.convertCurrencyStringToChineseSimplified(
+                        XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")
+                    ));
+            remoteViews.setTextViewText(R.id.credit, "由 " +
+                    XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk") +
+                    " 提供报价");
         } else {
             remoteViews.setTextViewText(R.id.exchange_currency, XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"));
             remoteViews.setTextViewText(R.id.credit, "Data provided by " +

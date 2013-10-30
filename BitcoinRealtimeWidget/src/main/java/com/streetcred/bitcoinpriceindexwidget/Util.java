@@ -107,4 +107,15 @@ public class Util {
         }
         return "美元";
     }
+
+    public static String convertCurrencyStringToChineseSimplified(String currency){
+        if (currency.equalsIgnoreCase("USD")){
+            return "美元";
+        } else if (currency.equalsIgnoreCase("GBP")){
+            return "英镑";
+        } else if (currency.equalsIgnoreCase("EUR")){
+            return "欧元";
+        }
+        return "美元";
+    }
 }

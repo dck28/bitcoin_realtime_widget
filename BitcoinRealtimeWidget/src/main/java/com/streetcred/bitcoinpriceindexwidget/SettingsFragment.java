@@ -43,6 +43,10 @@ public class SettingsFragment extends PreferenceFragment {
             addPreferencesFromResource(R.xml.preferences_chinese);
         } else if (XBTWidgetApplication.getSharedPreferences()
                 .getString(Constants.PREF_DISPLAY_LANGUAGE, Locale.getDefault().toString())
+                .equalsIgnoreCase("中文(简体)")){
+            addPreferencesFromResource(R.xml.preferences_chinese_simplified);
+        } else if (XBTWidgetApplication.getSharedPreferences()
+                .getString(Constants.PREF_DISPLAY_LANGUAGE, Locale.getDefault().toString())
                 .equalsIgnoreCase("zh_HK")){
             addPreferencesFromResource(R.xml.preferences_chinese);
             XBTWidgetApplication.getSharedPreferences()
@@ -56,6 +60,22 @@ public class SettingsFragment extends PreferenceFragment {
             XBTWidgetApplication.getSharedPreferences()
                     .edit()
                     .putString(Constants.PREF_DISPLAY_LANGUAGE, "中文(繁體)")
+                    .commit();
+        } else if (XBTWidgetApplication.getSharedPreferences()
+                .getString(Constants.PREF_DISPLAY_LANGUAGE, Locale.getDefault().toString())
+                .equalsIgnoreCase("zh_CN")){
+            addPreferencesFromResource(R.xml.preferences_chinese_simplified);
+            XBTWidgetApplication.getSharedPreferences()
+                    .edit()
+                    .putString(Constants.PREF_DISPLAY_LANGUAGE, "中文(简体)")
+                    .commit();
+        } else if (XBTWidgetApplication.getSharedPreferences()
+                .getString(Constants.PREF_DISPLAY_LANGUAGE, Locale.getDefault().toString())
+                .equalsIgnoreCase("zh")){
+            addPreferencesFromResource(R.xml.preferences_chinese_simplified);
+            XBTWidgetApplication.getSharedPreferences()
+                    .edit()
+                    .putString(Constants.PREF_DISPLAY_LANGUAGE, "中文(简体)")
                     .commit();
         } else {
             addPreferencesFromResource(R.xml.preferences);
@@ -77,6 +97,8 @@ public class SettingsFragment extends PreferenceFragment {
                 clipboard.setPrimaryClip(clip);
                 if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
                     Toast.makeText(getActivity(), "複製成功. 很感激您的支持!\n13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH", Toast.LENGTH_LONG).show();
+                } else if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(简体)")){
+                    Toast.makeText(getActivity(), "复制成功. 很感谢您的支持!\n13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(getActivity(), "Address Copied. Thank You for Your Support!\n13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH", Toast.LENGTH_LONG).show();
                 }
@@ -90,6 +112,10 @@ public class SettingsFragment extends PreferenceFragment {
             DisplayThemePreference_Chinese();
             DisplayCurrencyPreference_Chinese();
             DisplayDataSourcePreference_Chinese();
+        } else if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(简体)")){
+            DisplayThemePreference_Chinese_Simplified();
+            DisplayCurrencyPreference_Chinese_Simplified();
+            DisplayDataSourcePreference_Chinese_Simplified();
         } else {
             DisplayThemePreference_English();
             DisplayCurrencyPreference_English();
@@ -213,6 +239,8 @@ public class SettingsFragment extends PreferenceFragment {
 
             if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
                 languagePreference.setTitle("語文: " + languagePreference.getValue());
+            } else if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(简体)")){
+                languagePreference.setTitle("语文: " + languagePreference.getValue());
             } else {
                 languagePreference.setTitle("Language: " + languagePreference.getValue());
             }
@@ -229,6 +257,8 @@ public class SettingsFragment extends PreferenceFragment {
                         preference.setTitle("Language: " + newValue.toString());
                     } else if (newValue.toString().equalsIgnoreCase("中文(繁體)")){
                         preference.setTitle("語文: " + newValue.toString());
+                    } else if (newValue.toString().equalsIgnoreCase("中文(简体)")){
+                        preference.setTitle("语文: " + newValue.toString());
                     }
                     new Thread(new Runnable() { public void run() {
                         try {
@@ -397,6 +427,156 @@ public class SettingsFragment extends PreferenceFragment {
         return "深藍";
     }
 
+    private void DisplayCurrencyPreference_Chinese_Simplified() {
+        DisplayCurrencyPreferenceDialog currencyPreference = (DisplayCurrencyPreferenceDialog) findPreference("pref_currency_chinese_simplified");
+        if (currencyPreference != null){
+            currencyPreference.setValue(convertCurrencyEnglishToChineseSimplified(
+                    XBTWidgetApplication
+                    .getSharedPreferences()
+                    .getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
+
+            currencyPreference.setTitle("显示货币: " + currencyPreference.getValue());
+            currencyPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference,
+                                                  Object newValue_Chinese) {
+                    String newStringValue = convertCurrencyChineseSimplifiedToEnglish(newValue_Chinese.toString());
+                    XBTWidgetApplication.getSharedPreferences()
+                            .edit()
+                            .putString(Constants.PREF_LAST_UPDATED_CURRENCY, newStringValue)
+                            .commit();
+                    preference.setTitle("显示货币: " + newValue_Chinese.toString());
+                    new Thread(new Runnable() { public void run() {
+                        try{
+                            RefreshData refresh = new RefreshData();
+                            refresh.execute().get(10000, TimeUnit.MILLISECONDS);
+                        } catch (Exception e){
+                            RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
+                            remoteViews.setTextViewText(R.id.update_time, "* 纲络未能连接");
+                            remoteViews.setTextColor(R.id.price, Color.GRAY);
+                            AppWidgetManager.getInstance(getActivity()).updateAppWidget(new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class), remoteViews);
+                        }
+                    }}).start();
+                    return true;
+                }
+            });
+        }
+    }
+
+    private void DisplayDataSourcePreference_Chinese_Simplified() {
+        DisplayDataSourcePreferenceDialog dataSourcePreference = (DisplayDataSourcePreferenceDialog) findPreference("pref_data_source_chinese_simplified");
+        if (dataSourcePreference != null){
+            dataSourcePreference.setValue(
+                    XBTWidgetApplication
+                    .getSharedPreferences()
+                    .getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"));
+
+            dataSourcePreference.setTitle("数据来源: " + dataSourcePreference.getValue());
+            dataSourcePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference,
+                                                  Object newValue_Chinese) {
+                    String newStringValue = newValue_Chinese.toString();
+                    XBTWidgetApplication.getSharedPreferences()
+                            .edit()
+                            .putString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, newStringValue)
+                            .commit();
+                    preference.setTitle("数据来源: " + newValue_Chinese.toString());
+                    new Thread(new Runnable() { public void run() {
+                        try{
+                            RefreshData refresh = new RefreshData();
+                            refresh.execute().get(10000, TimeUnit.MILLISECONDS);
+                        } catch (Exception e){
+                            RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
+                            remoteViews.setTextViewText(R.id.update_time, "* 纲络未能连接");
+                            remoteViews.setTextColor(R.id.price, Color.GRAY);
+                            AppWidgetManager.getInstance(getActivity()).updateAppWidget(new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class), remoteViews);
+                        }
+                    }}).start();
+                    return true;
+                }
+            });
+        }
+    }
+
+    private String convertCurrencyChineseSimplifiedToEnglish(String newValue){
+        if(newValue.equals("美元")){
+            return "USD";
+        } else if(newValue.equals("英镑")){
+            return "GBP";
+        } else if(newValue.equals("欧元")){
+            return "EUR";
+        }
+        return "USD";
+    }
+
+    private String convertCurrencyEnglishToChineseSimplified(String newValue){
+        if(newValue.equals("USD")){
+            return "美元";
+        } else if(newValue.equals("GBP")){
+            return "英镑";
+        } else if(newValue.equals("EUR")){
+            return "欧元";
+        }
+        return "美元";
+    }
+
+    private void DisplayThemePreference_Chinese_Simplified() {
+        DisplayThemePreferenceDialog themePreference = (DisplayThemePreferenceDialog) findPreference("pref_theme_chinese_simplified");
+        if (themePreference != null){
+            themePreference.setValue(XBTWidgetApplication
+                    .getSharedPreferences()
+                    .getString(Constants.PREF_LAST_UPDATED_THEME, "Navy"));
+
+            themePreference.setTitle("显示主题: " + convertThemeEnglishToChineseSimplified(themePreference.getValue()));
+            themePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference,
+                                                  Object newValue) {
+                    String newThemeInEnglish = convertThemeChineseSimplifiedToEnglish(newValue.toString());
+                    XBTWidgetApplication.getSharedPreferences()
+                            .edit()
+                            .putString(Constants.PREF_LAST_UPDATED_THEME, newThemeInEnglish)
+                            .commit();
+                    preference.setTitle("显示主题: " + newValue.toString());
+                    try{
+                        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(getActivity());
+                        RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
+                        ComponentName thisWidget = new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class);
+                        if (newValue.toString().equalsIgnoreCase("深蓝"))
+                            remoteViews.setInt(R.id.background, "setBackgroundColor",
+                                    Color.parseColor("#DD2B3856"));
+                        else if (newValue.toString().equalsIgnoreCase("漂浮"))
+                            remoteViews.setInt(R.id.background, "setBackgroundColor",
+                                    Color.TRANSPARENT);
+                        appWidgetManager.updateAppWidget(thisWidget, remoteViews);
+                    } catch (Exception e){
+                        e.printStackTrace();
+                    }
+                    return true;
+                }
+            });
+        }
+    }
+
+    private String convertThemeChineseSimplifiedToEnglish(String newValueChinese){
+        if(newValueChinese.equals("深蓝")){
+            return "Navy";
+        } else if(newValueChinese.equals("漂浮")){
+            return "Float";
+        }
+        return "Navy";
+    }
+
+    private String convertThemeEnglishToChineseSimplified(String newValueEnglish){
+        if(newValueEnglish.equals("Navy")){
+            return "深蓝";
+        } else if(newValueEnglish.equals("Float")){
+            return "漂浮";
+        }
+        return "深蓝";
+    }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -422,6 +602,9 @@ public class SettingsFragment extends PreferenceFragment {
                 if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
                     rateUsPref.setTitle("評論此應用程式");
                     rateUsPref.setSummary("請給予您的意見及其他功能建議");
+                } else if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(简体)")){
+                    rateUsPref.setTitle("评论此应用程式");
+                    rateUsPref.setSummary("请给予您的意见及其他功能建议");
                 } else {
                     rateUsPref.setTitle("Rate this widget");
                     rateUsPref.setSummary("Give feedback & feature suggestions");
