@@ -40,6 +40,7 @@ public class RefreshData extends AsyncTask<String, Void, String> {
         thisWidget = new ComponentName(context, XBTRealtimeWidgetProvider.class);
         pref = XBTWidgetApplication.getSharedPreferences();
         remoteViews.setTextViewText(R.id.price, pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "--.--"));
+        remoteViews.setTextColor(R.id.price, Color.parseColor("#FFFFB2"));
         if(pref.getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
             remoteViews.setTextViewText(R.id.update_time, "* 連接中...");
             remoteViews.setTextViewText(R.id.exchange_currency,
