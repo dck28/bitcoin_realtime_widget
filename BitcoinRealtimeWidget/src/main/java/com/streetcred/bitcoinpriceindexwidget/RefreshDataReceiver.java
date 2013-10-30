@@ -31,9 +31,9 @@ public class RefreshDataReceiver extends BroadcastReceiver{
             // ignore
         } finally {
             double new_price = Double.parseDouble(XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_PRICE, "0.0"));
-            if (new_price - previous_price > 0.1){
+            if (new_price - previous_price >= 0.1){
                 remoteViews.setTextColor(R.id.price, Color.parseColor("#CCE5CC"));
-            } else if (new_price - previous_price < -0.1){
+            } else if (new_price - previous_price <= -0.1){
                 remoteViews.setTextColor(R.id.price, Color.parseColor("#FFCCCC"));
             } else {
                 remoteViews.setTextColor(R.id.price, Color.WHITE);
