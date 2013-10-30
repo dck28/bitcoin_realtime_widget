@@ -90,7 +90,6 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                         .putString(Constants.PREF_LAST_UPDATED_PRICE, df.format(newPrice))
                         .commit();
                 appWidgetManager.updateAppWidget(thisWidget, remoteViews);
-                Log.e("updated widget?", "yes");
             } else {
                 // Update widget info when no connection
                 remoteViews.setTextViewText(R.id.price, pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "--.--"));
