@@ -114,15 +114,17 @@ public class SettingsFragment extends PreferenceFragment {
                             .putString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, newValue.toString())
                             .commit();
                     preference.setTitle("Data Source: " + newValue.toString());
-                    try {
-                        RefreshData refresh = new RefreshData();
-                        refresh.execute().get(10000, TimeUnit.MILLISECONDS);
-                    } catch (Exception e) {
-                        RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
-                        remoteViews.setTextViewText(R.id.update_time, "* no connection");
-                        remoteViews.setTextColor(R.id.price, Color.GRAY);
-                        AppWidgetManager.getInstance(getActivity()).updateAppWidget(new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class), remoteViews);
-                    }
+                    new Thread(new Runnable() { public void run() {
+                        try {
+                            RefreshData refresh = new RefreshData();
+                            refresh.execute().get(10000, TimeUnit.MILLISECONDS);
+                        } catch (Exception e) {
+                            RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
+                            remoteViews.setTextViewText(R.id.update_time, "* no connection");
+                            remoteViews.setTextColor(R.id.price, Color.GRAY);
+                            AppWidgetManager.getInstance(getActivity()).updateAppWidget(new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class), remoteViews);
+                        }
+                    }}).start();
                     return true;
                 }
             });
@@ -146,15 +148,17 @@ public class SettingsFragment extends PreferenceFragment {
                             .putString(Constants.PREF_LAST_UPDATED_CURRENCY, newValue.toString())
                             .commit();
                     preference.setTitle("Display Currency: " + newValue.toString());
-                    try {
-                        RefreshData refresh = new RefreshData();
-                        refresh.execute().get(10000, TimeUnit.MILLISECONDS);
-                    } catch (Exception e) {
-                        RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
-                        remoteViews.setTextViewText(R.id.update_time, "* no connection");
-                        remoteViews.setTextColor(R.id.price, Color.GRAY);
-                        AppWidgetManager.getInstance(getActivity()).updateAppWidget(new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class), remoteViews);
-                    }
+                    new Thread(new Runnable() { public void run() {
+                        try {
+                            RefreshData refresh = new RefreshData();
+                            refresh.execute().get(10000, TimeUnit.MILLISECONDS);
+                        } catch (Exception e) {
+                            RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
+                            remoteViews.setTextViewText(R.id.update_time, "* no connection");
+                            remoteViews.setTextColor(R.id.price, Color.GRAY);
+                            AppWidgetManager.getInstance(getActivity()).updateAppWidget(new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class), remoteViews);
+                        }
+                    }}).start();
                     return true;
                 }
             });
@@ -226,15 +230,17 @@ public class SettingsFragment extends PreferenceFragment {
                     } else if (newValue.toString().equalsIgnoreCase("中文(繁體)")){
                         preference.setTitle("語文: " + newValue.toString());
                     }
-                    try {
-                        RefreshData refresh = new RefreshData();
-                        refresh.execute().get(10000, TimeUnit.MILLISECONDS);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    } finally {
-                        thisFragment.onCreate(savedInstanceState);
-                        thisFragment.onResume();
-                    }
+                    new Thread(new Runnable() { public void run() {
+                        try {
+                            RefreshData refresh = new RefreshData();
+                            refresh.execute().get(10000, TimeUnit.MILLISECONDS);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }}).start();
+                    thisFragment.onCreate(savedInstanceState);
+                    thisFragment.onResume();
+
                     return true;
                 }
             });
@@ -260,15 +266,17 @@ public class SettingsFragment extends PreferenceFragment {
                             .putString(Constants.PREF_LAST_UPDATED_CURRENCY, newStringValue)
                             .commit();
                     preference.setTitle("顯示貨幣: " + newValue_Chinese.toString());
-                    try{
-                        RefreshData refresh = new RefreshData();
-                        refresh.execute().get(10000, TimeUnit.MILLISECONDS);
-                    } catch (Exception e){
-                        RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
-                        remoteViews.setTextViewText(R.id.update_time, "* 綱絡未能連接");
-                        remoteViews.setTextColor(R.id.price, Color.GRAY);
-                        AppWidgetManager.getInstance(getActivity()).updateAppWidget(new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class), remoteViews);
-                    }
+                    new Thread(new Runnable() { public void run() {
+                        try{
+                            RefreshData refresh = new RefreshData();
+                            refresh.execute().get(10000, TimeUnit.MILLISECONDS);
+                        } catch (Exception e){
+                            RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
+                            remoteViews.setTextViewText(R.id.update_time, "* 綱絡未能連接");
+                            remoteViews.setTextColor(R.id.price, Color.GRAY);
+                            AppWidgetManager.getInstance(getActivity()).updateAppWidget(new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class), remoteViews);
+                        }
+                    }}).start();
                     return true;
                 }
             });
@@ -294,15 +302,17 @@ public class SettingsFragment extends PreferenceFragment {
                             .putString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, newStringValue)
                             .commit();
                     preference.setTitle("數據來源: " + newValue_Chinese.toString());
-                    try{
-                        RefreshData refresh = new RefreshData();
-                        refresh.execute().get(10000, TimeUnit.MILLISECONDS);
-                    } catch (Exception e){
-                        RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
-                        remoteViews.setTextViewText(R.id.update_time, "* 綱絡未能連接");
-                        remoteViews.setTextColor(R.id.price, Color.GRAY);
-                        AppWidgetManager.getInstance(getActivity()).updateAppWidget(new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class), remoteViews);
-                    }
+                    new Thread(new Runnable() { public void run() {
+                        try{
+                            RefreshData refresh = new RefreshData();
+                            refresh.execute().get(10000, TimeUnit.MILLISECONDS);
+                        } catch (Exception e){
+                            RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
+                            remoteViews.setTextViewText(R.id.update_time, "* 綱絡未能連接");
+                            remoteViews.setTextColor(R.id.price, Color.GRAY);
+                            AppWidgetManager.getInstance(getActivity()).updateAppWidget(new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class), remoteViews);
+                        }
+                    }}).start();
                     return true;
                 }
             });
