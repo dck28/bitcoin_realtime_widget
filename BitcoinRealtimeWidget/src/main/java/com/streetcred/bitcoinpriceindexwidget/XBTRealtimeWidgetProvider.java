@@ -53,7 +53,7 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
         // Set widget textview refreshable
         Intent refreshIntent = new Intent(context, RefreshDataReceiver.class);
         refreshIntent.setAction(RefreshDataReceiver.ACTION);
-        PendingIntent refreshPendingIntent = PendingIntent.getBroadcast(context, 0, refreshIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+        PendingIntent refreshPendingIntent = PendingIntent.getBroadcast(context, 0, refreshIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         remoteViews.setOnClickPendingIntent(R.id.price, refreshPendingIntent);
 
         // Set widget theme
