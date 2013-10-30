@@ -435,6 +435,7 @@ public class SettingsFragment extends PreferenceFragment {
                     }
                 });
                 rateUsPref.setOrder(1);
+                rateUsPref.setWidgetLayoutResource(R.layout.icon_for_rating);
                 getPreferenceScreen().addPreference(rateUsPref);
             }
         } else {
