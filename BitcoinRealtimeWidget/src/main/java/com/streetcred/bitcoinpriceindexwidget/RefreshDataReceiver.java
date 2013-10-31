@@ -34,8 +34,8 @@ public class RefreshDataReceiver extends BroadcastReceiver{
             } else {
                 applyTextColoring(context, remoteViews, previous_price);
             }
-            AppWidgetManager.getInstance(context).updateAppWidget(new ComponentName(context, XBTRealtimeWidgetProvider.class), remoteViews);
         }
+        AppWidgetManager.getInstance(context).updateAppWidget(new ComponentName(context, XBTRealtimeWidgetProvider.class), remoteViews);
     }
 
     private boolean isNoConnection(){
@@ -51,6 +51,5 @@ public class RefreshDataReceiver extends BroadcastReceiver{
         } else {
             remoteViews.setTextColor(R.id.price, Color.WHITE);
         }
-        AppWidgetManager.getInstance(context).updateAppWidget(new ComponentName(context, XBTRealtimeWidgetProvider.class), remoteViews);
     }
 }

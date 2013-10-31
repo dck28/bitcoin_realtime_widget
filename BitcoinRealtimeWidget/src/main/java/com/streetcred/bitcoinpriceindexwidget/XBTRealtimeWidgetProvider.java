@@ -31,6 +31,7 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
         // Set app_icon clickable
         RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
         Intent configIntent = new Intent(context, MainActivity.class);
+        configIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         PendingIntent configPendingIntent = PendingIntent.getActivity(context, 0, configIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         remoteViews.setOnClickPendingIntent(R.id.app_icon, configPendingIntent);
 
