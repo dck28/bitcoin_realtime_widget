@@ -26,19 +26,31 @@ public class RefreshDataReceiver extends BroadcastReceiver{
         } catch (TimeoutException e){
             remoteViews.setTextViewText(R.id.update_time, "* no connection");
             remoteViews.setTextColor(R.id.price, Color.GRAY);
-            AppWidgetManager.getInstance(context).updateAppWidget(new ComponentName(context, XBTRealtimeWidgetProvider.class), remoteViews);
         } catch (Exception e){
             // ignore
         } finally {
-            double new_price = Double.parseDouble(XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_PRICE, "0.0"));
-            if (new_price - previous_price >= 0.1){
-                remoteViews.setTextColor(R.id.price, Color.parseColor("#CCE5CC"));
-            } else if (new_price - previous_price <= -0.1){
-                remoteViews.setTextColor(R.id.price, Color.parseColor("#FFCCCC"));
+            if (isNoConnection()){
+                // handle if there is no connection
             } else {
-                remoteViews.setTextColor(R.id.price, Color.WHITE);
+                applyTextColoring(context, remoteViews, previous_price);
             }
             AppWidgetManager.getInstance(context).updateAppWidget(new ComponentName(context, XBTRealtimeWidgetProvider.class), remoteViews);
         }
+    }
+
+    private boolean isNoConnection(){
+        return !XBTWidgetApplication.getSharedPreferences().getBoolean(Constants.FLAG_IS_CONNECTION_AVAILABLE, true);
+    }
+
+    private void applyTextColoring(Context context, RemoteViews remoteViews, double previous_price){
+        double new_price = Double.parseDouble(XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_PRICE, "0.0"));
+        if (new_price - previous_price >= 0.1){
+            remoteViews.setTextColor(R.id.price, Color.parseColor("#CCE5CC"));
+        } else if (new_price - previous_price <= -0.1){
+            remoteViews.setTextColor(R.id.price, Color.parseColor("#FFCCCC"));
+        } else {
+            remoteViews.setTextColor(R.id.price, Color.WHITE);
+        }
+        AppWidgetManager.getInstance(context).updateAppWidget(new ComponentName(context, XBTRealtimeWidgetProvider.class), remoteViews);
     }
 }

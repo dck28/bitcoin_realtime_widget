@@ -17,4 +17,5 @@ public class Constants {
     public static final String PREF_DISPLAY_LANGUAGE = "preferred_display_language";
 
     public static final String FLAG_CLEAR_STACK = "clear_stack";
+    public static final String FLAG_IS_CONNECTION_AVAILABLE = "is_connection_available";
 }
