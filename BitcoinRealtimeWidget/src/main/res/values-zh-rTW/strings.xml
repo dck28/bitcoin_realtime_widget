@@ -1,0 +1,153 @@
+<resources>
+    <string name="app_name">比特幣報價精靈</string>
+    <string-array name="pref_interval_entries">
+        <!-- item>No preference</item  -->
+        <item>1 minute</item>
+        <item>2 minutes</item>
+        <item>4 minutes</item>
+        <item>8 minutes</item>
+        <item>16 minutes</item>
+        <item>32 minutes</item>
+        <item>1 hour</item>
+        <item>2 hours</item>
+        <item>4 hours</item>
+        <item>8 hours</item>
+        <item>16 hours</item>
+        <item>1 day</item>
+    </string-array>
+    <string-array name="pref_interval_values">
+        <!-- item>ANY</item -->
+        <item>1 minute</item>
+        <item>2 minutes</item>
+        <item>4 minutes</item>
+        <item>8 minutes</item>
+        <item>16 minutes</item>
+        <item>32 minutes</item>
+        <item>1 hour</item>
+        <item>2 hours</item>
+        <item>4 hours</item>
+        <item>8 hours</item>
+        <item>16 hours</item>
+        <item>1 day</item>
+    </string-array>
+    <string-array name="pref_data_source_entries">
+        <!-- item>ANY</item -->
+        <item>Coindesk</item>
+        <item>Coinbase</item>
+        <item>Mt. Gox</item>
+    </string-array>
+    <string-array name="pref_data_source_values">
+        <!-- item>ANY</item -->
+        <item>Coindesk</item>
+        <item>Coinbase</item>
+        <item>Mt. Gox</item>
+    </string-array>
+    <string-array name="pref_data_source_entries_chinese">
+        <!-- item>ANY</item -->
+        <item>Coindesk</item>
+        <item>Coinbase</item>
+        <item>Mt. Gox</item>
+    </string-array>
+    <string-array name="pref_data_source_values_chinese">
+        <!-- item>ANY</item -->
+        <item>Coindesk</item>
+        <item>Coinbase</item>
+        <item>Mt. Gox</item>
+    </string-array>
+    <string-array name="pref_data_source_entries_chinese_simplified">
+        <!-- item>ANY</item -->
+        <item>Coindesk</item>
+        <item>Coinbase</item>
+        <item>Mt. Gox</item>
+    </string-array>
+    <string-array name="pref_data_source_values_chinese_simplified">
+        <!-- item>ANY</item -->
+        <item>Coindesk</item>
+        <item>Coinbase</item>
+        <item>Mt. Gox</item>
+    </string-array>
+    <string-array name="pref_currency_entries">
+        <!-- item>ANY</item -->
+        <item>USD</item>
+        <item>GBP</item>
+        <item>EUR</item>
+    </string-array>
+    <string-array name="pref_currency_values">
+        <!-- item>ANY</item -->
+        <item>USD</item>
+        <item>GBP</item>
+        <item>EUR</item>
+    </string-array>
+    <string-array name="pref_currency_entries_chinese">
+        <!-- item>ANY</item -->
+        <item>美元</item>
+        <item>英鎊</item>
+        <item>歐元</item>
+    </string-array>
+    <string-array name="pref_currency_values_chinese">
+        <!-- item>ANY</item -->
+        <item>美元</item>
+        <item>英鎊</item>
+        <item>歐元</item>
+    </string-array>
+    <string-array name="pref_currency_entries_chinese_simplified">
+        <!-- item>ANY</item -->
+        <item>美元</item>
+        <item>英镑</item>
+        <item>欧元</item>
+    </string-array>
+    <string-array name="pref_currency_values_chinese_simplified">
+        <!-- item>ANY</item -->
+        <item>美元</item>
+        <item>英镑</item>
+        <item>欧元</item>
+    </string-array>
+    <string-array name="pref_theme_entries">
+        <!-- item>ANY</item -->
+        <item>Navy</item>
+        <item>Float</item>
+        <item>Frost</item>
+    </string-array>
+    <string-array name="pref_theme_values">
+        <!-- item>ANY</item -->
+        <item>Navy</item>
+        <item>Float</item>
+        <item>Frost</item>
+    </string-array>
+    <string-array name="pref_theme_entries_chinese">
+        <!-- item>ANY</item -->
+        <item>深藍</item>
+        <item>漂浮</item>
+        <item>磨砂玻璃</item>
+    </string-array>
+    <string-array name="pref_theme_values_chinese">
+        <!-- item>ANY</item -->
+        <item>深藍</item>
+        <item>漂浮</item>
+        <item>磨砂玻璃</item>
+    </string-array>
+    <string-array name="pref_theme_entries_chinese_simplified">
+        <!-- item>ANY</item -->
+        <item>深蓝</item>
+        <item>漂浮</item>
+        <item>磨砂玻璃</item>
+    </string-array>
+    <string-array name="pref_theme_values_chinese_simplified">
+        <!-- item>ANY</item -->
+        <item>深蓝</item>
+        <item>漂浮</item>
+        <item>磨砂玻璃</item>
+    </string-array>
+    <string-array name="pref_language_entries">
+        <!-- item>ANY</item -->
+        <item>English</item>
+        <item>中文(繁體)</item>
+        <item>中文(简体)</item>
+    </string-array>
+    <string-array name="pref_language_values">
+        <!-- item>ANY</item -->
+        <item>English</item>
+        <item>中文(繁體)</item>
+        <item>中文(简体)</item>
+    </string-array>
+</resources>
