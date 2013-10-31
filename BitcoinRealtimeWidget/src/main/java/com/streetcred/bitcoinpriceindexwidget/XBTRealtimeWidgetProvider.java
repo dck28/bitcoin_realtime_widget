@@ -69,6 +69,8 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
         // Set widget theme
         if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_THEME, "Navy").equalsIgnoreCase("Navy")){
             remoteViews.setInt(R.id.background, "setBackgroundColor", Color.parseColor("#DD2B3856"));
+        } else if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_THEME, "Navy").equalsIgnoreCase("Clementine")){
+            remoteViews.setInt(R.id.background, "setBackgroundColor", Color.parseColor("#DDEB5E00"));
         } else if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_THEME, "Navy").equalsIgnoreCase("Float")){
             remoteViews.setInt(R.id.background, "setBackgroundColor", Color.TRANSPARENT);
         } else if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_THEME, "Navy").equalsIgnoreCase("Frost")){

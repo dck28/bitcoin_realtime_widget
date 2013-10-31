@@ -222,6 +222,9 @@ public class SettingsFragment extends PreferenceFragment {
                         if (newValue.toString().equalsIgnoreCase("Navy")){
                             remoteViews.setInt(R.id.background, "setBackgroundColor",
                                     Color.parseColor("#DD2B3856"));
+                        } else if (newValue.toString().equalsIgnoreCase("Clementine")){
+                            remoteViews.setInt(R.id.background, "setBackgroundColor",
+                                    Color.parseColor("#DDEB5E00"));
                         } else if (newValue.toString().equalsIgnoreCase("Float")){
                             remoteViews.setInt(R.id.background, "setBackgroundColor",
                                     Color.TRANSPARENT);
@@ -385,11 +388,11 @@ public class SettingsFragment extends PreferenceFragment {
     private void DisplayThemePreference_Chinese() {
         DisplayThemePreferenceDialog themePreference = (DisplayThemePreferenceDialog) findPreference("pref_theme_chinese");
         if (themePreference != null){
-            themePreference.setValue(XBTWidgetApplication
+            themePreference.setValue(convertThemeEnglishToChinese(XBTWidgetApplication
                     .getSharedPreferences()
-                    .getString(Constants.PREF_LAST_UPDATED_THEME, "Navy"));
+                    .getString(Constants.PREF_LAST_UPDATED_THEME, "Navy")));
 
-            themePreference.setTitle("顯示主題: " + convertThemeEnglishToChinese(themePreference.getValue()));
+            themePreference.setTitle("顯示主題: " + themePreference.getValue());
             themePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference,
@@ -407,6 +410,9 @@ public class SettingsFragment extends PreferenceFragment {
                         if (newValue.toString().equalsIgnoreCase("深藍")){
                             remoteViews.setInt(R.id.background, "setBackgroundColor",
                                     Color.parseColor("#DD2B3856"));
+                        } else if (newValue.toString().equalsIgnoreCase("金橘")){
+                            remoteViews.setInt(R.id.background, "setBackgroundColor",
+                                    Color.parseColor("#DDEB5E00"));
                         } else if (newValue.toString().equalsIgnoreCase("漂浮")){
                             remoteViews.setInt(R.id.background, "setBackgroundColor",
                                     Color.TRANSPARENT);
@@ -427,6 +433,8 @@ public class SettingsFragment extends PreferenceFragment {
     private String convertThemeChineseToEnglish(String newValueChinese){
         if(newValueChinese.equals("深藍")){
             return "Navy";
+        } else if(newValueChinese.equals("金橘")){
+            return "Clementine";
         } else if(newValueChinese.equals("漂浮")){
             return "Float";
         } else if(newValueChinese.equals("磨砂玻璃")){
@@ -438,6 +446,8 @@ public class SettingsFragment extends PreferenceFragment {
     private String convertThemeEnglishToChinese(String newValueEnglish){
         if(newValueEnglish.equals("Navy")){
             return "深藍";
+        } else if(newValueEnglish.equals("Clementine")){
+            return "金橘";
         } else if(newValueEnglish.equals("Float")){
             return "漂浮";
         } else if(newValueEnglish.equals("Frost")){
@@ -543,11 +553,11 @@ public class SettingsFragment extends PreferenceFragment {
     private void DisplayThemePreference_Chinese_Simplified() {
         DisplayThemePreferenceDialog themePreference = (DisplayThemePreferenceDialog) findPreference("pref_theme_chinese_simplified");
         if (themePreference != null){
-            themePreference.setValue(XBTWidgetApplication
+            themePreference.setValue(convertThemeEnglishToChineseSimplified(XBTWidgetApplication
                     .getSharedPreferences()
-                    .getString(Constants.PREF_LAST_UPDATED_THEME, "Navy"));
+                    .getString(Constants.PREF_LAST_UPDATED_THEME, "Navy")));
 
-            themePreference.setTitle("显示主题: " + convertThemeEnglishToChineseSimplified(themePreference.getValue()));
+            themePreference.setTitle("显示主题: " + themePreference.getValue());
             themePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference,
@@ -565,6 +575,9 @@ public class SettingsFragment extends PreferenceFragment {
                         if (newValue.toString().equalsIgnoreCase("深蓝")){
                             remoteViews.setInt(R.id.background, "setBackgroundColor",
                                     Color.parseColor("#DD2B3856"));
+                        } else if (newValue.toString().equalsIgnoreCase("金橘")){
+                            remoteViews.setInt(R.id.background, "setBackgroundColor",
+                                    Color.parseColor("#DDEB5E00"));
                         } else if (newValue.toString().equalsIgnoreCase("漂浮")){
                             remoteViews.setInt(R.id.background, "setBackgroundColor",
                                     Color.TRANSPARENT);
@@ -585,6 +598,8 @@ public class SettingsFragment extends PreferenceFragment {
     private String convertThemeChineseSimplifiedToEnglish(String newValueChinese){
         if(newValueChinese.equals("深蓝")){
             return "Navy";
+        } else if(newValueChinese.equals("金橘")){
+            return "Clementine";
         } else if(newValueChinese.equals("漂浮")){
             return "Float";
         } else if(newValueChinese.equals("磨砂玻璃")){
@@ -596,6 +611,8 @@ public class SettingsFragment extends PreferenceFragment {
     private String convertThemeEnglishToChineseSimplified(String newValueEnglish){
         if(newValueEnglish.equals("Navy")){
             return "深蓝";
+        } else if(newValueEnglish.equals("Clementine")){
+            return "金橘";
         } else if(newValueEnglish.equals("Float")){
             return "漂浮";
         } else if(newValueEnglish.equals("Frost")){

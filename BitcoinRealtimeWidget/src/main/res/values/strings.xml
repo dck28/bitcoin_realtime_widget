@@ -105,38 +105,44 @@
     <string-array name="pref_theme_entries">
         <!-- item>ANY</item -->
         <item>Navy</item>
-        <item>Float</item>
+        <item>Clementine</item>
         <item>Frost</item>
+        <item>Float</item>
     </string-array>
     <string-array name="pref_theme_values">
         <!-- item>ANY</item -->
         <item>Navy</item>
-        <item>Float</item>
+        <item>Clementine</item>
         <item>Frost</item>
+        <item>Float</item>
     </string-array>
     <string-array name="pref_theme_entries_chinese">
         <!-- item>ANY</item -->
         <item>深藍</item>
-        <item>漂浮</item>
+        <item>金橘</item>
         <item>磨砂玻璃</item>
+        <item>漂浮</item>
     </string-array>
     <string-array name="pref_theme_values_chinese">
         <!-- item>ANY</item -->
         <item>深藍</item>
-        <item>漂浮</item>
+        <item>金橘</item>
         <item>磨砂玻璃</item>
+        <item>漂浮</item>
     </string-array>
     <string-array name="pref_theme_entries_chinese_simplified">
         <!-- item>ANY</item -->
         <item>深蓝</item>
-        <item>漂浮</item>
+        <item>金橘</item>
         <item>磨砂玻璃</item>
+        <item>漂浮</item>
     </string-array>
     <string-array name="pref_theme_values_chinese_simplified">
         <!-- item>ANY</item -->
         <item>深蓝</item>
-        <item>漂浮</item>
+        <item>金橘</item>
         <item>磨砂玻璃</item>
+        <item>漂浮</item>
     </string-array>
     <string-array name="pref_language_entries">
         <!-- item>ANY</item -->
