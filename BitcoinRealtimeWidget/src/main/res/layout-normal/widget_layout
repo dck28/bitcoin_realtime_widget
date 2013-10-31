@@ -16,7 +16,7 @@
         android:contentDescription="realtime-price"
         android:gravity="center"
         android:textColor="#FFFFFF"
-        android:shadowColor="#0A0A0A"
+        android:shadowColor="#141414"
         android:shadowDx="8"
         android:shadowDy="8"
         android:shadowRadius="5"
