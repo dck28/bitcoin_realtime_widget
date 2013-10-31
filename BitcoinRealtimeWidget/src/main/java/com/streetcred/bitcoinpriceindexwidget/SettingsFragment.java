@@ -219,12 +219,13 @@ public class SettingsFragment extends PreferenceFragment {
                         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(getActivity());
                         RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
                         ComponentName thisWidget = new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class);
-                        if (newValue.toString().equalsIgnoreCase("Navy"))
+                        if (newValue.toString().equalsIgnoreCase("Navy")){
                             remoteViews.setInt(R.id.background, "setBackgroundColor",
                                     Color.parseColor("#DD2B3856"));
-                        else if (newValue.toString().equalsIgnoreCase("Float"))
+                        } else if (newValue.toString().equalsIgnoreCase("Float")){
                             remoteViews.setInt(R.id.background, "setBackgroundColor",
                                     Color.TRANSPARENT);
+                        }
                         appWidgetManager.updateAppWidget(thisWidget, remoteViews);
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -400,12 +401,13 @@ public class SettingsFragment extends PreferenceFragment {
                         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(getActivity());
                         RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
                         ComponentName thisWidget = new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class);
-                        if (newValue.toString().equalsIgnoreCase("深藍"))
+                        if (newValue.toString().equalsIgnoreCase("深藍")){
                             remoteViews.setInt(R.id.background, "setBackgroundColor",
                                     Color.parseColor("#DD2B3856"));
-                        else if (newValue.toString().equalsIgnoreCase("漂浮"))
+                        } else if (newValue.toString().equalsIgnoreCase("漂浮")){
                             remoteViews.setInt(R.id.background, "setBackgroundColor",
                                     Color.TRANSPARENT);
+                        }
                         appWidgetManager.updateAppWidget(thisWidget, remoteViews);
                     } catch (Exception e){
                         e.printStackTrace();
@@ -550,12 +552,13 @@ public class SettingsFragment extends PreferenceFragment {
                         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(getActivity());
                         RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
                         ComponentName thisWidget = new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class);
-                        if (newValue.toString().equalsIgnoreCase("深蓝"))
+                        if (newValue.toString().equalsIgnoreCase("深蓝")){
                             remoteViews.setInt(R.id.background, "setBackgroundColor",
                                     Color.parseColor("#DD2B3856"));
-                        else if (newValue.toString().equalsIgnoreCase("漂浮"))
+                        } else if (newValue.toString().equalsIgnoreCase("漂浮")){
                             remoteViews.setInt(R.id.background, "setBackgroundColor",
                                     Color.TRANSPARENT);
+                        }
                         appWidgetManager.updateAppWidget(thisWidget, remoteViews);
                     } catch (Exception e){
                         e.printStackTrace();

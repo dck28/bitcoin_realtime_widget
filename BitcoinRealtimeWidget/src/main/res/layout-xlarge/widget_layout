@@ -31,6 +31,10 @@
         android:layout_alignRight="@+id/app_icon"
         android:gravity="center"
         android:textColor="#FFFFFF"
+        android:shadowColor="#0A0A0A"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
         android:textSize="20dp"
         android:text="- - -"
         android:contentDescription="currency-code"/>
@@ -54,6 +58,10 @@
         android:paddingLeft="3dp"
         android:gravity="left"
         android:textColor="#FFFFFF"
+        android:shadowColor="#0A0A0A"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"
         android:textSize="10dp"
         android:text="* Initializing . . ."
         android:contentDescription="currency-code"/>
@@ -67,6 +75,10 @@
         android:paddingLeft="3dp"
         android:gravity="left"
         android:textColor="#FFFFFF"
+        android:shadowColor="#0A0A0A"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"
         android:textSize="9dp"
         android:text="   . . . . . . . . . . . . . . . . ."
         android:contentDescription="currency-code"/>
