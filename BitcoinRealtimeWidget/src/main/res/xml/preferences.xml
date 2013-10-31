@@ -23,7 +23,7 @@
         android:dialogTitle="Select Widget Theme"
         android:entries="@array/pref_theme_entries"
         android:entryValues="@array/pref_theme_values"
-        android:defaultValue="Navy"
+        android:defaultValue="Float"
         android:negativeButtonText="Cancel"
         android:widgetLayout="@layout/icon_for_theme"/>
 

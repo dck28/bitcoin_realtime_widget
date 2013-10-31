@@ -203,7 +203,7 @@ public class SettingsFragment extends PreferenceFragment {
         if (themePreference != null){
             themePreference.setValue(XBTWidgetApplication
                     .getSharedPreferences()
-                    .getString(Constants.PREF_LAST_UPDATED_THEME, "Navy"));
+                    .getString(Constants.PREF_LAST_UPDATED_THEME, "Float"));
 
             themePreference.setTitle("Widget Theme: " + themePreference.getValue());
             themePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
@@ -390,7 +390,7 @@ public class SettingsFragment extends PreferenceFragment {
         if (themePreference != null){
             themePreference.setValue(convertThemeEnglishToChinese(XBTWidgetApplication
                     .getSharedPreferences()
-                    .getString(Constants.PREF_LAST_UPDATED_THEME, "Navy")));
+                    .getString(Constants.PREF_LAST_UPDATED_THEME, "Float")));
 
             themePreference.setTitle("顯示主題: " + themePreference.getValue());
             themePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
@@ -440,7 +440,7 @@ public class SettingsFragment extends PreferenceFragment {
         } else if(newValueChinese.equals("磨砂玻璃")){
             return "Frost";
         }
-        return "Navy";
+        return "Float";
     }
 
     private String convertThemeEnglishToChinese(String newValueEnglish){
@@ -453,7 +453,7 @@ public class SettingsFragment extends PreferenceFragment {
         } else if(newValueEnglish.equals("Frost")){
             return "磨砂玻璃";
         }
-        return "深藍";
+        return "漂浮";
     }
 
     private void DisplayCurrencyPreference_Chinese_Simplified() {
@@ -555,7 +555,7 @@ public class SettingsFragment extends PreferenceFragment {
         if (themePreference != null){
             themePreference.setValue(convertThemeEnglishToChineseSimplified(XBTWidgetApplication
                     .getSharedPreferences()
-                    .getString(Constants.PREF_LAST_UPDATED_THEME, "Navy")));
+                    .getString(Constants.PREF_LAST_UPDATED_THEME, "Float")));
 
             themePreference.setTitle("显示主题: " + themePreference.getValue());
             themePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
@@ -605,7 +605,7 @@ public class SettingsFragment extends PreferenceFragment {
         } else if(newValueChinese.equals("磨砂玻璃")){
             return "Frost";
         }
-        return "Navy";
+        return "Float";
     }
 
     private String convertThemeEnglishToChineseSimplified(String newValueEnglish){
@@ -618,7 +618,7 @@ public class SettingsFragment extends PreferenceFragment {
         } else if(newValueEnglish.equals("Frost")){
             return "磨砂玻璃";
         }
-        return "深蓝";
+        return "漂浮";
     }
 
     @Override
