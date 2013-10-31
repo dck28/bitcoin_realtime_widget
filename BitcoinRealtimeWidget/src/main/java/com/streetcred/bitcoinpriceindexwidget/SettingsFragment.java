@@ -225,6 +225,9 @@ public class SettingsFragment extends PreferenceFragment {
                         } else if (newValue.toString().equalsIgnoreCase("Float")){
                             remoteViews.setInt(R.id.background, "setBackgroundColor",
                                     Color.TRANSPARENT);
+                        } else if (newValue.toString().equalsIgnoreCase("Frost")){
+                            remoteViews.setInt(R.id.background, "setBackgroundColor",
+                                    Color.parseColor("#AAF0FFFC"));
                         }
                         appWidgetManager.updateAppWidget(thisWidget, remoteViews);
                     } catch (Exception e) {
@@ -407,6 +410,9 @@ public class SettingsFragment extends PreferenceFragment {
                         } else if (newValue.toString().equalsIgnoreCase("漂浮")){
                             remoteViews.setInt(R.id.background, "setBackgroundColor",
                                     Color.TRANSPARENT);
+                        } else if (newValue.toString().equalsIgnoreCase("磨砂玻璃")){
+                            remoteViews.setInt(R.id.background, "setBackgroundColor",
+                                    Color.parseColor("#AAF0FFFC"));
                         }
                         appWidgetManager.updateAppWidget(thisWidget, remoteViews);
                     } catch (Exception e){
@@ -423,6 +429,8 @@ public class SettingsFragment extends PreferenceFragment {
             return "Navy";
         } else if(newValueChinese.equals("漂浮")){
             return "Float";
+        } else if(newValueChinese.equals("磨砂玻璃")){
+            return "Frost";
         }
         return "Navy";
     }
@@ -432,6 +440,8 @@ public class SettingsFragment extends PreferenceFragment {
             return "深藍";
         } else if(newValueEnglish.equals("Float")){
             return "漂浮";
+        } else if(newValueEnglish.equals("Frost")){
+            return "磨砂玻璃";
         }
         return "深藍";
     }
@@ -558,6 +568,9 @@ public class SettingsFragment extends PreferenceFragment {
                         } else if (newValue.toString().equalsIgnoreCase("漂浮")){
                             remoteViews.setInt(R.id.background, "setBackgroundColor",
                                     Color.TRANSPARENT);
+                        } else if (newValue.toString().equalsIgnoreCase("磨砂玻璃")){
+                            remoteViews.setInt(R.id.background, "setBackgroundColor",
+                                    Color.parseColor("#AAF0FFFC"));
                         }
                         appWidgetManager.updateAppWidget(thisWidget, remoteViews);
                     } catch (Exception e){
@@ -574,6 +587,8 @@ public class SettingsFragment extends PreferenceFragment {
             return "Navy";
         } else if(newValueChinese.equals("漂浮")){
             return "Float";
+        } else if(newValueChinese.equals("磨砂玻璃")){
+            return "Frost";
         }
         return "Navy";
     }
@@ -583,6 +598,8 @@ public class SettingsFragment extends PreferenceFragment {
             return "深蓝";
         } else if(newValueEnglish.equals("Float")){
             return "漂浮";
+        } else if(newValueEnglish.equals("Frost")){
+            return "磨砂玻璃";
         }
         return "深蓝";
     }
