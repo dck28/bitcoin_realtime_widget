@@ -43,7 +43,8 @@ public class Util {
         int minutes = c.get(Calendar.MINUTE);
         int am_pm = c.get(Calendar.AM_PM);
         String amORpm = (am_pm == 0) ? "AM" : "PM";
-        if(XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
+        if(XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")
+                || XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(简体)")){
             if (amORpm.equalsIgnoreCase("AM")){
                 amORpm = "上午";
             } else if (amORpm.equalsIgnoreCase("PM")){
