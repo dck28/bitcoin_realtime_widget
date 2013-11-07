@@ -6,12 +6,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.AsyncTask;
-import android.util.Log;
 import android.widget.RemoteViews;
 
 import com.streetcred.bitcoinpriceindexwidget.ConnectionManager.JSONParser;
 import com.streetcred.bitcoinpriceindexwidget.ConnectionManager.RpcManager;
-import com.streetcred.bitcoinpriceindexwidget.Notify.PriceAlert;
+import com.streetcred.bitcoinpriceindexwidget.Notify.PriceOngoingNotification;
 
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
@@ -174,11 +173,25 @@ public class RefreshData extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String result) {
 
-        //TEST notification
-        PriceAlert.hit(context,
-                Double.toString(newPrice),
-                pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"),
-                pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"));
+        if (persistentNotificationEnabled()){
+            PriceOngoingNotification.hit(context,
+                    Double.toString(newPrice),
+                    pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"),
+                    pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"));
+        }
+
+        // Check if alert exist (set by user)
+        // if newPrice is higher than limit alert - hit
+//        if(AlertExist()){
+//            double limit = getPriceAlertLimit();
+//            double stop = getPriceAlertStop();
+//            if (newPrice > limit || newPrice < stop){
+//                PriceOngoingNotification.hit(context,
+//                        Double.toString(newPrice),
+//                        pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"),
+//                        pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"));
+//            }
+//        }
     }
 
     @Override
@@ -213,6 +226,10 @@ public class RefreshData extends AsyncTask<String, Void, String> {
         }
         //Default
         return Constants.COINDESK_API_URL;
+    }
+
+    private boolean persistentNotificationEnabled(){
+        return pref.getBoolean(Constants.PREF_ONGOING_NOTIFICATION, true);
     }
 
 }

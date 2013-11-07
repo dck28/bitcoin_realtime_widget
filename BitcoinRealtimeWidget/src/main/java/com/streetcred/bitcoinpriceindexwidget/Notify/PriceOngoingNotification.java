@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 
 import com.streetcred.bitcoinpriceindexwidget.Constants;
 import com.streetcred.bitcoinpriceindexwidget.MainActivity;
@@ -13,7 +14,7 @@ import com.streetcred.bitcoinpriceindexwidget.R;
 /**
  * Created by denniskong on 11/7/13.
  */
-public class PriceAlert {
+public class PriceOngoingNotification {
 
     public static void hit(Context context, String price, String currencyDenomination, String dataSource){
         NotificationManager nm = getNotificationManager(context);
@@ -24,23 +25,21 @@ public class PriceAlert {
         PendingIntent launchMainIntent = PendingIntent.getActivity(context, 0, notificationIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
-        final String ticker = "Bitcoin Price Alert: " + price + " " + currencyDenomination + " at " + dataSource + ".";
         final String title = price + " " + currencyDenomination;
-        final String text = "at " + dataSource + ".";
+        final String text = "Data from " + dataSource + ".";
         Notification.Builder builder = new Notification.Builder(context)
-                .setTicker(ticker)
                 .setContentTitle(title)
                 .setContentText(text)
                 .setSmallIcon(R.drawable.ic_launcher)
-                .setAutoCancel(true) //Dismiss notification when clicked
+                .setAutoCancel(false) //Disable click to cancel
                 .setContentIntent(launchMainIntent); // Launch MainActivity as a result of the click
-        // Create system notification with light
+                if (Build.VERSION.SDK_INT >= 16) {
+                    builder.setPriority(Notification.PRIORITY_HIGH);
+                }
+        // Create system notification
         Notification notify = NotificationBuilder.build(builder);
-        notify.flags |= Notification.FLAG_SHOW_LIGHTS;
-        notify.ledARGB = 0xffffffff;
-        notify.ledOnMS = 300;
-        notify.ledOffMS = 1000;
-        nm.notify(R.id.price_alert_notification_id, notify);
+        notify.flags |= Notification.FLAG_ONGOING_EVENT;
+        nm.notify(R.id.price_ongoing_notification_id, notify);
     }
 
     private static NotificationManager getNotificationManager(Context context) {

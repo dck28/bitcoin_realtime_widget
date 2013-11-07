@@ -9,6 +9,7 @@ public class Constants {
     public static final String COINBASE_API_URL = "https://coinbase.com/api/v1/prices/spot_rate";
     public static final String MTGOX_API_BASEURL = "https://data.mtgox.com/api/2";
 
+    public static final String PREF_ONGOING_NOTIFICATION = "preference_ongoing_notification";
     public static final String PREF_LAST_UPDATED_TIMESTAMP = "lastupdated_unixtime";
     public static final String PREF_LAST_UPDATED_PRICE = "lastupdated_price";
     public static final String PREF_LAST_UPDATED_DATA_SOURCE = "preferred_data_source";
