@@ -26,7 +26,7 @@ public class PriceOngoingNotification {
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
         final String title = price + " " + currencyDenomination;
-        final String text = "Data from " + dataSource + ".";
+        final String text = "Data provided by " + dataSource + ".";
         Notification.Builder builder = new Notification.Builder(context)
                 .setContentTitle(title)
                 .setContentText(text)
