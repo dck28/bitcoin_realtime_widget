@@ -33,6 +33,7 @@
         <receiver android:name="com.streetcred.bitcoinpriceindexwidget.RefreshDataReceiver" android:exported="false">
             <intent-filter>
                 <action android:name="com.streetcred.bitcoinpriceindexwidget.REFRESH_REQUEST" />
+                <action android:name="com.streetcred.bitcoinpriceindexwidget.REFRESH_REQUEST_WITH_TICKER" />
             </intent-filter>
         </receiver>
 

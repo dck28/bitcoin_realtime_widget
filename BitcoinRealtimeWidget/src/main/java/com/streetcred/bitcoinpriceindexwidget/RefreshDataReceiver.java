@@ -16,8 +16,14 @@ import java.util.concurrent.TimeoutException;
  */
 public class RefreshDataReceiver extends BroadcastReceiver{
     public static final String ACTION = "com.streetcred.bitcoinpriceindexwidget.REFRESH_REQUEST";
+    public static final String ACTION_UPDATE_WITH_TICKER = "com.streetcred.bitcoinpriceindexwidget.REFRESH_REQUEST_WITH_TICKER";
     @Override
     public void onReceive(Context context, Intent intent) {
+
+        if (intent.getAction() != null && intent.getAction().equalsIgnoreCase(ACTION_UPDATE_WITH_TICKER)){
+            XBTWidgetApplication.getSharedPreferences().edit().putBoolean(Constants.PREF_IS_FROM_ONGOING_NOTIFICATION, true).commit();
+        }
+
         RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
         double previous_price = Double.parseDouble(XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_PRICE, "0.0"));
         try{

@@ -8,8 +8,8 @@ import android.content.Intent;
 import android.os.Build;
 
 import com.streetcred.bitcoinpriceindexwidget.Constants;
-import com.streetcred.bitcoinpriceindexwidget.MainActivity;
 import com.streetcred.bitcoinpriceindexwidget.R;
+import com.streetcred.bitcoinpriceindexwidget.RefreshDataReceiver;
 import com.streetcred.bitcoinpriceindexwidget.Util;
 import com.streetcred.bitcoinpriceindexwidget.XBTWidgetApplication;
 
@@ -18,14 +18,12 @@ import com.streetcred.bitcoinpriceindexwidget.XBTWidgetApplication;
  */
 public class PriceOngoingNotification {
 
-    public static void hit(Context context, String price, String currencyDenomination, String dataSource){
+    public static void hit(Context context, String price, String currencyDenomination, String dataSource, boolean showTicker){
         NotificationManager nm = getNotificationManager(context);
-        // Point intent to desired package name and activity
-        Intent notificationIntent = new Intent(context, MainActivity.class);
-        notificationIntent.putExtra(Constants.FLAG_CLEAR_STACK, true);
         // Setup notification pending intent
-        PendingIntent launchMainIntent = PendingIntent.getActivity(context, 0, notificationIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent refreshIntent = new Intent(context, RefreshDataReceiver.class);
+        refreshIntent.setAction(RefreshDataReceiver.ACTION_UPDATE_WITH_TICKER);
+        PendingIntent refreshPendingIntent = PendingIntent.getBroadcast(context, 0, refreshIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         //Prepare data source disclaimer text & title
         String text = "Data provided by " + dataSource + ".";
@@ -53,9 +51,12 @@ public class PriceOngoingNotification {
                 .setContentText(text)
                 .setSmallIcon(R.drawable.ic_launcher)
                 .setAutoCancel(false) //Disable click to cancel
-                .setContentIntent(launchMainIntent); // Launch MainActivity as a result of the click
+                .setContentIntent(refreshPendingIntent); // Refresh and show ticker as a result of the click
                 if (Build.VERSION.SDK_INT >= 16) {
                     builder.setPriority(Notification.PRIORITY_HIGH);
+                }
+                if (showTicker){
+                    builder.setTicker(price + " " + currencyDenomination + ", " + dataSource);
                 }
         // Create system notification
         Notification notify = NotificationBuilder.build(builder);

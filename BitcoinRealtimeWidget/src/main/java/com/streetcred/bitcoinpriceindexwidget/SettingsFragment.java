@@ -163,7 +163,8 @@ public class SettingsFragment extends PreferenceFragment {
                         PriceOngoingNotification.hit(getActivity(),
                                 Double.toString(Double.parseDouble(pref.getString(Constants.PREF_LAST_UPDATED_PRICE, ""))),
                                 pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"),
-                                pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"));
+                                pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"),
+                                false);
                     } else if (newOngoingNotificationPreference == false){
                         // Cancel all current ongoing notifications
                         ((NotificationManager)getActivity().getSystemService(Context.NOTIFICATION_SERVICE)).cancelAll();

@@ -177,7 +177,9 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             PriceOngoingNotification.hit(context,
                     Double.toString(newPrice),
                     pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"),
-                    pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"));
+                    pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"),
+                    pref.getBoolean(Constants.PREF_IS_FROM_ONGOING_NOTIFICATION, false));
+            pref.edit().putBoolean(Constants.PREF_IS_FROM_ONGOING_NOTIFICATION, false).commit();
         }
 
         // Check if alert exist (set by user)
