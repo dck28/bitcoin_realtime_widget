@@ -47,4 +47,11 @@
         android:negativeButtonText="Cancel"
         android:widgetLayout="@layout/icon_for_sources"/>
 
+    <CheckBoxPreference
+        android:title="Ongoing Notification"
+        android:defaultValue="true"
+        android:summaryOn="Showing pricing in ongoing notification"
+        android:summaryOff="Disabled ongoing notification"
+        android:key="ongoingcheckboxPref" />
+
 </PreferenceScreen>

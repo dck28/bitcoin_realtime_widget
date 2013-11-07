@@ -6,20 +6,25 @@ package com.streetcred.bitcoinpriceindexwidget;
 
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.app.NotificationManager;
 import android.appwidget.AppWidgetManager;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.widget.RemoteViews;
 import android.widget.Toast;
+
+import com.streetcred.bitcoinpriceindexwidget.Notify.PriceOngoingNotification;
 
 import java.text.MessageFormat;
 import java.util.Locale;
@@ -127,7 +132,33 @@ public class SettingsFragment extends PreferenceFragment {
             DisplayThemePreference_English();
             DisplayCurrencyPreference_English();
             DisplayDataSourcePreference_English();
+            DisplayOngoingNotificationPreference_English();
         }
+    }
+
+    private void DisplayOngoingNotificationPreference_English(){
+        final CheckBoxPreference ongoingcheckboxPref = (CheckBoxPreference) getPreferenceManager().findPreference("ongoingcheckboxPref");
+        ongoingcheckboxPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                boolean newOngoingNotificationPreference = (Boolean) newValue;
+                XBTWidgetApplication.getSharedPreferences()
+                        .edit()
+                        .putBoolean(Constants.PREF_ONGOING_NOTIFICATION, newOngoingNotificationPreference)
+                        .commit();
+                if (newOngoingNotificationPreference == true){
+                    // Enable ongoing notifications
+                    SharedPreferences pref = XBTWidgetApplication.getSharedPreferences();
+                    PriceOngoingNotification.hit(getActivity(),
+                            Double.toString(Double.parseDouble(pref.getString(Constants.PREF_LAST_UPDATED_PRICE, ""))),
+                            pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"),
+                            pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"));
+                } else if (newOngoingNotificationPreference == false){
+                    // Cancel all current ongoing notifications
+                    ((NotificationManager)getActivity().getSystemService(Context.NOTIFICATION_SERVICE)).cancelAll();
+                }
+                return true;
+            }
+        });
     }
 
     private void DisplayDataSourcePreference_English() {
