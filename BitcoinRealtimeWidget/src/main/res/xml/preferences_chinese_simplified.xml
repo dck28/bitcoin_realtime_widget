@@ -48,4 +48,9 @@
         android:negativeButtonText="取消"
         android:widgetLayout="@layout/icon_for_sources"/>
 
+    <CheckBoxPreference
+        android:title="放上通知箱"
+        android:defaultValue="true"
+        android:key="ongoingcheckboxPref" />
+
 </PreferenceScreen>

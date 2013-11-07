@@ -124,41 +124,54 @@ public class SettingsFragment extends PreferenceFragment {
             DisplayThemePreference_Chinese();
             DisplayCurrencyPreference_Chinese();
             DisplayDataSourcePreference_Chinese();
+            DisplayOngoingNotificationPreference();
         } else if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(简体)")){
             DisplayThemePreference_Chinese_Simplified();
             DisplayCurrencyPreference_Chinese_Simplified();
             DisplayDataSourcePreference_Chinese_Simplified();
+            DisplayOngoingNotificationPreference();
         } else {
             DisplayThemePreference_English();
             DisplayCurrencyPreference_English();
             DisplayDataSourcePreference_English();
-            DisplayOngoingNotificationPreference_English();
+            DisplayOngoingNotificationPreference();
         }
     }
 
-    private void DisplayOngoingNotificationPreference_English(){
+    private void DisplayOngoingNotificationPreference(){
         final CheckBoxPreference ongoingcheckboxPref = (CheckBoxPreference) getPreferenceManager().findPreference("ongoingcheckboxPref");
-        ongoingcheckboxPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                boolean newOngoingNotificationPreference = (Boolean) newValue;
-                XBTWidgetApplication.getSharedPreferences()
-                        .edit()
-                        .putBoolean(Constants.PREF_ONGOING_NOTIFICATION, newOngoingNotificationPreference)
-                        .commit();
-                if (newOngoingNotificationPreference == true){
-                    // Enable ongoing notifications
-                    SharedPreferences pref = XBTWidgetApplication.getSharedPreferences();
-                    PriceOngoingNotification.hit(getActivity(),
-                            Double.toString(Double.parseDouble(pref.getString(Constants.PREF_LAST_UPDATED_PRICE, ""))),
-                            pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"),
-                            pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"));
-                } else if (newOngoingNotificationPreference == false){
-                    // Cancel all current ongoing notifications
-                    ((NotificationManager)getActivity().getSystemService(Context.NOTIFICATION_SERVICE)).cancelAll();
-                }
-                return true;
+        if (ongoingcheckboxPref != null){
+
+            if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
+                ongoingcheckboxPref.setTitle("放上通知箱");
+            } else if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(简体)")){
+                ongoingcheckboxPref.setTitle("放上通知箱");
+            } else {
+                ongoingcheckboxPref.setTitle("Ongoing Notification");
             }
-        });
+
+            ongoingcheckboxPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    boolean newOngoingNotificationPreference = (Boolean) newValue;
+                    XBTWidgetApplication.getSharedPreferences()
+                            .edit()
+                            .putBoolean(Constants.PREF_ONGOING_NOTIFICATION, newOngoingNotificationPreference)
+                            .commit();
+                    if (newOngoingNotificationPreference == true){
+                        // Enable ongoing notifications
+                        SharedPreferences pref = XBTWidgetApplication.getSharedPreferences();
+                        PriceOngoingNotification.hit(getActivity(),
+                                Double.toString(Double.parseDouble(pref.getString(Constants.PREF_LAST_UPDATED_PRICE, ""))),
+                                pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"),
+                                pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"));
+                    } else if (newOngoingNotificationPreference == false){
+                        // Cancel all current ongoing notifications
+                        ((NotificationManager)getActivity().getSystemService(Context.NOTIFICATION_SERVICE)).cancelAll();
+                    }
+                    return true;
+                }
+            });
+        }
     }
 
     private void DisplayDataSourcePreference_English() {

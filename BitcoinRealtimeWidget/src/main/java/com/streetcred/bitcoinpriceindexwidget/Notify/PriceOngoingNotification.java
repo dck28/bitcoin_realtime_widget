@@ -10,6 +10,8 @@ import android.os.Build;
 import com.streetcred.bitcoinpriceindexwidget.Constants;
 import com.streetcred.bitcoinpriceindexwidget.MainActivity;
 import com.streetcred.bitcoinpriceindexwidget.R;
+import com.streetcred.bitcoinpriceindexwidget.Util;
+import com.streetcred.bitcoinpriceindexwidget.XBTWidgetApplication;
 
 /**
  * Created by denniskong on 11/7/13.
@@ -25,8 +27,27 @@ public class PriceOngoingNotification {
         PendingIntent launchMainIntent = PendingIntent.getActivity(context, 0, notificationIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
+        //Prepare data source disclaimer text & title
+        String text = "Data provided by " + dataSource + ".";
+
+        //Translate (Default input Strings are always in English)
+        if (XBTWidgetApplication.getSharedPreferences()
+            .getString(Constants.PREF_DISPLAY_LANGUAGE, "English")
+            .equalsIgnoreCase("中文(繁體)")){
+
+            currencyDenomination = Util.convertCurrencyStringToChinese(currencyDenomination);
+            text = "由 " + dataSource + " 提供報價";
+
+        } else if (XBTWidgetApplication.getSharedPreferences()
+            .getString(Constants.PREF_DISPLAY_LANGUAGE, "English")
+            .equalsIgnoreCase("中文(简体)")){
+
+            currencyDenomination = Util.convertCurrencyStringToChineseSimplified(currencyDenomination);
+            text = "由 " + dataSource + " 提供报价";
+
+        }
         final String title = price + " " + currencyDenomination;
-        final String text = "Data provided by " + dataSource + ".";
+
         Notification.Builder builder = new Notification.Builder(context)
                 .setContentTitle(title)
                 .setContentText(text)
@@ -45,5 +66,4 @@ public class PriceOngoingNotification {
     private static NotificationManager getNotificationManager(Context context) {
         return (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
     }
-
 }
