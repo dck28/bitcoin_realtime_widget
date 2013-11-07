@@ -161,7 +161,7 @@ public class SettingsFragment extends PreferenceFragment {
                         // Enable ongoing notifications
                         SharedPreferences pref = XBTWidgetApplication.getSharedPreferences();
                         PriceOngoingNotification.hit(getActivity(),
-                                Double.toString(Double.parseDouble(pref.getString(Constants.PREF_LAST_UPDATED_PRICE, ""))),
+                                Double.toString(Double.parseDouble(pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "--.--"))),
                                 pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"),
                                 pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"),
                                 false);

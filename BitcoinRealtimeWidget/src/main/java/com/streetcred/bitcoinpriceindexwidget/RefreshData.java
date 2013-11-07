@@ -31,9 +31,11 @@ public class RefreshData extends AsyncTask<String, Void, String> {
     double newPrice;
     SharedPreferences pref;
     Context context;
+    boolean isUpdateSuccessful;
 
     @Override
     protected void onPreExecute() {
+        this.isUpdateSuccessful = true;
         this.context = XBTWidgetApplication.instance;
         this.appWidgetManager = AppWidgetManager.getInstance(context);
         remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
@@ -139,6 +141,7 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                 appWidgetManager.updateAppWidget(thisWidget, remoteViews);
             }
         } catch (Exception e) {
+            isUpdateSuccessful = false;
             e.printStackTrace();
             remoteViews.setTextViewText(R.id.price, pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "--.--"));
             if(pref.getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
@@ -174,13 +177,18 @@ public class RefreshData extends AsyncTask<String, Void, String> {
     protected void onPostExecute(String result) {
 
         if (persistentNotificationEnabled()){
-            PriceOngoingNotification.hit(context,
-                    Double.toString(newPrice),
+            if(isUpdateSuccessful){
+                PriceOngoingNotification.hit(context,
+                    Double.toString(Double.parseDouble(
+                    pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "--.--"))),
                     pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"),
                     pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"),
                     pref.getBoolean(Constants.PREF_IS_FROM_ONGOING_NOTIFICATION, false));
-            pref.edit().putBoolean(Constants.PREF_IS_FROM_ONGOING_NOTIFICATION, false).commit();
+            } else {
+                PriceOngoingNotification.noConnection(context);
+            }
         }
+        pref.edit().putBoolean(Constants.PREF_IS_FROM_ONGOING_NOTIFICATION, false).commit();
 
         // Check if alert exist (set by user)
         // if newPrice is higher than limit alert - hit
