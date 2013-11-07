@@ -11,6 +11,7 @@ import android.widget.RemoteViews;
 
 import com.streetcred.bitcoinpriceindexwidget.ConnectionManager.JSONParser;
 import com.streetcred.bitcoinpriceindexwidget.ConnectionManager.RpcManager;
+import com.streetcred.bitcoinpriceindexwidget.Notify.PriceAlert;
 
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
@@ -172,6 +173,12 @@ public class RefreshData extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
+
+        //TEST notification
+        PriceAlert.hit(context,
+                Double.toString(newPrice),
+                pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"),
+                pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"));
     }
 
     @Override
