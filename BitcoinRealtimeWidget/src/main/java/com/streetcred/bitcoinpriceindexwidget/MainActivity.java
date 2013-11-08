@@ -10,7 +10,8 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Toast;
+
+import com.streetcred.bitcoinpriceindexwidget.Refresh.RefreshIntervalManager;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,6 +39,22 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         replaceMainFragment(getFragmentManager(), new SettingsFragment(), SETTINGS_FRAG, this);
+        new RefreshIntervalLauncherThread(getApplicationContext()).start();
+    }
+
+    private static class RefreshIntervalLauncherThread extends Thread {
+        private Context context;
+
+        private RefreshIntervalLauncherThread(Context context) {
+            this.context = context;
+        }
+
+        @Override
+        public void run() {
+            Context context = this.context;
+            this.context = null;
+            RefreshIntervalManager.instance().startIntervalRefreshing(context, true);
+        }
     }
 
     @Override
