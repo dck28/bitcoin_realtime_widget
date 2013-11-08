@@ -1,7 +1,6 @@
 package com.streetcred.bitcoinpriceindexwidget;
 
 import java.util.Calendar;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by denniskong on 10/5/13.
