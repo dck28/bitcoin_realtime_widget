@@ -25,7 +25,13 @@ public class RefreshDataReceiver extends BroadcastReceiver{
         }
 
         RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
-        double previous_price = Double.parseDouble(XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_PRICE, "0.0"));
+        double previous_price = Double.parseDouble(
+                XBTWidgetApplication
+                        .getSharedPreferences()
+                        .getString(Constants.PREF_LAST_UPDATED_PRICE, "0.0")
+                        .replace(",","."));
+                        // Fix for invalid parseDouble when Data from API is malformed: e.g. ""
+                        // Nov 8, 2013 : java.lang.NumberFormatException
         try{
             RefreshData refresh = new RefreshData();
             refresh.execute().get(10000, TimeUnit.MILLISECONDS);
@@ -49,7 +55,13 @@ public class RefreshDataReceiver extends BroadcastReceiver{
     }
 
     private void applyTextColoring(Context context, RemoteViews remoteViews, double previous_price){
-        double new_price = Double.parseDouble(XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_PRICE, "0.0"));
+        double new_price = Double.parseDouble(
+                XBTWidgetApplication
+                        .getSharedPreferences()
+                        .getString(Constants.PREF_LAST_UPDATED_PRICE, "0.0")
+                        .replace(",","."));
+                        // Fix for invalid parseDouble when Data from API is malformed: e.g. ""
+                        // Nov 8, 2013 : java.lang.NumberFormatException
         if (new_price - previous_price >= 0.1){
             remoteViews.setTextColor(R.id.price, Color.parseColor("#CCE5CC"));
         } else if (new_price - previous_price <= -0.1){
