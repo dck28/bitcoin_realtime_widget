@@ -94,7 +94,7 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                     remoteViews.setTextViewText(R.id.update_time, "* 更新时间 " + time_now_in_string);
                     remoteViews.setTextColor(R.id.price, Color.WHITE);
                 } else {
-                    remoteViews.setTextViewText(R.id.update_time, "* updated on " + time_now_in_string);
+                    remoteViews.setTextViewText(R.id.update_time, "* updated at " + time_now_in_string);
                     remoteViews.setTextColor(R.id.price, Color.WHITE);
                 }
                 pref.edit()
