@@ -9,7 +9,6 @@ import android.graphics.Color;
 import android.widget.RemoteViews;
 
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 /**
  * Created by denniskong on 10/6/13.
@@ -39,8 +38,8 @@ public class RefreshDataReceiver extends BroadcastReceiver{
             remoteViews.setTextViewText(R.id.update_time, "* no connection");
             remoteViews.setTextColor(R.id.price, Color.GRAY);
         } finally {
-            if (isNoConnection()){
-                // handle if there is no connection
+            if (didNotReceiveValidNewPrice()){
+                // handle if new price not available
             } else {
                 applyTextColoring(context, remoteViews, previous_price);
             }
@@ -48,8 +47,8 @@ public class RefreshDataReceiver extends BroadcastReceiver{
         AppWidgetManager.getInstance(context).updateAppWidget(new ComponentName(context, XBTRealtimeWidgetProvider.class), remoteViews);
     }
 
-    private boolean isNoConnection(){
-        return !XBTWidgetApplication.getSharedPreferences().getBoolean(Constants.FLAG_IS_CONNECTION_AVAILABLE, true);
+    private boolean didNotReceiveValidNewPrice(){
+        return !XBTWidgetApplication.getSharedPreferences().getBoolean(Constants.RECEIVED_VALID_NEW_PRICE, true);
     }
 
     private void applyTextColoring(Context context, RemoteViews remoteViews, double previous_price){

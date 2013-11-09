@@ -100,7 +100,7 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                 pref.edit()
                         .putLong(Constants.PREF_LAST_UPDATED_TIMESTAMP, System.currentTimeMillis())
                         .putString(Constants.PREF_LAST_UPDATED_PRICE, df.format(newPrice))
-                        .putBoolean(Constants.FLAG_IS_CONNECTION_AVAILABLE, true)
+                        .putBoolean(Constants.RECEIVED_VALID_NEW_PRICE, true)
                         .commit();
                 appWidgetManager.updateAppWidget(thisWidget, remoteViews);
             } else {
@@ -115,7 +115,7 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                             + pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk")
                             + " 提供報價");
                     pref.edit()
-                            .putBoolean(Constants.FLAG_IS_CONNECTION_AVAILABLE, false)
+                            .putBoolean(Constants.RECEIVED_VALID_NEW_PRICE, false)
                             .commit();
                 } else if(pref.getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(简体)")){
                     remoteViews.setTextViewText(R.id.update_time, "* 纲络未能连接");
@@ -126,7 +126,7 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                             + pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk")
                             + " 提供报价");
                     pref.edit()
-                            .putBoolean(Constants.FLAG_IS_CONNECTION_AVAILABLE, false)
+                            .putBoolean(Constants.RECEIVED_VALID_NEW_PRICE, false)
                             .commit();
                 } else {
                     remoteViews.setTextViewText(R.id.update_time, "* no connection");
@@ -135,7 +135,7 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                     remoteViews.setTextViewText(R.id.credit, "Data provided by " +
                             pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"));
                     pref.edit()
-                            .putBoolean(Constants.FLAG_IS_CONNECTION_AVAILABLE, false)
+                            .putBoolean(Constants.RECEIVED_VALID_NEW_PRICE, false)
                             .commit();
                 }
                 appWidgetManager.updateAppWidget(thisWidget, remoteViews);
@@ -150,7 +150,7 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                 remoteViews.setTextViewText(R.id.exchange_currency,
                         Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
                 pref.edit()
-                        .putBoolean(Constants.FLAG_IS_CONNECTION_AVAILABLE, false)
+                        .putBoolean(Constants.RECEIVED_VALID_NEW_PRICE, false)
                         .commit();
             } else if(pref.getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(简体)")){
                 remoteViews.setTextViewText(R.id.update_time, "* 纲络未能连接");
@@ -158,14 +158,14 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                 remoteViews.setTextViewText(R.id.exchange_currency,
                         Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
                 pref.edit()
-                        .putBoolean(Constants.FLAG_IS_CONNECTION_AVAILABLE, false)
+                        .putBoolean(Constants.RECEIVED_VALID_NEW_PRICE, false)
                         .commit();
             } else {
                 remoteViews.setTextViewText(R.id.update_time, "* no connection");
                 remoteViews.setTextColor(R.id.price, Color.GRAY);
                 remoteViews.setTextViewText(R.id.exchange_currency, pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"));
                 pref.edit()
-                        .putBoolean(Constants.FLAG_IS_CONNECTION_AVAILABLE, false)
+                        .putBoolean(Constants.RECEIVED_VALID_NEW_PRICE, false)
                         .commit();
             }
             appWidgetManager.updateAppWidget(thisWidget, remoteViews);

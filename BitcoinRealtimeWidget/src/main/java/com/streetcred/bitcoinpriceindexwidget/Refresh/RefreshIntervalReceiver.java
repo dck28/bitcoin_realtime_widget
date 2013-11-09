@@ -18,7 +18,6 @@ import com.streetcred.bitcoinpriceindexwidget.XBTRealtimeWidgetProvider;
 import com.streetcred.bitcoinpriceindexwidget.XBTWidgetApplication;
 
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 /**
  * Created by denniskong on 11/8/13.
@@ -74,8 +73,8 @@ public class RefreshIntervalReceiver extends BroadcastReceiver {
                 remoteViews.setTextViewText(R.id.update_time, "* no connection");
                 remoteViews.setTextColor(R.id.price, Color.GRAY);
             } finally {
-                if (isNoConnection()){
-                    // handle if there is no connection
+                if (didNotReceiveValidNewPrice()){
+                    // handle if new price not available
                 } else {
                     applyTextColoring(context, remoteViews, previous_price);
                 }
@@ -86,8 +85,8 @@ public class RefreshIntervalReceiver extends BroadcastReceiver {
 
         }
 
-        private boolean isNoConnection(){
-            return !XBTWidgetApplication.getSharedPreferences().getBoolean(Constants.FLAG_IS_CONNECTION_AVAILABLE, true);
+        private boolean didNotReceiveValidNewPrice(){
+            return !XBTWidgetApplication.getSharedPreferences().getBoolean(Constants.RECEIVED_VALID_NEW_PRICE, true);
         }
 
         private void applyTextColoring(Context context, RemoteViews remoteViews, double previous_price){
