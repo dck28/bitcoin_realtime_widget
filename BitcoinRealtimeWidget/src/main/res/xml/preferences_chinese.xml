@@ -4,8 +4,7 @@
     <Preference
         android:key="copy_bitcoin_address"
         android:title="請支持: 複製比特幣地址"
-        android:summary="13hwfZqGQrsNXEhx1riRpFog5JPd . . ."
-        android:widgetLayout="@layout/icon_for_donation"/>
+        android:summary="13hwfZqGQrsNXEhx1riRpFog5JPd . . ."/>
 
 
     <com.streetcred.bitcoinpriceindexwidget.DisplayLanguagePreferenceDialog
@@ -15,8 +14,7 @@
         android:entries="@array/pref_language_entries"
         android:entryValues="@array/pref_language_values"
         android:defaultValue="中文(繁體)"
-        android:negativeButtonText="取消"
-        android:widgetLayout="@layout/icon_for_language"/>
+        android:negativeButtonText="取消"/>
 
     <com.streetcred.bitcoinpriceindexwidget.DisplayThemePreferenceDialog
         android:key="pref_theme_chinese"
@@ -25,8 +23,7 @@
         android:entries="@array/pref_theme_entries_chinese"
         android:entryValues="@array/pref_theme_values_chinese"
         android:defaultValue="漂浮"
-        android:negativeButtonText="取消"
-        android:widgetLayout="@layout/icon_for_theme"/>
+        android:negativeButtonText="取消"/>
 
     <com.streetcred.bitcoinpriceindexwidget.DisplayCurrencyPreferenceDialog
         android:key="pref_currency_chinese"
@@ -35,8 +32,7 @@
         android:entries="@array/pref_currency_entries_chinese"
         android:entryValues="@array/pref_currency_values_chinese"
         android:defaultValue="美元"
-        android:negativeButtonText="取消"
-        android:widgetLayout="@layout/icon_for_currency"/>
+        android:negativeButtonText="取消"/>
 
     <com.streetcred.bitcoinpriceindexwidget.DisplayDataSourcePreferenceDialog
         android:key="pref_data_source_chinese"
@@ -45,8 +41,7 @@
         android:entries="@array/pref_data_source_entries_chinese"
         android:entryValues="@array/pref_data_source_values_chinese"
         android:defaultValue="Coindesk"
-        android:negativeButtonText="取消"
-        android:widgetLayout="@layout/icon_for_sources"/>
+        android:negativeButtonText="取消"/>
 
     <CheckBoxPreference
         android:title="放上通知箱"

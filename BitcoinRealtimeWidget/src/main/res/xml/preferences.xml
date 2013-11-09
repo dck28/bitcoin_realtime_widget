@@ -4,8 +4,7 @@
     <Preference
         android:key="copy_bitcoin_address"
         android:title="Donate: Click to copy address"
-        android:summary="13hwfZqGQrsNXEhx1riRpFog5JPd . . ."
-        android:widgetLayout="@layout/icon_for_donation"/>
+        android:summary="13hwfZqGQrsNXEhx1riRpFog5JPd . . ."/>
 
     <com.streetcred.bitcoinpriceindexwidget.DisplayLanguagePreferenceDialog
         android:key="pref_language"
@@ -14,8 +13,7 @@
         android:entries="@array/pref_language_entries"
         android:entryValues="@array/pref_language_values"
         android:defaultValue="English"
-        android:negativeButtonText="Cancel"
-        android:widgetLayout="@layout/icon_for_language"/>
+        android:negativeButtonText="Cancel"/>
 
     <com.streetcred.bitcoinpriceindexwidget.DisplayThemePreferenceDialog
         android:key="pref_theme"
@@ -24,8 +22,7 @@
         android:entries="@array/pref_theme_entries"
         android:entryValues="@array/pref_theme_values"
         android:defaultValue="Float"
-        android:negativeButtonText="Cancel"
-        android:widgetLayout="@layout/icon_for_theme"/>
+        android:negativeButtonText="Cancel"/>
 
     <com.streetcred.bitcoinpriceindexwidget.DisplayCurrencyPreferenceDialog
         android:key="pref_currency"
@@ -34,8 +31,7 @@
         android:entries="@array/pref_currency_entries"
         android:entryValues="@array/pref_currency_values"
         android:defaultValue="USD"
-        android:negativeButtonText="Cancel"
-        android:widgetLayout="@layout/icon_for_currency"/>
+        android:negativeButtonText="Cancel"/>
 
     <com.streetcred.bitcoinpriceindexwidget.DisplayDataSourcePreferenceDialog
         android:key="pref_data_source"
@@ -44,8 +40,7 @@
         android:entries="@array/pref_data_source_entries"
         android:entryValues="@array/pref_data_source_values"
         android:defaultValue="Coindesk"
-        android:negativeButtonText="Cancel"
-        android:widgetLayout="@layout/icon_for_sources"/>
+        android:negativeButtonText="Cancel"/>
 
     <CheckBoxPreference
         android:title="Ongoing Notification"
