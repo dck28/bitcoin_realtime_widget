@@ -70,11 +70,9 @@ public class RefreshIntervalReceiver extends BroadcastReceiver {
             try{
                 RefreshData refresh = new RefreshData();
                 refresh.execute().get(10000, TimeUnit.MILLISECONDS);
-            } catch (TimeoutException e){
+            } catch (Exception e){
                 remoteViews.setTextViewText(R.id.update_time, "* no connection");
                 remoteViews.setTextColor(R.id.price, Color.GRAY);
-            } catch (Exception e){
-                // ignore
             } finally {
                 if (isNoConnection()){
                     // handle if there is no connection
