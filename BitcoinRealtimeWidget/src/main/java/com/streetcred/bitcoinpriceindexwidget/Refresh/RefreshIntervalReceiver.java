@@ -67,21 +67,23 @@ public class RefreshIntervalReceiver extends BroadcastReceiver {
         @Override
         public void run() {
             try{
-                RefreshData refresh = new RefreshData();
-                refresh.execute().get(10000, TimeUnit.MILLISECONDS);
-            } catch (Exception e){
-                remoteViews.setTextViewText(R.id.update_time, "* no connection");
-                remoteViews.setTextColor(R.id.price, Color.GRAY);
-            } finally {
-                if (didNotReceiveValidNewPrice()){
-                    // handle if new price not available
-                } else {
-                    applyTextColoring(context, remoteViews, previous_price);
+                try{
+                    RefreshData refresh = new RefreshData();
+                    refresh.execute().get(10000, TimeUnit.MILLISECONDS);
+                } catch (Exception e){
+                    remoteViews.setTextViewText(R.id.update_time, "* no connection");
+                    remoteViews.setTextColor(R.id.price, Color.GRAY);
+                } finally {
+                    if (didNotReceiveValidNewPrice()){
+                        // handle if new price not available
+                    } else {
+                        applyTextColoring(context, remoteViews, previous_price);
+                    }
+                    AppWidgetManager.getInstance(context).updateAppWidget(new ComponentName(context, XBTRealtimeWidgetProvider.class), remoteViews);
                 }
-                AppWidgetManager.getInstance(context).updateAppWidget(new ComponentName(context, XBTRealtimeWidgetProvider.class), remoteViews);
+            } finally {
                 PowerLockProvider.release(wakeLock, handler);
             }
-
 
         }
 
