@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.RemoteViews;
 
 import com.streetcred.bitcoinpriceindexwidget.ConnectionManager.JSONParser;
@@ -140,7 +141,10 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                 }
                 appWidgetManager.updateAppWidget(thisWidget, remoteViews);
             }
+            pref.edit().putBoolean(Constants.WAS_LAST_UPDATE_SUCCESSFUL, true).commit();
         } catch (Exception e) {
+            e.printStackTrace(); Log.e("Exception at RefreshData", "Unsuccessful");
+            pref.edit().putBoolean(Constants.WAS_LAST_UPDATE_SUCCESSFUL, false).commit();
             isUpdateSuccessful = false;
             e.printStackTrace();
             remoteViews.setTextViewText(R.id.price, pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "--.--"));

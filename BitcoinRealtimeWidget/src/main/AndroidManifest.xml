@@ -31,11 +31,18 @@
                 android:resource="@xml/widget_info" />
         </receiver>
 
-        <receiver android:name="com.streetcred.bitcoinpriceindexwidget.Refresh.RefreshIntervalReceiver" android:exported="false"/>
         <receiver android:name="com.streetcred.bitcoinpriceindexwidget.RefreshDataReceiver" android:exported="false">
             <intent-filter>
                 <action android:name="com.streetcred.bitcoinpriceindexwidget.REFRESH_REQUEST" />
                 <action android:name="com.streetcred.bitcoinpriceindexwidget.REFRESH_REQUEST_WITH_TICKER" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.streetcred.bitcoinpriceindexwidget.Refresh.RefreshIntervalReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
             </intent-filter>
         </receiver>
 

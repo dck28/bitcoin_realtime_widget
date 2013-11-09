@@ -17,7 +17,11 @@ import com.streetcred.bitcoinpriceindexwidget.RefreshData;
 import com.streetcred.bitcoinpriceindexwidget.XBTRealtimeWidgetProvider;
 import com.streetcred.bitcoinpriceindexwidget.XBTWidgetApplication;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 /**
  * Created by denniskong on 11/8/13.
@@ -29,7 +33,9 @@ public class RefreshIntervalReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        if (Intent.ACTION_USER_PRESENT.equals(intent.getAction()) && wasLastUpdateSuccessful()) return;
         Log.i(LOG_TAG, "Starting Refresh");
+
         Handler handler = new Handler();
         PowerManager.WakeLock lock = PowerLockProvider.acquireLock(context, LOCK_NAME, 10000l, handler);
 
@@ -42,7 +48,26 @@ public class RefreshIntervalReceiver extends BroadcastReceiver {
         // Fix for invalid parseDouble when Data from API is malformed: e.g. ""
         // Nov 8, 2013 : java.lang.NumberFormatException
 
-        new RefreshRequestLauncher(lock, context, handler, remoteViews, previous_price).start();
+
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        Future<?> future = executor.submit(
+                new RefreshRequestLauncher(
+                        lock,
+                        context,
+                        handler,
+                        remoteViews,
+                        previous_price));
+
+        try{
+            future.get(10, TimeUnit.SECONDS);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private boolean wasLastUpdateSuccessful(){
+        return XBTWidgetApplication.getSharedPreferences()
+                .getBoolean(Constants.WAS_LAST_UPDATE_SUCCESSFUL, true);
     }
 
     private static class RefreshRequestLauncher extends Thread {
@@ -70,19 +95,23 @@ public class RefreshIntervalReceiver extends BroadcastReceiver {
                 try{
                     RefreshData refresh = new RefreshData();
                     refresh.execute().get(10000, TimeUnit.MILLISECONDS);
+                    Log.e("Refresh","Started");
                 } catch (Exception e){
                     remoteViews.setTextViewText(R.id.update_time, "* no connection");
                     remoteViews.setTextColor(R.id.price, Color.GRAY);
+                    Log.e("Refresh Incomplete","Exception Caught");
                 } finally {
                     if (didNotReceiveValidNewPrice()){
                         // handle if new price not available
                     } else {
                         applyTextColoring(context, remoteViews, previous_price);
                     }
+                    Log.e("Refresh Completed","Successful");
                     AppWidgetManager.getInstance(context).updateAppWidget(new ComponentName(context, XBTRealtimeWidgetProvider.class), remoteViews);
                 }
             } finally {
                 PowerLockProvider.release(wakeLock, handler);
+                Log.e("PowerLock","released");
             }
 
         }
