@@ -22,4 +22,5 @@ public class Constants {
     public static final String FLAG_CLEAR_STACK = "clear_stack";
     public static final String RECEIVED_VALID_NEW_PRICE = "new_price_is_valid";
     public static final String WAS_LAST_UPDATE_SUCCESSFUL = "was_last_update_successful";
+    public static final String REFRESH_INTERVAL_LAST_RECEIVED = "last_refresh_interval_update_timestamp";
 }
