@@ -145,6 +145,7 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             Log.e("Update Successful", "FLAGGED");
         } catch (Exception e) {
             e.printStackTrace(); Log.e("Exception at RefreshData", "Unsuccessful");
+            Log.e("Exception at RefreshData", e.getMessage());
             pref.edit().putBoolean(Constants.WAS_LAST_UPDATE_SUCCESSFUL, false).commit();
             Log.e("Update Unsuccessful", "FLAGGED");
             isUpdateSuccessful = false;

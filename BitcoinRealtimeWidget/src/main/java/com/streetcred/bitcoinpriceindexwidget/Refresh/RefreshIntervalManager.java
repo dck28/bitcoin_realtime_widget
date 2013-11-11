@@ -28,7 +28,7 @@ public class RefreshIntervalManager {
 
         PendingIntent pendingSyncIntent = createPendingIntent(context);
 
-        long interval = XBTWidgetApplication.getSharedPreferences().getLong(Constants.PREF_REFRESH_INTERVAL, AlarmManager.INTERVAL_FIFTEEN_MINUTES/3);
+        long interval = XBTWidgetApplication.getSharedPreferences().getLong(Constants.PREF_REFRESH_INTERVAL, AlarmManager.INTERVAL_FIFTEEN_MINUTES/15);
         alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
                 SystemClock.elapsedRealtime() + (startImmediately ? 0 : interval),
                 interval, pendingSyncIntent);
