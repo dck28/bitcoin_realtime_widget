@@ -43,6 +43,15 @@
         android:defaultValue="Coindesk"
         android:negativeButtonText="取消"/>
 
+    <com.streetcred.bitcoinpriceindexwidget.DisplayRefreshIntervalPreferenceDialog
+        android:key="pref_refresh_interval_chinese"
+        android:title="更新頻率: 關"
+        android:dialogTitle="選擇更新頻率"
+        android:entries="@array/pref_interval_entries_chinese"
+        android:entryValues="@array/pref_interval_values_chinese"
+        android:defaultValue="-1"
+        android:negativeButtonText="取消"/>
+
     <CheckBoxPreference
         android:title="放上通知箱"
         android:defaultValue="true"

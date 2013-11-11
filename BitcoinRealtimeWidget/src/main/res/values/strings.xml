@@ -2,33 +2,69 @@
     <string name="app_name">Bitcoin Price Index Widget</string>
     <string-array name="pref_interval_entries">
         <!-- item>No preference</item  -->
+        <item>None</item>
         <item>1 minute</item>
         <item>2 minutes</item>
-        <item>4 minutes</item>
+        <item>3 minutes</item>
+        <item>5 minutes</item>
         <item>8 minutes</item>
-        <item>16 minutes</item>
-        <item>32 minutes</item>
-        <item>1 hour</item>
-        <item>2 hours</item>
-        <item>4 hours</item>
-        <item>8 hours</item>
-        <item>16 hours</item>
-        <item>1 day</item>
+        <item>13 minutes</item>
+        <item>21 minutes</item>
     </string-array>
     <string-array name="pref_interval_values">
         <!-- item>ANY</item -->
-        <item>1 minute</item>
-        <item>2 minutes</item>
-        <item>4 minutes</item>
-        <item>8 minutes</item>
-        <item>16 minutes</item>
-        <item>32 minutes</item>
-        <item>1 hour</item>
-        <item>2 hours</item>
-        <item>4 hours</item>
-        <item>8 hours</item>
-        <item>16 hours</item>
-        <item>1 day</item>
+        <item>-1</item>
+        <item>60000</item>
+        <item>120000</item>
+        <item>180000</item>
+        <item>300000</item>
+        <item>480000</item>
+        <item>780000</item>
+        <item>1260000</item>
+    </string-array>
+    <string-array name="pref_interval_entries_chinese">
+        <!-- item>No preference</item  -->
+        <item>關</item>
+        <item>1 分鐘</item>
+        <item>2 分鐘</item>
+        <item>3 分鐘</item>
+        <item>5 分鐘</item>
+        <item>8 分鐘</item>
+        <item>13 分鐘</item>
+        <item>21 分鐘</item>
+    </string-array>
+    <string-array name="pref_interval_values_chinese">
+        <!-- item>ANY</item -->
+        <item>-1</item>
+        <item>60000</item>
+        <item>120000</item>
+        <item>180000</item>
+        <item>300000</item>
+        <item>480000</item>
+        <item>780000</item>
+        <item>1260000</item>
+    </string-array>
+    <string-array name="pref_interval_entries_chinese_simplified">
+        <!-- item>No preference</item  -->
+        <item>关</item>
+        <item>1 分钟</item>
+        <item>2 分钟</item>
+        <item>3 分钟</item>
+        <item>5 分钟</item>
+        <item>8 分钟</item>
+        <item>13 分钟</item>
+        <item>21 分钟</item>
+    </string-array>
+    <string-array name="pref_interval_values_chinese_simplified">
+        <!-- item>ANY</item -->
+        <item>-1</item>
+        <item>60000</item>
+        <item>120000</item>
+        <item>180000</item>
+        <item>300000</item>
+        <item>480000</item>
+        <item>780000</item>
+        <item>1260000</item>
     </string-array>
     <string-array name="pref_data_source_entries">
         <!-- item>ANY</item -->

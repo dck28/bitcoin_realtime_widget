@@ -28,10 +28,13 @@ public class RefreshIntervalManager {
 
         PendingIntent pendingSyncIntent = createPendingIntent(context);
 
-        long interval = XBTWidgetApplication.getSharedPreferences().getLong(Constants.PREF_REFRESH_INTERVAL, AlarmManager.INTERVAL_FIFTEEN_MINUTES/15);
-        alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
-                SystemClock.elapsedRealtime() + (startImmediately ? 0 : interval),
-                interval, pendingSyncIntent);
+        String interval_as_string = XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_REFRESH_INTERVAL, "-1");
+        if(!"-1".equalsIgnoreCase(interval_as_string)){
+            long interval = Long.parseLong(interval_as_string);
+            alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                    SystemClock.elapsedRealtime() + (startImmediately ? 0 : interval),
+                    interval, pendingSyncIntent);
+        }
     }
 
     private PendingIntent createPendingIntent(Context context) {

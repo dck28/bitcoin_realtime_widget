@@ -42,6 +42,15 @@
         android:defaultValue="Coindesk"
         android:negativeButtonText="Cancel"/>
 
+    <com.streetcred.bitcoinpriceindexwidget.DisplayRefreshIntervalPreferenceDialog
+        android:key="pref_refresh_interval"
+        android:title="Refresh Rate: None"
+        android:dialogTitle="Select Refresh Rate"
+        android:entries="@array/pref_interval_entries"
+        android:entryValues="@array/pref_interval_values"
+        android:defaultValue="-1"
+        android:negativeButtonText="Cancel"/>
+
     <CheckBoxPreference
         android:title="Ongoing Notification"
         android:defaultValue="true"

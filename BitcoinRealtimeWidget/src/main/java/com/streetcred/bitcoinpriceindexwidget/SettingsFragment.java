@@ -25,6 +25,7 @@ import android.widget.RemoteViews;
 import android.widget.Toast;
 
 import com.streetcred.bitcoinpriceindexwidget.Notify.PriceOngoingNotification;
+import com.streetcred.bitcoinpriceindexwidget.Refresh.RefreshIntervalManager;
 
 import java.text.MessageFormat;
 import java.util.Locale;
@@ -124,17 +125,149 @@ public class SettingsFragment extends PreferenceFragment {
             DisplayThemePreference_Chinese();
             DisplayCurrencyPreference_Chinese();
             DisplayDataSourcePreference_Chinese();
+            DisplayRefreshIntervalPreference_Chinese();
             DisplayOngoingNotificationPreference();
         } else if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(简体)")){
             DisplayThemePreference_Chinese_Simplified();
             DisplayCurrencyPreference_Chinese_Simplified();
             DisplayDataSourcePreference_Chinese_Simplified();
+            DisplayRefreshIntervalPreference_Chinese_Simplified();
             DisplayOngoingNotificationPreference();
         } else {
             DisplayThemePreference_English();
             DisplayCurrencyPreference_English();
             DisplayDataSourcePreference_English();
+            DisplayRefreshIntervalPreference_English();
             DisplayOngoingNotificationPreference();
+        }
+    }
+
+    private void DisplayRefreshIntervalPreference_English(){
+        DisplayRefreshIntervalPreferenceDialog refreshIntervalPreference = (DisplayRefreshIntervalPreferenceDialog) findPreference("pref_refresh_interval");
+        if (refreshIntervalPreference != null){
+            refreshIntervalPreference.setValue(XBTWidgetApplication
+                    .getSharedPreferences()
+                    .getString(Constants.PREF_REFRESH_INTERVAL, "-1"));
+
+            refreshIntervalPreference.setTitle("Refresh Rate: " + refreshIntervalPreference.getEntry());
+            refreshIntervalPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference,
+                                                  Object newValue) {
+                    XBTWidgetApplication.getSharedPreferences()
+                            .edit()
+                            .putString(Constants.PREF_REFRESH_INTERVAL, newValue.toString())
+                            .commit();
+
+                    String newDisplayRate = convertToEnglish(newValue.toString());
+
+                    preference.setTitle("Refresh Rate: " + newDisplayRate);
+                    if ("-1".equalsIgnoreCase(newValue.toString())) {
+                        RefreshIntervalManager.instance().cancelIntervalRefreshing(XBTWidgetApplication.instance);
+                    } else {
+                        RefreshIntervalManager.instance().startIntervalRefreshing(XBTWidgetApplication.instance, true);
+                    }
+                    return true;
+                }
+
+                private String convertToEnglish(String value){
+                    if("-1".equalsIgnoreCase(value)){ return "None"; }
+                    if("60000".equalsIgnoreCase(value)){ return "1 minute"; }
+                    if("120000".equalsIgnoreCase(value)){ return "2 minutes"; }
+                    if("180000".equalsIgnoreCase(value)){ return "3 minutes"; }
+                    if("300000".equalsIgnoreCase(value)){ return "5 minutes"; }
+                    if("480000".equalsIgnoreCase(value)){ return "8 minutes"; }
+                    if("780000".equalsIgnoreCase(value)){ return "13 minutes"; }
+                    if("1260000".equalsIgnoreCase(value)){ return "21 minutes"; }
+                    return "None";
+                }
+            });
+        }
+    }
+
+    private void DisplayRefreshIntervalPreference_Chinese(){
+        DisplayRefreshIntervalPreferenceDialog refreshIntervalPreference = (DisplayRefreshIntervalPreferenceDialog) findPreference("pref_refresh_interval_chinese");
+        if (refreshIntervalPreference != null){
+            refreshIntervalPreference.setValue(XBTWidgetApplication
+                    .getSharedPreferences()
+                    .getString(Constants.PREF_REFRESH_INTERVAL, "-1"));
+
+            refreshIntervalPreference.setTitle("更新頻率: " + refreshIntervalPreference.getEntry());
+            refreshIntervalPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference,
+                                                  Object newValue) {
+                    XBTWidgetApplication.getSharedPreferences()
+                            .edit()
+                            .putString(Constants.PREF_REFRESH_INTERVAL, newValue.toString())
+                            .commit();
+
+                    String newDisplayRate = convertToChinese(newValue.toString());
+
+                    preference.setTitle("更新頻率: " + newDisplayRate);
+                    if ("-1".equalsIgnoreCase(newValue.toString())) {
+                        RefreshIntervalManager.instance().cancelIntervalRefreshing(XBTWidgetApplication.instance);
+                    } else {
+                        RefreshIntervalManager.instance().startIntervalRefreshing(XBTWidgetApplication.instance, true);
+                    }
+                    return true;
+                }
+
+                private String convertToChinese(String value){
+                    if("-1".equalsIgnoreCase(value)){ return "關"; }
+                    if("60000".equalsIgnoreCase(value)){ return "1 分鐘"; }
+                    if("120000".equalsIgnoreCase(value)){ return "2 分鐘"; }
+                    if("180000".equalsIgnoreCase(value)){ return "3 分鐘"; }
+                    if("300000".equalsIgnoreCase(value)){ return "5 分鐘"; }
+                    if("480000".equalsIgnoreCase(value)){ return "8 分鐘"; }
+                    if("780000".equalsIgnoreCase(value)){ return "13 分鐘"; }
+                    if("1260000".equalsIgnoreCase(value)){ return "21 分鐘"; }
+                    return "關";
+                }
+            });
+        }
+    }
+
+    private void DisplayRefreshIntervalPreference_Chinese_Simplified(){
+        DisplayRefreshIntervalPreferenceDialog refreshIntervalPreference = (DisplayRefreshIntervalPreferenceDialog) findPreference("pref_refresh_interval_chinese_simplified");
+        if (refreshIntervalPreference != null){
+            refreshIntervalPreference.setValue(XBTWidgetApplication
+                    .getSharedPreferences()
+                    .getString(Constants.PREF_REFRESH_INTERVAL, "-1"));
+
+            refreshIntervalPreference.setTitle("更新频率: " + refreshIntervalPreference.getEntry());
+            refreshIntervalPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference,
+                                                  Object newValue) {
+                    XBTWidgetApplication.getSharedPreferences()
+                            .edit()
+                            .putString(Constants.PREF_REFRESH_INTERVAL, newValue.toString())
+                            .commit();
+
+                    String newDisplayRate = convertToChineseSimplified(newValue.toString());
+
+                    preference.setTitle("更新频率: " + newDisplayRate);
+                    if ("-1".equalsIgnoreCase(newValue.toString())) {
+                        RefreshIntervalManager.instance().cancelIntervalRefreshing(XBTWidgetApplication.instance);
+                    } else {
+                        RefreshIntervalManager.instance().startIntervalRefreshing(XBTWidgetApplication.instance, true);
+                    }
+                    return true;
+                }
+
+                private String convertToChineseSimplified(String value){
+                    if("-1".equalsIgnoreCase(value)){ return "关"; }
+                    if("60000".equalsIgnoreCase(value)){ return "1 分钟"; }
+                    if("120000".equalsIgnoreCase(value)){ return "2 分钟"; }
+                    if("180000".equalsIgnoreCase(value)){ return "3 分钟"; }
+                    if("300000".equalsIgnoreCase(value)){ return "5 分钟"; }
+                    if("480000".equalsIgnoreCase(value)){ return "8 分钟"; }
+                    if("780000".equalsIgnoreCase(value)){ return "13 分钟"; }
+                    if("1260000".equalsIgnoreCase(value)){ return "21 分钟"; }
+                    return "关";
+                }
+            });
         }
     }
 
