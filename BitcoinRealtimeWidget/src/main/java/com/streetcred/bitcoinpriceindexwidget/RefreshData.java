@@ -142,9 +142,11 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                 appWidgetManager.updateAppWidget(thisWidget, remoteViews);
             }
             pref.edit().putBoolean(Constants.WAS_LAST_UPDATE_SUCCESSFUL, true).commit();
+            Log.e("Update Successful", "FLAGGED");
         } catch (Exception e) {
             e.printStackTrace(); Log.e("Exception at RefreshData", "Unsuccessful");
             pref.edit().putBoolean(Constants.WAS_LAST_UPDATE_SUCCESSFUL, false).commit();
+            Log.e("Update Unsuccessful", "FLAGGED");
             isUpdateSuccessful = false;
             e.printStackTrace();
             remoteViews.setTextViewText(R.id.price, pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "--.--"));

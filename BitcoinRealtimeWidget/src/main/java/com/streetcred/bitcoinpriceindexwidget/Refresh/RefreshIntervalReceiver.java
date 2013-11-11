@@ -33,8 +33,11 @@ public class RefreshIntervalReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        if (Intent.ACTION_USER_PRESENT.equals(intent.getAction()) && wasLastUpdateSuccessful()) return;
-        Log.i(LOG_TAG, "Starting Refresh");
+        if (Intent.ACTION_USER_PRESENT.equals(intent.getAction())) Log.e("Screen Unlock","detected");
+        if (Intent.ACTION_USER_PRESENT.equals(intent.getAction()) && wasLastUpdateSuccessful()){
+            return;
+        }
+        Log.e("RefreshIntervalReceiver", "Starting Refresh");
 
         Handler handler = new Handler();
         PowerManager.WakeLock lock = PowerLockProvider.acquireLock(context, LOCK_NAME, 10000l, handler);
