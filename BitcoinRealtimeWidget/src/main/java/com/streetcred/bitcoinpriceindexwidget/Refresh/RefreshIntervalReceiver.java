@@ -3,6 +3,7 @@ package com.streetcred.bitcoinpriceindexwidget.Refresh;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Handler;
 import android.os.PowerManager;
 import android.util.Log;
@@ -34,7 +35,8 @@ public class RefreshIntervalReceiver extends BroadcastReceiver {
 
         if ( (Intent.ACTION_USER_PRESENT.equals(intent.getAction()) && wasLastUpdateSuccessful()) ){
             // ignore
-        } else if (timeElapsedOver5SecondsSinceLastReceived()){ //Added check for the issue of receiving twice
+        } else if (timeElapsedOver5SecondsSinceLastReceived() ||
+                (Build.VERSION.SDK_INT == Build.VERSION_CODES.KITKAT)){ //Added check for the issue of receiving twice
 
             XBTWidgetApplication.getSharedPreferences().edit()
                     .putLong(Constants.REFRESH_INTERVAL_LAST_RECEIVED, System.currentTimeMillis()).commit();

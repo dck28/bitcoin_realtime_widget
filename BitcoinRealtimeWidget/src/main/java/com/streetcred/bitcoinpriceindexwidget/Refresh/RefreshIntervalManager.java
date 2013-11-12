@@ -4,6 +4,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.SystemClock;
 
 import com.streetcred.bitcoinpriceindexwidget.Constants;
@@ -31,6 +32,12 @@ public class RefreshIntervalManager {
         String interval_as_string = XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_REFRESH_INTERVAL, "-1");
         if(!"-1".equalsIgnoreCase(interval_as_string)){
             long interval = Long.parseLong(interval_as_string);
+            if(Build.VERSION.SDK_INT == Build.VERSION_CODES.KITKAT)
+            {
+                alarmManager.setExact(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                        interval,
+                        pendingSyncIntent);
+            }
             alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
                     SystemClock.elapsedRealtime() + (startImmediately ? 0 : interval),
                     interval, pendingSyncIntent);
