@@ -122,7 +122,11 @@ public class RefreshData extends AsyncTask<String, Void, String> {
 
             if (newPrice != 0){
                 DecimalFormat df = new DecimalFormat("0.0");
-                remoteViews.setTextViewText(R.id.price, df.format(newPrice));
+                String new_price_in_string = (df.format(newPrice));
+                if( (df.format(newPrice)).length() >=6 ){
+                    new_price_in_string = new_price_in_string.substring(0, new_price_in_string.indexOf('.'));
+                }
+                remoteViews.setTextViewText(R.id.price, new_price_in_string);
                 String time_now_in_string = Util.getCurrentDisplayTime();
                 if(pref.getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
                     remoteViews.setTextViewText(R.id.update_time, "* 更新時間 " + time_now_in_string);
@@ -136,7 +140,7 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                 }
                 pref.edit()
                         .putLong(Constants.PREF_LAST_UPDATED_TIMESTAMP, System.currentTimeMillis())
-                        .putString(Constants.PREF_LAST_UPDATED_PRICE, df.format(newPrice))
+                        .putString(Constants.PREF_LAST_UPDATED_PRICE, new_price_in_string)
                         .putBoolean(Constants.RECEIVED_VALID_NEW_PRICE, true)
                         .commit();
                 appWidgetManager.updateAppWidget(thisWidget, remoteViews);
