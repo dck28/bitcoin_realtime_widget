@@ -33,6 +33,8 @@ public class Util {
             return "歐元";
         } else if (currency.equalsIgnoreCase("CNY")){
             return "人民幣";
+        } else if (currency.equalsIgnoreCase("HKD")){
+            return "港元";
         }
         return "美元";
     }
@@ -46,6 +48,8 @@ public class Util {
             return "欧元";
         } else if (currency.equalsIgnoreCase("CNY")){
             return "人民币";
+        } else if (currency.equalsIgnoreCase("HKD")){
+            return "港元";
         }
         return "美元";
     }
@@ -61,6 +65,8 @@ public class Util {
             return "EUR";
         } else if(newValue.equals("人民幣")){
             return "CNY";
+        } else if(newValue.equals("港元")){
+            return "HKD";
         }
         return "USD";
     }
@@ -74,6 +80,8 @@ public class Util {
             return "歐元";
         } else if(newValue.equals("CNY")){
             return "人民幣";
+        } else if(newValue.equals("HKD")){
+            return "港元";
         }
         return "美元";
     }
@@ -87,6 +95,8 @@ public class Util {
             return "EUR";
         } else if(newValue.equals("人民币")){
             return "CNY";
+        } else if(newValue.equals("港元")){
+            return "HKD";
         }
         return "USD";
     }
@@ -100,6 +110,8 @@ public class Util {
             return "欧元";
         } else if(newValue.equals("CNY")){
             return "人民币";
+        } else if(newValue.equals("HKD")){
+            return "港元";
         }
         return "美元";
     }

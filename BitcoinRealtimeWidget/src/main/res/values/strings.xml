@@ -108,6 +108,7 @@
         <item>GBP</item>
         <item>EUR</item>
         <item>CNY</item>
+        <item>HKD</item>
     </string-array>
     <string-array name="pref_currency_values">
         <!-- item>ANY</item -->
@@ -115,6 +116,7 @@
         <item>GBP</item>
         <item>EUR</item>
         <item>CNY</item>
+        <item>HKD</item>
     </string-array>
     <string-array name="pref_currency_entries_chinese">
         <!-- item>ANY</item -->
@@ -122,6 +124,7 @@
         <item>英鎊</item>
         <item>歐元</item>
         <item>人民幣</item>
+        <item>港元</item>
     </string-array>
     <string-array name="pref_currency_values_chinese">
         <!-- item>ANY</item -->
@@ -129,6 +132,7 @@
         <item>英鎊</item>
         <item>歐元</item>
         <item>人民幣</item>
+        <item>港元</item>
     </string-array>
     <string-array name="pref_currency_entries_chinese_simplified">
         <!-- item>ANY</item -->
@@ -136,6 +140,7 @@
         <item>英镑</item>
         <item>欧元</item>
         <item>人民币</item>
+        <item>港元</item>
     </string-array>
     <string-array name="pref_currency_values_chinese_simplified">
         <!-- item>ANY</item -->
@@ -143,6 +148,7 @@
         <item>英镑</item>
         <item>欧元</item>
         <item>人民币</item>
+        <item>港元</item>
     </string-array>
     <string-array name="pref_theme_entries">
         <!-- item>ANY</item -->
