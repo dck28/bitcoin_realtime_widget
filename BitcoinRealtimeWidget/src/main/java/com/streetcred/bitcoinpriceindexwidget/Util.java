@@ -27,6 +27,8 @@ public class Util {
     public static String convertCurrencyStringToChinese(String currency){
         if (currency.equalsIgnoreCase("USD")){
             return "美元";
+        } else if (currency.equalsIgnoreCase("CAD")){
+            return "加幣";
         } else if (currency.equalsIgnoreCase("GBP")){
             return "英鎊";
         } else if (currency.equalsIgnoreCase("EUR")){
@@ -42,6 +44,8 @@ public class Util {
     public static String convertCurrencyStringToChineseSimplified(String currency){
         if (currency.equalsIgnoreCase("USD")){
             return "美元";
+        } else if (currency.equalsIgnoreCase("CAD")){
+            return "加币";
         } else if (currency.equalsIgnoreCase("GBP")){
             return "英镑";
         } else if (currency.equalsIgnoreCase("EUR")){
@@ -59,6 +63,8 @@ public class Util {
     public static String convertCurrencyChineseToEnglish(String newValue){
         if(newValue.equals("美元")){
             return "USD";
+        } else if(newValue.equals("加幣")){
+            return "CAD";
         } else if(newValue.equals("英鎊")){
             return "GBP";
         } else if(newValue.equals("歐元")){
@@ -74,6 +80,8 @@ public class Util {
     public static String convertCurrencyEnglishToChinese(String newValue){
         if(newValue.equals("USD")){
             return "美元";
+        } else if(newValue.equals("CAD")){
+            return "加幣";
         } else if(newValue.equals("GBP")){
             return "英鎊";
         } else if(newValue.equals("EUR")){
@@ -89,6 +97,8 @@ public class Util {
     public static String convertCurrencyChineseSimplifiedToEnglish(String newValue){
         if(newValue.equals("美元")){
             return "USD";
+        } else if(newValue.equals("加币")){
+            return "CAD";
         } else if(newValue.equals("英镑")){
             return "GBP";
         } else if(newValue.equals("欧元")){
@@ -104,6 +114,8 @@ public class Util {
     public static String convertCurrencyEnglishToChineseSimplified(String newValue){
         if(newValue.equals("USD")){
             return "美元";
+        } else if(newValue.equals("CAD")){
+            return "加币";
         } else if(newValue.equals("GBP")){
             return "英镑";
         } else if(newValue.equals("EUR")){
