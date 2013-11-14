@@ -69,6 +69,7 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
                     XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk") +
                     " 提供报价");
         } else {
+            remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 20);
             remoteViews.setTextViewText(R.id.exchange_currency, XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"));
             remoteViews.setTextViewText(R.id.credit, "Data provided by " +
                     XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"));

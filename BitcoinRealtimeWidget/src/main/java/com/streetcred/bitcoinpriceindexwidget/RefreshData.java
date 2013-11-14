@@ -74,6 +74,7 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                     + " 提供报价");
         } else {
             remoteViews.setTextViewText(R.id.update_time, "* loading...");
+            remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 20);
             remoteViews.setTextViewText(R.id.exchange_currency, pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"));
             remoteViews.setTextViewText(R.id.credit, "Data provided by " +
                     pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"));
@@ -125,6 +126,9 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                 String new_price_in_string = (df.format(newPrice));
                 if( (df.format(newPrice)).length() >=6 ){
                     new_price_in_string = new_price_in_string.substring(0, new_price_in_string.indexOf('.'));
+                    int indexOfCommaToBePlaced = new_price_in_string.length() - 3;
+                    new_price_in_string = new_price_in_string.substring(0, indexOfCommaToBePlaced)
+                            + "," + new_price_in_string.substring(indexOfCommaToBePlaced, new_price_in_string.length());
                 }
                 remoteViews.setTextViewText(R.id.price, new_price_in_string);
                 String time_now_in_string = Util.getCurrentDisplayTime();
@@ -184,6 +188,7 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                 } else {
                     remoteViews.setTextViewText(R.id.update_time, "* no connection");
                     remoteViews.setTextColor(R.id.price, Color.GRAY);
+                    remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 20);
                     remoteViews.setTextViewText(R.id.exchange_currency, pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"));
                     remoteViews.setTextViewText(R.id.credit, "Data provided by " +
                             pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"));
@@ -234,6 +239,7 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             } else {
                 remoteViews.setTextViewText(R.id.update_time, "* no connection");
                 remoteViews.setTextColor(R.id.price, Color.GRAY);
+                remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 20);
                 remoteViews.setTextViewText(R.id.exchange_currency, pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"));
                 pref.edit()
                         .putBoolean(Constants.RECEIVED_VALID_NEW_PRICE, false)
@@ -250,8 +256,7 @@ public class RefreshData extends AsyncTask<String, Void, String> {
         if (persistentNotificationEnabled()){
             if(isUpdateSuccessful){
                 PriceOngoingNotification.hit(context,
-                    Double.toString(Double.parseDouble(
-                    pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "--.--"))),
+                    pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "--.--"),
                     pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"),
                     pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"),
                     pref.getBoolean(Constants.PREF_IS_FROM_ONGOING_NOTIFICATION, false));
