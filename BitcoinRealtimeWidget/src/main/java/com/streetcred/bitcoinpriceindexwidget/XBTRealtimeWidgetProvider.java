@@ -44,8 +44,9 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
                     Util.convertCurrencyStringToChinese(
                         XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")
                     ));
-            if(Util.convertCurrencyStringToChinese(XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民幣")){
-                remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 13);
+            if(Util.convertCurrencyStringToChinese(XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民幣")
+                    || Util.convertCurrencyStringToChinese(XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("新台幣")){
+                remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 14);
             } else {
                 remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 20);
             }
@@ -58,8 +59,9 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
                     Util.convertCurrencyStringToChineseSimplified(
                         XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")
                     ));
-            if(Util.convertCurrencyStringToChineseSimplified(XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民币")){
-                remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 13);
+            if(Util.convertCurrencyStringToChineseSimplified(XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民币")
+                    || Util.convertCurrencyStringToChineseSimplified(XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("新台币")){
+                remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 14);
             } else {
                 remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 20);
             }

@@ -50,8 +50,9 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             remoteViews.setTextViewText(R.id.update_time, "* 連接中...");
             remoteViews.setTextViewText(R.id.exchange_currency,
                     Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
-            if(Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民幣")){
-                remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 13);
+            if(Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民幣")
+                    || Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("新台幣")){
+                remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 14);
             } else {
                 remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 20);
             }
@@ -62,8 +63,9 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             remoteViews.setTextViewText(R.id.update_time, "* 连接中...");
             remoteViews.setTextViewText(R.id.exchange_currency,
                     Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
-            if(Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民币")){
-                remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 13);
+            if(Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民币")
+                    || Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("新台币")){
+                remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 14);
             } else {
                 remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 20);
             }
@@ -146,8 +148,9 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                     remoteViews.setTextColor(R.id.price, Color.GRAY);
                     remoteViews.setTextViewText(R.id.exchange_currency,
                             Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
-                    if(Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民幣")){
-                        remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 13);
+                    if(Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民幣")
+                            || Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("新台幣")){
+                        remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 14);
                     } else {
                         remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 20);
                     }
@@ -162,8 +165,9 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                     remoteViews.setTextColor(R.id.price, Color.GRAY);
                     remoteViews.setTextViewText(R.id.exchange_currency,
                             Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
-                    if(Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民币")){
-                        remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 13);
+                    if(Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民币")
+                            || Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("新台币")){
+                        remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 14);
                     } else {
                         remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 20);
                     }
@@ -200,8 +204,9 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                 remoteViews.setTextColor(R.id.price, Color.GRAY);
                 remoteViews.setTextViewText(R.id.exchange_currency,
                         Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
-                if(Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民幣")){
-                    remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 13);
+                if(Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民幣")
+                        || Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("新台幣")){
+                    remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 14);
                 } else {
                     remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 20);
                 }
@@ -213,8 +218,9 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                 remoteViews.setTextColor(R.id.price, Color.GRAY);
                 remoteViews.setTextViewText(R.id.exchange_currency,
                         Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
-                if(Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民币")){
-                    remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 13);
+                if(Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民币")
+                        || Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("新台币")){
+                    remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 14);
                 } else {
                     remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 20);
                 }
