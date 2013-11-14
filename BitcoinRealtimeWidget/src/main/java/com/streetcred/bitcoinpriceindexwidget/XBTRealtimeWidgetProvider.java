@@ -6,6 +6,8 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.util.TypedValue;
+import android.view.View;
 import android.widget.RemoteViews;
 
 import java.util.concurrent.TimeUnit;
@@ -42,6 +44,11 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
                     Util.convertCurrencyStringToChinese(
                         XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")
                     ));
+            if(Util.convertCurrencyStringToChinese(XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民幣")){
+                remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 13);
+            } else {
+                remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 20);
+            }
             remoteViews.setTextViewText(R.id.credit, "由 " +
                     XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk") +
                     " 提供報價");
@@ -51,6 +58,11 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
                     Util.convertCurrencyStringToChineseSimplified(
                         XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")
                     ));
+            if(Util.convertCurrencyStringToChineseSimplified(XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民币")){
+                remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 13);
+            } else {
+                remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 20);
+            }
             remoteViews.setTextViewText(R.id.credit, "由 " +
                     XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk") +
                     " 提供报价");

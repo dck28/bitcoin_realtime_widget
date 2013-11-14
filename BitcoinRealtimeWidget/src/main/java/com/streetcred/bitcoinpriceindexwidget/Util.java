@@ -31,6 +31,8 @@ public class Util {
             return "英鎊";
         } else if (currency.equalsIgnoreCase("EUR")){
             return "歐元";
+        } else if (currency.equalsIgnoreCase("CNY")){
+            return "人民幣";
         }
         return "美元";
     }
@@ -42,7 +44,120 @@ public class Util {
             return "英镑";
         } else if (currency.equalsIgnoreCase("EUR")){
             return "欧元";
+        } else if (currency.equalsIgnoreCase("CNY")){
+            return "人民币";
         }
         return "美元";
+    }
+
+
+
+    public static String convertCurrencyChineseToEnglish(String newValue){
+        if(newValue.equals("美元")){
+            return "USD";
+        } else if(newValue.equals("英鎊")){
+            return "GBP";
+        } else if(newValue.equals("歐元")){
+            return "EUR";
+        } else if(newValue.equals("人民幣")){
+            return "CNY";
+        }
+        return "USD";
+    }
+
+    public static String convertCurrencyEnglishToChinese(String newValue){
+        if(newValue.equals("USD")){
+            return "美元";
+        } else if(newValue.equals("GBP")){
+            return "英鎊";
+        } else if(newValue.equals("EUR")){
+            return "歐元";
+        } else if(newValue.equals("CNY")){
+            return "人民幣";
+        }
+        return "美元";
+    }
+
+    public static String convertCurrencyChineseSimplifiedToEnglish(String newValue){
+        if(newValue.equals("美元")){
+            return "USD";
+        } else if(newValue.equals("英镑")){
+            return "GBP";
+        } else if(newValue.equals("欧元")){
+            return "EUR";
+        } else if(newValue.equals("人民币")){
+            return "CNY";
+        }
+        return "USD";
+    }
+
+    public static String convertCurrencyEnglishToChineseSimplified(String newValue){
+        if(newValue.equals("USD")){
+            return "美元";
+        } else if(newValue.equals("GBP")){
+            return "英镑";
+        } else if(newValue.equals("EUR")){
+            return "欧元";
+        } else if(newValue.equals("CNY")){
+            return "人民币";
+        }
+        return "美元";
+    }
+
+    public static String convertThemeChineseToEnglish(String newValueChinese){
+        if(newValueChinese.equals("深藍")){
+            return "Navy";
+        } else if(newValueChinese.equals("金橘")){
+            return "Clementine";
+        } else if(newValueChinese.equals("漂浮")){
+            return "Float";
+        } else if(newValueChinese.equals("磨砂玻璃")){
+            return "Frost";
+        }
+        return "Float";
+    }
+
+    public static String convertThemeEnglishToChinese(String newValueEnglish){
+        if(newValueEnglish.equals("Navy")){
+            return "深藍";
+        } else if(newValueEnglish.equals("Clementine")){
+            return "金橘";
+        } else if(newValueEnglish.equals("Float")){
+            return "漂浮";
+        } else if(newValueEnglish.equals("Frost")){
+            return "磨砂玻璃";
+        }
+        return "漂浮";
+    }
+
+
+    public static String convertThemeChineseSimplifiedToEnglish(String newValueChinese){
+        if(newValueChinese.equals("深蓝")){
+            return "Navy";
+        } else if(newValueChinese.equals("金橘")){
+            return "Clementine";
+        } else if(newValueChinese.equals("漂浮")){
+            return "Float";
+        } else if(newValueChinese.equals("磨砂玻璃")){
+            return "Frost";
+        }
+        return "Float";
+    }
+
+    public static String convertThemeEnglishToChineseSimplified(String newValueEnglish){
+        if(newValueEnglish.equals("Navy")){
+            return "深蓝";
+        } else if(newValueEnglish.equals("Clementine")){
+            return "金橘";
+        } else if(newValueEnglish.equals("Float")){
+            return "漂浮";
+        } else if(newValueEnglish.equals("Frost")){
+            return "磨砂玻璃";
+        }
+        return "漂浮";
+    }
+
+    public static double convertToSelectedAlternativeCurrencyFromUSD(double price, double rate){
+        return price*rate;
     }
 }

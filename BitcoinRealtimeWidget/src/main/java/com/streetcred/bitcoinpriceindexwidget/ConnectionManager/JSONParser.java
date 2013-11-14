@@ -1,6 +1,7 @@
 package com.streetcred.bitcoinpriceindexwidget.ConnectionManager;
 
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.streetcred.bitcoinpriceindexwidget.Constants;
 
@@ -39,7 +40,11 @@ public class JSONParser {
         if(USD.has("rate_float") && !USD.isNull("rate_float")){
             USD_rate_float = USD.optString("rate_float");
         }
-        if(USD_rate != null && pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD").equalsIgnoreCase("USD")) return Double.parseDouble(USD_rate);
+        if(USD_rate != null && pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD").equalsIgnoreCase("USD")
+                || (!pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD").equalsIgnoreCase("USD")
+                && !pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD").equalsIgnoreCase("GBP")
+                && !pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD").equalsIgnoreCase("EUR")))
+            return Double.parseDouble(USD_rate);
 
         // FETCH GBP PRICE
         JSONObject GBP = bpi.optJSONObject("GBP");
@@ -107,6 +112,11 @@ public class JSONParser {
 
         //Default
         return 0.00;
+    }
+
+    public static double handle_getting_forex_exchange_rate(JSONObject json_response){
+        Log.e("Double", Double.toString(json_response.optDouble("rate")));
+        return json_response.optDouble("rate");
     }
 
 }

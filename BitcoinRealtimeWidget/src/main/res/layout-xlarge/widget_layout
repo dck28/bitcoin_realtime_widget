@@ -36,8 +36,27 @@
         android:shadowDy="2"
         android:shadowRadius="2"
         android:textSize="20dp"
+        android:maxLines="1"
         android:text="- - -"
         android:contentDescription="currency-code"/>
+
+    <TextView android:id="@+id/exchange_currency_renmenbi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/credit"
+        android:layout_above="@+id/app_icon"
+        android:layout_alignRight="@+id/app_icon"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:shadowColor="#0A0A0A"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        android:textSize="17dp"
+        android:maxLines="1"
+        android:text="- - -"
+        android:contentDescription="currency-code"
+        android:visibility="gone"/>
 
     <ImageButton android:id="@+id/app_icon"
         android:layout_marginLeft="-2dp"

@@ -7,6 +7,8 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.View;
 import android.widget.RemoteViews;
 
 import com.streetcred.bitcoinpriceindexwidget.ConnectionManager.JSONParser;
@@ -48,6 +50,11 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             remoteViews.setTextViewText(R.id.update_time, "* 連接中...");
             remoteViews.setTextViewText(R.id.exchange_currency,
                     Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
+            if(Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民幣")){
+                remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 13);
+            } else {
+                remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 20);
+            }
             remoteViews.setTextViewText(R.id.credit, "由 " +
                     pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk")
                     + " 提供報價");
@@ -55,6 +62,11 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             remoteViews.setTextViewText(R.id.update_time, "* 连接中...");
             remoteViews.setTextViewText(R.id.exchange_currency,
                     Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
+            if(Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民币")){
+                remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 13);
+            } else {
+                remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 20);
+            }
             remoteViews.setTextViewText(R.id.credit, "由 " +
                     pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk")
                     + " 提供报价");
@@ -69,6 +81,15 @@ public class RefreshData extends AsyncTask<String, Void, String> {
 
     @Override
     protected String doInBackground(String... params) {
+        String currency_to_retrieve = pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD");
+        boolean shouldConvertToAlternateCurrency = false;
+        if (!currency_to_retrieve.equalsIgnoreCase("USD")
+                && !currency_to_retrieve.equalsIgnoreCase("GBP")
+                && !currency_to_retrieve.equalsIgnoreCase("EUR")){
+            shouldConvertToAlternateCurrency = true;
+            currency_to_retrieve = "USD";
+        }
+
         try {
             String data_source = pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk");
 
@@ -77,13 +98,26 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             Collection<BasicNameValuePair> requestParams = null;
             if (data_source_url.equals(Constants.COINBASE_API_URL)){
                 requestParams = new ArrayList<BasicNameValuePair>();
-                requestParams.add(new BasicNameValuePair("currency", pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
+                requestParams.add(new BasicNameValuePair("currency", currency_to_retrieve));
             } else if (data_source_url.equals(Constants.MTGOX_API_BASEURL)){
-                data_source_url = data_source_url + "/BTC" + pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD") + "/money/ticker_fast";
+                data_source_url = data_source_url + "/BTC" + currency_to_retrieve + "/money/ticker_fast";
             }
 
             JSONObject json_response = RpcManager.getInstance().callGet(context, data_source_url, "", requestParams);
             newPrice = getNewPrice(json_response, data_source);
+
+            if (shouldConvertToAlternateCurrency){ // Get forex exchange and do conversion
+                Collection<BasicNameValuePair> request_FOREX_Params = null;
+                request_FOREX_Params = new ArrayList<BasicNameValuePair>();
+                request_FOREX_Params.add(new BasicNameValuePair("from", "USD"));
+                request_FOREX_Params.add(new BasicNameValuePair("to", pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
+                JSONObject json_rate_response = RpcManager.getInstance().callGet(context, Constants.FOREX_RATE_API_URL, "", request_FOREX_Params);
+                double rate = JSONParser.handle_getting_forex_exchange_rate(json_rate_response);
+                newPrice = Util.convertToSelectedAlternativeCurrencyFromUSD(newPrice, rate);
+                Log.e("forex rate", Double.toString(rate));
+            }
+            Log.e("newPrice", Double.toString(newPrice));
+
             if (newPrice != 0){
                 DecimalFormat df = new DecimalFormat("0.0");
                 remoteViews.setTextViewText(R.id.price, df.format(newPrice));
@@ -112,6 +146,11 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                     remoteViews.setTextColor(R.id.price, Color.GRAY);
                     remoteViews.setTextViewText(R.id.exchange_currency,
                             Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
+                    if(Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民幣")){
+                        remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 13);
+                    } else {
+                        remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 20);
+                    }
                     remoteViews.setTextViewText(R.id.credit, "由 "
                             + pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk")
                             + " 提供報價");
@@ -122,7 +161,12 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                     remoteViews.setTextViewText(R.id.update_time, "* 纲络未能连接");
                     remoteViews.setTextColor(R.id.price, Color.GRAY);
                     remoteViews.setTextViewText(R.id.exchange_currency,
-                            Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
+                            Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
+                    if(Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民币")){
+                        remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 13);
+                    } else {
+                        remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 20);
+                    }
                     remoteViews.setTextViewText(R.id.credit, "由 "
                             + pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk")
                             + " 提供报价");
@@ -156,6 +200,11 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                 remoteViews.setTextColor(R.id.price, Color.GRAY);
                 remoteViews.setTextViewText(R.id.exchange_currency,
                         Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
+                if(Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民幣")){
+                    remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 13);
+                } else {
+                    remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 20);
+                }
                 pref.edit()
                         .putBoolean(Constants.RECEIVED_VALID_NEW_PRICE, false)
                         .commit();
@@ -163,7 +212,12 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                 remoteViews.setTextViewText(R.id.update_time, "* 纲络未能连接");
                 remoteViews.setTextColor(R.id.price, Color.GRAY);
                 remoteViews.setTextViewText(R.id.exchange_currency,
-                        Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
+                        Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
+                if(Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民币")){
+                    remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 13);
+                } else {
+                    remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 20);
+                }
                 pref.edit()
                         .putBoolean(Constants.RECEIVED_VALID_NEW_PRICE, false)
                         .commit();

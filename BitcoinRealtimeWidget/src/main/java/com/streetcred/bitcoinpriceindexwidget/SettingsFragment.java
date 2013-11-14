@@ -472,7 +472,7 @@ public class SettingsFragment extends PreferenceFragment {
     private void DisplayCurrencyPreference_Chinese() {
         DisplayCurrencyPreferenceDialog currencyPreference = (DisplayCurrencyPreferenceDialog) findPreference("pref_currency_chinese");
         if (currencyPreference != null){
-            currencyPreference.setValue(convertCurrencyEnglishToChinese(
+            currencyPreference.setValue(Util.convertCurrencyEnglishToChinese(
                     XBTWidgetApplication
                     .getSharedPreferences()
                     .getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
@@ -482,7 +482,7 @@ public class SettingsFragment extends PreferenceFragment {
                 @Override
                 public boolean onPreferenceChange(Preference preference,
                                                   Object newValue_Chinese) {
-                    String newStringValue = convertCurrencyChineseToEnglish(newValue_Chinese.toString());
+                    String newStringValue = Util.convertCurrencyChineseToEnglish(newValue_Chinese.toString());
                     XBTWidgetApplication.getSharedPreferences()
                             .edit()
                             .putString(Constants.PREF_LAST_UPDATED_CURRENCY, newStringValue)
@@ -541,32 +541,10 @@ public class SettingsFragment extends PreferenceFragment {
         }
     }
 
-    private String convertCurrencyChineseToEnglish(String newValue){
-        if(newValue.equals("美元")){
-            return "USD";
-        } else if(newValue.equals("英鎊")){
-            return "GBP";
-        } else if(newValue.equals("歐元")){
-            return "EUR";
-        }
-        return "USD";
-    }
-
-    private String convertCurrencyEnglishToChinese(String newValue){
-        if(newValue.equals("USD")){
-            return "美元";
-        } else if(newValue.equals("GBP")){
-            return "英鎊";
-        } else if(newValue.equals("EUR")){
-            return "歐元";
-        }
-        return "美元";
-    }
-
     private void DisplayThemePreference_Chinese() {
         DisplayThemePreferenceDialog themePreference = (DisplayThemePreferenceDialog) findPreference("pref_theme_chinese");
         if (themePreference != null){
-            themePreference.setValue(convertThemeEnglishToChinese(XBTWidgetApplication
+            themePreference.setValue(Util.convertThemeEnglishToChinese(XBTWidgetApplication
                     .getSharedPreferences()
                     .getString(Constants.PREF_LAST_UPDATED_THEME, "Float")));
 
@@ -575,7 +553,7 @@ public class SettingsFragment extends PreferenceFragment {
                 @Override
                 public boolean onPreferenceChange(Preference preference,
                                                   Object newValue) {
-                    String newThemeInEnglish = convertThemeChineseToEnglish(newValue.toString());
+                    String newThemeInEnglish = Util.convertThemeChineseToEnglish(newValue.toString());
                     XBTWidgetApplication.getSharedPreferences()
                             .edit()
                             .putString(Constants.PREF_LAST_UPDATED_THEME, newThemeInEnglish)
@@ -608,36 +586,10 @@ public class SettingsFragment extends PreferenceFragment {
         }
     }
 
-    private String convertThemeChineseToEnglish(String newValueChinese){
-        if(newValueChinese.equals("深藍")){
-            return "Navy";
-        } else if(newValueChinese.equals("金橘")){
-            return "Clementine";
-        } else if(newValueChinese.equals("漂浮")){
-            return "Float";
-        } else if(newValueChinese.equals("磨砂玻璃")){
-            return "Frost";
-        }
-        return "Float";
-    }
-
-    private String convertThemeEnglishToChinese(String newValueEnglish){
-        if(newValueEnglish.equals("Navy")){
-            return "深藍";
-        } else if(newValueEnglish.equals("Clementine")){
-            return "金橘";
-        } else if(newValueEnglish.equals("Float")){
-            return "漂浮";
-        } else if(newValueEnglish.equals("Frost")){
-            return "磨砂玻璃";
-        }
-        return "漂浮";
-    }
-
     private void DisplayCurrencyPreference_Chinese_Simplified() {
         DisplayCurrencyPreferenceDialog currencyPreference = (DisplayCurrencyPreferenceDialog) findPreference("pref_currency_chinese_simplified");
         if (currencyPreference != null){
-            currencyPreference.setValue(convertCurrencyEnglishToChineseSimplified(
+            currencyPreference.setValue(Util.convertCurrencyEnglishToChineseSimplified(
                     XBTWidgetApplication
                     .getSharedPreferences()
                     .getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
@@ -647,7 +599,7 @@ public class SettingsFragment extends PreferenceFragment {
                 @Override
                 public boolean onPreferenceChange(Preference preference,
                                                   Object newValue_Chinese) {
-                    String newStringValue = convertCurrencyChineseSimplifiedToEnglish(newValue_Chinese.toString());
+                    String newStringValue = Util.convertCurrencyChineseSimplifiedToEnglish(newValue_Chinese.toString());
                     XBTWidgetApplication.getSharedPreferences()
                             .edit()
                             .putString(Constants.PREF_LAST_UPDATED_CURRENCY, newStringValue)
@@ -706,32 +658,10 @@ public class SettingsFragment extends PreferenceFragment {
         }
     }
 
-    private String convertCurrencyChineseSimplifiedToEnglish(String newValue){
-        if(newValue.equals("美元")){
-            return "USD";
-        } else if(newValue.equals("英镑")){
-            return "GBP";
-        } else if(newValue.equals("欧元")){
-            return "EUR";
-        }
-        return "USD";
-    }
-
-    private String convertCurrencyEnglishToChineseSimplified(String newValue){
-        if(newValue.equals("USD")){
-            return "美元";
-        } else if(newValue.equals("GBP")){
-            return "英镑";
-        } else if(newValue.equals("EUR")){
-            return "欧元";
-        }
-        return "美元";
-    }
-
     private void DisplayThemePreference_Chinese_Simplified() {
         DisplayThemePreferenceDialog themePreference = (DisplayThemePreferenceDialog) findPreference("pref_theme_chinese_simplified");
         if (themePreference != null){
-            themePreference.setValue(convertThemeEnglishToChineseSimplified(XBTWidgetApplication
+            themePreference.setValue(Util.convertThemeEnglishToChineseSimplified(XBTWidgetApplication
                     .getSharedPreferences()
                     .getString(Constants.PREF_LAST_UPDATED_THEME, "Float")));
 
@@ -740,7 +670,7 @@ public class SettingsFragment extends PreferenceFragment {
                 @Override
                 public boolean onPreferenceChange(Preference preference,
                                                   Object newValue) {
-                    String newThemeInEnglish = convertThemeChineseSimplifiedToEnglish(newValue.toString());
+                    String newThemeInEnglish = Util.convertThemeChineseSimplifiedToEnglish(newValue.toString());
                     XBTWidgetApplication.getSharedPreferences()
                             .edit()
                             .putString(Constants.PREF_LAST_UPDATED_THEME, newThemeInEnglish)
@@ -771,32 +701,6 @@ public class SettingsFragment extends PreferenceFragment {
                 }
             });
         }
-    }
-
-    private String convertThemeChineseSimplifiedToEnglish(String newValueChinese){
-        if(newValueChinese.equals("深蓝")){
-            return "Navy";
-        } else if(newValueChinese.equals("金橘")){
-            return "Clementine";
-        } else if(newValueChinese.equals("漂浮")){
-            return "Float";
-        } else if(newValueChinese.equals("磨砂玻璃")){
-            return "Frost";
-        }
-        return "Float";
-    }
-
-    private String convertThemeEnglishToChineseSimplified(String newValueEnglish){
-        if(newValueEnglish.equals("Navy")){
-            return "深蓝";
-        } else if(newValueEnglish.equals("Clementine")){
-            return "金橘";
-        } else if(newValueEnglish.equals("Float")){
-            return "漂浮";
-        } else if(newValueEnglish.equals("Frost")){
-            return "磨砂玻璃";
-        }
-        return "漂浮";
     }
 
     @Override
