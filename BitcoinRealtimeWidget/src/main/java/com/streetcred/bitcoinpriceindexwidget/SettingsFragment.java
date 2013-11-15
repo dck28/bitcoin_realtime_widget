@@ -493,10 +493,16 @@ public class SettingsFragment extends PreferenceFragment {
                             RefreshData refresh = new RefreshData();
                             refresh.execute().get(10000, TimeUnit.MILLISECONDS);
                         } catch (Exception e){
-                            RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
-                            remoteViews.setTextViewText(R.id.update_time, "* 綱絡未能連接");
-                            remoteViews.setTextColor(R.id.price, Color.GRAY);
-                            AppWidgetManager.getInstance(getActivity()).updateAppWidget(new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class), remoteViews);
+                            if( getActivity() != null){
+                                RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
+                                remoteViews.setTextViewText(R.id.update_time, "* 綱絡未能連接");
+                                remoteViews.setTextColor(R.id.price, Color.GRAY);
+                                ComponentName componentName = new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class);
+                                AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(getActivity());
+                                if (appWidgetManager != null){
+                                    appWidgetManager.updateAppWidget(componentName, remoteViews);
+                                }
+                            }
                         }
                     }}).start();
                     return true;
@@ -610,10 +616,16 @@ public class SettingsFragment extends PreferenceFragment {
                             RefreshData refresh = new RefreshData();
                             refresh.execute().get(10000, TimeUnit.MILLISECONDS);
                         } catch (Exception e){
-                            RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
-                            remoteViews.setTextViewText(R.id.update_time, "* 纲络未能连接");
-                            remoteViews.setTextColor(R.id.price, Color.GRAY);
-                            AppWidgetManager.getInstance(getActivity()).updateAppWidget(new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class), remoteViews);
+                            if( getActivity() != null){
+                                RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
+                                remoteViews.setTextViewText(R.id.update_time, "* 纲络未能连接");
+                                remoteViews.setTextColor(R.id.price, Color.GRAY);
+                                ComponentName componentName = new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class);
+                                AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(getActivity());
+                                if (appWidgetManager != null){
+                                    appWidgetManager.updateAppWidget(componentName, remoteViews);
+                                }
+                            }
                         }
                     }}).start();
                     return true;
