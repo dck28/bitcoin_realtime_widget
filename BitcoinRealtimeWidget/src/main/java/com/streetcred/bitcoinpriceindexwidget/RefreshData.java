@@ -44,7 +44,7 @@ public class RefreshData extends AsyncTask<String, Void, String> {
         remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
         thisWidget = new ComponentName(context, XBTRealtimeWidgetProvider.class);
         pref = XBTWidgetApplication.getSharedPreferences();
-        remoteViews.setTextViewText(R.id.price, pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "--.--"));
+        remoteViews.setTextViewText(R.id.price, pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "0"));
         remoteViews.setTextColor(R.id.price, Color.parseColor("#FFFFB2"));
         if(pref.getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
             remoteViews.setTextViewText(R.id.update_time, "* 連接中...");
@@ -150,7 +150,7 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                 appWidgetManager.updateAppWidget(thisWidget, remoteViews);
             } else {
                 // Update widget info when no connection
-                remoteViews.setTextViewText(R.id.price, pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "--.--"));
+                remoteViews.setTextViewText(R.id.price, pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "0"));
                 if(pref.getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
                     remoteViews.setTextViewText(R.id.update_time, "* 綱絡未能連接");
                     remoteViews.setTextColor(R.id.price, Color.GRAY);
@@ -207,7 +207,7 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             Log.e("Update Unsuccessful", "FLAGGED");
             isUpdateSuccessful = false;
             e.printStackTrace();
-            remoteViews.setTextViewText(R.id.price, pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "--.--"));
+            remoteViews.setTextViewText(R.id.price, pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "0"));
             if(pref.getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
                 remoteViews.setTextViewText(R.id.update_time, "* 綱絡未能連接");
                 remoteViews.setTextColor(R.id.price, Color.GRAY);
@@ -256,7 +256,7 @@ public class RefreshData extends AsyncTask<String, Void, String> {
         if (persistentNotificationEnabled()){
             if(isUpdateSuccessful){
                 PriceOngoingNotification.hit(context,
-                    pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "--.--"),
+                    pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "0"),
                     pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"),
                     pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"),
                     pref.getBoolean(Constants.PREF_IS_FROM_ONGOING_NOTIFICATION, false));

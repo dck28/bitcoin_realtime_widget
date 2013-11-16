@@ -26,7 +26,7 @@ public class PriceOngoingNotification {
     public static void noConnection(Context context){
         SharedPreferences pref = XBTWidgetApplication.getSharedPreferences();
         hit(context,
-            pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "--.--"),
+            pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "0"),
             pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"),
             pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"),
             pref.getBoolean(Constants.PREF_IS_FROM_ONGOING_NOTIFICATION, false),
