@@ -22,6 +22,7 @@ import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 
@@ -118,16 +119,16 @@ public class SettingsFragment extends PreferenceFragment {
                     ClipboardManager clipboard = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
                     ClipData clip = ClipData.newPlainText("Bitcoin Address", "13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH");
                     clipboard.setPrimaryClip(clip);
-                    if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
+                    if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")) {
                         Toast.makeText(getActivity(), "複製成功. 很感激您的支持!\n13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH", Toast.LENGTH_LONG).show();
-                    } else if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(简体)")){
+                    } else if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(简体)")) {
                         Toast.makeText(getActivity(), "复制成功. 很感谢您的支持!\n13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH", Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(getActivity(), "Address Copied. Thank You for Your Support!\n13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH", Toast.LENGTH_LONG).show();
                     }
                     return true;
-                        }
-                });
+                }
+            });
         }
 
         DisplayLanguagePreference(this, savedInstanceState);
@@ -283,39 +284,45 @@ public class SettingsFragment extends PreferenceFragment {
     }
 
     private void DisplayOngoingNotificationPreference(){
-        final CheckBoxPreference ongoingcheckboxPref = (CheckBoxPreference) getPreferenceManager().findPreference("ongoingcheckboxPref");
-        if (ongoingcheckboxPref != null){
+        PreferenceManager preferenceManager = getPreferenceManager();
+        if(preferenceManager != null){
+            final CheckBoxPreference ongoingcheckboxPref = (CheckBoxPreference) getPreferenceManager().findPreference("ongoingcheckboxPref");
+            if (ongoingcheckboxPref != null){
 
-            if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
-                ongoingcheckboxPref.setTitle("放上通知箱");
-            } else if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(简体)")){
-                ongoingcheckboxPref.setTitle("放上通知箱");
-            } else {
-                ongoingcheckboxPref.setTitle("Ongoing Notification");
-            }
-
-            ongoingcheckboxPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                public boolean onPreferenceChange(Preference preference, Object newValue) {
-                    boolean newOngoingNotificationPreference = (Boolean) newValue;
-                    XBTWidgetApplication.getSharedPreferences()
-                            .edit()
-                            .putBoolean(Constants.PREF_ONGOING_NOTIFICATION, newOngoingNotificationPreference)
-                            .commit();
-                    if (newOngoingNotificationPreference == true){
-                        // Enable ongoing notifications
-                        SharedPreferences pref = XBTWidgetApplication.getSharedPreferences();
-                        PriceOngoingNotification.hit(getActivity(),
-                                Double.toString(Double.parseDouble(pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "0"))),
-                                pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"),
-                                pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"),
-                                false);
-                    } else if (newOngoingNotificationPreference == false){
-                        // Cancel all current ongoing notifications
-                        ((NotificationManager)getActivity().getSystemService(Context.NOTIFICATION_SERVICE)).cancelAll();
-                    }
-                    return true;
+                if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
+                    ongoingcheckboxPref.setTitle("放上通知箱");
+                } else if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(简体)")){
+                    ongoingcheckboxPref.setTitle("放上通知箱");
+                } else {
+                    ongoingcheckboxPref.setTitle("Ongoing Notification");
                 }
-            });
+
+                ongoingcheckboxPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                    public boolean onPreferenceChange(Preference preference, Object newValue) {
+                        boolean newOngoingNotificationPreference = (Boolean) newValue;
+                        XBTWidgetApplication.getSharedPreferences()
+                                .edit()
+                                .putBoolean(Constants.PREF_ONGOING_NOTIFICATION, newOngoingNotificationPreference)
+                                .commit();
+                        if (newOngoingNotificationPreference){
+                            // Enable ongoing notifications
+                            SharedPreferences pref = XBTWidgetApplication.getSharedPreferences();
+                            PriceOngoingNotification.hit(getActivity(),
+                                    Double.toString(Double.parseDouble(pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "0"))),
+                                    pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"),
+                                    pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"),
+                                    false);
+                        } else {
+                            // Cancel all current ongoing notifications
+                            Activity activity = getActivity();
+                            if(activity != null){
+                                ((NotificationManager)activity.getSystemService(Context.NOTIFICATION_SERVICE)).cancelAll();
+                            }
+                        }
+                        return true;
+                    }
+                });
+            }
         }
     }
 
@@ -341,10 +348,16 @@ public class SettingsFragment extends PreferenceFragment {
                             RefreshData refresh = new RefreshData();
                             refresh.execute().get(10000, TimeUnit.MILLISECONDS);
                         } catch (Exception e) {
-                            RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
-                            remoteViews.setTextViewText(R.id.update_time, "* no connection");
-                            remoteViews.setTextColor(R.id.price, Color.GRAY);
-                            AppWidgetManager.getInstance(getActivity()).updateAppWidget(new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class), remoteViews);
+                            Activity activity = getActivity();
+                            if(activity != null){
+                                RemoteViews remoteViews = new RemoteViews(activity.getPackageName(), R.layout.widget_layout);
+                                remoteViews.setTextViewText(R.id.update_time, "* no connection");
+                                remoteViews.setTextColor(R.id.price, Color.GRAY);
+                                AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(activity);
+                                if(appWidgetManager != null){
+                                    appWidgetManager.updateAppWidget(new ComponentName(activity, XBTRealtimeWidgetProvider.class), remoteViews);
+                                }
+                            }
                         }
                     }}).start();
                     return true;
@@ -375,10 +388,16 @@ public class SettingsFragment extends PreferenceFragment {
                             RefreshData refresh = new RefreshData();
                             refresh.execute().get(10000, TimeUnit.MILLISECONDS);
                         } catch (Exception e) {
-                            RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
-                            remoteViews.setTextViewText(R.id.update_time, "* no connection");
-                            remoteViews.setTextColor(R.id.price, Color.GRAY);
-                            AppWidgetManager.getInstance(getActivity()).updateAppWidget(new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class), remoteViews);
+                            Activity activity = getActivity();
+                            if(activity != null){
+                                RemoteViews remoteViews = new RemoteViews(activity.getPackageName(), R.layout.widget_layout);
+                                remoteViews.setTextViewText(R.id.update_time, "* no connection");
+                                remoteViews.setTextColor(R.id.price, Color.GRAY);
+                                AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(activity);
+                                if(appWidgetManager != null){
+                                    appWidgetManager.updateAppWidget(new ComponentName(activity, XBTRealtimeWidgetProvider.class), remoteViews);
+                                }
+                            }
                         }
                     }}).start();
                     return true;
@@ -405,23 +424,28 @@ public class SettingsFragment extends PreferenceFragment {
                             .commit();
                     preference.setTitle("Widget Theme: " + newValue.toString());
                     try {
-                        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(getActivity());
-                        RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
-                        ComponentName thisWidget = new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class);
-                        if (newValue.toString().equalsIgnoreCase("Navy")){
-                            remoteViews.setInt(R.id.background, "setBackgroundColor",
-                                    Color.parseColor("#DD2B3856"));
-                        } else if (newValue.toString().equalsIgnoreCase("Clementine")){
-                            remoteViews.setInt(R.id.background, "setBackgroundColor",
-                                    Color.parseColor("#DDEB5E00"));
-                        } else if (newValue.toString().equalsIgnoreCase("Float")){
-                            remoteViews.setInt(R.id.background, "setBackgroundColor",
-                                    Color.TRANSPARENT);
-                        } else if (newValue.toString().equalsIgnoreCase("Frost")){
-                            remoteViews.setInt(R.id.background, "setBackgroundColor",
-                                    Color.parseColor("#AAF0FFFC"));
+                        Activity activity = getActivity();
+                        if(activity != null){
+                            AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(activity);
+                            if(appWidgetManager != null){
+                                RemoteViews remoteViews = new RemoteViews(activity.getPackageName(), R.layout.widget_layout);
+                                ComponentName thisWidget = new ComponentName(activity, XBTRealtimeWidgetProvider.class);
+                                if (newValue.toString().equalsIgnoreCase("Navy")){
+                                    remoteViews.setInt(R.id.background, "setBackgroundColor",
+                                            Color.parseColor("#DD2B3856"));
+                                } else if (newValue.toString().equalsIgnoreCase("Clementine")){
+                                    remoteViews.setInt(R.id.background, "setBackgroundColor",
+                                            Color.parseColor("#DDEB5E00"));
+                                } else if (newValue.toString().equalsIgnoreCase("Float")){
+                                    remoteViews.setInt(R.id.background, "setBackgroundColor",
+                                            Color.TRANSPARENT);
+                                } else if (newValue.toString().equalsIgnoreCase("Frost")){
+                                    remoteViews.setInt(R.id.background, "setBackgroundColor",
+                                            Color.parseColor("#AAF0FFFC"));
+                                }
+                                appWidgetManager.updateAppWidget(thisWidget, remoteViews);
+                            }
                         }
-                        appWidgetManager.updateAppWidget(thisWidget, remoteViews);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -504,12 +528,13 @@ public class SettingsFragment extends PreferenceFragment {
                             RefreshData refresh = new RefreshData();
                             refresh.execute().get(10000, TimeUnit.MILLISECONDS);
                         } catch (Exception e){
-                            if( getActivity() != null){
-                                RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
+                            Activity activity = getActivity();
+                            if( activity != null){
+                                RemoteViews remoteViews = new RemoteViews(activity.getPackageName(), R.layout.widget_layout);
                                 remoteViews.setTextViewText(R.id.update_time, "* 綱絡未能連接");
                                 remoteViews.setTextColor(R.id.price, Color.GRAY);
-                                ComponentName componentName = new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class);
-                                AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(getActivity());
+                                ComponentName componentName = new ComponentName(activity, XBTRealtimeWidgetProvider.class);
+                                AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(activity);
                                 if (appWidgetManager != null){
                                     appWidgetManager.updateAppWidget(componentName, remoteViews);
                                 }
@@ -546,10 +571,16 @@ public class SettingsFragment extends PreferenceFragment {
                             RefreshData refresh = new RefreshData();
                             refresh.execute().get(10000, TimeUnit.MILLISECONDS);
                         } catch (Exception e){
-                            RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
-                            remoteViews.setTextViewText(R.id.update_time, "* 綱絡未能連接");
-                            remoteViews.setTextColor(R.id.price, Color.GRAY);
-                            AppWidgetManager.getInstance(getActivity()).updateAppWidget(new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class), remoteViews);
+                            Activity activity = getActivity();
+                            if(activity != null){
+                                RemoteViews remoteViews = new RemoteViews(activity.getPackageName(), R.layout.widget_layout);
+                                remoteViews.setTextViewText(R.id.update_time, "* 綱絡未能連接");
+                                remoteViews.setTextColor(R.id.price, Color.GRAY);
+                                AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(activity);
+                                if(appWidgetManager != null){
+                                    appWidgetManager.updateAppWidget(new ComponentName(activity, XBTRealtimeWidgetProvider.class), remoteViews);
+                                }
+                            }
                         }
                     }}).start();
                     return true;
@@ -577,23 +608,28 @@ public class SettingsFragment extends PreferenceFragment {
                             .commit();
                     preference.setTitle("顯示主題: " + newValue.toString());
                     try{
-                        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(getActivity());
-                        RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
-                        ComponentName thisWidget = new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class);
-                        if (newValue.toString().equalsIgnoreCase("深藍")){
-                            remoteViews.setInt(R.id.background, "setBackgroundColor",
-                                    Color.parseColor("#DD2B3856"));
-                        } else if (newValue.toString().equalsIgnoreCase("金橘")){
-                            remoteViews.setInt(R.id.background, "setBackgroundColor",
-                                    Color.parseColor("#DDEB5E00"));
-                        } else if (newValue.toString().equalsIgnoreCase("漂浮")){
-                            remoteViews.setInt(R.id.background, "setBackgroundColor",
-                                    Color.TRANSPARENT);
-                        } else if (newValue.toString().equalsIgnoreCase("磨砂玻璃")){
-                            remoteViews.setInt(R.id.background, "setBackgroundColor",
-                                    Color.parseColor("#AAF0FFFC"));
+                        Activity activity = getActivity();
+                        if(activity != null){
+                            AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(activity);
+                            if(appWidgetManager != null){
+                                RemoteViews remoteViews = new RemoteViews(activity.getPackageName(), R.layout.widget_layout);
+                                ComponentName thisWidget = new ComponentName(activity, XBTRealtimeWidgetProvider.class);
+                                if (newValue.toString().equalsIgnoreCase("深藍")){
+                                    remoteViews.setInt(R.id.background, "setBackgroundColor",
+                                            Color.parseColor("#DD2B3856"));
+                                } else if (newValue.toString().equalsIgnoreCase("金橘")){
+                                    remoteViews.setInt(R.id.background, "setBackgroundColor",
+                                            Color.parseColor("#DDEB5E00"));
+                                } else if (newValue.toString().equalsIgnoreCase("漂浮")){
+                                    remoteViews.setInt(R.id.background, "setBackgroundColor",
+                                            Color.TRANSPARENT);
+                                } else if (newValue.toString().equalsIgnoreCase("磨砂玻璃")){
+                                    remoteViews.setInt(R.id.background, "setBackgroundColor",
+                                            Color.parseColor("#AAF0FFFC"));
+                                }
+                                appWidgetManager.updateAppWidget(thisWidget, remoteViews);
+                            }
                         }
-                        appWidgetManager.updateAppWidget(thisWidget, remoteViews);
                     } catch (Exception e){
                         e.printStackTrace();
                     }
@@ -669,10 +705,16 @@ public class SettingsFragment extends PreferenceFragment {
                             RefreshData refresh = new RefreshData();
                             refresh.execute().get(10000, TimeUnit.MILLISECONDS);
                         } catch (Exception e){
-                            RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
-                            remoteViews.setTextViewText(R.id.update_time, "* 纲络未能连接");
-                            remoteViews.setTextColor(R.id.price, Color.GRAY);
-                            AppWidgetManager.getInstance(getActivity()).updateAppWidget(new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class), remoteViews);
+                            Activity activity = getActivity();
+                            if(activity != null){
+                                RemoteViews remoteViews = new RemoteViews(activity.getPackageName(), R.layout.widget_layout);
+                                remoteViews.setTextViewText(R.id.update_time, "* 纲络未能连接");
+                                remoteViews.setTextColor(R.id.price, Color.GRAY);
+                                AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(activity);
+                                if(appWidgetManager != null){
+                                    appWidgetManager.updateAppWidget(new ComponentName(activity, XBTRealtimeWidgetProvider.class), remoteViews);
+                                }
+                            }
                         }
                     }}).start();
                     return true;
@@ -700,23 +742,28 @@ public class SettingsFragment extends PreferenceFragment {
                             .commit();
                     preference.setTitle("显示主题: " + newValue.toString());
                     try{
-                        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(getActivity());
-                        RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
-                        ComponentName thisWidget = new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class);
-                        if (newValue.toString().equalsIgnoreCase("深蓝")){
-                            remoteViews.setInt(R.id.background, "setBackgroundColor",
-                                    Color.parseColor("#DD2B3856"));
-                        } else if (newValue.toString().equalsIgnoreCase("金橘")){
-                            remoteViews.setInt(R.id.background, "setBackgroundColor",
-                                    Color.parseColor("#DDEB5E00"));
-                        } else if (newValue.toString().equalsIgnoreCase("漂浮")){
-                            remoteViews.setInt(R.id.background, "setBackgroundColor",
-                                    Color.TRANSPARENT);
-                        } else if (newValue.toString().equalsIgnoreCase("磨砂玻璃")){
-                            remoteViews.setInt(R.id.background, "setBackgroundColor",
-                                    Color.parseColor("#AAF0FFFC"));
+                        Activity activity = getActivity();
+                        if(activity != null){
+                            AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(activity);
+                            if(appWidgetManager != null){
+                                RemoteViews remoteViews = new RemoteViews(activity.getPackageName(), R.layout.widget_layout);
+                                ComponentName thisWidget = new ComponentName(activity, XBTRealtimeWidgetProvider.class);
+                                if (newValue.toString().equalsIgnoreCase("深蓝")){
+                                    remoteViews.setInt(R.id.background, "setBackgroundColor",
+                                            Color.parseColor("#DD2B3856"));
+                                } else if (newValue.toString().equalsIgnoreCase("金橘")){
+                                    remoteViews.setInt(R.id.background, "setBackgroundColor",
+                                            Color.parseColor("#DDEB5E00"));
+                                } else if (newValue.toString().equalsIgnoreCase("漂浮")){
+                                    remoteViews.setInt(R.id.background, "setBackgroundColor",
+                                            Color.TRANSPARENT);
+                                } else if (newValue.toString().equalsIgnoreCase("磨砂玻璃")){
+                                    remoteViews.setInt(R.id.background, "setBackgroundColor",
+                                            Color.parseColor("#AAF0FFFC"));
+                                }
+                                appWidgetManager.updateAppWidget(thisWidget, remoteViews);
+                            }
                         }
-                        appWidgetManager.updateAppWidget(thisWidget, remoteViews);
                     } catch (Exception e){
                         e.printStackTrace();
                     }
@@ -746,28 +793,31 @@ public class SettingsFragment extends PreferenceFragment {
         Preference rateUsPref = findPreference("prefer_rate_and_feedback");
         if (isPlayStoreAvailable(getActivity())) {
             if (rateUsPref == null) {
-                rateUsPref = new Preference(getActivity());
-                rateUsPref.setKey("prefer_rate_and_feedback");
-                if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
-                    rateUsPref.setTitle("評論此應用程式");
-                    rateUsPref.setSummary("請給予您的意見及其他功能建議");
-                } else if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(简体)")){
-                    rateUsPref.setTitle("评论此应用程式");
-                    rateUsPref.setSummary("请给予您的意见及其他功能建议");
-                } else {
-                    rateUsPref.setTitle("Rate this widget");
-                    rateUsPref.setSummary("Give feedback & feature suggestions");
-                }
-
-                rateUsPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-                    @Override
-                    public boolean onPreferenceClick(Preference preference) {
-                        getActivity().startActivity(createOpenAppInPlayStoreIntent(getActivity()));
-                        return true;
+                final Activity activity = getActivity();
+                if(activity != null){
+                    rateUsPref = new Preference(activity);
+                    rateUsPref.setKey("prefer_rate_and_feedback");
+                    if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
+                        rateUsPref.setTitle("評論此應用程式");
+                        rateUsPref.setSummary("請給予您的意見及其他功能建議");
+                    } else if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(简体)")){
+                        rateUsPref.setTitle("评论此应用程式");
+                        rateUsPref.setSummary("请给予您的意见及其他功能建议");
+                    } else {
+                        rateUsPref.setTitle("Rate this widget");
+                        rateUsPref.setSummary("Give feedback & feature suggestions");
                     }
-                });
-                rateUsPref.setOrder(1);
-                getPreferenceScreen().addPreference(rateUsPref);
+
+                    rateUsPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                        @Override
+                        public boolean onPreferenceClick(Preference preference) {
+                            activity.startActivity(createOpenAppInPlayStoreIntent(getActivity()));
+                            return true;
+                        }
+                    });
+                    rateUsPref.setOrder(1);
+                    getPreferenceScreen().addPreference(rateUsPref);
+                }
             }
         } else {
             removePreference(rateUsPref);
@@ -780,7 +830,9 @@ public class SettingsFragment extends PreferenceFragment {
     public static boolean isPlayStoreAvailable(final Context context) {
         if (PLAY_STORE_AVAILABLE == null) {
             PackageManager packageManager = context.getPackageManager();
-            PLAY_STORE_AVAILABLE = !packageManager.queryIntentActivities(createOpenPlayStoreIntent(), 0).isEmpty();
+            if(packageManager != null){
+                PLAY_STORE_AVAILABLE = !packageManager.queryIntentActivities(createOpenPlayStoreIntent(), 0).isEmpty();
+            }
         }
         return PLAY_STORE_AVAILABLE;
     }
