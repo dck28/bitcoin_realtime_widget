@@ -50,7 +50,7 @@ public class RefreshIntervalManager {
     }
 
     private AlarmManager getAlarmService(Context context) {
-        return (AlarmManager)context.getApplicationContext().getSystemService(Context.ALARM_SERVICE);
+        return (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
     }
 
     public void cancelIntervalRefreshing(final Context context) {

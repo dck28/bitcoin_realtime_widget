@@ -44,7 +44,10 @@ public class RefreshDataReceiver extends BroadcastReceiver{
                 applyTextColoring(context, remoteViews, previous_price);
             }
         }
-        AppWidgetManager.getInstance(context).updateAppWidget(new ComponentName(context, XBTRealtimeWidgetProvider.class), remoteViews);
+        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+        if(appWidgetManager != null){
+            appWidgetManager.updateAppWidget(new ComponentName(context, XBTRealtimeWidgetProvider.class), remoteViews);
+        }
     }
 
     private boolean didNotReceiveValidNewPrice(){

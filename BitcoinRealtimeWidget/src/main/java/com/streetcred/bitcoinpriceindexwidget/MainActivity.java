@@ -136,6 +136,7 @@ public class MainActivity extends Activity {
         try {
             fragmentManager.popBackStackImmediate();
         } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
 

@@ -57,7 +57,10 @@ public class RefreshRequestLauncher extends Thread {
                     applyTextColoring(context, remoteViews, previous_price);
                 }
                 Log.e("RefreshIntervalReceiver","Refresh Completed / Successful");
-                AppWidgetManager.getInstance(context).updateAppWidget(new ComponentName(context, XBTRealtimeWidgetProvider.class), remoteViews);
+                AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+                if(appWidgetManager != null){
+                    appWidgetManager.updateAppWidget(new ComponentName(context, XBTRealtimeWidgetProvider.class), remoteViews);
+                }
             }
         } finally {
             PowerLockProvider.release(wakeLock, handler);
