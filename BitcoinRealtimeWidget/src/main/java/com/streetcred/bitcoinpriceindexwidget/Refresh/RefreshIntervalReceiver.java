@@ -78,7 +78,7 @@ public class RefreshIntervalReceiver extends BroadcastReceiver {
 
     private boolean timeElapsedOver5SecondsSinceLastReceived(){
         return (System.currentTimeMillis() - XBTWidgetApplication.getSharedPreferences()
-                .getLong(Constants.REFRESH_INTERVAL_LAST_RECEIVED, System.currentTimeMillis()) > 5000l );
+                .getLong(Constants.REFRESH_INTERVAL_LAST_RECEIVED, 0) > 5000l );
     }
 
 }
