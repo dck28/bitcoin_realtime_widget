@@ -109,12 +109,9 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             JSONObject json_response = RpcManager.getInstance().callGet(context, data_source_url, "", requestParams);
             newPrice = getNewPrice(json_response, data_source);
 
-            if (shouldConvertToAlternateCurrency){ // Get forex exchange and do conversion
-                Collection<BasicNameValuePair> request_FOREX_Params = new ArrayList<BasicNameValuePair>();
-                request_FOREX_Params.add(new BasicNameValuePair("from", "USD"));
-                request_FOREX_Params.add(new BasicNameValuePair("to", pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
-                JSONObject json_rate_response = RpcManager.getInstance().callGet(context, Constants.FOREX_RATE_API_URL, "", request_FOREX_Params);
-                double rate = JSONParser.handle_getting_forex_exchange_rate(json_rate_response);
+            if (shouldConvertToAlternateCurrency){ // Get forex exchange and do conversion from Coinbase
+                JSONObject json_rate_response = RpcManager.getInstance().callGet(context, Constants.FOREX_RATE_API_URL, "");
+                double rate = JSONParser.handle_getting_forex_exchange_rate(json_rate_response, pref);
                 newPrice = Util.convertToSelectedAlternativeCurrencyFromUSD(newPrice, rate);
                 Log.e("forex rate", Double.toString(rate));
             }

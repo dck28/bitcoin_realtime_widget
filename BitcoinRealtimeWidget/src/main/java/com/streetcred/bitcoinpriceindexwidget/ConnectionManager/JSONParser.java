@@ -114,9 +114,10 @@ public class JSONParser {
         return 0.00;
     }
 
-    public static double handle_getting_forex_exchange_rate(JSONObject json_response){
-        Log.e("Double", Double.toString(json_response.optDouble("rate")));
-        return json_response.optDouble("rate");
+    public static double handle_getting_forex_exchange_rate(JSONObject json_response, SharedPreferences pref){
+        return Double.parseDouble(json_response
+                        .optString("usd_to_" + pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")
+                                .toLowerCase()));
     }
 
 }
