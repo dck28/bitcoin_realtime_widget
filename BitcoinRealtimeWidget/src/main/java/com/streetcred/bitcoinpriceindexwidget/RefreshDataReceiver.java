@@ -36,6 +36,7 @@ public class RefreshDataReceiver extends BroadcastReceiver{
             refresh.execute().get(10000, TimeUnit.MILLISECONDS);
         } catch (Exception e){
             remoteViews.setTextViewText(R.id.update_time, "* no connection");
+            XBTWidgetApplication.getSharedPreferences().edit().putString(Constants.SAVE_UPDATE_TIME_WIDGET_STATE, "* no connection").commit();
             remoteViews.setTextColor(R.id.price, Color.GRAY);
         } finally {
             if (didNotReceiveValidNewPrice()){
@@ -46,6 +47,7 @@ public class RefreshDataReceiver extends BroadcastReceiver{
         }
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
         if(appWidgetManager != null){
+            remoteViews = Util.saveRemoteViewsState(XBTWidgetApplication.getSharedPreferences(), remoteViews, context);
             appWidgetManager.updateAppWidget(new ComponentName(context, XBTRealtimeWidgetProvider.class), remoteViews);
         }
     }

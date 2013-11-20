@@ -12,6 +12,7 @@ import android.widget.RemoteViews;
 import com.streetcred.bitcoinpriceindexwidget.Constants;
 import com.streetcred.bitcoinpriceindexwidget.R;
 import com.streetcred.bitcoinpriceindexwidget.RefreshData;
+import com.streetcred.bitcoinpriceindexwidget.Util;
 import com.streetcred.bitcoinpriceindexwidget.XBTRealtimeWidgetProvider;
 import com.streetcred.bitcoinpriceindexwidget.XBTWidgetApplication;
 
@@ -59,6 +60,7 @@ public class RefreshRequestLauncher extends Thread {
                 Log.e("RefreshIntervalReceiver","Refresh Completed / Successful");
                 AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
                 if(appWidgetManager != null){
+                    remoteViews = Util.saveRemoteViewsState(XBTWidgetApplication.getSharedPreferences(), remoteViews, context);
                     appWidgetManager.updateAppWidget(new ComponentName(context, XBTRealtimeWidgetProvider.class), remoteViews);
                 }
             }

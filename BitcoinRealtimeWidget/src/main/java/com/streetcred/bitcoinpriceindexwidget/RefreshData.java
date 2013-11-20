@@ -48,8 +48,10 @@ public class RefreshData extends AsyncTask<String, Void, String> {
         remoteViews.setTextColor(R.id.price, Color.parseColor("#FFFFB2"));
         if(pref.getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
             remoteViews.setTextViewText(R.id.update_time, "* 連接中...");
+            pref.edit().putString(Constants.SAVE_UPDATE_TIME_WIDGET_STATE, "* 連接中...").commit();
             remoteViews.setTextViewText(R.id.exchange_currency,
                     Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
+            pref.edit().putString(Constants.SAVE_EXCHANGE_CURRENCY_WIDGET_STATE, Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"))).commit();
             if(Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民幣")
                     || Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("新台幣")){
                 remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 14);
@@ -59,10 +61,15 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             remoteViews.setTextViewText(R.id.credit, "由 " +
                     pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk")
                     + " 提供報價");
+            pref.edit().putString(Constants.SAVE_DISPLAY_CREDIT_WIDGET_STATE, "由 " +
+                    pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk")
+                    + " 提供報價").commit();
         } else if(pref.getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(简体)")){
             remoteViews.setTextViewText(R.id.update_time, "* 连接中...");
+            pref.edit().putString(Constants.SAVE_UPDATE_TIME_WIDGET_STATE, "* 连接中...").commit();
             remoteViews.setTextViewText(R.id.exchange_currency,
                     Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
+            pref.edit().putString(Constants.SAVE_EXCHANGE_CURRENCY_WIDGET_STATE, Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"))).commit();
             if(Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民币")
                     || Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("新台币")){
                 remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 14);
@@ -72,13 +79,21 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             remoteViews.setTextViewText(R.id.credit, "由 " +
                     pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk")
                     + " 提供报价");
+            pref.edit().putString(Constants.SAVE_DISPLAY_CREDIT_WIDGET_STATE, "由 " +
+                    pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk")
+                    + " 提供报价").commit();
         } else {
             remoteViews.setTextViewText(R.id.update_time, "* loading...");
+            pref.edit().putString(Constants.SAVE_UPDATE_TIME_WIDGET_STATE, "* loading...").commit();
             remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 20);
             remoteViews.setTextViewText(R.id.exchange_currency, pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"));
+            pref.edit().putString(Constants.SAVE_EXCHANGE_CURRENCY_WIDGET_STATE, pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).commit();
             remoteViews.setTextViewText(R.id.credit, "Data provided by " +
                     pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"));
+            pref.edit().putString(Constants.SAVE_DISPLAY_CREDIT_WIDGET_STATE, "Data provided by " +
+                    pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk")).commit();
         }
+        remoteViews = Util.saveRemoteViewsState(pref, remoteViews, context);
         appWidgetManager.updateAppWidget(thisWidget, remoteViews);
     }
 
@@ -130,12 +145,15 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                 String time_now_in_string = Util.getCurrentDisplayTime();
                 if(pref.getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
                     remoteViews.setTextViewText(R.id.update_time, "* 更新時間 " + time_now_in_string);
+                    pref.edit().putString(Constants.SAVE_UPDATE_TIME_WIDGET_STATE, "* 更新時間 " + time_now_in_string).commit();
                     remoteViews.setTextColor(R.id.price, Color.WHITE);
                 } else if(pref.getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(简体)")){
                     remoteViews.setTextViewText(R.id.update_time, "* 更新时间 " + time_now_in_string);
+                    pref.edit().putString(Constants.SAVE_UPDATE_TIME_WIDGET_STATE, "* 更新时间 " + time_now_in_string).commit();
                     remoteViews.setTextColor(R.id.price, Color.WHITE);
                 } else {
                     remoteViews.setTextViewText(R.id.update_time, "* updated at " + time_now_in_string);
+                    pref.edit().putString(Constants.SAVE_UPDATE_TIME_WIDGET_STATE, "* updated at " + time_now_in_string).commit();
                     remoteViews.setTextColor(R.id.price, Color.WHITE);
                 }
                 pref.edit()
@@ -143,15 +161,16 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                         .putString(Constants.PREF_LAST_UPDATED_PRICE, new_price_in_string)
                         .putBoolean(Constants.RECEIVED_VALID_NEW_PRICE, true)
                         .commit();
-                appWidgetManager.updateAppWidget(thisWidget, remoteViews);
             } else {
                 // Update widget info when no connection
                 remoteViews.setTextViewText(R.id.price, pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "0"));
                 if(pref.getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
                     remoteViews.setTextViewText(R.id.update_time, "* 綱絡未能連接");
+                    pref.edit().putString(Constants.SAVE_UPDATE_TIME_WIDGET_STATE, "* 綱絡未能連接").commit();
                     remoteViews.setTextColor(R.id.price, Color.GRAY);
                     remoteViews.setTextViewText(R.id.exchange_currency,
                             Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
+                    pref.edit().putString(Constants.SAVE_EXCHANGE_CURRENCY_WIDGET_STATE, Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"))).commit();
                     if(Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民幣")
                             || Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("新台幣")){
                         remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 14);
@@ -161,14 +180,19 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                     remoteViews.setTextViewText(R.id.credit, "由 "
                             + pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk")
                             + " 提供報價");
+                    pref.edit().putString(Constants.SAVE_DISPLAY_CREDIT_WIDGET_STATE, "由 "
+                            + pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk")
+                            + " 提供報價").commit();
                     pref.edit()
                             .putBoolean(Constants.RECEIVED_VALID_NEW_PRICE, false)
                             .commit();
                 } else if(pref.getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(简体)")){
                     remoteViews.setTextViewText(R.id.update_time, "* 纲络未能连接");
+                    pref.edit().putString(Constants.SAVE_UPDATE_TIME_WIDGET_STATE, "* 纲络未能连接").commit();
                     remoteViews.setTextColor(R.id.price, Color.GRAY);
                     remoteViews.setTextViewText(R.id.exchange_currency,
                             Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
+                    pref.edit().putString(Constants.SAVE_EXCHANGE_CURRENCY_WIDGET_STATE, Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"))).commit();
                     if(Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民币")
                             || Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("新台币")){
                         remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 14);
@@ -178,22 +202,30 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                     remoteViews.setTextViewText(R.id.credit, "由 "
                             + pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk")
                             + " 提供报价");
+                    pref.edit().putString(Constants.SAVE_DISPLAY_CREDIT_WIDGET_STATE, "由 "
+                            + pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk")
+                            + " 提供报价").commit();
                     pref.edit()
                             .putBoolean(Constants.RECEIVED_VALID_NEW_PRICE, false)
                             .commit();
                 } else {
                     remoteViews.setTextViewText(R.id.update_time, "* no connection");
+                    pref.edit().putString(Constants.SAVE_UPDATE_TIME_WIDGET_STATE, "* no connection").commit();
                     remoteViews.setTextColor(R.id.price, Color.GRAY);
                     remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 20);
                     remoteViews.setTextViewText(R.id.exchange_currency, pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"));
+                    pref.edit().putString(Constants.SAVE_EXCHANGE_CURRENCY_WIDGET_STATE, pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).commit();
                     remoteViews.setTextViewText(R.id.credit, "Data provided by " +
                             pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"));
+                    pref.edit().putString(Constants.SAVE_DISPLAY_CREDIT_WIDGET_STATE, "Data provided by " +
+                            pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk")).commit();
                     pref.edit()
                             .putBoolean(Constants.RECEIVED_VALID_NEW_PRICE, false)
                             .commit();
                 }
-                appWidgetManager.updateAppWidget(thisWidget, remoteViews);
             }
+            remoteViews = Util.saveRemoteViewsState(pref, remoteViews, context);
+            appWidgetManager.updateAppWidget(thisWidget, remoteViews);
             pref.edit().putBoolean(Constants.WAS_LAST_UPDATE_SUCCESSFUL, true).commit();
             Log.e("Update Successful", "FLAGGED");
         } catch (Exception e) {
@@ -206,9 +238,11 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             remoteViews.setTextViewText(R.id.price, pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "0"));
             if(pref.getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
                 remoteViews.setTextViewText(R.id.update_time, "* 綱絡未能連接");
+                pref.edit().putString(Constants.SAVE_UPDATE_TIME_WIDGET_STATE, "* 綱絡未能連接").commit();
                 remoteViews.setTextColor(R.id.price, Color.GRAY);
                 remoteViews.setTextViewText(R.id.exchange_currency,
                         Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
+                pref.edit().putString(Constants.SAVE_EXCHANGE_CURRENCY_WIDGET_STATE, Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"))).commit();
                 if(Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民幣")
                         || Util.convertCurrencyStringToChinese(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("新台幣")){
                     remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 14);
@@ -220,9 +254,11 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                         .commit();
             } else if(pref.getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(简体)")){
                 remoteViews.setTextViewText(R.id.update_time, "* 纲络未能连接");
+                pref.edit().putString(Constants.SAVE_UPDATE_TIME_WIDGET_STATE, "* 纲络未能连接").commit();
                 remoteViews.setTextColor(R.id.price, Color.GRAY);
                 remoteViews.setTextViewText(R.id.exchange_currency,
                         Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
+                pref.edit().putString(Constants.SAVE_EXCHANGE_CURRENCY_WIDGET_STATE, Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"))).commit();
                 if(Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("人民币")
                         || Util.convertCurrencyStringToChineseSimplified(pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).equalsIgnoreCase("新台币")){
                     remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 14);
@@ -234,13 +270,16 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                         .commit();
             } else {
                 remoteViews.setTextViewText(R.id.update_time, "* no connection");
+                pref.edit().putString(Constants.SAVE_UPDATE_TIME_WIDGET_STATE, "* no connection").commit();
                 remoteViews.setTextColor(R.id.price, Color.GRAY);
                 remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 20);
                 remoteViews.setTextViewText(R.id.exchange_currency, pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"));
+                pref.edit().putString(Constants.SAVE_EXCHANGE_CURRENCY_WIDGET_STATE, pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).commit();
                 pref.edit()
                         .putBoolean(Constants.RECEIVED_VALID_NEW_PRICE, false)
                         .commit();
             }
+            remoteViews = Util.saveRemoteViewsState(pref, remoteViews, context);
             appWidgetManager.updateAppWidget(thisWidget, remoteViews);
         }
         return "Executed";

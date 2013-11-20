@@ -352,9 +352,11 @@ public class SettingsFragment extends PreferenceFragment {
                             if(activity != null){
                                 RemoteViews remoteViews = new RemoteViews(activity.getPackageName(), R.layout.widget_layout);
                                 remoteViews.setTextViewText(R.id.update_time, "* no connection");
+                                XBTWidgetApplication.getSharedPreferences().edit().putString(Constants.SAVE_UPDATE_TIME_WIDGET_STATE, "* no connection").commit();
                                 remoteViews.setTextColor(R.id.price, Color.GRAY);
                                 AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(activity);
                                 if(appWidgetManager != null){
+                                    remoteViews = Util.saveRemoteViewsState(XBTWidgetApplication.getSharedPreferences(), remoteViews, activity);
                                     appWidgetManager.updateAppWidget(new ComponentName(activity, XBTRealtimeWidgetProvider.class), remoteViews);
                                 }
                             }
@@ -392,9 +394,11 @@ public class SettingsFragment extends PreferenceFragment {
                             if(activity != null){
                                 RemoteViews remoteViews = new RemoteViews(activity.getPackageName(), R.layout.widget_layout);
                                 remoteViews.setTextViewText(R.id.update_time, "* no connection");
+                                XBTWidgetApplication.getSharedPreferences().edit().putString(Constants.SAVE_UPDATE_TIME_WIDGET_STATE, "* no connection").commit();
                                 remoteViews.setTextColor(R.id.price, Color.GRAY);
                                 AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(activity);
                                 if(appWidgetManager != null){
+                                    remoteViews = Util.saveRemoteViewsState(XBTWidgetApplication.getSharedPreferences(), remoteViews, activity);
                                     appWidgetManager.updateAppWidget(new ComponentName(activity, XBTRealtimeWidgetProvider.class), remoteViews);
                                 }
                             }
@@ -423,6 +427,7 @@ public class SettingsFragment extends PreferenceFragment {
                             .putString(Constants.PREF_LAST_UPDATED_THEME, newValue.toString())
                             .commit();
                     preference.setTitle("Widget Theme: " + newValue.toString());
+                    SharedPreferences.Editor editor = XBTWidgetApplication.getSharedPreferences().edit();
                     try {
                         Activity activity = getActivity();
                         if(activity != null){
@@ -433,16 +438,21 @@ public class SettingsFragment extends PreferenceFragment {
                                 if (newValue.toString().equalsIgnoreCase("Navy")){
                                     remoteViews.setInt(R.id.background, "setBackgroundColor",
                                             Color.parseColor("#DD2B3856"));
+                                    editor.putInt(Constants.SAVE_BACKGROUND_WIDGET_STATE, Color.parseColor("#DD2B3856")).commit();
                                 } else if (newValue.toString().equalsIgnoreCase("Clementine")){
                                     remoteViews.setInt(R.id.background, "setBackgroundColor",
                                             Color.parseColor("#DDEB5E00"));
+                                    editor.putInt(Constants.SAVE_BACKGROUND_WIDGET_STATE, Color.parseColor("#DDEB5E00")).commit();
                                 } else if (newValue.toString().equalsIgnoreCase("Float")){
                                     remoteViews.setInt(R.id.background, "setBackgroundColor",
                                             Color.TRANSPARENT);
+                                    editor.putInt(Constants.SAVE_BACKGROUND_WIDGET_STATE, Color.TRANSPARENT).commit();
                                 } else if (newValue.toString().equalsIgnoreCase("Frost")){
                                     remoteViews.setInt(R.id.background, "setBackgroundColor",
                                             Color.parseColor("#AAF0FFFC"));
+                                    editor.putInt(Constants.SAVE_BACKGROUND_WIDGET_STATE, Color.parseColor("#AAF0FFFC")).commit();
                                 }
+                                remoteViews = Util.saveRemoteViewsState(XBTWidgetApplication.getSharedPreferences(), remoteViews, activity);
                                 appWidgetManager.updateAppWidget(thisWidget, remoteViews);
                             }
                         }
@@ -532,10 +542,12 @@ public class SettingsFragment extends PreferenceFragment {
                             if( activity != null){
                                 RemoteViews remoteViews = new RemoteViews(activity.getPackageName(), R.layout.widget_layout);
                                 remoteViews.setTextViewText(R.id.update_time, "* 綱絡未能連接");
+                                XBTWidgetApplication.getSharedPreferences().edit().putString(Constants.SAVE_UPDATE_TIME_WIDGET_STATE, "* 綱絡未能連接").commit();
                                 remoteViews.setTextColor(R.id.price, Color.GRAY);
                                 ComponentName componentName = new ComponentName(activity, XBTRealtimeWidgetProvider.class);
                                 AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(activity);
                                 if (appWidgetManager != null){
+                                    remoteViews = Util.saveRemoteViewsState(XBTWidgetApplication.getSharedPreferences(), remoteViews, activity);
                                     appWidgetManager.updateAppWidget(componentName, remoteViews);
                                 }
                             }
@@ -575,9 +587,11 @@ public class SettingsFragment extends PreferenceFragment {
                             if(activity != null){
                                 RemoteViews remoteViews = new RemoteViews(activity.getPackageName(), R.layout.widget_layout);
                                 remoteViews.setTextViewText(R.id.update_time, "* 綱絡未能連接");
+                                XBTWidgetApplication.getSharedPreferences().edit().putString(Constants.SAVE_UPDATE_TIME_WIDGET_STATE, "* 綱絡未能連接").commit();
                                 remoteViews.setTextColor(R.id.price, Color.GRAY);
                                 AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(activity);
                                 if(appWidgetManager != null){
+                                    remoteViews = Util.saveRemoteViewsState(XBTWidgetApplication.getSharedPreferences(), remoteViews, activity);
                                     appWidgetManager.updateAppWidget(new ComponentName(activity, XBTRealtimeWidgetProvider.class), remoteViews);
                                 }
                             }
@@ -607,6 +621,7 @@ public class SettingsFragment extends PreferenceFragment {
                             .putString(Constants.PREF_LAST_UPDATED_THEME, newThemeInEnglish)
                             .commit();
                     preference.setTitle("顯示主題: " + newValue.toString());
+                    SharedPreferences.Editor editor = XBTWidgetApplication.getSharedPreferences().edit();
                     try{
                         Activity activity = getActivity();
                         if(activity != null){
@@ -617,16 +632,21 @@ public class SettingsFragment extends PreferenceFragment {
                                 if (newValue.toString().equalsIgnoreCase("深藍")){
                                     remoteViews.setInt(R.id.background, "setBackgroundColor",
                                             Color.parseColor("#DD2B3856"));
+                                    editor.putInt(Constants.SAVE_BACKGROUND_WIDGET_STATE, Color.parseColor("#DD2B3856")).commit();
                                 } else if (newValue.toString().equalsIgnoreCase("金橘")){
                                     remoteViews.setInt(R.id.background, "setBackgroundColor",
                                             Color.parseColor("#DDEB5E00"));
+                                    editor.putInt(Constants.SAVE_BACKGROUND_WIDGET_STATE, Color.parseColor("#DDEB5E00")).commit();
                                 } else if (newValue.toString().equalsIgnoreCase("漂浮")){
                                     remoteViews.setInt(R.id.background, "setBackgroundColor",
                                             Color.TRANSPARENT);
+                                    editor.putInt(Constants.SAVE_BACKGROUND_WIDGET_STATE, Color.TRANSPARENT).commit();
                                 } else if (newValue.toString().equalsIgnoreCase("磨砂玻璃")){
                                     remoteViews.setInt(R.id.background, "setBackgroundColor",
                                             Color.parseColor("#AAF0FFFC"));
+                                    editor.putInt(Constants.SAVE_BACKGROUND_WIDGET_STATE, Color.parseColor("#AAF0FFFC")).commit();
                                 }
+                                remoteViews = Util.saveRemoteViewsState(XBTWidgetApplication.getSharedPreferences(), remoteViews, activity);
                                 appWidgetManager.updateAppWidget(thisWidget, remoteViews);
                             }
                         }
@@ -663,13 +683,16 @@ public class SettingsFragment extends PreferenceFragment {
                             RefreshData refresh = new RefreshData();
                             refresh.execute().get(10000, TimeUnit.MILLISECONDS);
                         } catch (Exception e){
-                            if( getActivity() != null){
-                                RemoteViews remoteViews = new RemoteViews(getActivity().getPackageName(), R.layout.widget_layout);
+                            Activity activity = getActivity();
+                            if( activity != null){
+                                RemoteViews remoteViews = new RemoteViews(activity.getPackageName(), R.layout.widget_layout);
                                 remoteViews.setTextViewText(R.id.update_time, "* 纲络未能连接");
+                                XBTWidgetApplication.getSharedPreferences().edit().putString(Constants.SAVE_UPDATE_TIME_WIDGET_STATE, "* 纲络未能连接").commit();
                                 remoteViews.setTextColor(R.id.price, Color.GRAY);
-                                ComponentName componentName = new ComponentName(getActivity(), XBTRealtimeWidgetProvider.class);
-                                AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(getActivity());
+                                ComponentName componentName = new ComponentName(activity, XBTRealtimeWidgetProvider.class);
+                                AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(activity);
                                 if (appWidgetManager != null){
+                                    remoteViews = Util.saveRemoteViewsState(XBTWidgetApplication.getSharedPreferences(), remoteViews, activity);
                                     appWidgetManager.updateAppWidget(componentName, remoteViews);
                                 }
                             }
@@ -709,9 +732,11 @@ public class SettingsFragment extends PreferenceFragment {
                             if(activity != null){
                                 RemoteViews remoteViews = new RemoteViews(activity.getPackageName(), R.layout.widget_layout);
                                 remoteViews.setTextViewText(R.id.update_time, "* 纲络未能连接");
+                                XBTWidgetApplication.getSharedPreferences().edit().putString(Constants.SAVE_UPDATE_TIME_WIDGET_STATE, "* 纲络未能连接").commit();
                                 remoteViews.setTextColor(R.id.price, Color.GRAY);
                                 AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(activity);
                                 if(appWidgetManager != null){
+                                    remoteViews = Util.saveRemoteViewsState(XBTWidgetApplication.getSharedPreferences(), remoteViews, activity);
                                     appWidgetManager.updateAppWidget(new ComponentName(activity, XBTRealtimeWidgetProvider.class), remoteViews);
                                 }
                             }
@@ -741,6 +766,7 @@ public class SettingsFragment extends PreferenceFragment {
                             .putString(Constants.PREF_LAST_UPDATED_THEME, newThemeInEnglish)
                             .commit();
                     preference.setTitle("显示主题: " + newValue.toString());
+                    SharedPreferences.Editor editor = XBTWidgetApplication.getSharedPreferences().edit();
                     try{
                         Activity activity = getActivity();
                         if(activity != null){
@@ -751,16 +777,21 @@ public class SettingsFragment extends PreferenceFragment {
                                 if (newValue.toString().equalsIgnoreCase("深蓝")){
                                     remoteViews.setInt(R.id.background, "setBackgroundColor",
                                             Color.parseColor("#DD2B3856"));
+                                    editor.putInt(Constants.SAVE_BACKGROUND_WIDGET_STATE, Color.parseColor("#DD2B3856")).commit();
                                 } else if (newValue.toString().equalsIgnoreCase("金橘")){
                                     remoteViews.setInt(R.id.background, "setBackgroundColor",
                                             Color.parseColor("#DDEB5E00"));
+                                    editor.putInt(Constants.SAVE_BACKGROUND_WIDGET_STATE, Color.parseColor("#DDEB5E00")).commit();
                                 } else if (newValue.toString().equalsIgnoreCase("漂浮")){
                                     remoteViews.setInt(R.id.background, "setBackgroundColor",
                                             Color.TRANSPARENT);
+                                    editor.putInt(Constants.SAVE_BACKGROUND_WIDGET_STATE, Color.TRANSPARENT).commit();
                                 } else if (newValue.toString().equalsIgnoreCase("磨砂玻璃")){
                                     remoteViews.setInt(R.id.background, "setBackgroundColor",
                                             Color.parseColor("#AAF0FFFC"));
+                                    editor.putInt(Constants.SAVE_BACKGROUND_WIDGET_STATE, Color.parseColor("#AAF0FFFC")).commit();
                                 }
+                                remoteViews = Util.saveRemoteViewsState(XBTWidgetApplication.getSharedPreferences(), remoteViews, activity);
                                 appWidgetManager.updateAppWidget(thisWidget, remoteViews);
                             }
                         }

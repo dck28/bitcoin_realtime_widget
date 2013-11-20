@@ -26,4 +26,12 @@ public class Constants {
     public static final String RECEIVED_VALID_NEW_PRICE = "new_price_is_valid";
     public static final String WAS_LAST_UPDATE_SUCCESSFUL = "was_last_update_successful";
     public static final String REFRESH_INTERVAL_LAST_RECEIVED = "last_refresh_interval_update_timestamp";
+
+    //    public static final String SAVE_PRICE_WIDGET_STATE = "save_price_widget_state";
+    //    Using PREF_LAST_UPDATED_PRICE instead of a new key
+    public static final String SAVE_BACKGROUND_WIDGET_STATE = "save_background_widget_state";
+    public static final String SAVE_EXCHANGE_CURRENCY_WIDGET_STATE = "save_exchange_currency_widget_state";
+    public static final String SAVE_UPDATE_TIME_WIDGET_STATE = "save_update_time_widget_state";
+    public static final String SAVE_DISPLAY_CREDIT_WIDGET_STATE = "save_display_credit_widget_state";
+
 }

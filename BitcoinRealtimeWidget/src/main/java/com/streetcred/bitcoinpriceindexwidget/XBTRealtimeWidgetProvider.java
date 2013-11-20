@@ -27,6 +27,7 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
             remoteViews.setTextViewText(R.id.update_time, "* no connection");
             remoteViews.setTextColor(R.id.price, Color.GRAY);
+            remoteViews = Util.saveRemoteViewsState(XBTWidgetApplication.getSharedPreferences(), remoteViews, context);
             appWidgetManager.updateAppWidget(appWidgetIds, remoteViews);
         }
 
@@ -91,6 +92,7 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
         } else if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_THEME, "Float").equalsIgnoreCase("Frost")){
             remoteViews.setInt(R.id.background, "setBackgroundColor", Color.parseColor("#AAF0FFFC"));
         }
+        remoteViews = Util.saveRemoteViewsState(XBTWidgetApplication.getSharedPreferences(), remoteViews, context);
         appWidgetManager.updateAppWidget(appWidgetIds, remoteViews);
     }
 }

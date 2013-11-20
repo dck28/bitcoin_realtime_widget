@@ -1,5 +1,12 @@
 package com.streetcred.bitcoinpriceindexwidget;
 
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.widget.RemoteViews;
+
 import java.util.Calendar;
 
 /**
@@ -195,5 +202,40 @@ public class Util {
 
     public static double convertToSelectedAlternativeCurrencyFromUSD(double price, double rate){
         return price*rate;
+    }
+
+    public static RemoteViews saveRemoteViewsState(SharedPreferences pref, RemoteViews remoteViews, Context context){
+
+        // Set background
+        remoteViews.setInt(R.id.background, "setBackgroundColor"
+                , pref.getInt(Constants.SAVE_BACKGROUND_WIDGET_STATE, Color.TRANSPARENT));
+
+        // Set price
+        remoteViews.setTextViewText(R.id.price, pref.getString(Constants.PREF_LAST_UPDATED_PRICE, "0"));
+
+        // Set widget price textview refreshable/clickable
+        Intent refreshIntent = new Intent(context, RefreshDataReceiver.class);
+        refreshIntent.setAction(RefreshDataReceiver.ACTION);
+        PendingIntent refreshPendingIntent = PendingIntent.getBroadcast(context, 0, refreshIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        remoteViews.setOnClickPendingIntent(R.id.price, refreshPendingIntent);
+
+        // Set exchange currency display
+        remoteViews.setTextViewText(R.id.exchange_currency,
+                pref.getString(Constants.SAVE_EXCHANGE_CURRENCY_WIDGET_STATE, "USD"));
+
+        // Set app_icon clickable
+        Intent configIntent = new Intent(context, MainActivity.class);
+        configIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PendingIntent configPendingIntent = PendingIntent.getActivity(context, 0, configIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        remoteViews.setOnClickPendingIntent(R.id.app_icon, configPendingIntent);
+
+        // Set updatetime string
+        remoteViews.setTextViewText(R.id.update_time, pref.getString(Constants.SAVE_UPDATE_TIME_WIDGET_STATE, ""));
+
+        // Set credit display string
+        remoteViews.setTextViewText(R.id.credit, pref.getString(Constants.SAVE_DISPLAY_CREDIT_WIDGET_STATE, ""));
+
+        return remoteViews;
+
     }
 }
