@@ -78,7 +78,7 @@ public class RefreshRequestLauncher extends Thread {
                 XBTWidgetApplication
                         .getSharedPreferences()
                         .getString(Constants.PREF_LAST_UPDATED_PRICE, "0.0")
-                        .replace(",","."));
+                        .replace(",",""));
         // Fix for invalid parseDouble when Data from API is malformed: e.g. ""
         // Nov 8, 2013 : java.lang.NumberFormatException
         if (new_price - previous_price >= 0.1){

@@ -44,7 +44,7 @@ public class JSONParser {
                 || (!pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD").equalsIgnoreCase("USD")
                 && !pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD").equalsIgnoreCase("GBP")
                 && !pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD").equalsIgnoreCase("EUR")))
-            return Double.parseDouble(USD_rate);
+            return Double.parseDouble(USD_rate.replace(",",""));
 
         // FETCH GBP PRICE
         JSONObject GBP = bpi.optJSONObject("GBP");
@@ -64,7 +64,7 @@ public class JSONParser {
         if(GBP.has("rate_float") && !GBP.isNull("rate_float")){
             GBP_rate_float = GBP.optString("rate_float");
         }
-        if(GBP_rate != null && pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD").equalsIgnoreCase("GBP")) return Double.parseDouble(GBP_rate);
+        if(GBP_rate != null && pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD").equalsIgnoreCase("GBP")) return Double.parseDouble(GBP_rate.replace(",",""));
 
         // FETCH EUR PRICE
         JSONObject EUR = bpi.optJSONObject("EUR");
@@ -84,7 +84,7 @@ public class JSONParser {
         if(EUR.has("rate_float") && !EUR.isNull("rate_float")){
             EUR_rate_float = EUR.optString("rate_float");
         }
-        if(EUR_rate != null && pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD").equalsIgnoreCase("EUR")) return Double.parseDouble(EUR_rate);
+        if(EUR_rate != null && pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD").equalsIgnoreCase("EUR")) return Double.parseDouble(EUR_rate.replace(",",""));
 
         //Default
         return 0.00;
@@ -93,7 +93,7 @@ public class JSONParser {
     public static double handle_source_COINBASE(JSONObject json_response){
 
         String rate = json_response.optString("amount");
-        if(rate != null) return Double.parseDouble(rate);
+        if(rate != null) return Double.parseDouble(rate.replace(",",""));
 
         //Default
         return 0.00;
@@ -106,7 +106,7 @@ public class JSONParser {
             JSONObject last = data.optJSONObject("last");
             if (last != null){
                 String value = last.optString("value");
-                return Double.parseDouble(value);
+                return Double.parseDouble(value.replace(",",""));
             }
         }
 
@@ -117,7 +117,8 @@ public class JSONParser {
     public static double handle_getting_forex_exchange_rate(JSONObject json_response, SharedPreferences pref){
         return Double.parseDouble(json_response
                         .optString("usd_to_" + pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")
-                                .toLowerCase()));
+                                .toLowerCase()
+                                .replace(",","")));
     }
 
 }
