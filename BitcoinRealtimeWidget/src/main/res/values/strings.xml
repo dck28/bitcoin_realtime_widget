@@ -71,36 +71,42 @@
         <item>Coindesk</item>
         <item>Coinbase</item>
         <item>Mt. Gox</item>
+        <item>BTC China</item>
     </string-array>
     <string-array name="pref_data_source_values">
         <!-- item>ANY</item -->
         <item>Coindesk</item>
         <item>Coinbase</item>
         <item>Mt. Gox</item>
+        <item>BTC China</item>
     </string-array>
     <string-array name="pref_data_source_entries_chinese">
         <!-- item>ANY</item -->
         <item>Coindesk</item>
         <item>Coinbase</item>
         <item>Mt. Gox</item>
+        <item>BTC China</item>
     </string-array>
     <string-array name="pref_data_source_values_chinese">
         <!-- item>ANY</item -->
         <item>Coindesk</item>
         <item>Coinbase</item>
         <item>Mt. Gox</item>
+        <item>BTC China</item>
     </string-array>
     <string-array name="pref_data_source_entries_chinese_simplified">
         <!-- item>ANY</item -->
         <item>Coindesk</item>
         <item>Coinbase</item>
         <item>Mt. Gox</item>
+        <item>BTC China</item>
     </string-array>
     <string-array name="pref_data_source_values_chinese_simplified">
         <!-- item>ANY</item -->
         <item>Coindesk</item>
         <item>Coinbase</item>
         <item>Mt. Gox</item>
+        <item>BTC China</item>
     </string-array>
     <string-array name="pref_currency_entries">
         <!-- item>ANY</item -->

@@ -204,6 +204,10 @@ public class Util {
         return price*rate;
     }
 
+    public static double convertToUSDFromCNY(double price, double rate){
+        return price*rate;
+    }
+
     public static RemoteViews saveRemoteViewsState(SharedPreferences pref, RemoteViews remoteViews, Context context){
 
         // Set background

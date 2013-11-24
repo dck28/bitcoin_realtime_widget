@@ -7,8 +7,6 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.util.TypedValue;
-import android.view.View;
 import android.widget.RemoteViews;
 
 import com.streetcred.bitcoinpriceindexwidget.ConnectionManager.JSONParser;
@@ -101,11 +99,15 @@ public class RefreshData extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... params) {
         String currency_to_retrieve = pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD");
         boolean shouldConvertToAlternateCurrency = false;
+        boolean dataFromBTCChinaInCNY = false;
         if (!currency_to_retrieve.equalsIgnoreCase("USD")
                 && !currency_to_retrieve.equalsIgnoreCase("GBP")
                 && !currency_to_retrieve.equalsIgnoreCase("EUR")){
             shouldConvertToAlternateCurrency = true;
             currency_to_retrieve = "USD";
+        }
+        if (pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk").equalsIgnoreCase("BTC China")){
+            dataFromBTCChinaInCNY = true;
         }
 
         try {
@@ -124,12 +126,26 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             JSONObject json_response = RpcManager.getInstance().callGet(context, data_source_url, "", requestParams);
             newPrice = getNewPrice(json_response, data_source);
 
-            if (shouldConvertToAlternateCurrency){ // Get forex exchange and do conversion from Coinbase
+            if (dataFromBTCChinaInCNY && !pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD").equalsIgnoreCase("CNY")){
+                JSONObject json_rate_response = RpcManager.getInstance().callGet(context, Constants.FOREX_RATE_API_URL, "");
+                double rate_cny_to_usd = JSONParser.handle_getting_forex_exchange_for_btcchina_cny_to_usd(json_rate_response, pref);
+                Log.e("Rate CNY to USD", Double.toString(rate_cny_to_usd));
+                newPrice = Util.convertToUSDFromCNY(newPrice, rate_cny_to_usd);
+                if (!pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD").equalsIgnoreCase("USD")){
+                    double rate = JSONParser.handle_getting_forex_exchange_rate(json_rate_response, pref);
+                    newPrice = Util.convertToSelectedAlternativeCurrencyFromUSD(newPrice, rate);
+                    Log.e("forex rate", Double.toString(rate));
+                }
+            }
+
+            if (shouldConvertToAlternateCurrency
+                    && !dataFromBTCChinaInCNY){ // Get forex exchange and do conversion from Coinbase
                 JSONObject json_rate_response = RpcManager.getInstance().callGet(context, Constants.FOREX_RATE_API_URL, "");
                 double rate = JSONParser.handle_getting_forex_exchange_rate(json_rate_response, pref);
                 newPrice = Util.convertToSelectedAlternativeCurrencyFromUSD(newPrice, rate);
                 Log.e("forex rate", Double.toString(rate));
             }
+
             Log.e("newPrice", Double.toString(newPrice));
 
             if (newPrice != 0){
@@ -333,6 +349,10 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             return JSONParser.handle_source_MTGOX(json_response);
         }
 
+        if (from.equals("BTC China")){
+            return JSONParser.handle_source_BTCChina(json_response);
+        }
+
         // Default
         return 0.00;
     }
@@ -344,6 +364,8 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             return Constants.COINBASE_API_URL;
         } else if(data_source.equalsIgnoreCase("Mt. Gox")){
             return Constants.MTGOX_API_BASEURL;
+        } else if(data_source.equalsIgnoreCase("BTC China")){
+            return Constants.BTCChina;
         }
         //Default
         return Constants.COINDESK_API_URL;
