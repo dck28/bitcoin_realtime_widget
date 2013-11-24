@@ -86,9 +86,9 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 20);
             remoteViews.setTextViewText(R.id.exchange_currency, pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"));
             pref.edit().putString(Constants.SAVE_EXCHANGE_CURRENCY_WIDGET_STATE, pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).commit();
-            remoteViews.setTextViewText(R.id.credit, "Data provided by " +
+            remoteViews.setTextViewText(R.id.credit, "Source: " +
                     pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"));
-            pref.edit().putString(Constants.SAVE_DISPLAY_CREDIT_WIDGET_STATE, "Data provided by " +
+            pref.edit().putString(Constants.SAVE_DISPLAY_CREDIT_WIDGET_STATE, "Source: " +
                     pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk")).commit();
         }
         remoteViews = Util.saveRemoteViewsState(pref, remoteViews, context);
@@ -231,9 +231,9 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                     remoteViews.setFloat(R.id.exchange_currency, "setTextSize", 20);
                     remoteViews.setTextViewText(R.id.exchange_currency, pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"));
                     pref.edit().putString(Constants.SAVE_EXCHANGE_CURRENCY_WIDGET_STATE, pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")).commit();
-                    remoteViews.setTextViewText(R.id.credit, "Data provided by " +
+                    remoteViews.setTextViewText(R.id.credit, "Source: " +
                             pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"));
-                    pref.edit().putString(Constants.SAVE_DISPLAY_CREDIT_WIDGET_STATE, "Data provided by " +
+                    pref.edit().putString(Constants.SAVE_DISPLAY_CREDIT_WIDGET_STATE, "Source: " +
                             pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk")).commit();
                     pref.edit()
                             .putBoolean(Constants.RECEIVED_VALID_NEW_PRICE, false)

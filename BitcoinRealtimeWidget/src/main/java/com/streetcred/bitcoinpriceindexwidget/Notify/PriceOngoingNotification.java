@@ -41,7 +41,7 @@ public class PriceOngoingNotification {
         PendingIntent refreshPendingIntent = PendingIntent.getBroadcast(context, 0, refreshIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         //Prepare data source disclaimer text & title
-        String text = "Data provided by " + dataSource + ".";
+        String text = "Source: " + dataSource + ".";
         String noConnectionText = "* no connection";
 
         //Translate (Default input Strings are always in English)
