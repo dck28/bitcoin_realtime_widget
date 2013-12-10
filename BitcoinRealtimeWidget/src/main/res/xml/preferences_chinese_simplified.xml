@@ -10,8 +10,8 @@
     <com.streetcred.bitcoinpriceindexwidget.DisplayLanguagePreferenceDialog
         android:order="2"
         android:key="pref_language"
-        android:title="语文:"
-        android:dialogTitle="选择语文"
+        android:title="语言:"
+        android:dialogTitle="选择语言"
         android:entries="@array/pref_language_entries"
         android:entryValues="@array/pref_language_values"
         android:defaultValue="中文(简体)"

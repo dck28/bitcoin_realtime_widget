@@ -475,9 +475,9 @@ public class SettingsFragment extends PreferenceFragment {
                             .getString(Constants.PREF_DISPLAY_LANGUAGE, "English")); // Default English
 
             if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
-                languagePreference.setTitle("語文: " + languagePreference.getValue());
+                languagePreference.setTitle("語言: " + languagePreference.getValue());
             } else if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(简体)")){
-                languagePreference.setTitle("语文: " + languagePreference.getValue());
+                languagePreference.setTitle("语言: " + languagePreference.getValue());
             } else {
                 languagePreference.setTitle("Language: " + languagePreference.getValue());
             }
@@ -493,9 +493,9 @@ public class SettingsFragment extends PreferenceFragment {
                     if (newValue.toString().equalsIgnoreCase("English")){
                         preference.setTitle("Language: " + newValue.toString());
                     } else if (newValue.toString().equalsIgnoreCase("中文(繁體)")){
-                        preference.setTitle("語文: " + newValue.toString());
+                        preference.setTitle("語言: " + newValue.toString());
                     } else if (newValue.toString().equalsIgnoreCase("中文(简体)")){
-                        preference.setTitle("语文: " + newValue.toString());
+                        preference.setTitle("语言: " + newValue.toString());
                     }
                     new Thread(new Runnable() { public void run() {
                         try {
