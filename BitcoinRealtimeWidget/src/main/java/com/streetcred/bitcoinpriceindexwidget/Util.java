@@ -46,6 +46,8 @@ public class Util {
             return "港元";
         } else if (currency.equalsIgnoreCase("TWD")){
             return "新台幣";
+        } else if (currency.equalsIgnoreCase("AUD")){
+            return "澳元";
         }
         return "美元";
     }
@@ -65,6 +67,8 @@ public class Util {
             return "港元";
         } else if (currency.equalsIgnoreCase("TWD")){
             return "新台币";
+        } else if (currency.equalsIgnoreCase("AUD")){
+            return "澳元";
         }
         return "美元";
     }
@@ -86,6 +90,8 @@ public class Util {
             return "HKD";
         } else if(newValue.equals("新台幣")){
             return "TWD";
+        } else if(newValue.equals("澳元")){
+            return "AUD";
         }
         return "USD";
     }
@@ -105,6 +111,8 @@ public class Util {
             return "港元";
         } else if(newValue.equals("TWD")){
             return "新台幣";
+        } else if(newValue.equals("AUD")){
+            return "澳元";
         }
         return "美元";
     }
@@ -124,6 +132,8 @@ public class Util {
             return "HKD";
         } else if(newValue.equals("新台币")){
             return "TWD";
+        } else if(newValue.equals("澳元")){
+            return "AUD";
         }
         return "USD";
     }
@@ -143,6 +153,8 @@ public class Util {
             return "港元";
         } else if(newValue.equals("TWD")){
             return "新台币";
+        } else if(newValue.equals("AUD")){
+            return "澳元";
         }
         return "美元";
     }
