@@ -2,12 +2,13 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <Preference
+        android:order="0"
         android:key="copy_bitcoin_address"
         android:title="请支持: 复制比特币地址"
         android:summary="13hwfZqGQrsNXEhx1riRpFog5JPd . . ."/>
 
-
     <com.streetcred.bitcoinpriceindexwidget.DisplayLanguagePreferenceDialog
+        android:order="2"
         android:key="pref_language"
         android:title="语文:"
         android:dialogTitle="选择语文"
@@ -17,6 +18,7 @@
         android:negativeButtonText="取消"/>
 
     <com.streetcred.bitcoinpriceindexwidget.DisplayThemePreferenceDialog
+        android:order="3"
         android:key="pref_theme_chinese_simplified"
         android:title="显示主题:"
         android:dialogTitle="选择显示主题"
@@ -26,6 +28,7 @@
         android:negativeButtonText="取消"/>
 
     <com.streetcred.bitcoinpriceindexwidget.DisplayCurrencyPreferenceDialog
+        android:order="4"
         android:key="pref_currency_chinese_simplified"
         android:title="显示货币:"
         android:dialogTitle="选择显示货币"
@@ -35,6 +38,7 @@
         android:negativeButtonText="取消"/>
 
     <com.streetcred.bitcoinpriceindexwidget.DisplayDataSourcePreferenceDialog
+        android:order="5"
         android:key="pref_data_source_chinese_simplified"
         android:title="数据来源:"
         android:dialogTitle="选择数据来源"
@@ -44,6 +48,7 @@
         android:negativeButtonText="取消"/>
 
     <com.streetcred.bitcoinpriceindexwidget.DisplayRefreshIntervalPreferenceDialog
+        android:order="6"
         android:key="pref_refresh_interval_chinese_simplified"
         android:title="更新频率: 关"
         android:dialogTitle="选择更新频率"
@@ -53,6 +58,7 @@
         android:negativeButtonText="取消"/>
 
     <CheckBoxPreference
+        android:order="7"
         android:title="放上通知箱"
         android:defaultValue="true"
         android:key="ongoingcheckboxPref" />

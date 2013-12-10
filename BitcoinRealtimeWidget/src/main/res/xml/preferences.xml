@@ -2,11 +2,13 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <Preference
+        android:order="0"
         android:key="copy_bitcoin_address"
         android:title="Donate: Click to copy address"
         android:summary="13hwfZqGQrsNXEhx1riRpFog5JPd . . ."/>
 
     <com.streetcred.bitcoinpriceindexwidget.DisplayLanguagePreferenceDialog
+        android:order="2"
         android:key="pref_language"
         android:title="Language:"
         android:dialogTitle="Select Language"
@@ -16,6 +18,7 @@
         android:negativeButtonText="Cancel"/>
 
     <com.streetcred.bitcoinpriceindexwidget.DisplayThemePreferenceDialog
+        android:order="3"
         android:key="pref_theme"
         android:title="Widget Theme:"
         android:dialogTitle="Select Widget Theme"
@@ -25,6 +28,7 @@
         android:negativeButtonText="Cancel"/>
 
     <com.streetcred.bitcoinpriceindexwidget.DisplayCurrencyPreferenceDialog
+        android:order="4"
         android:key="pref_currency"
         android:title="Display Currency: USD"
         android:dialogTitle="Select Currency"
@@ -34,6 +38,7 @@
         android:negativeButtonText="Cancel"/>
 
     <com.streetcred.bitcoinpriceindexwidget.DisplayDataSourcePreferenceDialog
+        android:order="5"
         android:key="pref_data_source"
         android:title="Data Source: Coindesk"
         android:dialogTitle="Select Data Source"
@@ -43,6 +48,7 @@
         android:negativeButtonText="Cancel"/>
 
     <com.streetcred.bitcoinpriceindexwidget.DisplayRefreshIntervalPreferenceDialog
+        android:order="6"
         android:key="pref_refresh_interval"
         android:title="Refresh Rate: None"
         android:dialogTitle="Select Refresh Rate"
@@ -52,6 +58,7 @@
         android:negativeButtonText="Cancel"/>
 
     <CheckBoxPreference
+        android:order="7"
         android:title="Ongoing Notification"
         android:defaultValue="true"
         android:key="ongoingcheckboxPref" />
