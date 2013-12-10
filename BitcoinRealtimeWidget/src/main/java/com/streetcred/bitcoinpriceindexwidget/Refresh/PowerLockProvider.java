@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by denniskong on 11/8/13.
+ * Created by StreetCred Inc. on 11/8/13.
  */
 
 public class PowerLockProvider {

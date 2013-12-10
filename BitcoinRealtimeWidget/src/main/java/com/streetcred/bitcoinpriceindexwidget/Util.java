@@ -10,7 +10,7 @@ import android.widget.RemoteViews;
 import java.util.Calendar;
 
 /**
- * Created by denniskong on 10/5/13.
+ * Created by StreetCred Inc. on 10/5/13.
  */
 public class Util {
 

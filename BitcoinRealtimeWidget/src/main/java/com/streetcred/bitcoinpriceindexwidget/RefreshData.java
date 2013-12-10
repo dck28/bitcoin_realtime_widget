@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 /**
- * Created by denniskong on 10/6/13.
+ * Created by StreetCred Inc. on 10/6/13.
  */
 
 public class RefreshData extends AsyncTask<String, Void, String> {

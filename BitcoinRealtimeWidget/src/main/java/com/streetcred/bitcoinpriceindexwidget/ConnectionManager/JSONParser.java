@@ -8,7 +8,7 @@ import com.streetcred.bitcoinpriceindexwidget.Constants;
 import org.json.JSONObject;
 
 /**
- * Created by denniskong on 10/30/13.
+ * Created by StreetCred Inc. on 10/30/13.
  */
 public class JSONParser {
 

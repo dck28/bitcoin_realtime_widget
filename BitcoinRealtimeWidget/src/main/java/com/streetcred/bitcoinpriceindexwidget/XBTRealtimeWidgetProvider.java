@@ -13,7 +13,7 @@ import android.widget.RemoteViews;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by denniskong on 10/5/13.
+ * Created by StreetCred Inc. on 10/5/13.
  */
 public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
 

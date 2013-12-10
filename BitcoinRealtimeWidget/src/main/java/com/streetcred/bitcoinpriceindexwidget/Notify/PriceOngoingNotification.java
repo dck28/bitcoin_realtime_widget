@@ -15,7 +15,7 @@ import com.streetcred.bitcoinpriceindexwidget.Util;
 import com.streetcred.bitcoinpriceindexwidget.XBTWidgetApplication;
 
 /**
- * Created by denniskong on 11/7/13.
+ * Created by StreetCred Inc. on 11/7/13.
  */
 public class PriceOngoingNotification {
 

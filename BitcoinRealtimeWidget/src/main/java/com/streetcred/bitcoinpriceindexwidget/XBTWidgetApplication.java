@@ -7,7 +7,7 @@ import android.content.SharedPreferences;
 import com.streetcred.bitcoinpriceindexwidget.Refresh.RefreshIntervalManager;
 
 /**
- * Created by denniskong on 10/5/13.
+ * Created by StreetCred Inc. on 10/5/13.
  */
 public class XBTWidgetApplication extends Application {
 

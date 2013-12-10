@@ -1,7 +1,7 @@
 package com.streetcred.bitcoinpriceindexwidget.Exchange;
 
 /**
- * Created by denniskong on 11/4/13.
+ * Created by StreetCred Inc. on 11/4/13.
  */
 public class Exchange{
 

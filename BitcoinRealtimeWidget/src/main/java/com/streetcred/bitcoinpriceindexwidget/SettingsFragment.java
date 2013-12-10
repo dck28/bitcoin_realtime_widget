@@ -1,7 +1,7 @@
 package com.streetcred.bitcoinpriceindexwidget;
 
 /**
- * Created by denniskong on 10/5/13.
+ * Created by StreetCred Inc. on 10/5/13.
  */
 
 import android.app.ActionBar;

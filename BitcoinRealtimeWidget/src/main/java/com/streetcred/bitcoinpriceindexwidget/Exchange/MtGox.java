@@ -3,7 +3,7 @@ package com.streetcred.bitcoinpriceindexwidget.Exchange;
 import com.streetcred.bitcoinpriceindexwidget.Constants;
 
 /**
- * Created by denniskong on 11/4/13.
+ * Created by StreetCred Inc. on 11/4/13.
  */
 public class MtGox extends Exchange{
 

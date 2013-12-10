@@ -19,7 +19,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by denniskong on 11/8/13.
+ * Created by StreetCred Inc. on 11/8/13.
  */
 
 public class RefreshIntervalReceiver extends BroadcastReceiver {

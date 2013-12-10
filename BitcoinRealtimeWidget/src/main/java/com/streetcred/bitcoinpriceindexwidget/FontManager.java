@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by denniskong on 10/31/13.
+ * Created by StreetCred Inc. on 10/31/13.
  */
 public class FontManager {
 

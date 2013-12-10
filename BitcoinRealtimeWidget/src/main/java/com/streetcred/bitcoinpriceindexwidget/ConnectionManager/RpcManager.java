@@ -25,7 +25,7 @@ import org.json.JSONTokener;
 import android.content.Context;
 
 /**
- * Created by denniskong on 10/30/13.
+ * Created by StreetCred Inc. on 10/30/13.
  */
 
 public class RpcManager {

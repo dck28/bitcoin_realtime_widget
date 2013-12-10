@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by denniskong on 10/5/13.
+ * Created by StreetCred Inc. on 10/5/13.
  */
 public class MainActivity extends Activity {
 

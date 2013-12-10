@@ -19,7 +19,7 @@ import com.streetcred.bitcoinpriceindexwidget.XBTWidgetApplication;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by denniskong on 11/11/13.
+ * Created by StreetCred Inc. on 11/11/13.
  */
 public class RefreshRequestLauncher extends Thread {
     private PowerManager.WakeLock wakeLock;

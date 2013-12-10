@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import java.io.Serializable;
 
 /**
- * Created by denniskong on 11/7/13.
+ * Created by StreetCred Inc. on 11/7/13.
  */
 public class Limit implements Serializable, Parcelable{
 

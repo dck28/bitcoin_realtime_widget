@@ -11,7 +11,7 @@ import android.widget.RemoteViews;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by denniskong on 10/6/13.
+ * Created by StreetCred Inc. on 10/6/13.
  */
 public class RefreshDataReceiver extends BroadcastReceiver{
     public static final String ACTION = "com.streetcred.bitcoinpriceindexwidget.REFRESH_REQUEST";
