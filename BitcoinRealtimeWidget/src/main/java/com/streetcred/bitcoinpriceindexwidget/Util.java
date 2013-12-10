@@ -48,6 +48,8 @@ public class Util {
             return "新台幣";
         } else if (currency.equalsIgnoreCase("AUD")){
             return "澳元";
+        } else if (currency.equalsIgnoreCase("INR")){
+            return "盧比";
         }
         return "美元";
     }
@@ -69,6 +71,8 @@ public class Util {
             return "新台币";
         } else if (currency.equalsIgnoreCase("AUD")){
             return "澳元";
+        } else if (currency.equalsIgnoreCase("INR")){
+            return "卢比";
         }
         return "美元";
     }
@@ -92,6 +96,8 @@ public class Util {
             return "TWD";
         } else if(newValue.equals("澳元")){
             return "AUD";
+        } else if(newValue.equals("盧比")){
+            return "INR";
         }
         return "USD";
     }
@@ -113,6 +119,8 @@ public class Util {
             return "新台幣";
         } else if(newValue.equals("AUD")){
             return "澳元";
+        } else if(newValue.equals("INR")){
+            return "盧比";
         }
         return "美元";
     }
@@ -134,6 +142,8 @@ public class Util {
             return "TWD";
         } else if(newValue.equals("澳元")){
             return "AUD";
+        } else if(newValue.equals("卢比")){
+            return "INR";
         }
         return "USD";
     }
@@ -155,6 +165,8 @@ public class Util {
             return "新台币";
         } else if(newValue.equals("AUD")){
             return "澳元";
+        } else if(newValue.equals("INR")){
+            return "卢比";
         }
         return "美元";
     }
