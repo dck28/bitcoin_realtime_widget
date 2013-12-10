@@ -50,6 +50,8 @@ public class Util {
             return "澳元";
         } else if (currency.equalsIgnoreCase("INR")){
             return "盧比";
+        } else if (currency.equalsIgnoreCase("CHF")){
+            return "瑞郎";
         }
         return "美元";
     }
@@ -73,6 +75,8 @@ public class Util {
             return "澳元";
         } else if (currency.equalsIgnoreCase("INR")){
             return "卢比";
+        } else if (currency.equalsIgnoreCase("CHF")){
+            return "瑞郎";
         }
         return "美元";
     }
@@ -98,6 +102,8 @@ public class Util {
             return "AUD";
         } else if(newValue.equals("盧比")){
             return "INR";
+        } else if(newValue.equals("瑞郎")){
+            return "CHF";
         }
         return "USD";
     }
@@ -121,6 +127,8 @@ public class Util {
             return "澳元";
         } else if(newValue.equals("INR")){
             return "盧比";
+        } else if(newValue.equals("CHF")){
+            return "瑞郎";
         }
         return "美元";
     }
@@ -144,6 +152,8 @@ public class Util {
             return "AUD";
         } else if(newValue.equals("卢比")){
             return "INR";
+        } else if(newValue.equals("瑞郎")){
+            return "CHF";
         }
         return "USD";
     }
@@ -167,6 +177,8 @@ public class Util {
             return "澳元";
         } else if(newValue.equals("INR")){
             return "卢比";
+        } else if(newValue.equals("CHF")){
+            return "瑞郎";
         }
         return "美元";
     }
