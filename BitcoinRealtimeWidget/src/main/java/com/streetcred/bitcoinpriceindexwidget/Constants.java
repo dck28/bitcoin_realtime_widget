@@ -22,6 +22,7 @@ public class Constants {
     public static final String PREF_LAST_UPDATED_THEME = "preferred_theme";
     public static final String PREF_DISPLAY_LANGUAGE = "preferred_display_language";
     public static final String PREF_IS_FROM_ONGOING_NOTIFICATION = "is_from_ongoing_notification";
+    public static final String PREF_STORAGE_FOR_LIST_OF_ALERTS = "storage_for_list_of_alerts";
 
     public static final String FLAG_CLEAR_STACK = "clear_stack";
     public static final String RECEIVED_VALID_NEW_PRICE = "new_price_is_valid";
