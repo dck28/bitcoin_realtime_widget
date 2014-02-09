@@ -6,6 +6,8 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 
 import com.streetcred.bitcoinpriceindexwidget.Constants;
@@ -64,10 +66,14 @@ public class PriceOngoingNotification {
         }
         final String title = price + " " + currencyDenomination;
 
+        Bitmap largeIcon = BitmapFactory.decodeResource(context.getResources(),
+                R.drawable.ic_launcher);
+
         Notification.Builder builder = new Notification.Builder(context)
                 .setContentTitle(title)
                 .setContentText(text)
                 .setSmallIcon(R.drawable.ic_stat_20140209_bitcoin_icon_2)
+                .setLargeIcon(largeIcon)
                 .setAutoCancel(false) //Disable click to cancel
                 .setContentIntent(refreshPendingIntent); // Refresh and show ticker as a result of the click
                 if (Build.VERSION.SDK_INT >= 16) {
