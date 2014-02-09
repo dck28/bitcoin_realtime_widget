@@ -67,7 +67,7 @@ public class PriceOngoingNotification {
         Notification.Builder builder = new Notification.Builder(context)
                 .setContentTitle(title)
                 .setContentText(text)
-                .setSmallIcon(R.drawable.ic_launcher)
+                .setSmallIcon(R.drawable.ic_stat_20140209_bitcoin_icon_2)
                 .setAutoCancel(false) //Disable click to cancel
                 .setContentIntent(refreshPendingIntent); // Refresh and show ticker as a result of the click
                 if (Build.VERSION.SDK_INT >= 16) {
