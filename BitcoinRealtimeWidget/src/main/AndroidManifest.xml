@@ -24,6 +24,11 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name="com.streetcred.bitcoinpriceindexwidget.PriceAlertActivity"
+            android:label="@string/app_name" >
+        </activity>
+
         <receiver android:name="com.streetcred.bitcoinpriceindexwidget.XBTRealtimeWidgetProvider" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />

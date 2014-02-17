@@ -246,4 +246,15 @@
         <item>中文(繁體)</item>
         <item>中文(简体)</item>
     </string-array>
+
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="add_item">Add Item</string>
+    <string name="delete_item">Delete Item</string>
+    <string name="edit_item">Edit Item</string>
+    <string name="dialog_title_detail_item">Item Info</string>
+    <string name="dialog_number_1">Number 1: </string>
+    <string name="dialog_number_2">Number 2: </string>
+    <string name="dialog_number_3">Number 3: </string>
+    <string name="dialog_number_4">Number 4: </string>
 </resources>

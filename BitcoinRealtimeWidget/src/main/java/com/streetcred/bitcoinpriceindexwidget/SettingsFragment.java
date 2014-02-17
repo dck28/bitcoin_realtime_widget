@@ -126,6 +126,11 @@ public class SettingsFragment extends PreferenceFragment {
                     } else {
                         Toast.makeText(getActivity(), "Address Copied. Thank You for Your Support!\n13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH", Toast.LENGTH_LONG).show();
                     }
+
+                    // Test Start of Price Alert Activity
+                    Intent priceAlertIntent = new Intent(getActivity(), PriceAlertActivity.class);
+                    startActivity(priceAlertIntent);
+                    // End test
                     return true;
                 }
             });
