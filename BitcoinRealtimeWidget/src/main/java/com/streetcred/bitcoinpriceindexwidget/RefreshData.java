@@ -114,6 +114,7 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             String data_source = pref.getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk");
 
             String data_source_url = getURL_from_source(data_source);
+            boolean is_source_from_bitstamp = false;
 
             Collection<BasicNameValuePair> requestParams = null;
             if (data_source_url.equals(Constants.COINBASE_API_URL)){
@@ -121,6 +122,8 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                 requestParams.add(new BasicNameValuePair("currency", currency_to_retrieve));
             } else if (data_source_url.equals(Constants.MTGOX_API_BASEURL)){
                 data_source_url = data_source_url + "/BTC" + currency_to_retrieve + "/money/ticker_fast";
+            } else if (data_source_url.equals(Constants.BITSTAMP_API_URL)){
+                is_source_from_bitstamp = true;
             }
 
             JSONObject json_response = RpcManager.getInstance().callGet(context, data_source_url, "", requestParams);
@@ -139,7 +142,15 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             }
 
             if (shouldConvertToAlternateCurrency
-                    && !dataFromBTCChinaInCNY){ // Get forex exchange and do conversion from Coinbase
+                    && !dataFromBTCChinaInCNY && !is_source_from_bitstamp){ // Get forex exchange and do conversion from Coinbase
+                JSONObject json_rate_response = RpcManager.getInstance().callGet(context, Constants.FOREX_RATE_API_URL, "");
+                double rate = JSONParser.handle_getting_forex_exchange_rate(json_rate_response, pref);
+                newPrice = Util.convertToSelectedAlternativeCurrencyFromUSD(newPrice, rate);
+                Log.e("forex rate", Double.toString(rate));
+            }
+
+            if (is_source_from_bitstamp &&
+                    !pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD").equalsIgnoreCase("USD")){
                 JSONObject json_rate_response = RpcManager.getInstance().callGet(context, Constants.FOREX_RATE_API_URL, "");
                 double rate = JSONParser.handle_getting_forex_exchange_rate(json_rate_response, pref);
                 newPrice = Util.convertToSelectedAlternativeCurrencyFromUSD(newPrice, rate);
@@ -345,6 +356,10 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             return JSONParser.handle_source_COINBASE(json_response);
         }
 
+        if (from.equals("Bitstamp")){
+            return JSONParser.handle_source_BITSTAMP(json_response);
+        }
+
         if (from.equals("Mt. Gox")){
             return JSONParser.handle_source_MTGOX(json_response);
         }
@@ -362,6 +377,8 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             return Constants.COINDESK_API_URL;
         } else if(data_source.equalsIgnoreCase("Coinbase")){
             return Constants.COINBASE_API_URL;
+        } else if(data_source.equalsIgnoreCase("Bitstamp")){
+            return Constants.BITSTAMP_API_URL;
         } else if(data_source.equalsIgnoreCase("Mt. Gox")){
             return Constants.MTGOX_API_BASEURL;
         } else if(data_source.equalsIgnoreCase("BTC China")){
