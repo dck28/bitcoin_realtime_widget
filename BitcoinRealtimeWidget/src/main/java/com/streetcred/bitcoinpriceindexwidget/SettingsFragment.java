@@ -128,8 +128,8 @@ public class SettingsFragment extends PreferenceFragment {
                     }
 
                     // Test Start of Price Alert Activity
-                    Intent priceAlertIntent = new Intent(getActivity(), PriceAlertActivity.class);
-                    startActivity(priceAlertIntent);
+                    // Intent priceAlertIntent = new Intent(getActivity(), PriceAlertActivity.class);
+                    // startActivity(priceAlertIntent);
                     // End test
                     return true;
                 }
