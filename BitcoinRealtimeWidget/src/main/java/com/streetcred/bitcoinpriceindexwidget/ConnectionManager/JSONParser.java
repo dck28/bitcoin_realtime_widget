@@ -5,6 +5,8 @@ import android.util.Log;
 
 import com.streetcred.bitcoinpriceindexwidget.Constants;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -121,6 +123,23 @@ public class JSONParser {
     public static double handle_source_BITFINEX(JSONObject json_response){
 
         String rate = json_response.optString("last_price");
+        if(rate != null) return Double.parseDouble(rate.replace(",",""));
+
+        //Default
+        return 0.00;
+    }
+
+    public static double handle_source_KRAKEN(JSONObject json_response){
+
+        JSONObject result = json_response.optJSONObject("result");
+        JSONObject XXBTZUSD = result.optJSONObject("XXBTZUSD");
+        JSONArray c = XXBTZUSD.optJSONArray("c");
+        String rate = null;
+        try {
+            rate = c.getString(0);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         if(rate != null) return Double.parseDouble(rate.replace(",",""));
 
         //Default
