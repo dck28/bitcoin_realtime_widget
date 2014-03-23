@@ -108,6 +108,16 @@ public class JSONParser {
         return 0.00;
     }
 
+    public static double handle_source_BTCE(JSONObject json_response){
+
+        JSONObject btc_usd = json_response.optJSONObject("btc_usd");
+        String rate = btc_usd.optString("last");
+        if(rate != null) return Double.parseDouble(rate.replace(",",""));
+
+        //Default
+        return 0.00;
+    }
+
     public static double handle_source_MTGOX(JSONObject json_response){
 
         JSONObject data = json_response.optJSONObject("data");
