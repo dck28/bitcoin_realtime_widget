@@ -116,6 +116,7 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             String data_source_url = getURL_from_source(data_source);
             boolean is_source_from_bitstamp = false;
             boolean is_source_from_btc_e = false;
+            boolean is_source_from_bitfinex = false;
 
             Collection<BasicNameValuePair> requestParams = null;
             if (data_source_url.equals(Constants.COINBASE_API_URL)){
@@ -127,6 +128,8 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                 is_source_from_bitstamp = true;
             } else if (data_source_url.equals(Constants.BTCE_API_URL)){
                 is_source_from_btc_e = true;
+            } else if (data_source_url.equals(Constants.BITFINEX_API_URL)){
+                is_source_from_bitfinex = true;
             }
 
             JSONObject json_response = RpcManager.getInstance().callGet(context, data_source_url, "", requestParams);
@@ -147,14 +150,15 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             if (shouldConvertToAlternateCurrency
                     && !dataFromBTCChinaInCNY
                     && !is_source_from_bitstamp
-                    && !is_source_from_btc_e){ // Get forex exchange and do conversion from Coinbase
+                    && !is_source_from_btc_e
+                    && !is_source_from_bitfinex){ // Get forex exchange and do conversion from Coinbase
                 JSONObject json_rate_response = RpcManager.getInstance().callGet(context, Constants.FOREX_RATE_API_URL, "");
                 double rate = JSONParser.handle_getting_forex_exchange_rate(json_rate_response, pref);
                 newPrice = Util.convertToSelectedAlternativeCurrencyFromUSD(newPrice, rate);
                 Log.e("forex rate", Double.toString(rate));
             }
 
-            if (( is_source_from_bitstamp || is_source_from_btc_e ) &&
+            if (( is_source_from_bitstamp || is_source_from_btc_e || is_source_from_bitfinex) &&
                     !pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD").equalsIgnoreCase("USD")){
                 JSONObject json_rate_response = RpcManager.getInstance().callGet(context, Constants.FOREX_RATE_API_URL, "");
                 double rate = JSONParser.handle_getting_forex_exchange_rate(json_rate_response, pref);
@@ -369,6 +373,10 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             return JSONParser.handle_source_BTCE(json_response);
         }
 
+        if (from.equals("Bitfinex")){
+            return JSONParser.handle_source_BITFINEX(json_response);
+        }
+
         if (from.equals("Mt. Gox")){
             return JSONParser.handle_source_MTGOX(json_response);
         }
@@ -390,6 +398,8 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             return Constants.BITSTAMP_API_URL;
         } else if(data_source.equalsIgnoreCase("BTC-E")){
             return Constants.BTCE_API_URL;
+        } else if(data_source.equalsIgnoreCase("Bitfinex")){
+            return Constants.BITFINEX_API_URL;
         } else if(data_source.equalsIgnoreCase("Mt. Gox")){
             return Constants.MTGOX_API_BASEURL;
         } else if(data_source.equalsIgnoreCase("BTC China")){
