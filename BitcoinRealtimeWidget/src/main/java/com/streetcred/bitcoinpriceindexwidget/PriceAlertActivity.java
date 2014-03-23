@@ -144,7 +144,7 @@ public class PriceAlertActivity extends Activity {
             case DIALOG_DETAIL_ITEM:
                 Log.d("trungpt", " 1");
                 mDialog.setContentView(R.layout.detail_item);
-                mDialog.setTitle(getString(R.string.dialog_title_detail_item));
+                mDialog.setTitle(getString(R.string.add_price_alert_dialog_title));
                 LinearLayout mLnAdd = (LinearLayout) mDialog
                         .findViewById(R.id.ln_add);
                 LinearLayout mLnDelete = (LinearLayout) mDialog

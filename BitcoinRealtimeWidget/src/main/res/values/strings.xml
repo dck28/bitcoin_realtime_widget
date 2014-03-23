@@ -248,13 +248,12 @@
     </string-array>
 
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
     <string name="add_item">Add Item</string>
     <string name="delete_item">Delete Item</string>
     <string name="edit_item">Edit Item</string>
-    <string name="dialog_title_detail_item">Item Info</string>
-    <string name="dialog_number_1">Number 1: </string>
-    <string name="dialog_number_2">Number 2: </string>
-    <string name="dialog_number_3">Number 3: </string>
-    <string name="dialog_number_4">Number 4: </string>
+    <string name="add_price_alert_dialog_title">Setup Price Alert</string>
+    <string name="alert_type">Alert Type: </string>
+    <string name="data_source">Data source: </string>
+    <string name="price_alert_above">Above: </string>
+    <string name="price_alert_below">Below: </string>
 </resources>
