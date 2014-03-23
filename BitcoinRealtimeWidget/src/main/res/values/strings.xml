@@ -74,7 +74,6 @@
         <item>BTC-E</item>
         <item>Bitfinex</item>
         <item>Kraken</item>
-        <item>Mt. Gox</item>
         <item>BTC China</item>
     </string-array>
     <string-array name="pref_data_source_values">
@@ -85,7 +84,6 @@
         <item>BTC-E</item>
         <item>Bitfinex</item>
         <item>Kraken</item>
-        <item>Mt. Gox</item>
         <item>BTC China</item>
     </string-array>
     <string-array name="pref_data_source_entries_chinese">
@@ -96,7 +94,6 @@
         <item>BTC-E</item>
         <item>Bitfinex</item>
         <item>Kraken</item>
-        <item>Mt. Gox</item>
         <item>BTC China</item>
     </string-array>
     <string-array name="pref_data_source_values_chinese">
@@ -107,7 +104,6 @@
         <item>BTC-E</item>
         <item>Bitfinex</item>
         <item>Kraken</item>
-        <item>Mt. Gox</item>
         <item>BTC China</item>
     </string-array>
     <string-array name="pref_data_source_entries_chinese_simplified">
@@ -118,7 +114,6 @@
         <item>BTC-E</item>
         <item>Bitfinex</item>
         <item>Kraken</item>
-        <item>Mt. Gox</item>
         <item>BTC China</item>
     </string-array>
     <string-array name="pref_data_source_values_chinese_simplified">
@@ -129,7 +124,6 @@
         <item>BTC-E</item>
         <item>Bitfinex</item>
         <item>Kraken</item>
-        <item>Mt. Gox</item>
         <item>BTC China</item>
     </string-array>
     <string-array name="pref_currency_entries">
