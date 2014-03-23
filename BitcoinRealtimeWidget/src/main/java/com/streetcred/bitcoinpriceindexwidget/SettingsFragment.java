@@ -452,10 +452,10 @@ public class SettingsFragment extends PreferenceFragment {
                                     remoteViews.setInt(R.id.background, "setBackgroundColor",
                                             Color.TRANSPARENT);
                                     editor.putInt(Constants.SAVE_BACKGROUND_WIDGET_STATE, Color.TRANSPARENT).commit();
-                                } else if (newValue.toString().equalsIgnoreCase("Frost")){
+                                } else if (newValue.toString().equalsIgnoreCase("Glassy")){
                                     remoteViews.setInt(R.id.background, "setBackgroundColor",
-                                            Color.parseColor("#AAF0FFFC"));
-                                    editor.putInt(Constants.SAVE_BACKGROUND_WIDGET_STATE, Color.parseColor("#AAF0FFFC")).commit();
+                                            Color.parseColor("#AA383838"));
+                                    editor.putInt(Constants.SAVE_BACKGROUND_WIDGET_STATE, Color.parseColor("#AA383838")).commit();
                                 }
                                 remoteViews = Util.saveRemoteViewsState(XBTWidgetApplication.getSharedPreferences(), remoteViews, activity);
                                 appWidgetManager.updateAppWidget(thisWidget, remoteViews);
@@ -648,8 +648,8 @@ public class SettingsFragment extends PreferenceFragment {
                                     editor.putInt(Constants.SAVE_BACKGROUND_WIDGET_STATE, Color.TRANSPARENT).commit();
                                 } else if (newValue.toString().equalsIgnoreCase("磨砂玻璃")){
                                     remoteViews.setInt(R.id.background, "setBackgroundColor",
-                                            Color.parseColor("#AAF0FFFC"));
-                                    editor.putInt(Constants.SAVE_BACKGROUND_WIDGET_STATE, Color.parseColor("#AAF0FFFC")).commit();
+                                            Color.parseColor("#AA383838"));
+                                    editor.putInt(Constants.SAVE_BACKGROUND_WIDGET_STATE, Color.parseColor("#AA383838")).commit();
                                 }
                                 remoteViews = Util.saveRemoteViewsState(XBTWidgetApplication.getSharedPreferences(), remoteViews, activity);
                                 appWidgetManager.updateAppWidget(thisWidget, remoteViews);
@@ -793,8 +793,8 @@ public class SettingsFragment extends PreferenceFragment {
                                     editor.putInt(Constants.SAVE_BACKGROUND_WIDGET_STATE, Color.TRANSPARENT).commit();
                                 } else if (newValue.toString().equalsIgnoreCase("磨砂玻璃")){
                                     remoteViews.setInt(R.id.background, "setBackgroundColor",
-                                            Color.parseColor("#AAF0FFFC"));
-                                    editor.putInt(Constants.SAVE_BACKGROUND_WIDGET_STATE, Color.parseColor("#AAF0FFFC")).commit();
+                                            Color.parseColor("#AA383838"));
+                                    editor.putInt(Constants.SAVE_BACKGROUND_WIDGET_STATE, Color.parseColor("#AA383838")).commit();
                                 }
                                 remoteViews = Util.saveRemoteViewsState(XBTWidgetApplication.getSharedPreferences(), remoteViews, activity);
                                 appWidgetManager.updateAppWidget(thisWidget, remoteViews);

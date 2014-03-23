@@ -89,8 +89,8 @@ public class XBTRealtimeWidgetProvider extends AppWidgetProvider {
             remoteViews.setInt(R.id.background, "setBackgroundColor", Color.parseColor("#DDEB5E00"));
         } else if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_THEME, "Float").equalsIgnoreCase("Float")){
             remoteViews.setInt(R.id.background, "setBackgroundColor", Color.TRANSPARENT);
-        } else if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_THEME, "Float").equalsIgnoreCase("Frost")){
-            remoteViews.setInt(R.id.background, "setBackgroundColor", Color.parseColor("#AAF0FFFC"));
+        } else if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_LAST_UPDATED_THEME, "Float").equalsIgnoreCase("Glassy")){
+            remoteViews.setInt(R.id.background, "setBackgroundColor", Color.parseColor("#AA383838"));
         }
         remoteViews = Util.saveRemoteViewsState(XBTWidgetApplication.getSharedPreferences(), remoteViews, context);
         appWidgetManager.updateAppWidget(appWidgetIds, remoteViews);

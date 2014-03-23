@@ -191,7 +191,7 @@ public class Util {
         } else if(newValueChinese.equals("漂浮")){
             return "Float";
         } else if(newValueChinese.equals("磨砂玻璃")){
-            return "Frost";
+            return "Glassy";
         }
         return "Float";
     }
@@ -203,7 +203,7 @@ public class Util {
             return "金橘";
         } else if(newValueEnglish.equals("Float")){
             return "漂浮";
-        } else if(newValueEnglish.equals("Frost")){
+        } else if(newValueEnglish.equals("Glassy")){
             return "磨砂玻璃";
         }
         return "漂浮";
@@ -218,7 +218,7 @@ public class Util {
         } else if(newValueChinese.equals("漂浮")){
             return "Float";
         } else if(newValueChinese.equals("磨砂玻璃")){
-            return "Frost";
+            return "Glassy";
         }
         return "Float";
     }
@@ -230,7 +230,7 @@ public class Util {
             return "金橘";
         } else if(newValueEnglish.equals("Float")){
             return "漂浮";
-        } else if(newValueEnglish.equals("Frost")){
+        } else if(newValueEnglish.equals("Glassy")){
             return "磨砂玻璃";
         }
         return "漂浮";
