@@ -15,6 +15,7 @@ public class Constants {
     public static final String BTCE_API_URL = "https://btc-e.com/api/3/ticker/btc_usd";
     public static final String BITFINEX_API_URL = "https://api.bitfinex.com/v1/ticker/btcusd";
     public static final String KRAKEN_API_URL = "https://api.kraken.com/0/public/Ticker?pair=XXBTZUSD";
+    public static final String ANXBTC_API_URL = "https://anxpro.com/api/2/BTCUSD/money/ticker";
 
     public static final String PREF_REFRESH_INTERVAL = "preference_refresh_interval";
     public static final String PREF_ONGOING_NOTIFICATION = "preference_ongoing_notification";
