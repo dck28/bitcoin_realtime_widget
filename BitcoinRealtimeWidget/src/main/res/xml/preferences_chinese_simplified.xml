@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:streetcred="http://schemas.android.com/apk/res/com.streetcred.bitcoinpriceindexwidget">
 
     <Preference
         android:order="0"
@@ -24,6 +25,7 @@
         android:dialogTitle="选择显示主题"
         android:entries="@array/pref_theme_entries_chinese_simplified"
         android:entryValues="@array/pref_theme_values_chinese_simplified"
+        streetcred:entryImages="@array/pref_theme_imageValues"
         android:defaultValue="漂浮"
         android:negativeButtonText="取消"/>
 
