@@ -210,6 +210,12 @@
         <item>新台币</item>
         <item>卢比</item>
     </string-array>
+    <array name="pref_theme_imageValues">
+        <item>@drawable/float_color</item>
+        <item>@drawable/navy_color</item>
+        <item>@drawable/clementine_color</item>
+        <item>@drawable/glassy_color</item>
+    </array>
     <string-array name="pref_theme_entries">
         <!-- item>ANY</item -->
         <item>Float</item>

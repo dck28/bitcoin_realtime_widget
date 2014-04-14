@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:streetcred="http://schemas.android.com/apk/res/com.streetcred.bitcoinpriceindexwidget">
 
     <Preference
         android:order="0"
@@ -24,6 +25,7 @@
         android:dialogTitle="Select Widget Theme"
         android:entries="@array/pref_theme_entries"
         android:entryValues="@array/pref_theme_values"
+        streetcred:entryImages="@array/pref_theme_imageValues"
         android:defaultValue="Float"
         android:negativeButtonText="Cancel"/>
 
