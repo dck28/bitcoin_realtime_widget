@@ -16,7 +16,7 @@
 
     <CheckedTextView
         android:id="@+id/check"
-        android:checkMark="@android:drawable/btn_radio"
+        android:checkMark="?android:attr/listChoiceIndicatorSingle"
         android:layout_width="fill_parent"
         android:layout_height="48dip"
         android:layout_toRightOf="@id/image"
