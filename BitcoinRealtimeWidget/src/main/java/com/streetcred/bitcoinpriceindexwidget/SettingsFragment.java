@@ -381,6 +381,7 @@ public class SettingsFragment extends PreferenceFragment {
                     .getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"));
 
             currencyPreference.setTitle("Display Currency: " + currencyPreference.getValue());
+            currencyPreferenceSetWidgetLayoutResource(currencyPreference, currencyPreference.getValue());
             currencyPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference,
@@ -390,6 +391,7 @@ public class SettingsFragment extends PreferenceFragment {
                             .putString(Constants.PREF_LAST_UPDATED_CURRENCY, newValue.toString())
                             .commit();
                     preference.setTitle("Display Currency: " + newValue.toString());
+                    currencyPreferenceSetWidgetLayoutResource(preference, newValue.toString());
                     new Thread(new Runnable() { public void run() {
                         try {
                             RefreshData refresh = new RefreshData();
@@ -412,6 +414,30 @@ public class SettingsFragment extends PreferenceFragment {
                     return true;
                 }
             });
+        }
+    }
+
+    private void currencyPreferenceSetWidgetLayoutResource(Preference dialog, String currency){
+        if (currency.equalsIgnoreCase("USD")){
+            dialog.setWidgetLayoutResource(R.layout.currency_usd);
+        } else if (currency.equalsIgnoreCase("CAD")){
+            dialog.setWidgetLayoutResource(R.layout.currency_cad);
+        } else if (currency.equalsIgnoreCase("GBP")){
+            dialog.setWidgetLayoutResource(R.layout.currency_gbp);
+        } else if (currency.equalsIgnoreCase("EUR")){
+            dialog.setWidgetLayoutResource(R.layout.currency_eur);
+        } else if (currency.equalsIgnoreCase("CHF")){
+            dialog.setWidgetLayoutResource(R.layout.currency_chf);
+        } else if (currency.equalsIgnoreCase("AUD")){
+            dialog.setWidgetLayoutResource(R.layout.currency_aud);
+        } else if (currency.equalsIgnoreCase("CNY")){
+            dialog.setWidgetLayoutResource(R.layout.currency_cny);
+        } else if (currency.equalsIgnoreCase("HKD")){
+            dialog.setWidgetLayoutResource(R.layout.currency_hkd);
+        } else if (currency.equalsIgnoreCase("TWD")){
+            dialog.setWidgetLayoutResource(R.layout.currency_twd);
+        } else if (currency.equalsIgnoreCase("INR")){
+            dialog.setWidgetLayoutResource(R.layout.currency_inr);
         }
     }
 
@@ -528,6 +554,9 @@ public class SettingsFragment extends PreferenceFragment {
                     .getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
 
             currencyPreference.setTitle("顯示貨幣: " + currencyPreference.getValue());
+            currencyPreferenceSetWidgetLayoutResource(currencyPreference, XBTWidgetApplication
+                    .getSharedPreferences()
+                    .getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"));
             currencyPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference,
@@ -538,6 +567,7 @@ public class SettingsFragment extends PreferenceFragment {
                             .putString(Constants.PREF_LAST_UPDATED_CURRENCY, newStringValue)
                             .commit();
                     preference.setTitle("顯示貨幣: " + newValue_Chinese.toString());
+                    currencyPreferenceSetWidgetLayoutResource(preference, newStringValue);
                     new Thread(new Runnable() { public void run() {
                         try{
                             RefreshData refresh = new RefreshData();
@@ -673,6 +703,9 @@ public class SettingsFragment extends PreferenceFragment {
                     .getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")));
 
             currencyPreference.setTitle("显示货币: " + currencyPreference.getValue());
+            currencyPreferenceSetWidgetLayoutResource(currencyPreference, XBTWidgetApplication
+                    .getSharedPreferences()
+                    .getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD"));
             currencyPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference,
@@ -683,6 +716,7 @@ public class SettingsFragment extends PreferenceFragment {
                             .putString(Constants.PREF_LAST_UPDATED_CURRENCY, newStringValue)
                             .commit();
                     preference.setTitle("显示货币: " + newValue_Chinese.toString());
+                    currencyPreferenceSetWidgetLayoutResource(preference, newStringValue);
                     new Thread(new Runnable() { public void run() {
                         try{
                             RefreshData refresh = new RefreshData();
