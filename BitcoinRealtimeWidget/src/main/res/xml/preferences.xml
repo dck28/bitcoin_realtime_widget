@@ -36,6 +36,7 @@
         android:dialogTitle="Select Currency"
         android:entries="@array/pref_currency_entries"
         android:entryValues="@array/pref_currency_values"
+        streetcred:entryImages="@array/pref_currency_imageValues"
         android:defaultValue="USD"
         android:negativeButtonText="Cancel"/>
 

@@ -36,6 +36,7 @@
         android:dialogTitle="选择显示货币"
         android:entries="@array/pref_currency_entries_chinese_simplified"
         android:entryValues="@array/pref_currency_values_chinese_simplified"
+        streetcred:entryImages="@array/pref_currency_imageValues"
         android:defaultValue="美元"
         android:negativeButtonText="取消"/>
 

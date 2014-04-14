@@ -142,6 +142,18 @@
         <item>BTC China</item>
         <item>ANXBTC</item>
     </string-array>
+    <array name="pref_currency_imageValues">
+        <item>@drawable/usd</item>
+        <item>@drawable/cad</item>
+        <item>@drawable/gbp</item>
+        <item>@drawable/eur</item>
+        <item>@drawable/chf</item>
+        <item>@drawable/aud</item>
+        <item>@drawable/cny</item>
+        <item>@drawable/hkd</item>
+        <item>@drawable/twd</item>
+        <item>@drawable/inr</item>
+    </array>
     <string-array name="pref_currency_entries">
         <!-- item>ANY</item -->
         <item>USD</item>
