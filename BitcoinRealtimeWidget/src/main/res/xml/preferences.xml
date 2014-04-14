@@ -46,6 +46,7 @@
         android:dialogTitle="Select Data Source"
         android:entries="@array/pref_data_source_entries"
         android:entryValues="@array/pref_data_source_values"
+        streetcred:entryImages="@array/pref_data_source_imageValues"
         android:defaultValue="Coindesk"
         android:negativeButtonText="Cancel"/>
 

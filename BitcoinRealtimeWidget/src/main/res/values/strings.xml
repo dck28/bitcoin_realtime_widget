@@ -66,6 +66,16 @@
         <item>780000</item>
         <item>1260000</item>
     </string-array>
+    <array name="pref_data_source_imageValues">
+        <item>@drawable/coindesk_icon</item>
+        <item>@drawable/coinbase_icon</item>
+        <item>@drawable/bitstamp_icon</item>
+        <item>@drawable/btce_icon</item>
+        <item>@drawable/bitfinex_icon</item>
+        <item>@drawable/kraken_icon</item>
+        <item>@drawable/btcchina_icon</item>
+        <item>@drawable/anxbtc_icon</item>
+    </array>
     <string-array name="pref_data_source_entries">
         <!-- item>ANY</item -->
         <item>Coindesk</item>

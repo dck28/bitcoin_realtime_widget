@@ -46,6 +46,7 @@
         android:dialogTitle="选择数据来源"
         android:entries="@array/pref_data_source_entries_chinese_simplified"
         android:entryValues="@array/pref_data_source_values_chinese_simplified"
+        streetcred:entryImages="@array/pref_data_source_imageValues"
         android:defaultValue="Coindesk"
         android:negativeButtonText="取消"/>
 
