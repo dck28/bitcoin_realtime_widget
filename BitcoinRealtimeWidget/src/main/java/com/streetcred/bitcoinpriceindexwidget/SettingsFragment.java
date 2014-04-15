@@ -444,6 +444,7 @@ public class SettingsFragment extends PreferenceFragment {
                     .getString(Constants.PREF_LAST_UPDATED_THEME, "Float"));
 
             themePreference.setTitle("Widget Theme: " + themePreference.getValue());
+            themePreferenceSetWidgetLayoutResource(themePreference, themePreference.getValue());
             themePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference,
@@ -453,6 +454,7 @@ public class SettingsFragment extends PreferenceFragment {
                             .putString(Constants.PREF_LAST_UPDATED_THEME, newValue.toString())
                             .commit();
                     preference.setTitle("Widget Theme: " + newValue.toString());
+                    themePreferenceSetWidgetLayoutResource(preference, newValue.toString());
                     SharedPreferences.Editor editor = XBTWidgetApplication.getSharedPreferences().edit();
                     try {
                         Activity activity = getActivity();
@@ -644,6 +646,9 @@ public class SettingsFragment extends PreferenceFragment {
                     .getString(Constants.PREF_LAST_UPDATED_THEME, "Float")));
 
             themePreference.setTitle("顯示主題: " + themePreference.getValue());
+            themePreferenceSetWidgetLayoutResource(themePreference, XBTWidgetApplication
+                    .getSharedPreferences()
+                    .getString(Constants.PREF_LAST_UPDATED_THEME, "Float"));
             themePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference,
@@ -654,6 +659,7 @@ public class SettingsFragment extends PreferenceFragment {
                             .putString(Constants.PREF_LAST_UPDATED_THEME, newThemeInEnglish)
                             .commit();
                     preference.setTitle("顯示主題: " + newValue.toString());
+                    themePreferenceSetWidgetLayoutResource(preference, newThemeInEnglish);
                     SharedPreferences.Editor editor = XBTWidgetApplication.getSharedPreferences().edit();
                     try{
                         Activity activity = getActivity();
@@ -795,6 +801,9 @@ public class SettingsFragment extends PreferenceFragment {
                     .getString(Constants.PREF_LAST_UPDATED_THEME, "Float")));
 
             themePreference.setTitle("显示主题: " + themePreference.getValue());
+            themePreferenceSetWidgetLayoutResource(themePreference, XBTWidgetApplication
+                    .getSharedPreferences()
+                    .getString(Constants.PREF_LAST_UPDATED_THEME, "Float"));
             themePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference,
@@ -805,6 +814,7 @@ public class SettingsFragment extends PreferenceFragment {
                             .putString(Constants.PREF_LAST_UPDATED_THEME, newThemeInEnglish)
                             .commit();
                     preference.setTitle("显示主题: " + newValue.toString());
+                    themePreferenceSetWidgetLayoutResource(preference, newThemeInEnglish);
                     SharedPreferences.Editor editor = XBTWidgetApplication.getSharedPreferences().edit();
                     try{
                         Activity activity = getActivity();
@@ -840,6 +850,18 @@ public class SettingsFragment extends PreferenceFragment {
                     return true;
                 }
             });
+        }
+    }
+
+    private void themePreferenceSetWidgetLayoutResource(Preference dialog, String theme){
+        if (theme.equalsIgnoreCase("Float")){
+            dialog.setWidgetLayoutResource(R.layout.theme_float);
+        } else if (theme.equalsIgnoreCase("Navy")){
+            dialog.setWidgetLayoutResource(R.layout.theme_navy);
+        } else if (theme.equalsIgnoreCase("Clementine")){
+            dialog.setWidgetLayoutResource(R.layout.theme_clementine);
+        } else if (theme.equalsIgnoreCase("Glassy")){
+            dialog.setWidgetLayoutResource(R.layout.theme_glassy);
         }
     }
 
