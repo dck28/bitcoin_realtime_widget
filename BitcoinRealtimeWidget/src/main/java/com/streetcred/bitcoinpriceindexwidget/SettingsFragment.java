@@ -339,6 +339,7 @@ public class SettingsFragment extends PreferenceFragment {
                     .getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"));
 
             dataSourcePreference.setTitle("Data Source: " + dataSourcePreference.getValue());
+            dataSourcePreferenceSetWidgetLayoutResource(dataSourcePreference, dataSourcePreference.getValue());
             dataSourcePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference,
@@ -348,6 +349,7 @@ public class SettingsFragment extends PreferenceFragment {
                             .putString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, newValue.toString())
                             .commit();
                     preference.setTitle("Data Source: " + newValue.toString());
+                    dataSourcePreferenceSetWidgetLayoutResource(preference, newValue.toString());
                     new Thread(new Runnable() { public void run() {
                         try {
                             RefreshData refresh = new RefreshData();
@@ -414,30 +416,6 @@ public class SettingsFragment extends PreferenceFragment {
                     return true;
                 }
             });
-        }
-    }
-
-    private void currencyPreferenceSetWidgetLayoutResource(Preference dialog, String currency){
-        if (currency.equalsIgnoreCase("USD")){
-            dialog.setWidgetLayoutResource(R.layout.currency_usd);
-        } else if (currency.equalsIgnoreCase("CAD")){
-            dialog.setWidgetLayoutResource(R.layout.currency_cad);
-        } else if (currency.equalsIgnoreCase("GBP")){
-            dialog.setWidgetLayoutResource(R.layout.currency_gbp);
-        } else if (currency.equalsIgnoreCase("EUR")){
-            dialog.setWidgetLayoutResource(R.layout.currency_eur);
-        } else if (currency.equalsIgnoreCase("CHF")){
-            dialog.setWidgetLayoutResource(R.layout.currency_chf);
-        } else if (currency.equalsIgnoreCase("AUD")){
-            dialog.setWidgetLayoutResource(R.layout.currency_aud);
-        } else if (currency.equalsIgnoreCase("CNY")){
-            dialog.setWidgetLayoutResource(R.layout.currency_cny);
-        } else if (currency.equalsIgnoreCase("HKD")){
-            dialog.setWidgetLayoutResource(R.layout.currency_hkd);
-        } else if (currency.equalsIgnoreCase("TWD")){
-            dialog.setWidgetLayoutResource(R.layout.currency_twd);
-        } else if (currency.equalsIgnoreCase("INR")){
-            dialog.setWidgetLayoutResource(R.layout.currency_inr);
         }
     }
 
@@ -603,6 +581,7 @@ public class SettingsFragment extends PreferenceFragment {
                     .getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"));
 
             dataSourcePreference.setTitle("數據來源: " + dataSourcePreference.getValue());
+            dataSourcePreferenceSetWidgetLayoutResource(dataSourcePreference, dataSourcePreference.getValue());
             dataSourcePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference,
@@ -613,6 +592,7 @@ public class SettingsFragment extends PreferenceFragment {
                             .putString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, newStringValue)
                             .commit();
                     preference.setTitle("數據來源: " + newValue_Chinese.toString());
+                    dataSourcePreferenceSetWidgetLayoutResource(preference, newValue_Chinese.toString());
                     new Thread(new Runnable() { public void run() {
                         try{
                             RefreshData refresh = new RefreshData();
@@ -752,6 +732,7 @@ public class SettingsFragment extends PreferenceFragment {
                     .getString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, "Coindesk"));
 
             dataSourcePreference.setTitle("数据来源: " + dataSourcePreference.getValue());
+            dataSourcePreferenceSetWidgetLayoutResource(dataSourcePreference, dataSourcePreference.getValue());
             dataSourcePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference,
@@ -762,6 +743,7 @@ public class SettingsFragment extends PreferenceFragment {
                             .putString(Constants.PREF_LAST_UPDATED_DATA_SOURCE, newStringValue)
                             .commit();
                     preference.setTitle("数据来源: " + newValue_Chinese.toString());
+                    dataSourcePreferenceSetWidgetLayoutResource(preference, newValue_Chinese.toString());
                     new Thread(new Runnable() { public void run() {
                         try{
                             RefreshData refresh = new RefreshData();
@@ -840,6 +822,50 @@ public class SettingsFragment extends PreferenceFragment {
                     return true;
                 }
             });
+        }
+    }
+
+    private void currencyPreferenceSetWidgetLayoutResource(Preference dialog, String currency){
+        if (currency.equalsIgnoreCase("USD")){
+            dialog.setWidgetLayoutResource(R.layout.currency_usd);
+        } else if (currency.equalsIgnoreCase("CAD")){
+            dialog.setWidgetLayoutResource(R.layout.currency_cad);
+        } else if (currency.equalsIgnoreCase("GBP")){
+            dialog.setWidgetLayoutResource(R.layout.currency_gbp);
+        } else if (currency.equalsIgnoreCase("EUR")){
+            dialog.setWidgetLayoutResource(R.layout.currency_eur);
+        } else if (currency.equalsIgnoreCase("CHF")){
+            dialog.setWidgetLayoutResource(R.layout.currency_chf);
+        } else if (currency.equalsIgnoreCase("AUD")){
+            dialog.setWidgetLayoutResource(R.layout.currency_aud);
+        } else if (currency.equalsIgnoreCase("CNY")){
+            dialog.setWidgetLayoutResource(R.layout.currency_cny);
+        } else if (currency.equalsIgnoreCase("HKD")){
+            dialog.setWidgetLayoutResource(R.layout.currency_hkd);
+        } else if (currency.equalsIgnoreCase("TWD")){
+            dialog.setWidgetLayoutResource(R.layout.currency_twd);
+        } else if (currency.equalsIgnoreCase("INR")){
+            dialog.setWidgetLayoutResource(R.layout.currency_inr);
+        }
+    }
+
+    private void dataSourcePreferenceSetWidgetLayoutResource(Preference dialog, String dataSource){
+        if (dataSource.equalsIgnoreCase("Coindesk")){
+            dialog.setWidgetLayoutResource(R.layout.datasource_coindesk);
+        } else if (dataSource.equalsIgnoreCase("Coinbase")){
+            dialog.setWidgetLayoutResource(R.layout.datasource_coinbase);
+        } else if (dataSource.equalsIgnoreCase("Bitstamp")){
+            dialog.setWidgetLayoutResource(R.layout.datasource_bitstamp);
+        } else if (dataSource.equalsIgnoreCase("BTC-E")){
+            dialog.setWidgetLayoutResource(R.layout.datasource_btce);
+        } else if (dataSource.equalsIgnoreCase("Bitfinex")){
+            dialog.setWidgetLayoutResource(R.layout.datasource_bitfinex);
+        } else if (dataSource.equalsIgnoreCase("Kraken")){
+            dialog.setWidgetLayoutResource(R.layout.datasource_kraken);
+        } else if (dataSource.equalsIgnoreCase("BTC China")){
+            dialog.setWidgetLayoutResource(R.layout.datasource_btcchina);
+        } else if (dataSource.equalsIgnoreCase("ANXBTC")){
+            dialog.setWidgetLayoutResource(R.layout.datasource_anxbtc);
         }
     }
 
