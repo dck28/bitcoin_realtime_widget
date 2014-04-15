@@ -5,6 +5,9 @@ package com.streetcred.bitcoinpriceindexwidget;
  */
 public class Constants {
 
+    public static final String PREF_DONATE_EVER_CLICKED = "ever_clicked_donate";
+    public static final String PREF_RATE_EVER_CLICKED = "ever_clicked_rate";
+
     public static final String FOREX_RATE_API_URL = "https://coinbase.com/api/v1/currencies/exchange_rates";
 
     public static final String COINDESK_API_URL = "http://api.coindesk.com/v1/bpi/currentprice.json";

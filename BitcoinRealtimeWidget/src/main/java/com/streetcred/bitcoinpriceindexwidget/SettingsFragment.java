@@ -113,10 +113,23 @@ public class SettingsFragment extends PreferenceFragment {
 
         Preference donatePreference = findPreference("copy_bitcoin_address");
         if (donatePreference != null){
-            donatePreference.setWidgetLayoutResource(R.layout.donate_layout_icon);
+
+//      Flag of first clicks for donate and rate
+            if (XBTWidgetApplication
+                    .getSharedPreferences()
+                    .getBoolean(Constants.PREF_DONATE_EVER_CLICKED, false) != true){
+                donatePreference.setWidgetLayoutResource(R.layout.donate_layout_icon_off);
+            } else {
+                donatePreference.setWidgetLayoutResource(R.layout.donate_layout_icon);
+            }
+
             donatePreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
+
+                    XBTWidgetApplication
+                            .getSharedPreferences().edit().putBoolean(Constants.PREF_DONATE_EVER_CLICKED, true).commit();
+
                     ClipboardManager clipboard = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
                     ClipData clip = ClipData.newPlainText("Bitcoin Address", "13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH");
                     clipboard.setPrimaryClip(clip);
@@ -898,7 +911,16 @@ public class SettingsFragment extends PreferenceFragment {
                 if(activity != null){
                     rateUsPref = new Preference(activity);
                     rateUsPref.setKey("prefer_rate_and_feedback");
-                    rateUsPref.setWidgetLayoutResource(R.layout.rate_layout_icon);
+
+//      Flag of first clicks for donate and rate
+                    if (XBTWidgetApplication
+                            .getSharedPreferences()
+                            .getBoolean(Constants.PREF_RATE_EVER_CLICKED, false) != true){
+                        rateUsPref.setWidgetLayoutResource(R.layout.rate_layout_icon_off);
+                    } else {
+                        rateUsPref.setWidgetLayoutResource(R.layout.rate_layout_icon);
+                    }
+
                     if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
                         rateUsPref.setTitle("評論此應用程式");
                         rateUsPref.setSummary("請給予您的意見及其他功能建議");
@@ -913,6 +935,10 @@ public class SettingsFragment extends PreferenceFragment {
                     rateUsPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                         @Override
                         public boolean onPreferenceClick(Preference preference) {
+
+                            XBTWidgetApplication
+                                    .getSharedPreferences().edit().putBoolean(Constants.PREF_RATE_EVER_CLICKED, true).commit();
+
                             activity.startActivity(createOpenAppInPlayStoreIntent(getActivity()));
                             return true;
                         }
