@@ -113,6 +113,7 @@ public class SettingsFragment extends PreferenceFragment {
 
         Preference donatePreference = findPreference("copy_bitcoin_address");
         if (donatePreference != null){
+            donatePreference.setWidgetLayoutResource(R.layout.donate_layout_icon);
             donatePreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
@@ -167,6 +168,7 @@ public class SettingsFragment extends PreferenceFragment {
                     .getString(Constants.PREF_REFRESH_INTERVAL, "-1"));
 
             refreshIntervalPreference.setTitle("Refresh Rate: " + refreshIntervalPreference.getEntry());
+            refreshIntervalPreference.setWidgetLayoutResource(R.layout.refresh_layout_icon);
             refreshIntervalPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference,
@@ -210,6 +212,7 @@ public class SettingsFragment extends PreferenceFragment {
                     .getString(Constants.PREF_REFRESH_INTERVAL, "-1"));
 
             refreshIntervalPreference.setTitle("更新頻率: " + refreshIntervalPreference.getEntry());
+            refreshIntervalPreference.setWidgetLayoutResource(R.layout.refresh_layout_icon);
             refreshIntervalPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference,
@@ -253,6 +256,7 @@ public class SettingsFragment extends PreferenceFragment {
                     .getString(Constants.PREF_REFRESH_INTERVAL, "-1"));
 
             refreshIntervalPreference.setTitle("更新频率: " + refreshIntervalPreference.getEntry());
+            refreshIntervalPreference.setWidgetLayoutResource(R.layout.refresh_layout_icon);
             refreshIntervalPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference,
@@ -478,6 +482,7 @@ public class SettingsFragment extends PreferenceFragment {
         DisplayLanguagePreferenceDialog languagePreference = (DisplayLanguagePreferenceDialog) findPreference("pref_language");
         if (languagePreference != null){
 
+            languagePreference.setWidgetLayoutResource(R.layout.language_layout_icon);
             languagePreference.setValue(
                     XBTWidgetApplication
                             .getSharedPreferences()
@@ -893,6 +898,7 @@ public class SettingsFragment extends PreferenceFragment {
                 if(activity != null){
                     rateUsPref = new Preference(activity);
                     rateUsPref.setKey("prefer_rate_and_feedback");
+                    rateUsPref.setWidgetLayoutResource(R.layout.rate_layout_icon);
                     if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")){
                         rateUsPref.setTitle("評論此應用程式");
                         rateUsPref.setSummary("請給予您的意見及其他功能建議");
