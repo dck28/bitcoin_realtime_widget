@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.NotificationManager;
 import android.appwidget.AppWidgetManager;
+import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.ComponentName;
@@ -130,15 +131,26 @@ public class SettingsFragment extends PreferenceFragment {
                     XBTWidgetApplication
                             .getSharedPreferences().edit().putBoolean(Constants.PREF_DONATE_EVER_CLICKED, true).commit();
 
-                    ClipboardManager clipboard = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
-                    ClipData clip = ClipData.newPlainText("Bitcoin Address", "13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH");
-                    clipboard.setPrimaryClip(clip);
-                    if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")) {
-                        Toast.makeText(getActivity(), "複製成功. 很感激您的支持!\n13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH", Toast.LENGTH_LONG).show();
-                    } else if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(简体)")) {
-                        Toast.makeText(getActivity(), "复制成功. 很感谢您的支持!\n13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH", Toast.LENGTH_LONG).show();
-                    } else {
-                        Toast.makeText(getActivity(), "Address Copied. Thank You for Your Support!\n13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH", Toast.LENGTH_LONG).show();
+                    // Implement with bitcoin scheme URI
+                    String bitcoinSchema = "bitcoin:";
+                    String bitcoinReceiveAddress = "13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH"; //your address from wallet
+                    String bitcoinAmount = "?amount=0.0015"; //Amount in BTC, 1$
+                    String bitcoinURI = bitcoinSchema + bitcoinReceiveAddress + bitcoinAmount;
+                    Intent bitcoinIntent = new Intent(Intent.ACTION_VIEW);
+                    bitcoinIntent.setData(Uri.parse(bitcoinURI));
+                    try {
+                        startActivity(bitcoinIntent);
+                    } catch (ActivityNotFoundException e) {
+                        ClipboardManager clipboard = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                        ClipData clip = ClipData.newPlainText("Bitcoin Address", "13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH");
+                        clipboard.setPrimaryClip(clip);
+                        if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(繁體)")) {
+                            Toast.makeText(getActivity(), "複製成功. 很感激您的支持!\n13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH", Toast.LENGTH_LONG).show();
+                        } else if (XBTWidgetApplication.getSharedPreferences().getString(Constants.PREF_DISPLAY_LANGUAGE, "English").equalsIgnoreCase("中文(简体)")) {
+                            Toast.makeText(getActivity(), "复制成功. 很感谢您的支持!\n13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH", Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(getActivity(), "Address Copied. Thank You for Your Support!\n13hwfZqGQrsNXEhx1riRpFog5JPdPJBLGH", Toast.LENGTH_LONG).show();
+                        }
                     }
 
                     // Test Start of Price Alert Activity
