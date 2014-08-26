@@ -119,6 +119,7 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             boolean is_source_from_bitfinex = false;
             boolean is_source_from_kraken = false;
             boolean is_source_from_anxbtc = false;
+            boolean is_source_from_itbit = false;
 
             Collection<BasicNameValuePair> requestParams = null;
             if (data_source_url.equals(Constants.COINBASE_API_URL)){
@@ -136,6 +137,8 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                 is_source_from_kraken = true;
             } else if (data_source_url.equals(Constants.ANXBTC_API_URL)){
                 is_source_from_anxbtc = true;
+            } else if (data_source_url.equals(Constants.ITBIT_API_URL)){
+                is_source_from_itbit = true;
             }
 
             JSONObject json_response = RpcManager.getInstance().callGet(context, data_source_url, "", requestParams);
@@ -159,14 +162,15 @@ public class RefreshData extends AsyncTask<String, Void, String> {
                     && !is_source_from_btc_e
                     && !is_source_from_bitfinex
                     && !is_source_from_kraken
-                    && !is_source_from_anxbtc){ // Get forex exchange and do conversion from Coinbase
+                    && !is_source_from_anxbtc
+                    && !is_source_from_itbit){ // Get forex exchange and do conversion from Coinbase
                 JSONObject json_rate_response = RpcManager.getInstance().callGet(context, Constants.FOREX_RATE_API_URL, "");
                 double rate = JSONParser.handle_getting_forex_exchange_rate(json_rate_response, pref);
                 newPrice = Util.convertToSelectedAlternativeCurrencyFromUSD(newPrice, rate);
                 Log.e("forex rate", Double.toString(rate));
             }
 
-            if (( is_source_from_bitstamp || is_source_from_btc_e || is_source_from_bitfinex || is_source_from_kraken || is_source_from_anxbtc) &&
+            if (( is_source_from_bitstamp || is_source_from_btc_e || is_source_from_bitfinex || is_source_from_kraken || is_source_from_anxbtc || is_source_from_itbit) &&
                     !pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD").equalsIgnoreCase("USD")){
                 JSONObject json_rate_response = RpcManager.getInstance().callGet(context, Constants.FOREX_RATE_API_URL, "");
                 double rate = JSONParser.handle_getting_forex_exchange_rate(json_rate_response, pref);
@@ -401,6 +405,10 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             return JSONParser.handle_source_ANXBTC(json_response);
         }
 
+        if (from.equals("itBit")){
+            return JSONParser.handle_source_ITBIT(json_response);
+        }
+
         // Default
         return 0.00;
     }
@@ -424,6 +432,8 @@ public class RefreshData extends AsyncTask<String, Void, String> {
             return Constants.BTCChina;
         } else if(data_source.equalsIgnoreCase("ANXBTC")){
             return Constants.ANXBTC_API_URL;
+        } else if(data_source.equalsIgnoreCase("itBit")){
+            return Constants.ITBIT_API_URL;
         }
         //Default
         return Constants.COINDESK_API_URL;

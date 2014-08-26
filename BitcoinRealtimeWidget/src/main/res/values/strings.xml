@@ -75,6 +75,7 @@
         <item>@drawable/kraken_icon</item>
         <item>@drawable/btcchina_icon</item>
         <item>@drawable/anxbtc_icon</item>
+        <item>@drawable/itbit_icon</item>
     </array>
     <string-array name="pref_data_source_entries">
         <!-- item>ANY</item -->
@@ -86,6 +87,7 @@
         <item>Kraken</item>
         <item>BTC China</item>
         <item>ANXBTC</item>
+        <item>itBit</item>
     </string-array>
     <string-array name="pref_data_source_values">
         <!-- item>ANY</item -->
@@ -97,6 +99,7 @@
         <item>Kraken</item>
         <item>BTC China</item>
         <item>ANXBTC</item>
+        <item>itBit</item>
     </string-array>
     <string-array name="pref_data_source_entries_chinese">
         <!-- item>ANY</item -->
@@ -108,6 +111,7 @@
         <item>Kraken</item>
         <item>BTC China</item>
         <item>ANXBTC</item>
+        <item>itBit</item>
     </string-array>
     <string-array name="pref_data_source_values_chinese">
         <!-- item>ANY</item -->
@@ -119,6 +123,7 @@
         <item>Kraken</item>
         <item>BTC China</item>
         <item>ANXBTC</item>
+        <item>itBit</item>
     </string-array>
     <string-array name="pref_data_source_entries_chinese_simplified">
         <!-- item>ANY</item -->
@@ -130,6 +135,7 @@
         <item>Kraken</item>
         <item>BTC China</item>
         <item>ANXBTC</item>
+        <item>itBit</item>
     </string-array>
     <string-array name="pref_data_source_values_chinese_simplified">
         <!-- item>ANY</item -->
@@ -141,6 +147,7 @@
         <item>Kraken</item>
         <item>BTC China</item>
         <item>ANXBTC</item>
+        <item>itBit</item>
     </string-array>
     <array name="pref_currency_imageValues">
         <item>@drawable/usd</item>
