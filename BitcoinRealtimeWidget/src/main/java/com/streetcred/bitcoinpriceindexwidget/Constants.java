@@ -14,6 +14,7 @@ public class Constants {
     public static final String COINBASE_API_URL = "https://coinbase.com/api/v1/prices/spot_rate";
     public static final String MTGOX_API_BASEURL = "https://data.mtgox.com/api/2";
     public static final String BTCChina = "https://data.btcchina.com/data/ticker";
+    public static final String OKCOIN_API_URL = "https://www.okcoin.com/api/ticker.do?ok=1";
     public static final String BITSTAMP_API_URL = "https://www.bitstamp.net/api/ticker/";
     public static final String BTCE_API_URL = "https://btc-e.com/api/3/ticker/btc_usd";
     public static final String BITFINEX_API_URL = "https://api.bitfinex.com/v1/ticker/btcusd";

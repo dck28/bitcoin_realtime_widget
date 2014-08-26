@@ -922,6 +922,8 @@ public class SettingsFragment extends PreferenceFragment {
             dialog.setWidgetLayoutResource(R.layout.datasource_itbit);
         } else if (dataSource.equalsIgnoreCase("LakeBTC")){
             dialog.setWidgetLayoutResource(R.layout.datasource_lakebtc);
+        } else if (dataSource.equalsIgnoreCase("OKCoin")){
+            dialog.setWidgetLayoutResource(R.layout.datasource_okcoin);
         }
     }
 
