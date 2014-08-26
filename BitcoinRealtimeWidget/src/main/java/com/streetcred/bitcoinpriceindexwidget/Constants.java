@@ -20,6 +20,7 @@ public class Constants {
     public static final String KRAKEN_API_URL = "https://api.kraken.com/0/public/Ticker?pair=XXBTZUSD";
     public static final String ANXBTC_API_URL = "https://anxpro.com/api/2/BTCUSD/money/ticker";
     public static final String ITBIT_API_URL = "https://api.itbit.com/v1/markets/XBTUSD/ticker";
+    public static final String LAKEBTC_API_URL = "https://www.LakeBTC.com/api_v1/ticker";
 
     public static final String PREF_REFRESH_INTERVAL = "preference_refresh_interval";
     public static final String PREF_ONGOING_NOTIFICATION = "preference_ongoing_notification";

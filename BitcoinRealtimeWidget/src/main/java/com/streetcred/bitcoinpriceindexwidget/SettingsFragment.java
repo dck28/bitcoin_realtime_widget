@@ -920,6 +920,8 @@ public class SettingsFragment extends PreferenceFragment {
             dialog.setWidgetLayoutResource(R.layout.datasource_anxbtc);
         } else if (dataSource.equalsIgnoreCase("itBit")){
             dialog.setWidgetLayoutResource(R.layout.datasource_itbit);
+        } else if (dataSource.equalsIgnoreCase("LakeBTC")){
+            dialog.setWidgetLayoutResource(R.layout.datasource_lakebtc);
         }
     }
 

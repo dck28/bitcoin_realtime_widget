@@ -199,6 +199,18 @@ public class JSONParser {
         return 0.00;
     }
 
+    public static double handle_source_LAKEBTC(JSONObject json_response){
+
+        JSONObject data = json_response.optJSONObject("USD");
+        if(data != null){
+            String value = data.optString("last");
+            return Double.parseDouble(value.replace(",",""));
+        }
+
+        //Default
+        return 0.00;
+    }
+
     public static double handle_getting_forex_exchange_rate(JSONObject json_response, SharedPreferences pref){
         return Double.parseDouble(json_response
                         .optString("usd_to_" + pref.getString(Constants.PREF_LAST_UPDATED_CURRENCY, "USD")

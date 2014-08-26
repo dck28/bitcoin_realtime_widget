@@ -76,6 +76,7 @@
         <item>@drawable/btcchina_icon</item>
         <item>@drawable/anxbtc_icon</item>
         <item>@drawable/itbit_icon</item>
+        <item>@drawable/lakebtc_icon</item>
     </array>
     <string-array name="pref_data_source_entries">
         <!-- item>ANY</item -->
@@ -88,6 +89,7 @@
         <item>BTC China</item>
         <item>ANXBTC</item>
         <item>itBit</item>
+        <item>LakeBTC</item>
     </string-array>
     <string-array name="pref_data_source_values">
         <!-- item>ANY</item -->
@@ -100,6 +102,7 @@
         <item>BTC China</item>
         <item>ANXBTC</item>
         <item>itBit</item>
+        <item>LakeBTC</item>
     </string-array>
     <string-array name="pref_data_source_entries_chinese">
         <!-- item>ANY</item -->
@@ -112,6 +115,7 @@
         <item>BTC China</item>
         <item>ANXBTC</item>
         <item>itBit</item>
+        <item>LakeBTC</item>
     </string-array>
     <string-array name="pref_data_source_values_chinese">
         <!-- item>ANY</item -->
@@ -124,6 +128,7 @@
         <item>BTC China</item>
         <item>ANXBTC</item>
         <item>itBit</item>
+        <item>LakeBTC</item>
     </string-array>
     <string-array name="pref_data_source_entries_chinese_simplified">
         <!-- item>ANY</item -->
@@ -136,6 +141,7 @@
         <item>BTC China</item>
         <item>ANXBTC</item>
         <item>itBit</item>
+        <item>LakeBTC</item>
     </string-array>
     <string-array name="pref_data_source_values_chinese_simplified">
         <!-- item>ANY</item -->
@@ -148,6 +154,7 @@
         <item>BTC China</item>
         <item>ANXBTC</item>
         <item>itBit</item>
+        <item>LakeBTC</item>
     </string-array>
     <array name="pref_currency_imageValues">
         <item>@drawable/usd</item>
