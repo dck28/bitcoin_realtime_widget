@@ -27,3 +27,9 @@ local.properties
 .gradle/1.7/taskArtifacts/fileHashes.bin
 .gradle/1.7/taskArtifacts/fileSnapshots.bin
 .gradle/1.7/taskArtifacts/taskArtifacts.bin
+
+# idea
+.DS_Store
+.idea/copyright/profiles_settings.xml
+.idea/misc.xml
+.idea/workspace.xml
